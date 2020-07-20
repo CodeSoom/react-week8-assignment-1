@@ -27,17 +27,18 @@ const Container = styled.div({
 });
 
 const Header = styled.header({
-  backgroundColor: '#EEE',
+  backgroundColor: '#42f593',
+  opacity: 0.7,
   '& h1': {
     fontSize: '1.5em',
     margin: 0,
     padding: '1em .5em',
   },
   '& a': {
-    color: '#555',
+    color: '#000',
     textDecoration: 'none',
     '&:hover': {
-      color: '#000',
+      color: '#fff',
     },
   },
 });
