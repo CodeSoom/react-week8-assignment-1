@@ -27,7 +27,7 @@ const Container = styled.div({
 });
 
 const Header = styled.header({
-  backgroundColor: '#42f593',
+  backgroundColor: '#EEE',
   opacity: 0.7,
   '& h1': {
     fontSize: '1.5em',
@@ -35,10 +35,10 @@ const Header = styled.header({
     padding: '1em .5em',
   },
   '& a': {
-    color: '#000',
+    color: '#393e46',
     textDecoration: 'none',
     '&:hover': {
-      color: '#fff',
+      color: '#000',
     },
   },
 });
@@ -55,7 +55,7 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">EatGo</Link>
+          <Link to="/">헤더</Link>
         </h1>
       </Header>
       <Switch>
