@@ -39,6 +39,7 @@ const MenuItem = styled.li({
     '&:hover': {
       fontWeight: 'bold',
       color: '#3fc1c9',
+      cursor: 'pointer',
     },
   },
 });

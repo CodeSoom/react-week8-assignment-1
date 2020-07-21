@@ -37,6 +37,7 @@ const Header = styled.header({
     '&:hover': {
       fontWeight: 'bold',
       color: '#3fc1c9',
+      cursor: 'pointer',
     },
   },
 });
