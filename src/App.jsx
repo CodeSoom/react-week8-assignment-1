@@ -30,9 +30,13 @@ const Header = styled.header({
     margin: '0 auto',
   },
   '& a': {
-    color: '#364f6b',
+    color: '#fc5185',
     '&:link': {
       textDecoration: 'none',
+    },
+    '&:hover': {
+      fontWeight: 'bold',
+      color: '#364f6b',
     },
   },
 });
