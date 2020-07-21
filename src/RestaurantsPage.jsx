@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import RegionsContainer from './RegionsContainer';
 import CategoriesContainer from './CategoriesContainer';
 import RestaurantsContainer from './RestaurantsContainer';
+import PageWrapper from './PageWrapper';
 
 import {
   loadInitialData,
@@ -27,10 +28,11 @@ export default function RestaurantsPage() {
   }
 
   return (
-    <div>
+    <PageWrapper>
+      <h2>식당 검색</h2>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+    </PageWrapper>
   );
 }

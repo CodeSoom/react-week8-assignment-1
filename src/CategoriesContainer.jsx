@@ -2,6 +2,9 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import OptionList from './OptionList';
+import Button from './Button';
+
 import {
   selectCategory,
   loadRestaurants,
@@ -21,10 +24,10 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <OptionList>
       {categories.map((category) => (
         <li key={category.id}>
-          <button
+          <Button
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -34,9 +37,9 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </Button>
         </li>
       ))}
-    </ul>
+    </OptionList>
   );
 }
