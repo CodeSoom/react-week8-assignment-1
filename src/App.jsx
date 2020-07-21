@@ -28,8 +28,8 @@ const Container = styled.div({
 
 const Header = styled.header({
   display: 'flex',
-  backgroundColor: '#EEE',
   justifyContent: 'center',
+  backgroundColor: '#EEE',
   '& a': {
     color: '#555',
     textDecoration: 'none',

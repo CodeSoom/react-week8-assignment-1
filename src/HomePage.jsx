@@ -2,16 +2,21 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import Title from './Title';
+import MenuList from './List';
+import { LinkItem } from './ListItem';
+
+
 export default function HomePage() {
   return (
     <div>
-      <h2>Home</h2>
-      <ul>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/login">Log in</Link></li>
-        <li><Link to="/restaurants">Restaurants</Link></li>
-        <li><Link to="/xxx">멸망의 길</Link></li>
-      </ul>
+      <Title>Home</Title>
+      <MenuList>
+        <LinkItem><Link to="/about">About</Link></LinkItem>
+        <LinkItem><Link to="/login">Log in</Link></LinkItem>
+        <LinkItem><Link to="/restaurants">Restaurants</Link></LinkItem>
+        <LinkItem><Link to="/xxx">멸망의 길</Link></LinkItem>
+      </MenuList>
     </div>
   );
 }
