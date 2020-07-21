@@ -10,7 +10,7 @@ import slice from './slice';
 
 const { actions } = slice;
 
-export const {
+const {
   changeReviewField,
 } = actions;
 

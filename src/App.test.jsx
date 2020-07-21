@@ -16,7 +16,7 @@ import slice from './slice';
 
 const { actions } = slice;
 
-export const {
+const {
   setAccessToken,
 } = actions;
 

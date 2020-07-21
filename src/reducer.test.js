@@ -2,7 +2,7 @@ import slice from './slice';
 
 const { actions, reducer } = slice;
 
-export const {
+const {
   setRegions,
   setCategories,
   setRestaurants,
