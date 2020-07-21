@@ -10,7 +10,7 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from './reducer';
 
 import { get } from './utils';
 
