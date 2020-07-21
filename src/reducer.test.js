@@ -1,19 +1,21 @@
-import reducer from './reducer';
+import slice from './slice';
 
-import {
+const { actions, reducer } = slice;
+
+export const {
   setRegions,
   setCategories,
   setRestaurants,
   setRestaurant,
-  selectRegion,
-  selectCategory,
-  changeLoginField,
   setAccessToken,
-  logout,
-  changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+  selectRegion,
+  logout,
+  selectCategory,
+  changeReviewField,
+  changeLoginField,
+} = actions;
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
