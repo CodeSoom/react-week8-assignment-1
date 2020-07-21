@@ -36,7 +36,7 @@ const Header = styled.header({
     },
     '&:hover': {
       fontWeight: 'bold',
-      color: '#364f6b',
+      color: '#3fc1c9',
     },
   },
 });
@@ -53,7 +53,7 @@ export default function App() {
     <div>
       <Header>
         <h1>
-          <Link to="/">뭐 먹으러 갈래?</Link>
+          <Link to="/">밥 먹으러 갈래?</Link>
         </h1>
       </Header>
       <Switch>

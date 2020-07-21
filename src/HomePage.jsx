@@ -4,8 +4,12 @@ import styled from '@emotion/styled';
 
 import { Link } from 'react-router-dom';
 
-const PageHeader = styled.h2({
+const Wrapper = styled.div({
   width: '70%',
+  margin: '0 auto',
+});
+
+const PageHeader = styled.h2({
   margin: '20px auto',
   textAlign: 'left',
   color: '#364f6b',
@@ -24,7 +28,7 @@ const MenuList = styled.ul({
 });
 
 const MenuItem = styled.li({
-  width: '70%',
+  width: '100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -51,7 +55,7 @@ const MenuItem = styled.li({
 
 export default function HomePage() {
   return (
-    <div>
+    <Wrapper>
       <PageHeader>Home</PageHeader>
       <MenuList>
         <MenuItem><Link to="/about">About</Link></MenuItem>
@@ -59,6 +63,6 @@ export default function HomePage() {
         <MenuItem><Link to="/restaurants">Restaurants</Link></MenuItem>
         <MenuItem><Link to="/xxx">멸망의 길</Link></MenuItem>
       </MenuList>
-    </div>
+    </Wrapper>
   );
 }
