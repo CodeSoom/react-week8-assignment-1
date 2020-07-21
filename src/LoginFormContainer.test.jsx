@@ -6,6 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import LoginFormContainer from './LoginFormContainer';
 
+import slice from './slice';
+
+const { actions } = slice;
+
+export const {
+  logout,
+  changeLoginField,
+} = actions;
+
 jest.mock('react-redux');
 
 describe('LoginFormContainer', () => {
@@ -46,10 +55,7 @@ describe('LoginFormContainer', () => {
         target: { value: 'new email' },
       });
 
-      expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
-        payload: { name: 'email', value: 'new email' },
-      });
+      expect(dispatch).toBeCalledWith(changeLoginField({ name: 'email', value: 'new email' }));
     });
 
     it('renders “Log In” button', () => {
@@ -73,7 +79,7 @@ describe('LoginFormContainer', () => {
 
       fireEvent.click(getByText('Log out'));
 
-      expect(dispatch).toBeCalledWith({ type: 'logout' });
+      expect(dispatch).toBeCalledWith(logout());
     });
   });
 });
