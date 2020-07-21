@@ -1,5 +1,33 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+import Button from './Button';
+
+const Form = styled.div({
+  width: '90%',
+  margin: '0 auto',
+});
+
+const FormGroup = styled.div({
+  label: {
+    fontWeight: 'bold',
+    fontSize: '1.2em',
+    color: '#364f6b',
+  },
+  input: {
+    width: '100%',
+    padding: '12px 20px',
+    margin: '8px 0',
+    boxSizing: 'border-box',
+    border: '3px solid #364f6b',
+    '&:focus': {
+      border: '3px solid #3fc1c9',
+      outline: 'none',
+    },
+  },
+});
+
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
@@ -9,8 +37,8 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   }
 
   return (
-    <>
-      <div>
+    <Form>
+      <FormGroup>
         <label htmlFor="login-email">
           E-mail
         </label>
@@ -21,8 +49,8 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           value={email}
           onChange={handleChange}
         />
-      </div>
-      <div>
+      </FormGroup>
+      <FormGroup>
         <label htmlFor="login-password">
           Password
         </label>
@@ -33,14 +61,14 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           value={password}
           onChange={handleChange}
         />
-      </div>
-      <button
+      </FormGroup>
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
-    </>
+      </Button>
+    </Form>
   );
 });
 
