@@ -6,13 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import RestaurantContainer from './RestaurantContainer';
 
-import slice from './slice';
-
-const { actions } = slice;
-
-const {
+import {
   changeReviewField,
-} = actions;
+} from './slice';
 
 describe('RestaurantContainer', () => {
   const dispatch = jest.fn();

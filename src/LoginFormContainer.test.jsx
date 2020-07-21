@@ -6,14 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import LoginFormContainer from './LoginFormContainer';
 
-import slice from './slice';
-
-const { actions } = slice;
-
-const {
+import {
   logout,
   changeLoginField,
-} = actions;
+} from './slice';
 
 jest.mock('react-redux');
 

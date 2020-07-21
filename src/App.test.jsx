@@ -12,13 +12,9 @@ import App from './App';
 
 import { loadItem } from './services/storage';
 
-import slice from './slice';
-
-const { actions } = slice;
-
-const {
+import {
   setAccessToken,
-} = actions;
+} from './slice';
 
 jest.mock('react-redux');
 jest.mock('./services/storage');
