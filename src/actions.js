@@ -9,47 +9,25 @@ import {
 
 import { saveItem } from './services/storage';
 
-export function setRegions(regions) {
-  return {
-    type: 'setRegions',
-    payload: { regions },
-  };
-}
+import slice from './slice';
 
-export function setCategories(categories) {
-  return {
-    type: 'setCategories',
-    payload: { categories },
-  };
-}
+const { actions } = slice;
 
-export function setRestaurants(restaurants) {
-  return {
-    type: 'setRestaurants',
-    payload: { restaurants },
-  };
-}
+export const {
+  setRegions,
+  setCategories,
+  setRestaurants,
+  setRestaurant,
+  setAccessToken,
+  clearReviewFields,
+  setReviews,
+  selectRegion,
+  logout,
+  selectCategory,
+  changeReviewField,
+  changeLoginField,
+} = actions;
 
-export function setRestaurant(restaurant) {
-  return {
-    type: 'setRestaurant',
-    payload: { restaurant },
-  };
-}
-
-export function selectRegion(regionId) {
-  return {
-    type: 'selectRegion',
-    payload: { regionId },
-  };
-}
-
-export function selectCategory(categoryId) {
-  return {
-    type: 'selectCategory',
-    payload: { categoryId },
-  };
-}
 
 export function loadInitialData() {
   return async (dispatch) => {
@@ -90,20 +68,6 @@ export function loadRestaurant({ restaurantId }) {
   };
 }
 
-export function changeLoginField({ name, value }) {
-  return {
-    type: 'changeLoginField',
-    payload: { name, value },
-  };
-}
-
-export function setAccessToken(accessToken) {
-  return {
-    type: 'setAccessToken',
-    payload: { accessToken },
-  };
-}
-
 export function requestLogin() {
   return async (dispatch, getState) => {
     const { loginFields: { email, password } } = getState();
@@ -113,32 +77,6 @@ export function requestLogin() {
     saveItem('accessToken', accessToken);
 
     dispatch(setAccessToken(accessToken));
-  };
-}
-
-export function logout() {
-  return {
-    type: 'logout',
-  };
-}
-
-export function changeReviewField({ name, value }) {
-  return {
-    type: 'changeReviewField',
-    payload: { name, value },
-  };
-}
-
-export function clearReviewFields() {
-  return {
-    type: 'clearReviewFields',
-  };
-}
-
-export function setReviews(reviews) {
-  return {
-    type: 'setReviews',
-    payload: { reviews },
   };
 }
 
