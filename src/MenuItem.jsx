@@ -4,8 +4,9 @@ const MenuItem = styled.li({
   width: '100%',
   padding: '30px 0',
   display: 'flex',
+  flexFlow: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'space-around',
   flex: '1 1',
   borderBottom: '1px #364f6b solid',
   '&:first-of-type': {

@@ -5,7 +5,6 @@ const MenuList = styled.ul({
   padding: '0',
   display: 'flex',
   flexFlow: 'column',
-  flexWrap: 'wrap',
   justifyContent: 'space-around',
   alignItems: 'center',
 });
