@@ -2,17 +2,17 @@ import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import RestaurantDetail from './RestaurantDetail';
-import ReviewForm from './ReviewForm';
-import Reviews from './Reviews';
+import RestaurantDetail from '../presentational/RestaurantDetail';
+import ReviewForm from '../presentational/ReviewForm';
+import Reviews from '../presentational/Reviews';
 
 import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './slice';
+} from '../../slice';
 
-import { get } from './utils';
+import { get } from '../../utils';
 
 
 const RestaurantContainer = React.memo(({ restaurantId }) => {

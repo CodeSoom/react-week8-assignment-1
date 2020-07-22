@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCategory,
   loadRestaurants,
-} from './slice';
+} from '../../slice';
 
-import { get } from './utils';
+import { get } from '../../utils';
 
-import List from './List';
-import { MenuItem } from './ListItem';
+import List from '../../styles/List';
+import { MenuItem } from '../../styles/ListItem';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Title from './Title';
+import Title from '../styles/Title';
 
 export default function AboutPage() {
   return (

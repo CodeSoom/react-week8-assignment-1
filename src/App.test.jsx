@@ -13,7 +13,7 @@ import App from './App';
 import { loadItem } from './services/storage';
 
 jest.mock('react-redux');
-jest.mock('./services/storage');
+jest.mock('../src/services/storage');
 
 describe('App', () => {
   const dispatch = jest.fn();

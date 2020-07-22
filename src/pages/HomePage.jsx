@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import Title from './Title';
-import MenuList from './List';
-import { LinkItem } from './ListItem';
+import Title from '../styles/Title';
+import MenuList from '../styles/List';
+import { LinkItem } from '../styles/ListItem';
 
 
 export default function HomePage() {
