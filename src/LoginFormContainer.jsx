@@ -25,6 +25,7 @@ export default function LoginFormContainer() {
   }, []);
 
   const handleSubmit = useCallback(() => {
+    console.log('hit submit');
     dispatch(requestLogin());
   }, []);
 
