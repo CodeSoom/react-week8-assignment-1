@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,6 +13,7 @@ import {
 } from './slice';
 
 import { get } from './utils';
+
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -31,13 +32,13 @@ export default function RestaurantContainer({ restaurantId }) {
     );
   }
 
-  function handleChange({ name, value }) {
+  const handleChange = useCallback(({ name, value }) => {
     dispatch(changeReviewField({ name, value }));
-  }
+  }, [dispatch]);
 
-  function handleSubmit() {
+  const handleSubmit = useCallback(() => {
     dispatch(sendReview({ restaurantId }));
-  }
+  }, [dispatch, restaurantId]);
 
   return (
     <>
