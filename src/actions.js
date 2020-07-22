@@ -1,164 +1,144 @@
-import {
-  fetchRegions,
-  fetchCategories,
-  fetchRestaurants,
-  fetchRestaurant,
-  postLogin,
-  postReview,
-} from './services/api';
+// import {
+//   fetchRegions,
+//   fetchCategories,
+//   fetchRestaurants,
+//   fetchRestaurant,
+//   postLogin,
+//   postReview,
+// } from './services/api';
 
-import { saveItem } from './services/storage';
+// import { saveItem } from './services/storage';
 
-export function setRegions(regions) {
-  return {
-    type: 'setRegions',
-    payload: { regions },
-  };
-}
+// import actions from './slice';
 
-export function setCategories(categories) {
-  return {
-    type: 'setCategories',
-    payload: { categories },
-  };
-}
+// export const {
+//   setRegions,
+//   setCategories,
+//   setRestaurant,
+//   setRestaurants,
+//   setlectRegion,
+//   selectCategory,
+//   changeLoginField,
+//   setAccessToken,
+//   logout,
+//   changeReviewField,
+//   clearReviewFields,
+//   setReviews,
+// } = actions;
 
-export function setRestaurants(restaurants) {
-  return {
-    type: 'setRestaurants',
-    payload: { restaurants },
-  };
-}
+// export function loadInitialData() {
+//   return async (dispatch) => {
+//     const regions = await fetchRegions();
+//     dispatch(setRegions(regions));
 
-export function setRestaurant(restaurant) {
-  return {
-    type: 'setRestaurant',
-    payload: { restaurant },
-  };
-}
+//     const categories = await fetchCategories();
+//     dispatch(setCategories(categories));
+//   };
+// }
 
-export function selectRegion(regionId) {
-  return {
-    type: 'selectRegion',
-    payload: { regionId },
-  };
-}
+// export function loadRestaurants() {
+//   return async (dispatch, getState) => {
+//     const { selectedRegion: region, selectedCategory: category } = getState();
 
-export function selectCategory(categoryId) {
-  return {
-    type: 'selectCategory',
-    payload: { categoryId },
-  };
-}
+//     if (!region || !category) {
+//       return;
+//     }
 
-export function loadInitialData() {
-  return async (dispatch) => {
-    const regions = await fetchRegions();
-    dispatch(setRegions(regions));
+//     const restaurants = await fetchRestaurants({
+//       regionName: region.name,
+//       categoryId: category.id,
+//     });
+//     dispatch(setRestaurants(restaurants));
+//   };
+// }
 
-    const categories = await fetchCategories();
-    dispatch(setCategories(categories));
-  };
-}
+// export function loadRestaurant({ restaurantId }) {
+//   return async (dispatch) => {
+//     dispatch(setRestaurant(null));
 
-export function loadRestaurants() {
-  return async (dispatch, getState) => {
-    const {
-      selectedRegion: region,
-      selectedCategory: category,
-    } = getState();
+//     const restaurant = await fetchRestaurant({ restaurantId });
 
-    if (!region || !category) {
-      return;
-    }
+//     dispatch(setRestaurant(restaurant));
+//   };
+// }
 
-    const restaurants = await fetchRestaurants({
-      regionName: region.name,
-      categoryId: category.id,
-    });
-    dispatch(setRestaurants(restaurants));
-  };
-}
+// // export function changeLoginField({ name, value }) {
+// //   return {
+// //     type: "changeLoginField",
+// //     payload: { name, value },
+// //   };
+// // }
 
-export function loadRestaurant({ restaurantId }) {
-  return async (dispatch) => {
-    dispatch(setRestaurant(null));
+// // export function setAccessToken(accessToken) {
+// //   return {
+// //     type: "setAccessToken",
+// //     payload: { accessToken },
+// //   };
+// // }
 
-    const restaurant = await fetchRestaurant({ restaurantId });
+// export function requestLogin() {
+//   return async (dispatch, getState) => {
+//     const {
+//       loginFields: { email, password },
+//     } = getState();
 
-    dispatch(setRestaurant(restaurant));
-  };
-}
+//     const accessToken = await postLogin({ email, password });
 
-export function changeLoginField({ name, value }) {
-  return {
-    type: 'changeLoginField',
-    payload: { name, value },
-  };
-}
+//     saveItem("accessToken", accessToken);
 
-export function setAccessToken(accessToken) {
-  return {
-    type: 'setAccessToken',
-    payload: { accessToken },
-  };
-}
+//     dispatch(setAccessToken(accessToken));
+//   };
+// }
 
-export function requestLogin() {
-  return async (dispatch, getState) => {
-    const { loginFields: { email, password } } = getState();
+// // export function logout() {
+// //   return {
+// //     type: "logout",
+// //   };
+// // }
 
-    const accessToken = await postLogin({ email, password });
+// // export function changeReviewField({ name, value }) {
+// //   return {
+// //     type: "changeReviewField",
+// //     payload: { name, value },
+// //   };
+// // }
 
-    saveItem('accessToken', accessToken);
+// // export function clearReviewFields() {
+// //   return {
+// //     type: "clearReviewFields",
+// //   };
+// // }
 
-    dispatch(setAccessToken(accessToken));
-  };
-}
+// // export function setReviews(reviews) {
+// //   return {
+// //     type: "setReviews",
+// //     payload: { reviews },
+// //   };
+// // }
 
-export function logout() {
-  return {
-    type: 'logout',
-  };
-}
+// export function loadReview({ restaurantId }) {
+//   return async (dispatch) => {
+//     const restaurant = await fetchRestaurant({ restaurantId });
 
-export function changeReviewField({ name, value }) {
-  return {
-    type: 'changeReviewField',
-    payload: { name, value },
-  };
-}
+//     dispatch(setReviews(restaurant.reviews));
+//   };
+// }
 
-export function clearReviewFields() {
-  return {
-    type: 'clearReviewFields',
-  };
-}
+// export function sendReview({ restaurantId }) {
+//   return async (dispatch, getState) => {
+//     const {
+//       accessToken,
+//       reviewFields: { score, description },
+//     } = getState();
 
-export function setReviews(reviews) {
-  return {
-    type: 'setReviews',
-    payload: { reviews },
-  };
-}
+//     await postReview({
+//       accessToken,
+//       restaurantId,
+//       score,
+//       description,
+//     });
 
-export function loadReview({ restaurantId }) {
-  return async (dispatch) => {
-    const restaurant = await fetchRestaurant({ restaurantId });
-
-    dispatch(setReviews(restaurant.reviews));
-  };
-}
-
-export function sendReview({ restaurantId }) {
-  return async (dispatch, getState) => {
-    const { accessToken, reviewFields: { score, description } } = getState();
-
-    await postReview({
-      accessToken, restaurantId, score, description,
-    });
-
-    dispatch(loadReview({ restaurantId }));
-    dispatch(clearReviewFields());
-  };
-}
+//     dispatch(loadReview({ restaurantId }));
+//     dispatch(clearReviewFields());
+//   };
+// }
