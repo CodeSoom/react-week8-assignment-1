@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function TextField({
+const TextField = React.memo(({
   label, type = 'text', name, value, onChange,
-}) {
+}) => {
   const id = `input-${name}`;
 
   function handleChange(event) {
@@ -24,4 +24,6 @@ export default function TextField({
       />
     </div>
   );
-}
+});
+
+export default TextField;
