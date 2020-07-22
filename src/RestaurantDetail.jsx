@@ -2,7 +2,7 @@ import React from 'react';
 
 import MenuItems from './MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+const RestaurantDetail = ({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -17,4 +17,6 @@ export default function RestaurantDetail({ restaurant }) {
       <MenuItems menuItems={menuItems} />
     </div>
   );
-}
+};
+
+export default React.memo(RestaurantDetail);
