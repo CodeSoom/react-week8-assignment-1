@@ -8,7 +8,7 @@ import RestaurantContainer from './RestaurantContainer';
 
 import {
   changeReviewField,
-} from './slice';
+} from '../common/slice';
 
 describe('RestaurantContainer', () => {
   const dispatch = jest.fn();

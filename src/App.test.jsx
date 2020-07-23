@@ -14,7 +14,7 @@ import { loadItem } from './services/storage';
 
 import {
   setAccessToken,
-} from './slice';
+} from './common/slice';
 
 jest.mock('react-redux');
 jest.mock('./services/storage');

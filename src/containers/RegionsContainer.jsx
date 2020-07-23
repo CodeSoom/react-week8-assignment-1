@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectRegion,
   loadRestaurants,
-} from './slice';
+} from '../common/slice';
 
-import { get } from './utils';
+import { get } from '../common/utils';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();

@@ -9,7 +9,7 @@ import LoginFormContainer from './LoginFormContainer';
 import {
   logout,
   changeLoginField,
-} from './slice';
+} from '../common/slice';
 
 jest.mock('react-redux');
 
