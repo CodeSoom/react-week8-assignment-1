@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import LoginFormContainer from './LoginFormContainer';
+import LoginFormContainer from '../containers/LoginFormContainer';
 
 const StyledLoginPage = styled.div({
   display: 'flex',

@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectRegion,
   loadRestaurants,
-} from './reducer';
+} from '../reducer';
 
-import { get } from './utils';
+import { get } from '../utils';
 
-import ItemList from './ItemList';
-import Item from './Item';
-import StyledListButton from './StyledListButton';
+import ItemList from '../components/ItemList';
+import Item from '../components/Item';
+import StyledListButton from '../components/StyledListButton';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();

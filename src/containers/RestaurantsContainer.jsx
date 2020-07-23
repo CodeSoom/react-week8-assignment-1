@@ -2,10 +2,10 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import ItemList from './ItemList';
-import Item from './Item';
+import ItemList from '../components/ItemList';
+import Item from '../components/Item';
 
-import { get } from './utils';
+import { get } from '../utils';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get('restaurants'));

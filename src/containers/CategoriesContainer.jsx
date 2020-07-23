@@ -2,16 +2,16 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import ItemList from './ItemList';
-import Item from './Item';
-import StyledListButton from './StyledListButton';
+import ItemList from '../components/ItemList';
+import Item from '../components/Item';
+import StyledListButton from '../components/StyledListButton';
 
 import {
   selectCategory,
   loadRestaurants,
-} from './reducer';
+} from '../reducer';
 
-import { get } from './utils';
+import { get } from '../utils';
 
 
 export default function CategoriesContainer() {

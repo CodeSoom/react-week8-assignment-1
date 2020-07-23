@@ -6,13 +6,13 @@ import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
 
-import RegionsContainer from './RegionsContainer';
-import CategoriesContainer from './CategoriesContainer';
-import RestaurantsContainer from './RestaurantsContainer';
+import RegionsContainer from '../containers/RegionsContainer';
+import CategoriesContainer from '../containers/CategoriesContainer';
+import RestaurantsContainer from '../containers/RestaurantsContainer';
 
 import {
   loadInitialData,
-} from './reducer';
+} from '../reducer';
 
 const StyledRestaurantsPage = styled.div({
   width: '100%',
