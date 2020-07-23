@@ -1,0 +1,13 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100%;
+
+}

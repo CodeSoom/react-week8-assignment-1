@@ -1,12 +1,20 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import LoginFormContainer from './LoginFormContainer';
+
+const StyledLoginPage = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
 
 export default function LoginPage() {
   return (
-    <div>
+    <StyledLoginPage>
       <h2>Log In</h2>
       <LoginFormContainer />
-    </div>
+    </StyledLoginPage>
   );
 }

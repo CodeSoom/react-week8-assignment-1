@@ -1,5 +1,8 @@
 import React from 'react';
 
+import ItemList from './ItemList';
+import Item from './Item';
+
 export default function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -8,12 +11,12 @@ export default function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <ItemList>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
+        <Item key={menuItem.id} textColor="black">
           {menuItem.name}
-        </li>
+        </Item>
       ))}
-    </ul>
+    </ItemList>
   );
 }

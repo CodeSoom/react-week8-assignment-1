@@ -1,12 +1,21 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import MenuItems from './MenuItems';
+
+const StyledRestaurantDetail = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
 const RestaurantDetail = ({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
   return (
-    <div>
+    <StyledRestaurantDetail>
       <h2>{name}</h2>
       <p>
         주소:
@@ -15,7 +24,7 @@ const RestaurantDetail = ({ restaurant }) => {
       </p>
       <h3>메뉴</h3>
       <MenuItems menuItems={menuItems} />
-    </div>
+    </StyledRestaurantDetail>
   );
 };
 

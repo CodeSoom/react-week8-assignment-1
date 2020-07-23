@@ -1,5 +1,25 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+const StyledReview = styled.li`
+  list-style-type: none;
+  background-color: #f1c40f;
+  margin-bottom: 15px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`;
+
+const StyledReviews = styled.ul`
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+`;
+
 const Reviews = ({ reviews }) => {
   if (!reviews || !reviews.length) {
     return null;
@@ -8,22 +28,23 @@ const Reviews = ({ reviews }) => {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <StyledReviews>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
-          <div>
+        <StyledReview key={review.id}>
+          <h2>
             {review.name}
-          </div>
-          <div>
+            {' '}
+            /
+            {' '}
             {review.score}
             점
-          </div>
+          </h2>
           <div>
             {review.description}
           </div>
-        </li>
+        </StyledReview>
       ))}
-    </ul>
+    </StyledReviews>
   );
 };
 
