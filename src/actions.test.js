@@ -9,9 +9,6 @@ import {
   requestLogin,
   loadReview,
   sendReview,
-} from './actions';
-
-import {
   setRegions,
   setCategories,
   setRestaurants,
@@ -20,6 +17,7 @@ import {
   setAccessToken,
   clearReviewFields,
 } from './slice';
+
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

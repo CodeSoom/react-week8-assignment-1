@@ -4,11 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   loadRestaurants,
-} from './actions';
-
-import {
   selectCategory,
 } from './slice';
+
 
 import { get } from './utils';
 

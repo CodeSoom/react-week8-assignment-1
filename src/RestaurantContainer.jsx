@@ -9,11 +9,9 @@ import Reviews from './Reviews';
 import {
   loadRestaurant,
   sendReview,
-} from './actions';
-
-import {
   changeReviewField,
 } from './slice';
+
 
 import { get } from './utils';
 

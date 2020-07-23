@@ -7,12 +7,10 @@ import LogoutForm from './LogoutForm';
 
 import {
   requestLogin,
-} from './actions';
-
-import {
   changeLoginField,
   logout,
 } from './slice';
+
 
 import { get } from './utils';
 
