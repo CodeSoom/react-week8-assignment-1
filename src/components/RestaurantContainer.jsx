@@ -10,9 +10,9 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './slice';
+} from '../slice';
 
-import { get } from './utils';
+import { get } from '../utils';
 
 const RestaurantContainer = React.memo(({ restaurantId }) => {
   const dispatch = useDispatch();
