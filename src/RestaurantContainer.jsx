@@ -14,7 +14,7 @@ import {
 
 import { get } from './utils';
 
-export default function RestaurantContainer({ restaurantId }) {
+const RestaurantContainer = React.memo(({ restaurantId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -52,4 +52,6 @@ export default function RestaurantContainer({ restaurantId }) {
       <Reviews reviews={restaurant.reviews} />
     </>
   );
-}
+});
+
+export default RestaurantContainer;
