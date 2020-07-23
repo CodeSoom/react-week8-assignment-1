@@ -1,5 +1,15 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+import MenuList from './MenuList';
+
+const MenuItem = styled.li({
+  marginRight: '1em',
+  marginBottom: '1em',
+  fontWeight: 'bold',
+});
+
 export default function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -8,12 +18,12 @@ export default function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <MenuList>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
+        <MenuItem key={menuItem.id}>
           {menuItem.name}
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }
