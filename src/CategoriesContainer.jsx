@@ -3,9 +3,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  selectCategory,
   loadRestaurants,
 } from './actions';
+
+import {
+  selectCategory,
+} from './slice';
 
 import { get } from './utils';
 

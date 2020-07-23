@@ -6,10 +6,13 @@ import LoginForm from './LoginForm';
 import LogoutForm from './LogoutForm';
 
 import {
-  changeLoginField,
   requestLogin,
-  logout,
 } from './actions';
+
+import {
+  changeLoginField,
+  logout,
+} from './slice';
 
 import { get } from './utils';
 
