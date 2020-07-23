@@ -2,17 +2,17 @@ import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import RestaurantDetail from './RestaurantDetail';
-import ReviewForm from './ReviewForm';
-import Reviews from './Reviews';
+import RestaurantDetail from '../presentational/RestaurantDetail';
+import ReviewForm from '../presentational/ReviewForm';
+import Reviews from '../presentational/Reviews';
 
 import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from '../actions';
 
-import { get } from './utils';
+import { get } from '../utils';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
