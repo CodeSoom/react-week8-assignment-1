@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styled from '@emotion/styled'
+
 import {
   Switch,
   Route,
@@ -19,6 +21,22 @@ import { setAccessToken } from './actions';
 
 import { loadItem } from './services/storage';
 
+const Header = styled.header({
+  backgroundColor: '#8caba8',  
+  '& h1': {
+    fontSize: '30px',
+    margin: 0,
+    padding: '1em 0.5em',
+  },
+  '& a': {
+    color: '#ebdada',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#a2798f',
+    },
+  },
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -29,11 +47,11 @@ export default function App() {
 
   return (
     <div>
-      <header>
+      <Header>
         <h1>
           <Link to="/">헤더 영역</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
