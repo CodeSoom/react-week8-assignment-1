@@ -26,10 +26,10 @@ export default function RegionsContainer() {
   return (
     <MenuList>
       {regions.map((region) => (
-        <MenuItem 
+        <MenuItem
           key={region.id}
           act={selectedRegion && region.id === selectedRegion.id}
-          >
+        >
           <button
             type="button"
             onClick={() => handleClick(region.id)}

@@ -24,5 +24,3 @@ const MenuItem = styled.li(({ act }) => ({
 }));
 
 export default MenuItem;
-
-

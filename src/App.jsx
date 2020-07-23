@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 import {
   Switch,
@@ -22,7 +22,7 @@ import { setAccessToken } from './actions';
 import { loadItem } from './services/storage';
 
 const Header = styled.header({
-  backgroundColor: '#8caba8',  
+  backgroundColor: '#8caba8',
   '& h1': {
     fontSize: '30px',
     margin: 0,
