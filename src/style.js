@@ -21,11 +21,11 @@ export const Header = styled.header({
   },
 });
 
-export const Title = styled.h2({
-  margin: 0,
-  fontSize: '2em',
-  padding: '.4em 0',
-});
+// export const Title = styled.h2({
+//   margin: 0,
+//   fontSize: '2em',
+//   padding: '.4em 0',
+// });
 
 export const List = styled.ul({
   display: 'flex',

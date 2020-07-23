@@ -4,12 +4,12 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
-import HomePage from './HomePage';
+import LandingPage from './LandingPage';
 
 test('HomePage', () => {
   render((
     <MemoryRouter>
-      <HomePage />
+      <LandingPage />
     </MemoryRouter>
   ));
 });

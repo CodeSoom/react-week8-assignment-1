@@ -2,12 +2,11 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Title, List, Item } from '../style';
+import { List, Item } from '../style';
 
-export default function HomePage() {
+export default function RoutePage() {
   return (
     <div>
-      <Title>Home</Title>
       <List>
         <Item>
           <Link to="/about">About</Link>

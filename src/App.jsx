@@ -8,7 +8,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './pages/HomePage';
+import LandingPage from './pages/LandingPage';
+import RoutePage from './pages/RoutePage';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
 import RestaurantsPage from './pages/RestaurantsPage';
@@ -33,11 +34,12 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">EatGo</Link>
+          <Link to="/">Eat_Go</Link>
         </h1>
+        <RoutePage />
       </Header>
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={LandingPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/login" component={LoginPage} />
         <Route exact path="/restaurants" component={RestaurantsPage} />
