@@ -1,6 +1,4 @@
-import reducer from './reducer';
-
-import {
+import reducer, {
   setRegions,
   setCategories,
   setRestaurants,
@@ -13,7 +11,7 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+} from './slice';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
@@ -36,7 +34,7 @@ describe('reducer', () => {
     };
 
     it('returns initialState', () => {
-      const state = reducer(undefined, { type: 'action' });
+      const state = reducer(undefined, { type: 'application/action' });
 
       expect(state).toEqual(initialState);
     });

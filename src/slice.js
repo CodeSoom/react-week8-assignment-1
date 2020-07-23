@@ -37,35 +37,35 @@ const slice = createSlice({
     },
   },
   reducers: {
-    setRegions(state, { payload: { regions } }) {
+    setRegions(state, { payload: regions }) {
       return {
         ...state,
         regions,
       };
     },
 
-    setCategories(state, { payload: { categories } }) {
+    setCategories(state, { payload: categories }) {
       return {
         ...state,
         categories,
       };
     },
 
-    setRestaurants(state, { payload: { restaurants } }) {
+    setRestaurants(state, { payload: restaurants }) {
       return {
         ...state,
         restaurants,
       };
     },
 
-    setRestaurant(state, { payload: { restaurant } }) {
+    setRestaurant(state, { payload: restaurant }) {
       return {
         ...state,
         restaurant,
       };
     },
 
-    selectRegion(state, { payload: { regionId } }) {
+    selectRegion(state, { payload: regionId }) {
       const { regions } = state;
       return {
         ...state,
@@ -73,11 +73,31 @@ const slice = createSlice({
       };
     },
 
-    selectCategory(state, { payload: { categoryId } }) {
+    selectCategory(state, { payload: categoryId }) {
       const { categories } = state;
       return {
         ...state,
         selectedCategory: categories.find(equal('id', categoryId)),
+      };
+    },
+
+
+    setAccessToken(state, { payload: accessToken }) {
+      return {
+        ...state,
+        accessToken,
+      };
+    },
+
+    setReviews(state, { payload: reviews }) {
+      const { restaurant } = state;
+
+      return {
+        ...state,
+        restaurant: {
+          ...restaurant,
+          reviews,
+        },
       };
     },
 
@@ -91,20 +111,6 @@ const slice = createSlice({
       };
     },
 
-    setAccessToken(state, { payload: { accessToken } }) {
-      return {
-        ...state,
-        accessToken,
-      };
-    },
-
-    logout(state) {
-      return {
-        ...state,
-        accessToken: '',
-      };
-    },
-
     changeReviewField(state, { payload: { name, value } }) {
       return {
         ...state,
@@ -115,23 +121,18 @@ const slice = createSlice({
       };
     },
 
+    logout(state) {
+      return {
+        ...state,
+        accessToken: '',
+      };
+    },
+
     clearReviewFields(state) {
       return {
         ...state,
         reviewFields: {
           ...initialReviewFields,
-        },
-      };
-    },
-
-    setReviews(state, { payload: { reviews } }) {
-      const { restaurant } = state;
-
-      return {
-        ...state,
-        restaurant: {
-          ...restaurant,
-          reviews,
         },
       };
     },
