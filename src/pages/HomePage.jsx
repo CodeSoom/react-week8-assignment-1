@@ -2,23 +2,23 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-const Home = styled.div({
-  paddingTop: '60px',
-  width: '100%',
-  top: 0,
-  left: 0,
-  textAlign: 'center',
+import Background from '../styles/Background';
+
+const Title = styled.h1({
+  padding: 5,
+  margin: 0,
+  color: '#FFF',
 });
 
 export default function HomePage() {
   return (
-    <Home>
-      <h1>
+    <Background>
+      <Title>
         코드숨잇고에서 당신을 위한
-      </h1>
-      <h1>
+      </Title>
+      <Title>
         레스토랑을 찾아보세요
-      </h1>
-    </Home>
+      </Title>
+    </Background>
   );
 }
