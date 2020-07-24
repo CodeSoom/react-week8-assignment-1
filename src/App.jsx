@@ -3,11 +3,12 @@ import React from 'react';
 import {
   Switch,
   Route,
-  Link,
+  useHistory,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import Headers from './components/Header';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
@@ -22,18 +23,23 @@ import { loadItem } from './services/storage';
 export default function App() {
   const dispatch = useDispatch();
 
+  const history = useHistory();
+
+  function handleClickLink(url) {
+    history.push(url);
+  }
+
   const accessToken = loadItem('accessToken');
+
   if (accessToken) {
     dispatch(setAccessToken(accessToken));
   }
 
   return (
     <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
+      <Headers
+        handleClickLink={handleClickLink}
+      />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
