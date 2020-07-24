@@ -28,4 +28,4 @@ function MenuItems({ menuItems }) {
   );
 }
 
-export default React.memo(MenuItem);
+export default React.memo(MenuItems);
