@@ -21,22 +21,26 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+import {
+  lightGray, darkBlue, skyBlue, pastelPink,
+} from './styles/constants';
+
 const Header = styled.header({
   textAlign: 'center',
-  backgroundColor: '#f5f5f5',
+  backgroundColor: lightGray,
   padding: '15px 0',
-  borderBottom: '1px #364f6b solid',
+  borderBottom: `1px ${darkBlue} solid`,
   '& h1': {
     margin: '0 auto',
   },
   '& a': {
-    color: '#fc5185',
+    color: pastelPink,
     '&:link': {
       textDecoration: 'none',
     },
     '&:hover': {
       fontWeight: 'bold',
-      color: '#3fc1c9',
+      color: skyBlue,
       cursor: 'pointer',
     },
   },

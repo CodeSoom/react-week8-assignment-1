@@ -5,12 +5,14 @@ import styled from '@emotion/styled';
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
 
+import { darkBlue } from './styles/constants';
+
 const Wrapper = styled.div({
   width: '80%',
   margin: '0 auto',
   fontSize: '1.2em',
   '& h3': {
-    color: '#364f6b',
+    color: darkBlue,
   },
 });
 

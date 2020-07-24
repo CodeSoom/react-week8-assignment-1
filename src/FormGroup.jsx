@@ -1,19 +1,21 @@
 import styled from '@emotion/styled';
 
+import { darkBlue, skyBlue } from './styles/constants';
+
 const FormGroup = styled.div({
   label: {
     fontWeight: 'bold',
     fontSize: '1.2em',
-    color: '#364f6b',
+    color: darkBlue,
   },
   input: {
     width: '100%',
     padding: '12px 20px',
     margin: '8px 0',
     boxSizing: 'border-box',
-    border: '3px solid #364f6b',
+    border: `3px solid ${darkBlue}`,
     '&:focus': {
-      border: '3px solid #3fc1c9',
+      border: `3px solid ${skyBlue}`,
       outline: 'none',
     },
   },

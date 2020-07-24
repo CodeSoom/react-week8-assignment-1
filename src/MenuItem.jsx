@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { lightGray, darkBlue, skyBlue } from './styles/constants';
+
 const MenuItem = styled.li({
   width: '100%',
   padding: '30px 0',
@@ -8,22 +10,22 @@ const MenuItem = styled.li({
   alignItems: 'center',
   justifyContent: 'space-around',
   flex: '1 1',
-  borderBottom: '1px #364f6b solid',
+  borderBottom: `1px ${darkBlue} solid`,
   '&:first-of-type': {
-    borderTop: '1px #364f6b solid',
+    borderTop: `1px ${darkBlue} solid`,
   },
   '&:nth-of-type(even)': {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: lightGray,
   },
   '& a': {
     fontSize: '1.5em',
-    color: '#364f6b',
+    color: darkBlue,
     '&:link': {
       textDecoration: 'none',
     },
     '&:hover': {
       fontWeight: 'bold',
-      color: '#3fc1c9',
+      color: skyBlue,
       cursor: 'pointer',
     },
   },
