@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
+import {
+  darkCharcoal,
+  black,
+} from './styles/constants';
+
 const Title = styled.h2({
   fontSize: '2em',
   margin: 0,
@@ -20,11 +25,11 @@ const List = styled.ul({
 const Item = styled.li({
   marginRight: '1em',
   '& a': {
-    color: '#333',
+    color: darkCharcoal,
     textDecoration: 'none',
     '&:hover': {
       fontWeight: 'bold',
-      color: '#000',
+      color: black,
     },
   },
 });

@@ -2,6 +2,11 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import {
+  lightShadeGray,
+  black,
+} from './styles/constants';
+
 const ReviewList = styled.ul({
   display: 'block',
   margin: 0,
@@ -12,13 +17,13 @@ const ReviewList = styled.ul({
 const ReviewItem = styled.li({
   marginRight: '1em',
   padding: '.4em 1em',
-  borderBottom: '1px solid #CCC',
+  borderBottom: `1px solid ${lightShadeGray}`,
   background: 'transparent',
   textDecoration: 'none',
   cursor: 'pointer',
   '&:hover': {
     fontWeight: 'bold',
-    color: '#000',
+    color: black,
   },
 });
 

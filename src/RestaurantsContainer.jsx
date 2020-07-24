@@ -6,6 +6,11 @@ import styled from '@emotion/styled';
 
 import { get } from './utils';
 
+import {
+  darkCharcoal,
+  black,
+} from './styles/constants';
+
 const List = styled.ul({
   display: 'block',
   margin: '0em',
@@ -16,16 +21,16 @@ const List = styled.ul({
 const Item = styled.li({
   marginRight: '0.4em',
   marginTop: '1em',
-  borderBottomColor: '#333',
+  borderBottomColor: darkCharcoal,
   '& a': {
-    color: '#333',
+    color: darkCharcoal,
     textDecoration: 'none',
-    borderBottomColor: '#333',
+    borderBottomColor: darkCharcoal,
     borderBottomStyle: 'inset',
     borderBottomWidth: 'thin',
     '&:hover': {
       fontWeight: 'bold',
-      color: '#000',
+      color: black,
     },
   },
 });
