@@ -1,4 +1,4 @@
-import reducer from './reducer';
+import reducer from './slice';
 
 import {
   setRegions,
@@ -13,7 +13,7 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+} from './slice';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
