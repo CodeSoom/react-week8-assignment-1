@@ -41,7 +41,7 @@ describe('App', () => {
   }
 
   context('with path /', () => {
-    it('renders the home page', () => {
+    it('renders the Landing page', () => {
       const { container } = renderApp({ path: '/' });
 
       expect(container).toHaveTextContent('Home');
@@ -65,10 +65,10 @@ describe('App', () => {
   });
 
   context('with invalid path', () => {
-    it('renders the not found page', () => {
+    it('redirect Landing page', () => {
       const { container } = renderApp({ path: '/xxx' });
 
-      expect(container).toHaveTextContent('Not Found');
+      expect(container).toHaveTextContent('Home');
     });
   });
 

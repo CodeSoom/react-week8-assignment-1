@@ -1,9 +1,10 @@
 import React from 'react';
 
 import {
-  Switch,
-  Route,
   Link,
+  Redirect,
+  Route,
+  Switch,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
@@ -14,7 +15,6 @@ import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
 import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
-import NotFoundPage from './pages/NotFoundPage';
 
 import { setAccessToken } from './slice';
 
@@ -44,7 +44,7 @@ export default function App() {
         <Route path="/login" component={LoginPage} />
         <Route exact path="/restaurants" component={RestaurantsPage} />
         <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
+        <Redirect to="/" />
       </Switch>
     </Container>
   );
