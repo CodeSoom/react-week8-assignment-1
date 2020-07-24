@@ -6,10 +6,12 @@ import { render } from '@testing-library/react';
 
 import LandingPage from './LandingPage';
 
-test('HomePage', () => {
-  render((
+test('LandingPage', () => {
+  const { getByText } = render((
     <MemoryRouter>
       <LandingPage />
     </MemoryRouter>
   ));
+
+  expect(getByText('Home')).not.toBeNull();
 });
