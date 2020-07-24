@@ -58,8 +58,8 @@ export const MenuItem = styled.li(({ active }) => ({
   '& button': {
     padding: '.4em 1em',
     border: '1px solid #CCC',
-    background: active ? '#EEE' : 'transparent',
-    color: '#333',
+    background: active ? '#AAA' : 'transparent',
+    color: active ? '#FFF' : '#333',
     textDecoration: 'none',
     cursor: 'pointer',
     '&:hover': {
