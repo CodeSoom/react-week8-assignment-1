@@ -9,16 +9,16 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import { setAccessToken } from './slice';
+
+import { loadItem } from './services/storage';
+
 import LandingPage from './pages/LandingPage';
 import RoutePage from './pages/RoutePage';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
 import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
-
-import { setAccessToken } from './slice';
-
-import { loadItem } from './services/storage';
 
 import { Container, Header } from './style';
 
