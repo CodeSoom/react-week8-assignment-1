@@ -1,16 +1,16 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div({
-  margin: '0 auto',
   width: '90%',
+  margin: '0 auto',
 });
 
 export const Header = styled.header({
   background: '#EEE',
   '& h1': {
     fontSize: '1.5em',
-    margin: 0,
     padding: '1em .5em',
+    margin: 0,
   },
   '& a': {
     color: '#555',
@@ -22,8 +22,8 @@ export const Header = styled.header({
 });
 
 // export const Title = styled.h2({
-//   margin: 0,
 //   fontSize: '2em',
+//   margin: 0,
 //   padding: '.4em 0',
 // });
 
@@ -48,8 +48,8 @@ export const Item = styled.li({
 
 export const MenuList = styled.ul({
   display: 'flex',
-  margin: 0,
   padding: '.4em 0',
+  margin: 0,
   listStyle: 'none',
 });
 
