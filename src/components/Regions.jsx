@@ -31,11 +31,7 @@ export default function Regions({
               onClick={() => handleClick(region.id)}
             >
               {region.name}
-              {selectedRegion ? (
-                <>
-                  {isSelected(region) ? '(V)' : null}
-                </>
-              ) : null}
+              {selectedRegion && isSelected(region) && '(V)'}
             </button>
           </Item>
         ))}

@@ -20,16 +20,21 @@ describe('Regions', () => {
   it('renders `regions` title and buttons', () => {
     const { getByText } = renderRegions(regions[0]);
 
+    const selectRegionId = regions[0].id;
+
     expect(getByText('Region')).not.toBeNull();
 
-    regions.forEach((region) => {
-      if (region.id === regions[0].id) {
-        expect(getByText(`${region.name}(V)`)).not.toBeNull();
-      }
-      if (region.id !== regions[0].id) {
-        expect(getByText(`${region.name}`)).not.toBeNull();
-      }
-    });
+    regions
+      .filter(({ id }) => id === selectRegionId)
+      .forEach(({ name }) => {
+        expect(getByText(`${name}(V)`)).not.toBeNull();
+      });
+
+    regions
+      .filter(({ id }) => id !== selectRegionId)
+      .forEach(({ name }) => {
+        expect(getByText(name)).not.toBeNull();
+      });
   });
 
   context('when the button is clicked', () => {
