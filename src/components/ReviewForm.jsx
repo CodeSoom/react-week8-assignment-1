@@ -19,10 +19,6 @@ const Layout = styled.div({
     border: '1px solid #516EED',
     background: '#516EED',
     borderRadius: '8px',
-    '&:hover': {
-      fontWeight: 'bold',
-      color: '#FFF',
-    },
   },
 });
 

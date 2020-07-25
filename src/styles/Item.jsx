@@ -11,10 +11,6 @@ const Item = styled.li(({ active }) => ({
     textDecoration: 'none',
     cursor: 'pointer',
     borderRadius: '10px',
-    '&:hover': {
-      fontWeight: 'bold',
-      color: '#000',
-    },
   },
 }));
 
