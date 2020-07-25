@@ -2,9 +2,9 @@ import React from 'react';
 
 import FormGroup from './FormGroup';
 
-export default function TextField({
+const TextField = React.memo(({
   label, type = 'text', name, value, onChange,
-}) {
+}) => {
   const id = `input-${name}`;
 
   function handleChange(event) {
@@ -26,4 +26,6 @@ export default function TextField({
       />
     </FormGroup>
   );
-}
+});
+
+export default TextField;
