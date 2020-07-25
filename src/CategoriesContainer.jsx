@@ -8,7 +8,7 @@ import MenuItem from './MenuItem';
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
