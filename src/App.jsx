@@ -8,7 +8,6 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import styled from '@emotion/styled';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -21,24 +20,8 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
-const Container = styled.div({
-  margin: '0 auto',
-  width: '90%',
-});
-
-const Header = styled.header({
-  display: 'flex',
-  justifyContent: 'center',
-  backgroundColor: '#EEE',
-  '& a': {
-    color: '#555',
-    textDecoration: 'none',
-    '&:hover': {
-      color: '#000',
-    },
-  },
-});
-
+import Header from './styles/Header';
+import Container from './styles/Container';
 
 export default function App() {
   const dispatch = useDispatch();
