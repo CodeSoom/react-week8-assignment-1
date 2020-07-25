@@ -1,6 +1,5 @@
 import React from 'react';
 
-//console.time('reviews');
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -27,8 +26,5 @@ function Reviews({ reviews }) {
     </ul>
   );
 }
-// console.log('reviews: ', Reviews({ reviews }));
-
-// console.timeEnd('reviews');
 
 export default React.memo(Reviews);
