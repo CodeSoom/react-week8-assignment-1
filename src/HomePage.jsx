@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
 
+
 export default function HomePage() {
   return (
     <>
+      <h2>Home</h2>
       <MenuList>
         <MenuItem><Link to="/about">About</Link></MenuItem>
         <MenuItem><Link to="/login">Log in</Link></MenuItem>
