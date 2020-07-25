@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import LoginPage from './LoginPage';
 
 jest.mock('react-redux');
+jest.mock('../assets/images');
 
 describe('LoginPage', () => {
   beforeEach(() => {

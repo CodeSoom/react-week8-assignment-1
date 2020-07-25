@@ -15,6 +15,7 @@ const TextFieldBox = styled.div({
     border: '1px solid #CCC',
     borderColor: '#CCC',
     borderRadius: '8px',
+    backgroundColor: '#FFF',
     height: '1.6em',
   },
 });

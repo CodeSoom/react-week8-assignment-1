@@ -1,46 +1,36 @@
 import React from 'react';
 
+import LoginBox from '../styles/LoginBox';
+
+import TextField from './TextField';
+
 function LoginForm({ fields, onChange, onSubmit }) {
   const { email, password } = fields;
 
-  function handleChange(event) {
-    const { target: { name, value } } = event;
-    onChange({ name, value });
-  }
-
   return (
-    <>
-      <div>
-        <label htmlFor="login-email">
-          E-mail
-        </label>
-        <input
-          type="email"
-          id="login-email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="login-password">
-          Password
-        </label>
-        <input
-          type="password"
-          id="login-password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-      </div>
+    <LoginBox>
+      <h2>로그인</h2>
+      <TextField
+        label="E-mail"
+        name="email"
+        type="email"
+        value={email}
+        onChange={onChange}
+      />
+      <TextField
+        label="Password"
+        name="password"
+        type="password"
+        value={password}
+        onChange={onChange}
+      />
       <button
         type="button"
         onClick={onSubmit}
       >
         Log In
       </button>
-    </>
+    </LoginBox>
   );
 }
 

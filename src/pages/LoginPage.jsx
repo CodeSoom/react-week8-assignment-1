@@ -2,11 +2,12 @@ import React from 'react';
 
 import LoginFormContainer from '../containers/LoginFormContainer';
 
+import Background from '../styles/Background';
+
 export default function LoginPage() {
   return (
-    <div>
-      <h2>Log In</h2>
+    <Background>
       <LoginFormContainer />
-    </div>
+    </Background>
   );
 }
