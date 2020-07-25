@@ -2,9 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import RestaurantDetail from '../components/RestaurantDetail';
-import ReviewForm from '../components/ReviewForm';
-import Reviews from '../components/Reviews';
+import Restaurant from '../components/Restaurant';
 
 import {
   loadRestaurant,
@@ -33,23 +31,13 @@ export default function RestaurantContainer({ restaurantId }) {
     dispatch(sendReview({ restaurantId }));
   }, [dispatch, restaurantId]);
 
-  if (!restaurant) {
-    return (
-      <p>Loading...</p>
-    );
-  }
-
   return (
-    <>
-      <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
-        <ReviewForm
-          fields={reviewFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      ) : null}
-      <Reviews reviews={restaurant.reviews} />
-    </>
+    <Restaurant
+      restaurant={restaurant}
+      accessToken={accessToken}
+      reviewFields={reviewFields}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+    />
   );
 }

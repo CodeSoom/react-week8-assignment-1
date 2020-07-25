@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const Layout = styled.div({
-  padding: '3% 3%',
+  padding: '2% 3%',
   margin: 0,
 });
 

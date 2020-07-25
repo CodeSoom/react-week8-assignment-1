@@ -1,5 +1,10 @@
 import React from 'react';
 
+import {
+  ReviewList, ReviewItem,
+  Score, Description, Reviewer,
+} from '../styles/Reviews';
+
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -8,22 +13,25 @@ function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <ReviewList>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
-          <div>
-            {review.name}
-          </div>
-          <div>
-            {review.score}
-            점
-          </div>
-          <div>
+        <ReviewItem key={review.id}>
+          <Score>
+            <span>
+              {review.score}
+              점
+            </span>
+          </Score>
+          <Description>
             {review.description}
-          </div>
-        </li>
+          </Description>
+          <Reviewer>
+            {'- '}
+            {review.name}
+          </Reviewer>
+        </ReviewItem>
       ))}
-    </ul>
+    </ReviewList>
   );
 }
 

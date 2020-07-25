@@ -1,5 +1,7 @@
 import React from 'react';
 
+import TextFieldBox from '../styles/TextFieldBox';
+
 function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -11,7 +13,7 @@ function TextField({
   }
 
   return (
-    <div>
+    <TextFieldBox>
       <label htmlFor={id}>
         {label}
       </label>
@@ -22,7 +24,7 @@ function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </TextFieldBox>
   );
 }
 
