@@ -1,4 +1,17 @@
+import styled from '@emotion/styled';
+
 import React from 'react';
+
+const Wrapper = styled.div({
+  display: 'flex',
+  '& label': {
+    flexShrink: 0,
+    minWidth: '70px',
+  },
+  '& input': {
+    flexGrow: 1,
+  },
+});
 
 const TextField = React.memo(({
   label, type = 'text', name, value, onChange,
@@ -11,7 +24,7 @@ const TextField = React.memo(({
   }
 
   return (
-    <div>
+    <Wrapper>
       <label htmlFor={id}>
         {label}
       </label>
@@ -22,7 +35,7 @@ const TextField = React.memo(({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Wrapper>
   );
 });
 

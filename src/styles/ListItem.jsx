@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
-const MenuItem = styled.li(({ active }) => ({
+import MediaQuery from './MediaQuery';
+
+const DefaultItems = styled.li(({ active }) => ({
   marginRight: '1em',
   '& button': {
     padding: '.4em 1em',
@@ -37,7 +39,23 @@ const LinkItem = styled.li({
   transition: '0.5s',
 });
 
+
+const CardItem = styled.li({
+  boxSizing: 'border-box',
+  marginBottom: '2rem',
+  dispaly: 'flex',
+  flexDirection: 'column',
+  [MediaQuery[0]]: {
+    padding: '0 1rem',
+    width: '50%',
+  },
+  [MediaQuery[1]]: {
+    width: '33.3333%',
+  },
+});
+
 export {
-  MenuItem,
+  DefaultItems,
   LinkItem,
+  CardItem,
 };
