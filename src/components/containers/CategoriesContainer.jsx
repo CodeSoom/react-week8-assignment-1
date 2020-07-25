@@ -9,8 +9,8 @@ import {
 
 import { get } from '../../utils';
 
-import List from '../../styles/List';
-import { MenuItem } from '../../styles/ListItem';
+import { DefaultList as Categories } from '../../styles/List';
+import { DefaultItems as Category } from '../../styles/ListItem';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -24,9 +24,9 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <List>
+    <Categories>
       {categories.map((category) => (
-        <MenuItem
+        <Category
           key={category.id}
           active={selectedCategory && category.id === selectedCategory.id}
         >
@@ -41,8 +41,8 @@ export default function CategoriesContainer() {
               </>
             ) : null}
           </button>
-        </MenuItem>
+        </Category>
       ))}
-    </List>
+    </Categories>
   );
 }

@@ -9,8 +9,8 @@ import {
 
 import { get } from '../../utils';
 
-import List from '../../styles/List';
-import { MenuItem } from '../../styles/ListItem';
+import { DefaultList as Regions } from '../../styles/List';
+import { DefaultItems as RegionItem } from '../../styles/ListItem';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -24,9 +24,9 @@ export default function RegionsContainer() {
   }
 
   return (
-    <List>
+    <Regions>
       {regions.map((region) => (
-        <MenuItem
+        <RegionItem
           key={region.id}
           active={selectedRegion && region.id === selectedRegion.id}
         >
@@ -41,8 +41,8 @@ export default function RegionsContainer() {
               </>
             ) : null}
           </button>
-        </MenuItem>
+        </RegionItem>
       ))}
-    </List>
+    </Regions>
   );
 }
