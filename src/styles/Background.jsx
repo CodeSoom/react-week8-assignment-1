@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import BackgroundImage from '../assets/background.jpg';
+import BackgroundImage from '../assets/images';
 
 const Background = styled.div({
   paddingTop: '80px',
