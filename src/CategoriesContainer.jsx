@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import OptionList from './OptionList';
+import OptionItem from './OptionItem';
 import Button from './Button';
 
 import {
@@ -26,7 +27,10 @@ export default function CategoriesContainer() {
   return (
     <OptionList>
       {categories.map((category) => (
-        <li key={category.id}>
+        <OptionItem
+          key={category.id}
+          active={selectedCategory && category.id === selectedCategory.id}
+        >
           <Button
             type="button"
             onClick={() => handleClick(category.id)}
@@ -38,7 +42,7 @@ export default function CategoriesContainer() {
               </>
             ) : null}
           </Button>
-        </li>
+        </OptionItem>
       ))}
     </OptionList>
   );

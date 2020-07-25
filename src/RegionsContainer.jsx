@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import OptionList from './OptionList';
+import OptionItem from './OptionItem';
 import Button from './Button';
 
 import {
@@ -26,7 +27,10 @@ export default function RegionsContainer() {
   return (
     <OptionList>
       {regions.map((region) => (
-        <li key={region.id}>
+        <OptionItem
+          key={region.id}
+          active={selectedRegion && region.id === selectedRegion.id}
+        >
           <Button
             type="button"
             onClick={() => handleClick(region.id)}
@@ -38,7 +42,7 @@ export default function RegionsContainer() {
               </>
             ) : null}
           </Button>
-        </li>
+        </OptionItem>
       ))}
     </OptionList>
   );

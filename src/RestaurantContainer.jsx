@@ -13,6 +13,7 @@ import {
 } from './slice';
 
 import { get } from './utils';
+import PageWrapper from './PageWrapper';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function RestaurantContainer({ restaurantId }) {
 
   if (!restaurant) {
     return (
-      <p>Loading...</p>
+      <h2>Loading...</h2>
     );
   }
 
