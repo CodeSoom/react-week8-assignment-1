@@ -1,3 +1,7 @@
 const BackgroundImage = '';
+const AboutImage = '';
 
-export default BackgroundImage;
+export {
+  BackgroundImage,
+  AboutImage,
+};
