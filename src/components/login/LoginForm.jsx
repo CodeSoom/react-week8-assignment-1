@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Form from './Form';
-import FormGroup from './FormGroup';
-import Button from './Button';
+import Form from '../Form';
+import FormGroup from '../FormGroup';
+import Button from '../Button';
 
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;

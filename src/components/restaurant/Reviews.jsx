@@ -2,10 +2,10 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import MenuList from './MenuList';
-import MenuItem from './MenuItem';
+import MenuList from '../MenuList';
+import MenuItem from '../MenuItem';
 
-import { darkBlue } from './styles/constants';
+import { darkBlue } from '../../assets/styles/colors';
 
 const Wrapper = styled.div({
   width: '80%',

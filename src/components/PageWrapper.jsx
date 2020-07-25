@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { darkBlue } from './styles/constants';
+import { darkBlue } from '../assets/styles/colors';
 
 const PageWrapper = styled.div({
   width: '70%',

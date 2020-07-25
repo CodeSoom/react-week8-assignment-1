@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { darkBlue, skyBlue } from './styles/constants';
+import { darkBlue, skyBlue } from '../assets/styles/colors';
 
 const FormGroup = styled.div({
   label: {

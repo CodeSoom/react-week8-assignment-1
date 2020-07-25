@@ -1,7 +1,7 @@
 import React from 'react';
 
 import MenuItems from './MenuItems';
-import ContentWrapper from './ContentWrapper';
+import ContentWrapper from '../ContentWrapper';
 
 export default function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { pastelPink, skyBlue, darkBlue } from './styles/constants';
+import { pastelPink, skyBlue, darkBlue } from '../assets/styles/colors';
 
 const OptionItem = styled.li(({ active }) => ({
   '& button': {

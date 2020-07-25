@@ -1,8 +1,8 @@
 import React from 'react';
 
-import TextField from './TextField';
-import Button from './Button';
-import Form from './Form';
+import TextField from '../TextField';
+import Button from '../Button';
+import Form from '../Form';
 
 export default function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;

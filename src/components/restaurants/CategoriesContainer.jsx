@@ -2,16 +2,16 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import OptionList from './OptionList';
-import OptionItem from './OptionItem';
-import Button from './Button';
+import OptionList from '../OptionList';
+import OptionItem from '../OptionItem';
+import Button from '../Button';
 
 import {
   selectCategory,
   loadRestaurants,
-} from './slice';
+} from '../../slice';
 
-import { get } from './utils';
+import { get } from '../../utils/utils';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();

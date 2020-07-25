@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { lightGray, darkBlue, skyBlue } from './styles/constants';
+import { lightGray, darkBlue, skyBlue } from '../assets/styles/colors';
 
 const MenuItem = styled.li({
   width: '100%',
