@@ -16,47 +16,33 @@ const HeaderBox = styled.header({
 });
 
 export default function Header({ handleClickLink }) {
+  const tabs = [
+    { item: 'About', url: '/about' },
+    { item: 'Restaurants', url: '/restaurants' },
+    { item: 'NotFound', url: '/xxx' },
+    { item: 'Log In', url: '/login' },
+  ];
+
   return (
     <HeaderBox>
-      <>
-        <HeaderTitle>
-          <HeaderItem
-            item="Codesoom Eatgo"
-            url="/"
-            handleClick={handleClickLink}
-          />
-        </HeaderTitle>
-      </>
-      <>
-        <HeaderTab>
-          <HeaderItem
-            item="About"
-            url="/about"
-            handleClick={handleClickLink}
-          />
-        </HeaderTab>
-        <HeaderTab>
-          <HeaderItem
-            item="Restaurants"
-            url="/restaurants"
-            handleClick={handleClickLink}
-          />
-        </HeaderTab>
-        <HeaderTab>
-          <HeaderItem
-            item="NotFound"
-            url="/xxx"
-            handleClick={handleClickLink}
-          />
-        </HeaderTab>
-        <HeaderTab>
-          <HeaderItem
-            item="Log In"
-            url="/login"
-            handleClick={handleClickLink}
-          />
-        </HeaderTab>
-      </>
+      <HeaderTitle>
+        <HeaderItem
+          item="Codesoom Eatgo"
+          url="/"
+          handleClick={handleClickLink}
+        />
+      </HeaderTitle>
+      {
+        tabs.map((tab) => (
+          <HeaderTab key={tab.item}>
+            <HeaderItem
+              item={tab.item}
+              url={tab.url}
+              handleClick={handleClickLink}
+            />
+          </HeaderTab>
+        ))
+      }
     </HeaderBox>
   );
 }
