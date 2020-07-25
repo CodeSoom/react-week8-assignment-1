@@ -3,6 +3,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import RestaurantDetail from './RestaurantDetail';
+import RestaurantDetailTest from './RestaurantDetailTest';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
 
@@ -42,6 +43,7 @@ export default function RestaurantContainer({ restaurantId }) {
   return (
     <>
       <RestaurantDetail restaurant={restaurant} />
+      <RestaurantDetailTest restaurant={restaurant} />
       {accessToken ? (
         <ReviewForm
           fields={reviewFields}

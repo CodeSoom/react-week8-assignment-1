@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
 
-
-export default function HomePage() {
+function HomePage() {
   return (
     <>
       <h2>Home</h2>
@@ -19,3 +18,5 @@ export default function HomePage() {
     </>
   );
 }
+
+export default React.memo(HomePage);
