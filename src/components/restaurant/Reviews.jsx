@@ -16,7 +16,7 @@ const Wrapper = styled.div({
   },
 });
 
-export default function Reviews({ reviews }) {
+const Reviews = React.memo(({ reviews }) => {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -44,4 +44,6 @@ export default function Reviews({ reviews }) {
       </MenuList>
     </Wrapper>
   );
-}
+});
+
+export default Reviews;
