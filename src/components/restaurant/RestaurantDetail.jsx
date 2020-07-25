@@ -3,7 +3,7 @@ import React from 'react';
 import MenuItems from './MenuItems';
 import ContentWrapper from '../ContentWrapper';
 
-export default function RestaurantDetail({ restaurant }) {
+const RestaurantDetail = React.memo(({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -20,4 +20,6 @@ export default function RestaurantDetail({ restaurant }) {
       </ContentWrapper>
     </div>
   );
-}
+});
+
+export default RestaurantDetail;
