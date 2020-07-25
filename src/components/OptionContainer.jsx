@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const OptionList = styled.ul({
+const OptionContainer = styled.div({
   display: 'flex',
   justifyContent: 'space-around',
   alignContent: 'center',
@@ -10,4 +10,4 @@ const OptionList = styled.ul({
   listStyle: 'none',
 });
 
-export default OptionList;
+export default OptionContainer;

@@ -2,8 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import OptionList from '../OptionList';
-import OptionItem from '../OptionItem';
+import OptionContainer from '../OptionContainer';
 import Button from '../Button';
 
 import {
@@ -25,25 +24,22 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <OptionList>
+    <OptionContainer>
       {categories.map((category) => (
-        <OptionItem
+        <Button
           key={category.id}
           active={selectedCategory && category.id === selectedCategory.id}
+          type="button"
+          onClick={() => handleClick(category.id)}
         >
-          <Button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </Button>
-        </OptionItem>
+          {category.name}
+          {selectedCategory ? (
+            <>
+              {category.id === selectedCategory.id ? '(V)' : null}
+            </>
+          ) : null}
+        </Button>
       ))}
-    </OptionList>
+    </OptionContainer>
   );
 }
