@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
+import homeImage from './assets/images/homeImage.png';
+
 const Title = styled.h2({
   margin: 0,
   padding: '.4em 0',
