@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-const Title = styled.h2({
-  fontSize: '1.8em',
-  margin: 0,
-  padding: '0.5em',
+const HomeContainer = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
 });
+
 const List = styled.ul({
   display: 'flex',
   margin: 0,
@@ -20,11 +21,11 @@ const Item = styled.li({
   marginRight: '1em',
   padding: '1em',
   '& a': {
-    color: '#333',
+    color: '#fff',
     textDecoration: 'none',
+    fontWeight: 'bold',
     '&:hover': {
-      fontWeight: 'bold',
-      color: '#000',
+      color: '#FFD600',
     },
   },
 });
@@ -32,11 +33,11 @@ const Item = styled.li({
 
 export default function HomePage() {
   return (
-    <div>
-      <Title>Home</Title>
+    <HomeContainer>
+      {/* <Title>Home</Title> */}
       <List>
         <Item>
-          <Link to="/about">About</Link>
+          <Link to="/">About</Link>
         </Item>
         <Item>
           <Link to="/login">Log in</Link>
@@ -48,6 +49,6 @@ export default function HomePage() {
           <Link to="/xxx">멸망의 길</Link>
         </Item>
       </List>
-    </div>
+    </HomeContainer>
   );
 }

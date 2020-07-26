@@ -8,6 +8,8 @@ import RegionsContainer from '../containers/RegionsContainer';
 import CategoriesContainer from '../containers/CategoriesContainer';
 import RestaurantsContainer from '../containers/RestaurantsContainer';
 
+import Title from '../styles/Title';
+
 import {
   loadInitialData,
 } from '../redux/slice';
@@ -28,6 +30,7 @@ export default function RestaurantsPage() {
 
   return (
     <div>
+      <Title>Restaurants</Title>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />

@@ -35,18 +35,21 @@ export default function App() {
   });
 
   const Header = styled.header({
-    backgroundColor: '#EEE',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#424242',
     '& h1': {
       fontSize: '1.5em',
       margin: 0,
-      padding: '1em .5em',
+      padding: '1em 1.5em',
       textAlign: 'center',
     },
     '& a': {
-      color: '#555',
+      color: '#fff',
       textDecoration: 'none',
       '&:hover': {
-        color: '#000',
+        color: '#FFD600',
       },
     },
   });
@@ -55,12 +58,13 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">All About Restaurant Home</Link>
+          <Link to="/">EatGo</Link>
         </h1>
+        <HomePage />
       </Header>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
+        {/* <Route exact path="/" component={HomePage} /> */}
+        <Route exact path="/" component={AboutPage} />
         <Route path="/login" component={LoginPage} />
         <Route exact path="/restaurants" component={RestaurantsPage} />
         <Route path="/restaurants/:id" component={RestaurantPage} />

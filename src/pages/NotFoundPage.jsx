@@ -1,7 +1,12 @@
 import React from 'react';
 
+import Title from '../styles/Title';
+
 export default function NotFoundPage() {
   return (
-    <p>404 Not Found</p>
+    <>
+      <Title>Error</Title>
+      <p>404 Not Found</p>
+    </>
   );
 }
