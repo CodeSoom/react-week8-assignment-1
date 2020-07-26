@@ -20,7 +20,7 @@ import LoginPage from './pages/LoginPage';
 import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
 
-import { Container, Header } from './style';
+import { Container, Header, Content } from './styles';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -39,12 +39,14 @@ export default function App() {
         <RoutePage />
       </Header>
       <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Redirect to="/" />
+        <Content>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Redirect to="/" />
+        </Content>
       </Switch>
     </Container>
   );

@@ -1,8 +1,13 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div({
+  maxWidth: '1280px',
   width: '90%',
   margin: '0 auto',
+});
+
+export const Content = styled.div({
+  margin: '0px 50px',
 });
 
 export const Header = styled.header({
@@ -21,27 +26,28 @@ export const Header = styled.header({
   },
 });
 
-// export const Title = styled.h2({
-//   fontSize: '2em',
-//   margin: 0,
-//   padding: '.4em 0',
-// });
+export const Navigator = styled.div({
+  backgroundColor: 'white',
+});
 
 export const List = styled.ul({
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-around',
   margin: 0,
   padding: 0,
   listStyle: 'none',
+  backgroundColor: '#111',
 });
 
 export const Item = styled.li({
   marginRight: '1em',
   '& a': {
-    color: '#333',
+    color: '#fff',
     textDecoration: 'none',
     '&:hover': {
       fontWeight: 'bold',
-      color: '#000',
+      color: '#fff',
     },
   },
 });

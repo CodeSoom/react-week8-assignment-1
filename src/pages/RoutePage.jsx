@@ -1,26 +1,43 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import { List, Item } from '../style';
+import { List, Item, Navigator } from '../styles';
 
 export default function RoutePage() {
+  const activeStyle = {
+    fontWeight: 'bold',
+    color: 'yellow',
+  };
+
   return (
-    <div>
+    <Navigator>
       <List>
         <Item>
-          <Link to="/about">About</Link>
+          <NavLink
+            to="/about"
+            activeStyle={activeStyle}
+          >
+            About
+          </NavLink>
         </Item>
         <Item>
-          <Link to="/login">Log in</Link>
+          <NavLink
+            to="/login"
+            activeStyle={activeStyle}
+          >
+            Log in
+          </NavLink>
         </Item>
         <Item>
-          <Link to="/restaurants">Restaurants</Link>
-        </Item>
-        <Item>
-          <Link to="/xxx">멸망의 길</Link>
+          <NavLink
+            to="/restaurants"
+            activeStyle={activeStyle}
+          >
+            Restaurants
+          </NavLink>
         </Item>
       </List>
-    </div>
+    </Navigator>
   );
 }
