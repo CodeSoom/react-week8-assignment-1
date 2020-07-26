@@ -12,7 +12,7 @@ import {
 
 import { get } from './utils';
 
-export default function CategoriesContainer() {
+function CategoriesContainer() {
   const dispatch = useDispatch();
 
   const categories = useSelector(get('categories'));
@@ -46,3 +46,5 @@ export default function CategoriesContainer() {
     </MenuList>
   );
 }
+
+export default React.memo(CategoriesContainer);

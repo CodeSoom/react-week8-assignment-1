@@ -29,7 +29,7 @@ const Item = styled.li({
   },
 });
 
-export default function HomePage() {
+function HomePage() {
   return (
     <div>
       <table>
@@ -64,3 +64,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+export default React.memo(HomePage);
