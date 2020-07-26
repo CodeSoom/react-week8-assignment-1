@@ -9,6 +9,8 @@ import {
 
 import { get } from '../common/utils';
 
+import Selects from '../presentationals/common/Selects';
+
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
@@ -21,22 +23,13 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
-      {categories.map((category) => (
-        <li key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <Selects
+      selectTitle="Category"
+      selectMenus={categories}
+      handleClick={handleClick}
+      selectedItem={selectedCategory}
+      defaultColor="#fff"
+      activeColor="#8d98f2"
+    />
   );
 }

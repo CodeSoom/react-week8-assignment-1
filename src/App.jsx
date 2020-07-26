@@ -56,7 +56,7 @@ const Menu = styled.div({
     textDecoration: 'none',
     '& span': {
       fontSize: '18px',
-      color: '#5c6bc0',
+      color: '#1a237e',
     },
   },
 });
