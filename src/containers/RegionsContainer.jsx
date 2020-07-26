@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,16 +12,17 @@ import { get } from '../utils';
 import MenuList from '../components/MenuList';
 import MenuItem from '../components/MenuItem';
 
+
 export default function RegionsContainer() {
   const dispatch = useDispatch();
 
   const regions = useSelector(get('regions'));
   const selectedRegion = useSelector(get('selectedRegion'));
 
-  function handleClick(regionId) {
+  const handleClick = useCallback((regionId) => {
     dispatch(selectRegion(regionId));
     dispatch(loadRestaurants());
-  }
+  }, [dispatch]);
 
   return (
     <MenuList>
