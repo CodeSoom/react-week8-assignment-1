@@ -12,7 +12,7 @@ import {
   loadInitialData,
 } from './slice';
 
-export default function RestaurantsPage() {
+function RestaurantsPage() {
   const history = useHistory();
 
   const dispatch = useDispatch();
@@ -34,3 +34,5 @@ export default function RestaurantsPage() {
     </div>
   );
 }
+
+export default React.memo(RestaurantsPage);
