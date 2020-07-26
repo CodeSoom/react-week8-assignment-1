@@ -1,24 +1,25 @@
 import styled from '@emotion/styled';
 
-const MenuItem = styled.li(({ active }) => ({
+const ResultItem = styled.li(() => ({
   width: '100%',
   marginBottom: '.1em',
   marginRight: '.1em',
-  '& button': {
+  '& a': {
     width: '100%',
-    padding: '1em',
-    background: active ? '#424242' : '#ff',
+    background: '#424242',
     border: 0,
-    fontSize: '1em',
-    fontWeight: 'bold',
-    color: active ? '#ffffff' : '#616161',
+    color: '#ffffff',
     textDecoration: 'none',
     cursor: 'pointer',
-    outline: 'none',
+    display: 'block',
+    height: '100%',
+    padding: '.97em .23em',
+    textAlign: 'center',
+    fontSize: '1em',
     '&:hover': {
       width: '100%',
       border: 0,
-      background: '#BDBDBD',
+      background: '#FFD600',
       fontWeight: 'bold',
       color: '#424242',
     },
@@ -26,4 +27,4 @@ const MenuItem = styled.li(({ active }) => ({
 }));
 
 
-export default MenuItem;
+export default ResultItem;

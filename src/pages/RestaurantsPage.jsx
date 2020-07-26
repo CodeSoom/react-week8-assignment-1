@@ -8,6 +8,7 @@ import RegionsContainer from '../containers/RegionsContainer';
 import CategoriesContainer from '../containers/CategoriesContainer';
 import RestaurantsContainer from '../containers/RestaurantsContainer';
 
+import RestaurantsBox from '../styles/RestaurantsBox';
 import Title from '../styles/Title';
 
 import {
@@ -31,9 +32,11 @@ export default function RestaurantsPage() {
   return (
     <>
       <Title>Restaurants</Title>
-      <RegionsContainer />
-      <CategoriesContainer />
-      <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
+      <RestaurantsBox>
+        <RegionsContainer />
+        <CategoriesContainer />
+        <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
+      </RestaurantsBox>
     </>
   );
 }

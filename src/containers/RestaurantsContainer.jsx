@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux';
 
 import { get } from '../utils/utils';
 
+import ResultList from '../styles/ResultList';
+import ResultItem from '../styles/ResultItem';
+
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get('restaurants'));
 
@@ -15,14 +18,14 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <ul>
+    <ResultList>
       {restaurants.map((restaurant) => (
-        <li key={restaurant.id}>
+        <ResultItem key={restaurant.id}>
           <a href="/restaurants/1" onClick={handleClick(restaurant)}>
             {restaurant.name}
           </a>
-        </li>
+        </ResultItem>
       ))}
-    </ul>
+    </ResultList>
   );
 }
