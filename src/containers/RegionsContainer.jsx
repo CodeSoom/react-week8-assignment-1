@@ -2,16 +2,16 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import MenuList from './MenuList';
-import MenuItem from './MenuItem';
+import MenuList from '../styles/MenuList';
+import MenuItem from '../styles/MenuItem';
 
 import {
   selectRegion,
   loadRestaurants,
-} from './slice';
+} from '../redux/slice';
 
 
-import { get } from './utils';
+import { get } from '../utils/utils';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
