@@ -1,8 +1,27 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import { useSelector } from 'react-redux';
 
 import { get } from './utils';
+
+const List = styled.ul({
+  listStyle: 'none',
+});
+
+const Item = styled.li({
+  marginRight: '2.5em',
+  padding: '1em 0',
+  '& a': {
+    color: '#333',
+    textDecoration: 'none',
+    '&:hover': {
+      color: 'deeppink',
+      fontWeight: 'bold',
+    },
+  },
+});
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get('restaurants'));
@@ -15,14 +34,14 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <ul>
+    <List>
       {restaurants.map((restaurant) => (
-        <li key={restaurant.id}>
+        <Item key={restaurant.id}>
           <a href="/restaurants/1" onClick={handleClick(restaurant)}>
             {restaurant.name}
           </a>
-        </li>
+        </Item>
       ))}
-    </ul>
+    </List>
   );
 }

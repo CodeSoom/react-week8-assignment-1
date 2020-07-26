@@ -12,7 +12,7 @@ const PasswordLabel = styled.label((htmlFor) => ({
   marginRight: '1em',
 }));
 
-const LoginButton = styled.button(() => ({
+const Button = styled.button(() => ({
   display: 'table',
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -64,14 +64,13 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           onChange={handleChange}
         />
       </div>
-      <LoginButton
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </LoginButton>
+      </Button>
     </>
   );
 });
-
 export default LoginForm;
