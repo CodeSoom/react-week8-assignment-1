@@ -4,13 +4,6 @@ import styled from '@emotion/styled';
 
 import LoginFormContainer from './LoginFormContainer';
 
-const Title = styled.h2({
-  backgroundColor: '#32e0c4',
-  color: '#393e46',
-  fontSize: '2em',
-  padding: '1em 1em',
-});
-
 const List = styled.ul({
   display: 'flex',
   marginTop: '5em',
