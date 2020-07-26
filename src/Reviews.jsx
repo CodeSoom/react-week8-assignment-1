@@ -19,7 +19,7 @@ function Reviews({ reviews }) {
         <li key={review.id}>
           <div>
             {review.name}
-            {' / '}
+            {' | '}
             {review.score}
             점
           </div>
