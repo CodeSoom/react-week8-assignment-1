@@ -6,21 +6,26 @@ import styled from '@emotion/styled';
 
 import homeImage from './assets/images/homeImage.png';
 
-const Title = styled.h2({
-  margin: 0,
-  padding: '.4em 0',
-});
-
-const List = styled.ul({
+const Container = styled.div(() => ({
   display: 'table',
   marginLeft: 'auto',
   marginRight: 'auto',
+}));
+
+const Title = styled.h2({
+  margin: '0',
   padding: 'auto',
+});
+
+const List = styled.ul({
+  display: 'flex',
   listStyle: 'none',
+  padding: '4em auto',
+  marginTop: '2em',
 });
 
 const Item = styled.li({
-  marginRight: '1em',
+  marginRight: '2.5em',
   '& a': {
     color: '#333',
     textDecoration: 'none',
@@ -31,9 +36,16 @@ const Item = styled.li({
   },
 });
 
+const Image = styled.img((src, alt) => ({
+  src,
+  alt,
+  marginTop: '2em',
+  width: '100%',
+}));
+
 export default function HomePage() {
   return (
-    <div>
+    <Container>
       <Title>
         Home
       </Title>
@@ -51,6 +63,7 @@ export default function HomePage() {
           <Link to="/xxx">멸망의 길</Link>
         </Item>
       </List>
-    </div>
+      <Image src={homeImage} alt="오늘뭐먹지?" />
+    </Container>
   );
 }
