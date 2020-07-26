@@ -12,7 +12,7 @@ import {
 
 import { get } from './utils';
 
-export default function RegionsContainer() {
+const RegionsContainer = React.memo(() => {
   const dispatch = useDispatch();
 
   const regions = useSelector(get('regions'));
@@ -45,4 +45,6 @@ export default function RegionsContainer() {
       ))}
     </MenuList>
   );
-}
+});
+
+export default RegionsContainer;
