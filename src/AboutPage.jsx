@@ -10,7 +10,7 @@ const Description = styled.p({
   textAlign: 'center',
 });
 
-export default function AboutPage() {
+function AboutPage() {
   return (
     <div>
       <SubTitle>
@@ -25,3 +25,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
+export default React.memo(AboutPage);
