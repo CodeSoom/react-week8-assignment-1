@@ -7,7 +7,7 @@ export const Container = styled.div({
 });
 
 export const Content = styled.div({
-  margin: '0px 50px',
+  margin: '64px 128px',
 });
 
 export const Header = styled.header({
@@ -74,3 +74,26 @@ export const MenuItem = styled.li(({ active }) => ({
     },
   },
 }));
+
+export const LoginContainer = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
+
+export const LoginInput = styled.div({
+  width: '256px',
+  display: 'flex',
+  justifyContent: 'space-between',
+});
+
+export const LoginButton = styled.button({
+  width: '256px',
+  margin: '10px 0',
+  border: '0px',
+  backgroundColor: '#999',
+  color: '#FFF',
+  '&:hover': {
+    color: 'yellow',
+  },
+});

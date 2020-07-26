@@ -2,11 +2,15 @@ import React from 'react';
 
 import LoginFormContainer from '../components/LoginFormContainer';
 
+import { LoginContainer } from '../styles';
+
 export default function LoginPage() {
   return (
     <div>
-      <h2>Log In</h2>
-      <LoginFormContainer />
+      <LoginContainer>
+        <h2>Log In</h2>
+        <LoginFormContainer />
+      </LoginContainer>
     </div>
   );
 }

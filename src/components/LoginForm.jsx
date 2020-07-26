@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
 
+import { LoginInput, LoginButton } from '../styles';
+
 function LoginForm({ fields, onChange, onSubmit }) {
   const { email, password } = fields;
 
@@ -10,7 +12,7 @@ function LoginForm({ fields, onChange, onSubmit }) {
 
   return (
     <>
-      <div>
+      <LoginInput>
         <label htmlFor="login-email">
           E-mail
         </label>
@@ -21,8 +23,8 @@ function LoginForm({ fields, onChange, onSubmit }) {
           value={email}
           onChange={handleChange}
         />
-      </div>
-      <div>
+      </LoginInput>
+      <LoginInput>
         <label htmlFor="login-password">
           Password
         </label>
@@ -33,13 +35,13 @@ function LoginForm({ fields, onChange, onSubmit }) {
           value={password}
           onChange={handleChange}
         />
-      </div>
-      <button
+      </LoginInput>
+      <LoginButton
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
+      </LoginButton>
     </>
   );
 }
