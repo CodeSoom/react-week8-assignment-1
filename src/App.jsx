@@ -28,7 +28,7 @@ const Container = styled.div({
 });
 
 const Header = styled.header({
-  backgroundColor: '#EEE',
+  backgroundColor: '#fff',
   '& h1': {
     margin: 0,
     padding: '1em .5em',
@@ -37,8 +37,10 @@ const Header = styled.header({
   '& a': {
     color: '#555',
     textDecoration: 'none',
-    '& hover': {
-      color: '#000',
+    '&:hover': {
+      color: 'navy',
+      fontWeight: 'bold',
+      textShadow: 'auto',
     },
   },
 });
