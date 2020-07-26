@@ -23,7 +23,7 @@ function ReviewForm({
         onChange={onChange}
       />
       <TextField
-        label="리뷰 내용"
+        label="리뷰 적기"
         name="description"
         value={description}
         onChange={onChange}
