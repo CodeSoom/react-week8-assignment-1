@@ -2,6 +2,9 @@ import React from 'react';
 
 import TextField from './TextField';
 
+import Review from '../styles/Review';
+import Button from '../styles/ReviewButton';
+
 function ReviewForm({
   restaurantId,
   fields,
@@ -11,7 +14,7 @@ function ReviewForm({
   const { score, description } = fields;
 
   return (
-    <>
+    <Review>
       <TextField
         label="평점"
         name="score"
@@ -25,13 +28,13 @@ function ReviewForm({
         value={description}
         onChange={onChange}
       />
-      <button
+      <Button
         type="button"
         onClick={() => onSubmit(restaurantId)}
       >
         리뷰 남기기
-      </button>
-    </>
+      </Button>
+    </Review>
   );
 }
 

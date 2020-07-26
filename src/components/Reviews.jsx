@@ -1,5 +1,8 @@
 import React from 'react';
 
+import List from '../styles/ReviewtList';
+import Item from '../styles/ReviewItem';
+
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -8,22 +11,22 @@ function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <List>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
+        <Item key={review.id}>
           <div>
-            {review.name}
-          </div>
-          <div>
-            {review.score}
-            점
+            <span>{review.name}</span>
+            <span>
+              {review.score}
+              점
+            </span>
           </div>
           <div>
             {review.description}
           </div>
-        </li>
+        </Item>
       ))}
-    </ul>
+    </List>
   );
 }
 

@@ -6,6 +6,10 @@ import RestaurantDetail from '../components/RestaurantDetail';
 import ReviewForm from '../components/ReviewForm';
 import Reviews from '../components/Reviews';
 
+import RestaurantBox from '../styles/RestaurantBox';
+import Name from '../styles/Name';
+import SubName from '../styles/SubName';
+
 import {
   loadRestaurant,
   changeReviewField,
@@ -41,16 +45,22 @@ export default function RestaurantContainer({ restaurantId }) {
 
   return (
     <>
-      <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
-        <ReviewForm
-          restaurantId={restaurantId}
-          fields={reviewFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      ) : null}
-      <Reviews reviews={restaurant.reviews} />
+      <Name>{restaurant.name}</Name>
+      <RestaurantBox>
+        <RestaurantDetail restaurant={restaurant} />
+        <div>
+          <SubName>리뷰</SubName>
+          {accessToken ? (
+            <ReviewForm
+              restaurantId={restaurantId}
+              fields={reviewFields}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+          ) : null}
+          <Reviews reviews={restaurant.reviews} />
+        </div>
+      </RestaurantBox>
     </>
   );
 }

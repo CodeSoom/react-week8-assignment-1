@@ -1,19 +1,17 @@
 import React from 'react';
 
 import MenuItems from './MenuItems';
+import SubName from '../styles/SubName';
+import Text from '../styles/Text';
 
 function RestaurantDetail({ restaurant }) {
-  const { name, address, menuItems } = restaurant;
+  const { address, menuItems } = restaurant;
 
   return (
     <div>
-      <h2>{name}</h2>
-      <p>
-        주소:
-        {' '}
-        {address}
-      </p>
-      <h3>메뉴</h3>
+      <SubName> 주소</SubName>
+      <Text>{address}</Text>
+      <SubName>메뉴</SubName>
       <MenuItems menuItems={menuItems} />
     </div>
   );
