@@ -8,14 +8,16 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import styled from '@emotion/styled';
-
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
+import LogoutPage from './pages/LogoutPage';
 import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
 import NotFoundPage from './pages/NotFoundPage';
+
+import Container from './styles/Container';
+import Header from './styles/Header';
 
 import { setAccessToken } from './redux/slice';
 
@@ -29,31 +31,6 @@ export default function App() {
     dispatch(setAccessToken(accessToken));
   }
 
-  const Container = styled.div({
-    margin: '0 auto',
-    width: '80%',
-  });
-
-  const Header = styled.header({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#424242',
-    '& h1': {
-      fontSize: '1.5em',
-      margin: 0,
-      padding: '1em 1.5em',
-      textAlign: 'center',
-    },
-    '& a': {
-      color: '#fff',
-      textDecoration: 'none',
-      '&:hover': {
-        color: '#FFD600',
-      },
-    },
-  });
-
   return (
     <Container>
       <Header>
@@ -63,8 +40,8 @@ export default function App() {
         <HomePage />
       </Header>
       <Switch>
-        {/* <Route exact path="/" component={HomePage} /> */}
         <Route exact path="/" component={AboutPage} />
+        <Route path="/logout" component={LogoutPage} />
         <Route path="/login" component={LoginPage} />
         <Route exact path="/restaurants" component={RestaurantsPage} />
         <Route path="/restaurants/:id" component={RestaurantPage} />

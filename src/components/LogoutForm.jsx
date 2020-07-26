@@ -1,14 +1,17 @@
 import React from 'react';
 
+import LoginBox from '../styles/LoginBox';
+import Button from '../styles/Button';
+
 export default function LogoutForm({ onClick }) {
   return (
-    <>
-      <button
+    <LoginBox>
+      <Button
         type="button"
         onClick={onClick}
       >
         Log out
-      </button>
-    </>
+      </Button>
+    </LoginBox>
   );
 }

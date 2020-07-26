@@ -29,11 +29,11 @@ export default function RestaurantsPage() {
   }
 
   return (
-    <div>
+    <>
       <Title>Restaurants</Title>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+    </>
   );
 }

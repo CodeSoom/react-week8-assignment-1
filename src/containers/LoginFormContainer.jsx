@@ -1,23 +1,21 @@
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import LoginForm from '../components/LoginForm';
-import LogoutForm from '../components/LogoutForm';
 
 import {
   changeLoginField,
   requestLogin,
-  logout,
 } from '../redux/slice';
 
 import { get } from '../utils/utils';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const loginFields = useSelector(get('loginFields'));
-  const accessToken = useSelector(get('accessToken'));
 
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
@@ -25,23 +23,16 @@ export default function LoginFormContainer() {
 
   const handleSubmit = () => {
     dispatch(requestLogin());
-  };
-
-  const handleClickLogout = () => {
-    dispatch(logout());
+    return history.push('/restaurants');
   };
 
   return (
     <>
-      {accessToken ? (
-        <LogoutForm onClick={handleClickLogout} />
-      ) : (
-        <LoginForm
-          fields={loginFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      )}
+      <LoginForm
+        fields={loginFields}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
     </>
   );
 }

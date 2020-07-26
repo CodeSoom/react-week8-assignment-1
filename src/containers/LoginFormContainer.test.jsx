@@ -6,7 +6,16 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import LoginFormContainer from './LoginFormContainer';
 
+const mockHistoryPush = jest.fn();
+
 jest.mock('react-redux');
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory: () => ({
+    push: mockHistoryPush,
+  }),
+}));
 
 describe('LoginFormContainer', () => {
   const dispatch = jest.fn();
@@ -60,20 +69,7 @@ describe('LoginFormContainer', () => {
       fireEvent.click(getByText('Log In'));
 
       expect(dispatch).toBeCalled();
-    });
-  });
-
-  context('when logged in', () => {
-    given('accessToken', () => 'ACCESS_TOKEN');
-
-    it('renders “Log out” button', () => {
-      const { getByText } = render((
-        <LoginFormContainer />
-      ));
-
-      fireEvent.click(getByText('Log out'));
-
-      expect(dispatch).toBeCalledWith({ type: 'application/logout' });
+      expect(mockHistoryPush).toHaveBeenCalledWith('/restaurants');
     });
   });
 });

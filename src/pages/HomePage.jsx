@@ -1,46 +1,30 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 
-import styled from '@emotion/styled';
+import { get } from '../utils/utils';
 
-const HomeContainer = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-});
-
-const List = styled.ul({
-  display: 'flex',
-  margin: 0,
-  padding: 0,
-  listStyle: 'none',
-});
-const Item = styled.li({
-  fontSize: '1.1em',
-  marginRight: '1em',
-  padding: '1em',
-  '& a': {
-    color: '#fff',
-    textDecoration: 'none',
-    fontWeight: 'bold',
-    '&:hover': {
-      color: '#FFD600',
-    },
-  },
-});
-
+import Menu from '../styles/Menu';
+import List from '../styles/List';
+import Item from '../styles/Item';
 
 export default function HomePage() {
+  const accessToken = useSelector(get('accessToken'));
+
   return (
-    <HomeContainer>
-      {/* <Title>Home</Title> */}
+    <Menu>
       <List>
         <Item>
           <Link to="/">About</Link>
         </Item>
         <Item>
-          <Link to="/login">Log in</Link>
+          {
+            accessToken
+              ? <Link to="/logout">Log Out</Link>
+              : <Link to="/login">Log In</Link>
+          }
         </Item>
         <Item>
           <Link to="/restaurants">Restaurants</Link>
@@ -49,6 +33,6 @@ export default function HomePage() {
           <Link to="/xxx">멸망의 길</Link>
         </Item>
       </List>
-    </HomeContainer>
+    </Menu>
   );
 }

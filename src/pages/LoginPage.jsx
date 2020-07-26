@@ -2,13 +2,16 @@ import React from 'react';
 
 import LoginFormContainer from '../containers/LoginFormContainer';
 
+import Contents from '../styles/Contents';
 import Title from '../styles/Title';
 
 export default function LoginPage() {
   return (
-    <div>
+    <>
       <Title>Log In</Title>
-      <LoginFormContainer />
-    </div>
+      <Contents>
+        <LoginFormContainer />
+      </Contents>
+    </>
   );
 }
