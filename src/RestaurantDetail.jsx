@@ -23,7 +23,7 @@ const MenuContainer = styled.div({
   },
 });
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -41,3 +41,5 @@ export default function RestaurantDetail({ restaurant }) {
     </Container>
   );
 }
+
+export default React.memo(RestaurantDetail);
