@@ -13,7 +13,7 @@ import {
 
 import { get } from './utils';
 
-const LoginFormContainer = React.memo(() => {
+function LoginFormContainer() {
   const dispatch = useDispatch();
 
   const loginFields = useSelector(get('loginFields'));
@@ -44,6 +44,6 @@ const LoginFormContainer = React.memo(() => {
       )}
     </>
   );
-});
+}
 
-export default LoginFormContainer;
+export default React.memo(LoginFormContainer);

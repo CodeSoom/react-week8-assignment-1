@@ -16,13 +16,15 @@ const Item = styled.li({
   marginRight: '1em',
 });
 
-const LoginPage = React.memo(() => (
-  <div>
-    <List>
-      <Item><h2>Log In</h2></Item>
-      <Item><LoginFormContainer /></Item>
-    </List>
-  </div>
-));
+function LoginPage() {
+  return (
+    <div>
+      <List>
+        <Item><h2>Log In</h2></Item>
+        <Item><LoginFormContainer /></Item>
+      </List>
+    </div>
+  );
+}
 
-export default LoginPage;
+export default React.memo(LoginPage);
