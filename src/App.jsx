@@ -43,7 +43,7 @@ const Header = styled.header({
   },
 });
 
-export default function App() {
+function App() {
   const dispatch = useDispatch();
 
   const accessToken = loadItem('accessToken');
@@ -69,3 +69,5 @@ export default function App() {
     </Container>
   );
 }
+
+export default React.memo(App);
