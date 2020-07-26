@@ -1,14 +1,12 @@
 Feature('Home');
 
 const menus = [
-  { name: 'About', url: '/about' },
+  { name: 'About', url: '/' },
   { name: 'Restaurants', url: '/restaurants' },
 ];
 
 Scenario('메뉴들을 볼 수 있다.', (I) => {
   I.amOnPage('/');
-
-  I.see('Home');
 
   menus.forEach(({ name }) => {
     I.see(name);
