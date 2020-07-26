@@ -45,11 +45,17 @@
     "@codeceptjs/configure": "^0.5.2",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@reduxjs/toolkit": "^1.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-toolkit": "^1.1.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|PNG|svg|)$": "./assetsTransformer.js"
+    }
   }
 }
