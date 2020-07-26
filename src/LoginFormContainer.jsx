@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
 import LoginForm from './LoginForm';
 import LogoutForm from './LogoutForm';
 
@@ -12,6 +13,14 @@ import {
 } from './actions';
 
 import { get } from './utils';
+
+const Container = styled.div(() => ({
+  display: 'table',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  padding: '0 10em',
+  textAlign: 'left',
+}));
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -32,7 +41,7 @@ export default function LoginFormContainer() {
   };
 
   return (
-    <>
+    <Container>
       {accessToken ? (
         <LogoutForm onClick={handleClickLogout} />
       ) : (
@@ -42,6 +51,6 @@ export default function LoginFormContainer() {
           onSubmit={handleSubmit}
         />
       )}
-    </>
+    </Container>
   );
 }
