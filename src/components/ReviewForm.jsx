@@ -2,6 +2,8 @@ import React from 'react';
 
 import TextField from './TextField';
 
+import Button from '../styles/Button';
+
 function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
@@ -20,12 +22,12 @@ function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
+      </Button>
     </>
   );
 }

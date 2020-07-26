@@ -1,5 +1,24 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+const ReviewList = styled.ul({
+  marginTop: '1em',
+  padding: '.4em 0',
+  listStyle: 'none',
+});
+
+const ReviewItem = styled.li({
+  display: 'flex',
+  '& div': {
+    padding: '.4em 1em',
+    color: '#333',
+    textDecoration: 'none',
+    cursor: 'pointer',
+  },
+});
+
+
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -8,9 +27,9 @@ function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <ReviewList>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
+        <ReviewItem key={review.id}>
           <div>
             {review.name}
           </div>
@@ -21,9 +40,9 @@ function Reviews({ reviews }) {
           <div>
             {review.description}
           </div>
-        </li>
+        </ReviewItem>
       ))}
-    </ul>
+    </ReviewList>
   );
 }
 
