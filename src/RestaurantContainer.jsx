@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -10,9 +12,15 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+const Container = styled.div({
+  display: 'table',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+});
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -36,11 +44,11 @@ export default function RestaurantContainer({ restaurantId }) {
   }
 
   function handleSubmit() {
-    dispatch(sendReview({ restaurantId }));
+    dispatch(sendReview(restaurantId));
   }
 
   return (
-    <>
+    <Container>
       <RestaurantDetail restaurant={restaurant} />
       {accessToken ? (
         <ReviewForm
@@ -50,6 +58,6 @@ export default function RestaurantContainer({ restaurantId }) {
         />
       ) : null}
       <Reviews reviews={restaurant.reviews} />
-    </>
+    </Container>
   );
 }
