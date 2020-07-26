@@ -26,14 +26,12 @@ function RestaurantDetail({ restaurant }) {
 
   return (
     <div>
-      <HorizontalList>
-        <h2>{name}</h2>
-        <Address>
-          주소:
-          {' '}
-          {address}
-        </Address>
-      </HorizontalList>
+      <h2>{name}</h2>
+      <Address>
+        주소:
+        {' '}
+        {address}
+      </Address>
       <HorizontalList>
         <MenuTitle>메뉴</MenuTitle>
         <MenuItems menuItems={menuItems} />
