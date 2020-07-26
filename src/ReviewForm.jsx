@@ -30,7 +30,7 @@ const Button = styled.button((type, onClick) => ({
   },
 }));
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
@@ -50,12 +50,14 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
           onChange={onChange}
         />
       </Container>
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
+      </Button>
     </>
   );
 }
+
+export default React.memo(ReviewForm);

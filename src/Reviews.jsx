@@ -20,7 +20,7 @@ const Item = styled.li({
   },
 });
 
-export default function Reviews({ reviews }) {
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -47,3 +47,8 @@ export default function Reviews({ reviews }) {
     </List>
   );
 }
+
+// Reviews 컴포넌트가 pure 컴포넌트로 export
+// 값이 바뀔 때만 가상 DOM이 바뀌도록
+// 그 외는 cache되어 있는 것만 나오도록
+export default React.memo(Reviews);
