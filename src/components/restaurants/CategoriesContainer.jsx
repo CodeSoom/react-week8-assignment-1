@@ -33,11 +33,7 @@ export default function CategoriesContainer() {
           onClick={() => handleClick(category.id)}
         >
           {category.name}
-          {selectedCategory ? (
-            <>
-              {category.id === selectedCategory.id ? '(V)' : null}
-            </>
-          ) : null}
+          {selectedCategory && (category.id === selectedCategory.id && '(V)')}
         </Button>
       ))}
     </OptionContainer>
