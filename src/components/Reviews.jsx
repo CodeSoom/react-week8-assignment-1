@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { DetailMenuList, DetailMenuItem, ReviewStar } from '../styles';
+
+const star = ['★☆☆☆☆', '★★☆☆☆', '★★★☆☆', '★★★★☆', '★★★★★'];
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -8,22 +11,23 @@ function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <DetailMenuList>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
+        <DetailMenuItem key={review.id}>
           <div>
             {review.name}
-          </div>
-          <div>
-            {review.score}
-            점
+            (
+            <ReviewStar>
+              {Number(review.score) < 5 ? star[review.score - 1] : star[4]}
+            </ReviewStar>
+            )
           </div>
           <div>
             {review.description}
           </div>
-        </li>
+        </DetailMenuItem>
       ))}
-    </ul>
+    </DetailMenuList>
   );
 }
 
