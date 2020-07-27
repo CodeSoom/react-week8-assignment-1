@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { DetailMenuItem, DetailMenuList } from '../styles';
+
 function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -8,13 +10,14 @@ function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <DetailMenuList>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
-          {menuItem.name}
-        </li>
+        <DetailMenuItem key={menuItem.id}>
+          <div>{menuItem.name}</div>
+          <div> - 원</div>
+        </DetailMenuItem>
       ))}
-    </ul>
+    </DetailMenuList>
   );
 }
 

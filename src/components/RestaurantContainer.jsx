@@ -42,6 +42,7 @@ export default function RestaurantContainer({ restaurantId }) {
   return (
     <>
       <RestaurantDetail restaurant={restaurant} />
+      <h3>Review</h3>
       {accessToken ? (
         <ReviewForm
           fields={reviewFields}

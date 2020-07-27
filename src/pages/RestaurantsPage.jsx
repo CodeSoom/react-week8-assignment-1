@@ -12,6 +12,8 @@ import {
   loadInitialData,
 } from '../slice';
 
+import { MenuContainer } from '../styles';
+
 export default function RestaurantsPage() {
   const history = useHistory();
 
@@ -27,10 +29,10 @@ export default function RestaurantsPage() {
   }
 
   return (
-    <div>
+    <MenuContainer>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+    </MenuContainer>
   );
 }
