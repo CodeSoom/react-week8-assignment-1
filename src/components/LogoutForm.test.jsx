@@ -12,9 +12,9 @@ describe('LogoutForm', () => {
       <LogoutForm onClick={handleClick} />
     ));
 
-    expect(container).toHaveTextContent('Log out');
+    expect(container).toHaveTextContent('Log Out');
 
-    fireEvent.click(getByText('Log out'));
+    fireEvent.click(getByText('Log Out'));
 
     expect(handleClick).toBeCalled();
   });
@@ -39,7 +39,7 @@ describe('LogoutForm', () => {
         <LogoutForm onClick={handleClick} />
       ));
 
-      fireEvent.click(getByText('Log out'));
+      fireEvent.click(getByText('Log Out'));
 
       expect(handleClick).toBeCalled();
     });

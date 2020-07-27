@@ -1,43 +1,59 @@
 import React from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
-import { List, Item, Navigator } from '../styles';
+import { useSelector } from 'react-redux';
+
+import { get } from '../utils';
+
+import {
+  List,
+  Item,
+  ItemList,
+  constants,
+} from '../styles';
 
 export default function RoutePage() {
   const activeStyle = {
     fontWeight: 'bold',
-    color: 'yellow',
+    color: constants.COLOR_LIGHT,
   };
 
+  const accessToken = useSelector(get('accessToken'));
+
   return (
-    <Navigator>
+    <div>
       <List>
         <Item>
-          <NavLink
-            to="/about"
-            activeStyle={activeStyle}
-          >
-            About
-          </NavLink>
+          <Link to="/">Eat_Go</Link>
         </Item>
-        <Item>
-          <NavLink
-            to="/login"
-            activeStyle={activeStyle}
-          >
-            Log in
-          </NavLink>
-        </Item>
-        <Item>
-          <NavLink
-            to="/restaurants"
-            activeStyle={activeStyle}
-          >
-            Restaurants
-          </NavLink>
-        </Item>
+        <ItemList>
+          <Item>
+            <NavLink
+              to="/about"
+              activeStyle={activeStyle}
+            >
+              About
+            </NavLink>
+          </Item>
+          <Item>
+            <NavLink
+              to="/restaurants"
+              activeStyle={activeStyle}
+            >
+              Restaurants
+            </NavLink>
+          </Item>
+          <Item>
+            <NavLink
+              to="/login"
+              activeStyle={activeStyle}
+            >
+              {accessToken ? 'Log out' : 'Log in'}
+            </NavLink>
+          </Item>
+        </ItemList>
       </List>
-    </Navigator>
+    </div>
   );
 }

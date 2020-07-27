@@ -20,7 +20,7 @@ Scenario('로그아웃', (I) => {
 
   I.click('Log In');
 
-  I.click('Log out');
+  I.click('Log Out');
 
   I.see('Log In', 'button');
 });

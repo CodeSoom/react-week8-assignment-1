@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { LoginButton } from '../styles';
+import { Button } from '../styles';
 
 function LogoutForm({ onClick }) {
   return (
     <>
-      <LoginButton
+      <Button
         type="button"
         onClick={onClick}
       >
-        Log out
-      </LoginButton>
+        Log Out
+      </Button>
     </>
   );
 }

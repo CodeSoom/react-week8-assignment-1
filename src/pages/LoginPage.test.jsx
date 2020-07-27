@@ -17,26 +17,66 @@ describe('LoginPage', () => {
         email: 'test@test',
         password: '1234',
       },
+      accessToken: given.accessToken,
     }));
   });
 
-  it('renders Log-in title', () => {
-    const { container } = render((
-      <MemoryRouter>
-        <LoginPage />
-      </MemoryRouter>
-    ));
+  context('when logged out', () => {
+    given('accessToken', () => '');
 
-    expect(container).toHaveTextContent('Log In');
+    it('renders Log-in title', () => {
+      const { container } = render((
+        <MemoryRouter>
+          <LoginPage />
+        </MemoryRouter>
+      ));
+
+      expect(container).toHaveTextContent('Log in');
+    });
+
+    it('renders input control', () => {
+      const { getByLabelText } = render((
+        <MemoryRouter>
+          <LoginPage />
+        </MemoryRouter>
+      ));
+
+      expect(getByLabelText('E-mail')).not.toBeNull();
+      expect(getByLabelText('Password')).not.toBeNull();
+    });
+
+    it('renders Log-in button', () => {
+      const { container } = render((
+        <MemoryRouter>
+          <LoginPage />
+        </MemoryRouter>
+      ));
+
+      expect(container).toHaveTextContent('Log In');
+    });
   });
 
-  it('renders input control', () => {
-    const { getByLabelText } = render((
-      <MemoryRouter>
-        <LoginPage />
-      </MemoryRouter>
-    ));
+  context('when logged in', () => {
+    given('accessToken', () => 'ACCESS_TOKEN');
 
-    expect(getByLabelText('E-mail')).not.toBeNull();
+    it('renders “Log out” title', () => {
+      const { container } = render((
+        <MemoryRouter>
+          <LoginPage />
+        </MemoryRouter>
+      ));
+
+      expect(container).toHaveTextContent('Log out');
+    });
+
+    it('renders “Log out” button', () => {
+      const { container } = render((
+        <MemoryRouter>
+          <LoginPage />
+        </MemoryRouter>
+      ));
+
+      expect(container).toHaveTextContent('Log out');
+    });
   });
 });
