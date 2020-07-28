@@ -8,16 +8,43 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import styled from '@emotion/styled';
 
-import { setAccessToken } from './actions';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import RestaurantsPage from './pages/RestaurantsPage';
+import RestaurantPage from './pages/RestaurantPage';
+import NotFoundPage from './pages/NotFoundPage';
+
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
+
+import {
+  lightGray, darkBlue, skyBlue, pastelPink,
+} from './assets/styles/colors';
+
+const Header = styled.header({
+  textAlign: 'center',
+  backgroundColor: lightGray,
+  padding: '15px 0',
+  borderBottom: `1px ${darkBlue} solid`,
+  '& h1': {
+    margin: '0 auto',
+  },
+  '& a': {
+    color: pastelPink,
+    '&:link': {
+      textDecoration: 'none',
+    },
+    '&:hover': {
+      fontWeight: 'bold',
+      color: skyBlue,
+      cursor: 'pointer',
+    },
+  },
+});
 
 export default function App() {
   const dispatch = useDispatch();
@@ -29,11 +56,11 @@ export default function App() {
 
   return (
     <div>
-      <header>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">밥 먹으러 갈래?</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
