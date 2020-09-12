@@ -1,5 +1,7 @@
 import React from 'react';
 
+import InputItem from '../styles/InputItem';
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -11,7 +13,7 @@ export default function TextField({
   }
 
   return (
-    <div>
+    <InputItem>
       <label htmlFor={id}>
         {label}
       </label>
@@ -22,6 +24,6 @@ export default function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </InputItem>
   );
 }
