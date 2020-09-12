@@ -1,4 +1,6 @@
-import { equal } from './utils';
+import { createSlice } from '@reduxjs/toolkit';
+
+import { equal } from '../utils';
 
 const initialReviewFields = {
   score: '',
@@ -23,35 +25,35 @@ const initialState = {
 };
 
 const reducers = {
-  setRegions(state, { payload: { regions } }) {
+  setRegions(state, { payload: regions }) {
     return {
       ...state,
       regions,
     };
   },
 
-  setCategories(state, { payload: { categories } }) {
+  setCategories(state, { payload: categories }) {
     return {
       ...state,
       categories,
     };
   },
 
-  setRestaurants(state, { payload: { restaurants } }) {
+  setRestaurants(state, { payload: restaurants }) {
     return {
       ...state,
       restaurants,
     };
   },
 
-  setRestaurant(state, { payload: { restaurant } }) {
+  setRestaurant(state, { payload: restaurant }) {
     return {
       ...state,
       restaurant,
     };
   },
 
-  selectRegion(state, { payload: { regionId } }) {
+  selectRegion(state, { payload: regionId }) {
     const { regions } = state;
     return {
       ...state,
@@ -59,7 +61,7 @@ const reducers = {
     };
   },
 
-  selectCategory(state, { payload: { categoryId } }) {
+  selectCategory(state, { payload: categoryId }) {
     const { categories } = state;
     return {
       ...state,
@@ -77,7 +79,7 @@ const reducers = {
     };
   },
 
-  setAccessToken(state, { payload: { accessToken } }) {
+  setAccessToken(state, { payload: accessToken }) {
     return {
       ...state,
       accessToken,
@@ -110,7 +112,7 @@ const reducers = {
     };
   },
 
-  setReviews(state, { payload: { reviews } }) {
+  setReviews(state, { payload: reviews }) {
     const { restaurant } = state;
 
     return {
@@ -123,10 +125,10 @@ const reducers = {
   },
 };
 
-function defaultReducer(state) {
-  return state;
-}
+const applicationSlice = createSlice({
+  name: 'application',
+  initialState,
+  reducers,
+});
 
-export default function reducer(state = initialState, action) {
-  return (reducers[action.type] || defaultReducer)(state, action);
-}
+export default applicationSlice;
