@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import styled from '@emotion/styled';
 
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
@@ -10,9 +12,15 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+const Container = styled.div({
+  display: 'table',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+});
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -25,22 +33,23 @@ export default function RestaurantContainer({ restaurantId }) {
   const restaurant = useSelector(get('restaurant'));
   const reviewFields = useSelector(get('reviewFields'));
 
+  // dispatch가 바뀌지 않으면 handleChange 유지
+  const handleChange = useCallback(({ name, value }) => {
+    dispatch(changeReviewField({ name, value }));
+  }, [dispatch]);
+
+  const handleSubmit = useCallback(() => {
+    dispatch(sendReview(restaurantId));
+  }, [dispatch, restaurantId]);
+
   if (!restaurant) {
     return (
       <p>Loading...</p>
     );
   }
 
-  function handleChange({ name, value }) {
-    dispatch(changeReviewField({ name, value }));
-  }
-
-  function handleSubmit() {
-    dispatch(sendReview({ restaurantId }));
-  }
-
   return (
-    <>
+    <Container>
       <RestaurantDetail restaurant={restaurant} />
       {accessToken ? (
         <ReviewForm
@@ -50,6 +59,6 @@ export default function RestaurantContainer({ restaurantId }) {
         />
       ) : null}
       <Reviews reviews={restaurant.reviews} />
-    </>
+    </Container>
   );
 }
