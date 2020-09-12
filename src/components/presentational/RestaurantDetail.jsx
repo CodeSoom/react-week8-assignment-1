@@ -2,12 +2,14 @@ import React from 'react';
 
 import MenuItems from './MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+import Title from '../../styles/Title';
+
+const RestaurantDetail = React.memo(({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
   return (
     <div>
-      <h2>{name}</h2>
+      <Title>{name}</Title>
       <p>
         주소:
         {' '}
@@ -17,4 +19,6 @@ export default function RestaurantDetail({ restaurant }) {
       <MenuItems menuItems={menuItems} />
     </div>
   );
-}
+});
+
+export default RestaurantDetail;

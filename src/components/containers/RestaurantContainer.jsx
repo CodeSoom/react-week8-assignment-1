@@ -1,20 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import RestaurantDetail from './RestaurantDetail';
-import ReviewForm from './ReviewForm';
-import Reviews from './Reviews';
+import RestaurantDetail from '../presentational/RestaurantDetail';
+import ReviewForm from '../presentational/ReviewForm';
+import Reviews from '../presentational/Reviews';
 
 import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from '../../slice';
 
-import { get } from './utils';
+import { get } from '../../utils';
 
-export default function RestaurantContainer({ restaurantId }) {
+
+const RestaurantContainer = React.memo(({ restaurantId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,18 +26,18 @@ export default function RestaurantContainer({ restaurantId }) {
   const restaurant = useSelector(get('restaurant'));
   const reviewFields = useSelector(get('reviewFields'));
 
+  const handleChange = useCallback(({ name, value }) => {
+    dispatch(changeReviewField({ name, value }));
+  }, [dispatch]);
+
+  const handleSubmit = useCallback(() => {
+    dispatch(sendReview({ restaurantId }));
+  }, [dispatch, restaurantId]);
+
   if (!restaurant) {
     return (
       <p>Loading...</p>
     );
-  }
-
-  function handleChange({ name, value }) {
-    dispatch(changeReviewField({ name, value }));
-  }
-
-  function handleSubmit() {
-    dispatch(sendReview({ restaurantId }));
   }
 
   return (
@@ -52,4 +53,6 @@ export default function RestaurantContainer({ restaurantId }) {
       <Reviews reviews={restaurant.reviews} />
     </>
   );
-}
+});
+
+export default RestaurantContainer;
