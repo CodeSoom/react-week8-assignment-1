@@ -5,9 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectRegion,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+import MenuList from './MenuList';
+import MenuItem from './MenuItem';
+
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -21,9 +25,12 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
+    <MenuList>
       {regions.map((region) => (
-        <li key={region.id}>
+        <MenuItem
+          key={region.id}
+          active={selectedRegion && region.id === selectedRegion.id}
+        >
           <button
             type="button"
             onClick={() => handleClick(region.id)}
@@ -35,8 +42,8 @@ export default function RegionsContainer() {
               </>
             ) : null}
           </button>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }

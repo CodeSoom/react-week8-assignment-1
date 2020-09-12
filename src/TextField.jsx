@@ -1,5 +1,15 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+const Field = styled.div({
+  display: 'flex',
+  marginBottom: '.5em',
+  '& label': {
+    width: '5em',
+  },
+});
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -11,7 +21,7 @@ export default function TextField({
   }
 
   return (
-    <div>
+    <Field>
       <label htmlFor={id}>
         {label}
       </label>
@@ -22,6 +32,6 @@ export default function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Field>
   );
 }
