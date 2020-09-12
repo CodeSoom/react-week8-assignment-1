@@ -27,7 +27,7 @@ describe('CategoriesContainer', () => {
       <CategoriesContainer />
     ));
 
-    expect(container).toHaveTextContent('한식(V)');
+    expect(container).toHaveTextContent('한식');
     expect(container).toHaveTextContent('양식');
 
     fireEvent.click(getByText('양식'));

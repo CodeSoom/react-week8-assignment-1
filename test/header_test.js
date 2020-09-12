@@ -6,11 +6,11 @@ const pages = [
   '/not-exist',
 ];
 
-Scenario('헤더를 클릭하면 메인 페이지로 돌아옵니다.', (I) => {
+Scenario('헤더 를 클릭하면 메인 페이지로 돌아옵니다.', (I) => {
   pages.forEach((page) => {
     I.amOnPage(page);
 
-    I.click('헤더');
+    I.click('Let Eat Go');
 
     I.see('Home');
   });

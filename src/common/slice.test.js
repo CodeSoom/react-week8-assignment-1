@@ -1,19 +1,18 @@
-import reducer from './reducer';
-
 import {
+  reducer,
   setRegions,
   setCategories,
   setRestaurants,
   setRestaurant,
-  selectRegion,
-  selectCategory,
-  changeLoginField,
   setAccessToken,
-  logout,
-  changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+  selectRegion,
+  logout,
+  selectCategory,
+  changeReviewField,
+  changeLoginField,
+} from './slice';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
