@@ -1,6 +1,6 @@
-import thunk from 'redux-thunk';
-
 import configureStore from 'redux-mock-store';
+
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
 
 import {
   loadInitialData,
@@ -16,10 +16,9 @@ import {
   loadReview,
   sendReview,
   clearReviewFields,
-} from './actions';
+} from './reducer';
 
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
+const mockStore = configureStore([...getDefaultMiddleware()]);
 
 jest.mock('./services/api');
 

@@ -1,14 +1,16 @@
 import React from 'react';
 
+import StyledSubmitButton from './StyledSubmitButton';
+
 export default function LogoutForm({ onClick }) {
   return (
     <>
-      <button
+      <StyledSubmitButton
         type="button"
         onClick={onClick}
       >
         Log out
-      </button>
+      </StyledSubmitButton>
     </>
   );
 }

@@ -2,12 +2,17 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import ItemList from '../components/ItemList';
+import Item from '../components/Item';
+import StyledListButton from '../components/StyledListButton';
+
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from '../reducer';
 
-import { get } from './utils';
+import { get } from '../utils';
+
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -21,10 +26,10 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <ItemList>
       {categories.map((category) => (
-        <li key={category.id}>
-          <button
+        <Item key={category.id}>
+          <StyledListButton
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -34,9 +39,9 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
-        </li>
+          </StyledListButton>
+        </Item>
       ))}
-    </ul>
+    </ItemList>
   );
 }

@@ -42,11 +42,15 @@
   },
   "dependencies": {
     "@codeceptjs/configure": "^0.5.2",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@reduxjs/toolkit": "^1.4.0",
+    "css-loader": "^3.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "style-loader": "^1.2.1"
   }
 }

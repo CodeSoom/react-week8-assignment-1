@@ -2,7 +2,10 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { get } from './utils';
+import ItemList from '../components/ItemList';
+import Item from '../components/Item';
+
+import { get } from '../utils';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get('restaurants'));
@@ -15,14 +18,14 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <ul>
+    <ItemList>
       {restaurants.map((restaurant) => (
-        <li key={restaurant.id}>
+        <Item key={restaurant.id}>
           <a href="/restaurants/1" onClick={handleClick(restaurant)}>
             {restaurant.name}
           </a>
-        </li>
+        </Item>
       ))}
-    </ul>
+    </ItemList>
   );
 }
