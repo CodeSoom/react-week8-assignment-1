@@ -4,7 +4,7 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,6 +14,16 @@ import { loadItem } from './services/storage';
 
 jest.mock('react-redux');
 jest.mock('./services/storage');
+jest.mock('./assets/images');
+
+const mockPush = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory() {
+    return { push: mockPush };
+  },
+}));
 
 describe('App', () => {
   const dispatch = jest.fn();
@@ -44,7 +54,7 @@ describe('App', () => {
     it('renders the home page', () => {
       const { container } = renderApp({ path: '/' });
 
-      expect(container).toHaveTextContent('Home');
+      expect(container).toHaveTextContent(/코드숨잇고에서/);
     });
   });
 
@@ -95,9 +105,19 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'application/setAccessToken',
+        payload: accessToken,
       });
+    });
+  });
+
+  context('when click `Codesoom Eatgo`', () => {
+    it('calls handleClickLink', () => {
+      const { getByText } = renderApp({ path: '/' });
+
+      fireEvent.click(getByText(/Codesoom Eatgo/));
+
+      expect(mockPush).toBeCalledWith('/');
     });
   });
 });
