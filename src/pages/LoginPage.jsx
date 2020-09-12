@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LoginFormContainer from './LoginFormContainer';
+import LoginFormContainer from '../components/containers/LoginFormContainer';
 
 export default function LoginPage() {
   return (
