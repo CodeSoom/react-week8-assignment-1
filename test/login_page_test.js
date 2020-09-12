@@ -9,6 +9,8 @@ Scenario('로그인과 로그아웃', (I) => {
 
   I.click('Log In');
 
+  I.see('서울');
+
   I.see('Log out');
 });
 
@@ -20,7 +22,9 @@ Scenario('로그아웃', (I) => {
 
   I.click('Log In');
 
-  I.click('Log out');
+  I.see('서울');
 
-  I.see('Log In', 'button');
+  I.click('Log Out');
+
+  I.see('Log In', 'a');
 });
