@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
-const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
+import { Input, Button } from '../styles';
+
+function LoginForm({ fields, onChange, onSubmit }) {
   const { email, password } = fields;
 
-  function handleChange(event) {
+  const handleChange = useCallback((event) => {
     const { target: { name, value } } = event;
     onChange({ name, value });
-  }
+  }, [onchange]);
 
   return (
     <>
-      <div>
+      <Input>
         <label htmlFor="login-email">
           E-mail
         </label>
@@ -21,8 +23,8 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           value={email}
           onChange={handleChange}
         />
-      </div>
-      <div>
+      </Input>
+      <Input>
         <label htmlFor="login-password">
           Password
         </label>
@@ -33,15 +35,15 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           value={password}
           onChange={handleChange}
         />
-      </div>
-      <button
+      </Input>
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
+      </Button>
     </>
   );
-});
+}
 
-export default LoginForm;
+export default React.memo(LoginForm);

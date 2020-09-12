@@ -2,11 +2,13 @@ import React from 'react';
 
 import TextField from './TextField';
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+import { DetailReviewForm, Button } from '../styles';
+
+function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
-    <>
+    <DetailReviewForm>
       <TextField
         label="평점"
         name="score"
@@ -20,12 +22,15 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
-    </>
+      </Button>
+    </DetailReviewForm>
+
   );
 }
+
+export default React.memo(ReviewForm);

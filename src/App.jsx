@@ -1,23 +1,41 @@
 import React from 'react';
 
 import {
-  Switch,
+  Redirect,
   Route,
-  Link,
+  Switch,
 } from 'react-router-dom';
+
+import styled from '@emotion/styled';
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
-
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
+
+import LandingPage from './pages/LandingPage';
+import RoutePage from './pages/RoutePage';
+import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import RestaurantsPage from './pages/RestaurantsPage';
+import RestaurantPage from './pages/RestaurantPage';
+
+import { Container, Content } from './styles';
+
+const ImageBase = styled.div`
+  position: fixed;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: url('https://cdn.pixabay.com/photo/2015/05/15/14/55/cafe-768771_1280.jpg');  background-position: center center;
+  background-size: cover;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  z-index: -999999;
+ `;
 
 export default function App() {
   const dispatch = useDispatch();
@@ -28,20 +46,19 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <Container>
+      <ImageBase />
+      <RoutePage />
+      <Content>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Redirect to="/" />
+        </Switch>
+      </Content>
+    </Container>
   );
 }
