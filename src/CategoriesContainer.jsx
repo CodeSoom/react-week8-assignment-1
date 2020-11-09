@@ -8,7 +8,7 @@ import MenuItem from './MenuItem';
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
@@ -26,7 +26,13 @@ export default function CategoriesContainer() {
   return (
     <MenuList>
       {categories.map((category) => (
-        <MenuItem key={category.id} active={selectedCategory && category.id === selectedCategory.id}>
+        <MenuItem
+          key={category.id}
+          active={
+            selectedCategory
+            && category.id === selectedCategory.id
+          }
+        >
           <button
             type="button"
             onClick={() => handleClick(category.id)}
