@@ -17,7 +17,7 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
@@ -54,7 +54,7 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">EatGo</Link>
+          <Link to="/">GoEat</Link>
         </h1>
       </Header>
       <Switch>
