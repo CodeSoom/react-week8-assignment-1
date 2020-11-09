@@ -1,6 +1,6 @@
-import reducer from './reducer';
+import { reducer, actions } from './slice';
 
-import {
+const {
   setRegions,
   setCategories,
   setRestaurants,
@@ -13,7 +13,7 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+} = actions;
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
