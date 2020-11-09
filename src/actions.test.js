@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import thunk from 'redux-thunk';
 
 import configureStore from 'redux-mock-store';
