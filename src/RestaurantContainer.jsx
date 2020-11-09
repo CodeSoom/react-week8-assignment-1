@@ -25,19 +25,19 @@ export default function RestaurantContainer({ restaurantId }) {
   const restaurant = useSelector(get('restaurant'));
   const reviewFields = useSelector(get('reviewFields'));
 
-  if (!restaurant) {
-    return (
-      <p>Loading...</p>
-    );
-  }
-
   const handleChange = useCallback(({ name, value }) => {
     dispatch(changeReviewField({ name, value }));
   }, [dispatch]);
 
   const handleSubmit = useCallback(() => {
     dispatch(sendReview({ restaurantId }));
-  }, [dispatch]);
+  }, [dispatch, restaurantId]);
+
+  if (!restaurant) {
+    return (
+      <p>Loading...</p>
+    );
+  }
 
   return (
     <>
