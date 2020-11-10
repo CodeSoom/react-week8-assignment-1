@@ -4,19 +4,24 @@ import configureStore from 'redux-mock-store';
 
 import {
   loadInitialData,
-  setRegions,
-  setCategories,
   loadRestaurants,
   loadRestaurant,
-  setRestaurants,
-  setRestaurant,
-  setReviews,
-  setAccessToken,
   requestLogin,
   loadReview,
   sendReview,
-  clearReviewFields,
 } from './actions';
+
+import { actions as importedActions } from './slice';
+
+const {
+  setRegions,
+  setCategories,
+  setRestaurants,
+  setRestaurant,
+  setAccessToken,
+  setReviews,
+  clearReviewFields,
+} = importedActions;
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

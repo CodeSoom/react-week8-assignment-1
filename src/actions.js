@@ -9,6 +9,18 @@ import {
 
 import { saveItem } from './services/storage';
 
+import { actions } from './slice';
+
+const {
+  setRegions,
+  setCategories,
+  setRestaurants,
+  setRestaurant,
+  setAccessToken,
+  setReviews,
+  clearReviewFields,
+} = actions;
+
 export function loadInitialData() {
   return async (dispatch) => {
     const regions = await fetchRegions();
