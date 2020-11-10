@@ -17,6 +17,7 @@ import NotFoundPage from './NotFoundPage';
 
 import Header from './styles/Header';
 import Container from './styles/Container';
+import Cotent from './styles/Cotent';
 
 import { setAccessToken } from './slice';
 
@@ -38,12 +39,14 @@ export default function App() {
         </h1>
       </Header>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
+        <Cotent>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Cotent>
       </Switch>
     </Container>
   );
