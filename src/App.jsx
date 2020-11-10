@@ -38,16 +38,16 @@ export default function App() {
           <Link to="/">헤더</Link>
         </h1>
       </Header>
-      <Switch>
-        <Cotent>
+      <Cotent>
+        <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/login" component={LoginPage} />
           <Route exact path="/restaurants" component={RestaurantsPage} />
           <Route path="/restaurants/:id" component={RestaurantPage} />
           <Route component={NotFoundPage} />
-        </Cotent>
-      </Switch>
+        </Switch>
+      </Cotent>
     </Container>
   );
 }
