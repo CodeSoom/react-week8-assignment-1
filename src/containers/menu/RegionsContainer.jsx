@@ -10,7 +10,7 @@ import {
 } from '../../slice';
 
 import { get } from '../../utils';
-import Item from '../../components/common/Item';
+import Menu from '../../components/menu/Menu';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export default function RegionsContainer() {
   return (
     <MenuList>
       {regions.map(({ id, name }) => (
-        <Item
+        <Menu
           key={id}
           name={name}
           check={selectedRegion && id === selectedRegion.id}

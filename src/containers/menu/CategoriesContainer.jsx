@@ -10,7 +10,7 @@ import {
 } from '../../slice';
 
 import { get } from '../../utils';
-import Item from '../../components/common/Item';
+import Menu from '../../components/menu/Menu';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export default function CategoriesContainer() {
   return (
     <MenuList>
       {categories.map(({ id, name }) => (
-        <Item
+        <Menu
           key={id}
           name={name}
           check={selectedCategory && id === selectedCategory.id}

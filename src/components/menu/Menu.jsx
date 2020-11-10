@@ -2,7 +2,7 @@ import React from 'react';
 
 import MenuItem from '../../MenuItem';
 
-const Item = ({ name, onClick, check }) => (
+const Menu = ({ name, onClick, check }) => (
   <MenuItem
     active={check}
   >
@@ -13,4 +13,4 @@ const Item = ({ name, onClick, check }) => (
   </MenuItem>
 );
 
-export default React.memo(Item);
+export default React.memo(Menu);

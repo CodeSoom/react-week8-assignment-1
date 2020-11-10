@@ -2,17 +2,17 @@ import React from 'react';
 
 import { render, fireEvent } from '@testing-library/react';
 
-import Item from './Item';
+import Menu from './Menu';
 
-describe('Item', () => {
+describe('menu', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   const handleClick = jest.fn();
 
-  const itemRender = ({ name, check }) => render((
-    <Item
+  const menuRender = ({ name, check }) => render((
+    <Menu
       onClick={handleClick}
       name={name}
       check={check}
@@ -21,7 +21,7 @@ describe('Item', () => {
 
   context('with selected', () => {
     it('checked name status listens click event', () => {
-      const { getByText } = itemRender({ name: '한식', check: true });
+      const { getByText } = menuRender({ name: '한식', check: true });
       const button = getByText('한식(V)');
 
       expect(button).not.toBeNull();
@@ -36,7 +36,7 @@ describe('Item', () => {
 
   context('without selected', () => {
     it('it listens click event', () => {
-      const { getByText } = itemRender({ name: '한식', check: false });
+      const { getByText } = menuRender({ name: '한식', check: false });
       const button = getByText('한식');
 
       expect(button).not.toBeNull();
