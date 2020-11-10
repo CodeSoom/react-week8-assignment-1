@@ -35,7 +35,8 @@ export default function LoginFormContainer() {
     <>
       {accessToken ? (
         <LogoutForm onClick={handleClickLogout} />
-      ) : (
+      )
+        : (
           <LoginForm
             fields={loginFields}
             onChange={handleChange}
