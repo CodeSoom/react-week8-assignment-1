@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import MenuList from './MenuList';
-import MenuItem from './MenuItem';
 
 import {
   selectRegion,
@@ -11,6 +10,7 @@ import {
 } from './slice';
 
 import { get } from './utils';
+import Item from './Item';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -25,23 +25,13 @@ export default function RegionsContainer() {
 
   return (
     <MenuList>
-      {regions.map((region) => (
-        <MenuItem
-          key={region.id}
-          active={selectedRegion && region.id === selectedRegion.id}
-        >
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
-          >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </MenuItem>
+      {regions.map(({ id, name }) => (
+        <Item
+          key={id}
+          name={name}
+          check={selectedRegion && id === selectedRegion.id}
+          onClick={() => handleClick(id)}
+        />
       ))}
     </MenuList>
   );

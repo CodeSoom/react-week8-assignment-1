@@ -2,9 +2,7 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-
 import MenuList from './MenuList';
-import MenuItem from './MenuItem';
 
 import {
   selectCategory,
@@ -12,6 +10,7 @@ import {
 } from './slice';
 
 import { get } from './utils';
+import Item from './Item';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -26,23 +25,13 @@ export default function CategoriesContainer() {
 
   return (
     <MenuList>
-      {categories.map((category) => (
-        <MenuItem
-          key={category.id}
-          active={selectedCategory && category.id === selectedCategory.id}
-        >
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </MenuItem>
+      {categories.map(({ id, name }) => (
+        <Item
+          key={id}
+          name={name}
+          check={selectedCategory && id === selectedCategory.id}
+          onClick={() => handleClick(id)}
+        />
       ))}
     </MenuList>
   );
