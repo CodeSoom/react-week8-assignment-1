@@ -7,6 +7,8 @@ import {
   loadRestaurants,
 } from './slice';
 
+import List from './List';
+
 import { get } from './utils';
 
 const RegionsContainer = React.memo(() => {
@@ -20,8 +22,9 @@ const RegionsContainer = React.memo(() => {
     dispatch(loadRestaurants());
   }, [dispatch]);
 
+ 
   return (
-    <ul>
+    <List>
       {regions.map((region) => (
         <li key={region.id}>
           <button
@@ -37,7 +40,7 @@ const RegionsContainer = React.memo(() => {
           </button>
         </li>
       ))}
-    </ul>
+    </List>
   );
 });
 

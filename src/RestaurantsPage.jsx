@@ -4,9 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RegionsContainer from './RegionsContainer';
 import CategoriesContainer from './CategoriesContainer';
 import RestaurantsContainer from './RestaurantsContainer';
+import Container from './Container';
 
 import {
   loadInitialData,
@@ -21,16 +24,30 @@ export default function RestaurantsPage() {
     dispatch(loadInitialData());
   });
 
+  const RestaurnatBox = styled.div({
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '60%',
+    height: '60%',
+    color: '#fff',
+  });
+
   function handleClickRestaurant(restaurant) {
     const url = `/restaurants/${restaurant.id}`;
     history.push(url);
   }
 
   return (
-    <div>
-      <RegionsContainer />
-      <CategoriesContainer />
-      <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+    <Container>
+      <RestaurnatBox>
+        <RegionsContainer />
+        <CategoriesContainer />
+        <RestaurantsContainer
+          onClickRestaurant={handleClickRestaurant}
+        />
+      </RestaurnatBox>
+    </Container>
   );
 }

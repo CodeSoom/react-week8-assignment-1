@@ -7,6 +7,8 @@ import {
   loadRestaurants,
 } from './slice';
 
+import List from './List';
+
 import { get } from './utils';
 
 const CategoriesContainer = React.memo(() => {
@@ -23,7 +25,7 @@ const CategoriesContainer = React.memo(() => {
   return (
     <ul>
       {categories.map((category) => (
-        <li key={category.id}>
+        <List key={category.id}>
           <button
             type="button"
             onClick={() => handleClick(category.id)}
@@ -35,7 +37,7 @@ const CategoriesContainer = React.memo(() => {
               </>
             ) : null}
           </button>
-        </li>
+        </List>
       ))}
     </ul>
   );
