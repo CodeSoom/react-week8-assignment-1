@@ -2,15 +2,15 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import MenuList from './MenuList';
+import MenuList from '../../MenuList';
 
 import {
   selectCategory,
   loadRestaurants,
-} from './slice';
+} from '../../slice';
 
-import { get } from './utils';
-import Item from './Item';
+import { get } from '../../utils';
+import Item from '../../components/common/Item';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();

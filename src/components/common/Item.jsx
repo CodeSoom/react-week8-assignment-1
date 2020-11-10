@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MenuItem from './MenuItem';
+import MenuItem from '../../MenuItem';
 
 const Item = ({ name, onClick, check }) => (
   <MenuItem

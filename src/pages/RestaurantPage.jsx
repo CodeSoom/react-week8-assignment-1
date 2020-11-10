@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useParams } from 'react-router-dom';
 
-import RestaurantContainer from './RestaurantContainer';
+import RestaurantContainer from '../containers/restaurant/RestaurantContainer';
 
 export default function RestaurantPage({ params }) {
   const { id } = params || useParams();
