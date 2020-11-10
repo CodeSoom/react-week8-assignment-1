@@ -9,7 +9,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
@@ -36,12 +36,12 @@ export default function LoginFormContainer() {
       {accessToken ? (
         <LogoutForm onClick={handleClickLogout} />
       ) : (
-        <LoginForm
-          fields={loginFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      )}
+          <LoginForm
+            fields={loginFields}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        )}
     </>
   );
 }
