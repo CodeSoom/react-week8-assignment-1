@@ -10,7 +10,7 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from '../modules/actions';
+} from '../modules/slice';
 
 import { get } from '../modules/utils';
 

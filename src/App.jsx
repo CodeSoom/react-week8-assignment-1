@@ -15,7 +15,7 @@ import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
 import NotFoundPage from './pages/NotFoundPage';
 
-import { setAccessToken } from './modules/actions';
+import { setAccessToken } from './modules/slice';
 
 import { loadItem } from './services/storage';
 

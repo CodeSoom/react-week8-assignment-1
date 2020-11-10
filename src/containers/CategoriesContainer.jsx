@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCategory,
   loadRestaurants,
-} from '../modules/actions';
+} from '../modules/slice';
 
 import { get } from '../modules/utils';
 
