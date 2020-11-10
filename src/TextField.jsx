@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import React from 'react';
 
 const TextField = React.memo(({
@@ -10,8 +11,21 @@ const TextField = React.memo(({
     onChange({ name, value: target.value });
   }
 
+  const InputBox = styled.div({
+    '& label': {
+      display: 'block',
+      margin: '0.2em',
+    },
+    '& input': {
+      width: '20em',
+      height: '2em',
+      border: '0',
+      outline: '0',
+    },
+  });
+
   return (
-    <div>
+    <InputBox>
       <label htmlFor={id}>
         {label}
       </label>
@@ -22,7 +36,7 @@ const TextField = React.memo(({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </InputBox>
   );
 });
 

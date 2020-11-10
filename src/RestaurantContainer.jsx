@@ -2,6 +2,8 @@ import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -39,16 +41,25 @@ const RestaurantContainer = React.memo(({ restaurantId }) => {
     );
   }
 
+  const LeftSide = styled.div({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    marginRight: '6em',
+  });
+
   return (
     <>
-      <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
-        <ReviewForm
-          fields={reviewFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      ) : null}
+      <LeftSide>
+        <RestaurantDetail restaurant={restaurant} />
+        {accessToken ? (
+          <ReviewForm
+            fields={reviewFields}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        ) : null}
+      </LeftSide>
       <Reviews reviews={restaurant.reviews} />
     </>
   );
