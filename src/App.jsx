@@ -39,7 +39,7 @@ export default function App() {
   }
   `;
 
-  const Body = styled.div({
+  const Container = styled.div({
     margin: 0,
     padding: 0,
     overflow: 'hidden',
@@ -76,7 +76,7 @@ export default function App() {
   });
 
   return (
-    <Body>
+    <Container>
       <Global styles={GlobalStyles} />
       <Header>
         <h1>
@@ -91,6 +91,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </Body>
+    </Container>
   );
 }
