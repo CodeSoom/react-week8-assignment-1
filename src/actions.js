@@ -19,6 +19,11 @@ export const {
   setAccessToken,
   setReviews,
   clearReviewFields,
+  selectCategory,
+  changeLoginField,
+  logout,
+  selectRegion,
+  changeReviewField,
 } = actions;
 
 export function loadInitialData() {
