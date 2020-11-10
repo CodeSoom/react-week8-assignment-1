@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const MenuList = styled.ul({
+const NavList = styled.ul({
   display: 'flex',
   justifyContent: 'space-around',
   backgroundColor: '#6610f2',
@@ -9,4 +9,4 @@ const MenuList = styled.ul({
   listStyle: 'none',
 });
 
-export default MenuList;
+export default NavList;

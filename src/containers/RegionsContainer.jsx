@@ -2,6 +2,10 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import Container from '../styles/Container';
+import MenuList from '../styles/MenuList';
+import MenuItem from '../styles/MenuItem';
+
 import {
   selectRegion,
   loadRestaurants,
@@ -21,22 +25,23 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
-      {regions.map((region) => (
-        <li key={region.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
+    <Container>
+      <h3>지역</h3>
+      <MenuList>
+        {regions.map((region) => (
+          <MenuItem
+            key={region.id}
+            active={selectedRegion && region.id === selectedRegion.id}
           >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+            <button
+              type="button"
+              onClick={() => handleClick(region.id)}
+            >
+              {region.name}
+            </button>
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Container>
   );
 }

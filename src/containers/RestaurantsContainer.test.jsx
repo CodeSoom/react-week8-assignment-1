@@ -6,22 +6,52 @@ import { useSelector } from 'react-redux';
 
 import RestaurantsContainer from './RestaurantsContainer';
 
-test('RestaurantsContainer', () => {
-  useSelector.mockImplementation((selector) => selector({
-    restaurants: [
-      { id: 1, name: '마법사주방' },
-    ],
-  }));
-
+describe('RestaurantsContainer', () => {
   const handleClick = jest.fn();
 
-  const { container, getByText } = render((
-    <RestaurantsContainer onClickRestaurant={handleClick} />
-  ));
+  function renderRestaurantsContainer(onClick) {
+    return render(<RestaurantsContainer onClickRestaurant={onClick} />);
+  }
 
-  expect(container).toHaveTextContent('마법사주방');
+  beforeEach(() => {
+    useSelector.mockImplementation((selector) => selector({
+      restaurants: given.restaurants,
+    }));
+  });
 
-  fireEvent.click(getByText('마법사주방'));
+  context('with Restaurants', () => {
+    given('restaurants', () => ([
+      { id: 1, name: '마법사주방' },
+    ]));
 
-  expect(handleClick).toBeCalledWith({ id: 1, name: '마법사주방' });
+    it('renders restaurants', () => {
+      const { container } = renderRestaurantsContainer();
+
+      expect(container).toHaveTextContent('마법사주방');
+    });
+  });
+
+  context('without Restaurants', () => {
+    given('restaurants', () => ([]));
+
+    it('renders restaurants', () => {
+      const { container } = renderRestaurantsContainer();
+
+      expect(container).toHaveTextContent('레스토랑이 없습니다');
+    });
+  });
+
+  context('when restaurant is clicked', () => {
+    given('restaurants', () => ([
+      { id: 1, name: '마법사주방' },
+    ]));
+
+    it('occurs click events', () => {
+      const { getByText } = renderRestaurantsContainer(handleClick);
+
+      fireEvent.click(getByText('마법사주방'));
+
+      expect(handleClick).toBeCalledWith({ id: 1, name: '마법사주방' });
+    });
+  });
 });

@@ -22,12 +22,11 @@ describe('RegionsContainer', () => {
     }));
   });
 
-  it('renders checked regions', () => {
+  it('occurs dispatch', () => {
     const { container, getByText } = render((
       <RegionsContainer />
     ));
 
-    expect(container).toHaveTextContent('서울(V)');
     expect(container).toHaveTextContent('부산');
 
     fireEvent.click(getByText('부산'));

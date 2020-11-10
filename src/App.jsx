@@ -44,7 +44,6 @@ const Header = styled.header({
   },
 });
 
-
 export default function App() {
   const dispatch = useDispatch();
 
