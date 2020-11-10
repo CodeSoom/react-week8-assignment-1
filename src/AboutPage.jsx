@@ -2,18 +2,9 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-export default function AboutPage() {
-  const Container = styled.div({
-    width: '100%',
-    height: '90vh',
-    backgroundColor: 'rgba(0,0,0,0.2)',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontFamily: " 'Playfair Display', serif",
-  });
+import Container from './Container';
 
+export default function AboutPage() {
   const AboutBox = styled.div({
     display: 'flex',
     flexDirection: 'column',

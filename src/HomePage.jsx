@@ -4,18 +4,9 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-export default function HomePage() {
-  const Container = styled.div({
-    width: '100%',
-    height: '90vh',
-    backgroundColor: 'rgba(0,0,0,0.2)',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontFamily: " 'Playfair Display', serif",
-  });
+import Container from './Container';
 
+export default function HomePage() {
   const PageTitle = styled.h2({
     margin: '0',
     color: '#fff',
