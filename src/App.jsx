@@ -31,7 +31,7 @@ export default function App() {
   }
 
   const GlobalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:wght@600&display=swap');
 
   body {
     margin : 0;
