@@ -3,17 +3,6 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import {
-  loadInitialData,
-  loadRestaurants,
-  loadRestaurant,
-  requestLogin,
-  loadReview,
-  sendReview,
-} from './actions';
-
-import { actions as importedActions } from './slice';
-
-const {
   setRegions,
   setCategories,
   setRestaurants,
@@ -21,7 +10,13 @@ const {
   setAccessToken,
   setReviews,
   clearReviewFields,
-} = importedActions;
+  loadInitialData,
+  loadRestaurants,
+  loadRestaurant,
+  requestLogin,
+  loadReview,
+  sendReview,
+} from './actions';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

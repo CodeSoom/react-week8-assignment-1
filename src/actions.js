@@ -11,7 +11,7 @@ import { saveItem } from './services/storage';
 
 import { actions } from './slice';
 
-const {
+export const {
   setRegions,
   setCategories,
   setRestaurants,
