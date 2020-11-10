@@ -2,15 +2,14 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import MenuList from '../../MenuList';
-
 import {
   selectRegion,
   loadRestaurants,
 } from '../../slice';
 
 import { get } from '../../utils';
-import Menu from '../../components/menu/Menu';
+
+import MenuTypesList from '../../components/menu/MenuTypesList';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -24,15 +23,10 @@ export default function RegionsContainer() {
   }, [dispatch]);
 
   return (
-    <MenuList>
-      {regions.map(({ id, name }) => (
-        <Menu
-          key={id}
-          name={name}
-          check={selectedRegion && id === selectedRegion.id}
-          onClick={() => handleClick(id)}
-        />
-      ))}
-    </MenuList>
+    <MenuTypesList
+      types={regions}
+      onClickType={handleClick}
+      selectedType={selectedRegion}
+    />
   );
 }
