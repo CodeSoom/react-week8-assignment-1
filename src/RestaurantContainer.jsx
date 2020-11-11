@@ -16,6 +16,13 @@ import {
 
 import { get } from './utils';
 
+const LeftSide = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  marginRight: '6em',
+});
+
 const RestaurantContainer = React.memo(({ restaurantId }) => {
   const dispatch = useDispatch();
 
@@ -40,13 +47,6 @@ const RestaurantContainer = React.memo(({ restaurantId }) => {
       <p>Loading...</p>
     );
   }
-
-  const LeftSide = styled.div({
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    marginRight: '6em',
-  });
 
   return (
     <>

@@ -22,6 +22,51 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+const GlobalStyles = css`
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Serif+KR:wght@200&family=Playfair+Display:wght@600&display=swap');
+
+body {
+  margin : 0;
+  padding: 0;
+}
+`;
+
+const Container = styled.div({
+  margin: 0,
+  padding: 0,
+  overflow: 'hidden',
+  width: '100vw',
+  height: '100vh',
+  background: 'url(https://images.pexels.com/photos/34650/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) no-repeat',
+  backgroundSize: 'cover',
+});
+
+const Header = styled.header({
+  display: 'flex',
+  padding: '0 5em',
+  alignItems: 'center',
+  width: '100%',
+  height: '10vh',
+  backgroundColor: 'rgba(255,255,255,0.3)',
+  backdropFilter: 'saturate(180%) blur(5px)',
+  '& h1': {
+    margin: '0',
+    fontSize: '5vh',
+  },
+  '& a': {
+    textDecoration: 'none',
+    color: '#ff5e00',
+    fontFamily: "'Lobster', cursive",
+    cursor: 'pointer',
+    '&: hover': {
+      color: '#fff',
+    },
+    '&: active': {
+      fontSize: '4.7vh',
+    },
+  },
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -29,51 +74,6 @@ export default function App() {
   if (accessToken) {
     dispatch(setAccessToken(accessToken));
   }
-
-  const GlobalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Serif+KR:wght@200&family=Playfair+Display:wght@600&display=swap');
-
-  body {
-    margin : 0;
-    padding: 0;
-  }
-  `;
-
-  const Container = styled.div({
-    margin: 0,
-    padding: 0,
-    overflow: 'hidden',
-    width: '100vw',
-    height: '100vh',
-    background: 'url(https://images.pexels.com/photos/34650/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) no-repeat',
-    backgroundSize: 'cover',
-  });
-
-  const Header = styled.header({
-    display: 'flex',
-    padding: '0 5em',
-    alignItems: 'center',
-    width: '100%',
-    height: '10vh',
-    backgroundColor: 'rgba(255,255,255,0.3)',
-    backdropFilter: 'saturate(180%) blur(5px)',
-    '& h1': {
-      margin: '0',
-      fontSize: '5vh',
-    },
-    '& a': {
-      textDecoration: 'none',
-      color: '#ff5e00',
-      fontFamily: "'Lobster', cursive",
-      cursor: 'pointer',
-      '&: hover': {
-        color: '#fff',
-      },
-      '&: active': {
-        fontSize: '4.7vh',
-      },
-    },
-  });
 
   return (
     <Container>

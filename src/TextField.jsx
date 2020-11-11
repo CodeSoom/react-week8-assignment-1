@@ -1,5 +1,19 @@
-import styled from '@emotion/styled';
 import React from 'react';
+
+import styled from '@emotion/styled';
+
+const InputBox = styled.div({
+  '& label': {
+    display: 'block',
+    margin: '0.2em',
+  },
+  '& input': {
+    width: '20em',
+    height: '2em',
+    border: '0',
+    outline: '0',
+  },
+});
 
 const TextField = React.memo(({
   label, type = 'text', name, value, onChange,
@@ -10,19 +24,6 @@ const TextField = React.memo(({
     const { target } = event;
     onChange({ name, value: target.value });
   }
-
-  const InputBox = styled.div({
-    '& label': {
-      display: 'block',
-      margin: '0.2em',
-    },
-    '& input': {
-      width: '20em',
-      height: '2em',
-      border: '0',
-      outline: '0',
-    },
-  });
 
   return (
     <InputBox>

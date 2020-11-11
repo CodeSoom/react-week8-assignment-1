@@ -15,6 +15,16 @@ import {
   loadInitialData,
 } from './slice';
 
+const RestaurnatBox = styled.div({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  width: '60%',
+  height: '60%',
+  color: '#fff',
+});
+
 export default function RestaurantsPage() {
   const history = useHistory();
 
@@ -22,16 +32,6 @@ export default function RestaurantsPage() {
 
   useEffect(() => {
     dispatch(loadInitialData());
-  });
-
-  const RestaurnatBox = styled.div({
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: '60%',
-    height: '60%',
-    color: '#fff',
   });
 
   function handleClickRestaurant(restaurant) {

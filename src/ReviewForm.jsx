@@ -6,20 +6,20 @@ import TextField from './TextField';
 
 import SubmitButton from './SubmitButton';
 
+const ReviewField = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '25%',
+  width: '100%',
+  '& button': {
+    fontFamily: "'Noto Serif KR', serif",
+  },
+});
+
 const ReviewForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { score, description } = fields;
-
-  const ReviewField = styled.div({
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '25%',
-    width: '100%',
-    '& button': {
-      fontFamily: "'Noto Serif KR', serif",
-    },
-  });
 
   return (
     <ReviewField>
