@@ -20,6 +20,10 @@ const MenuItem = styled.li(({ active }) => ({
       outline: 'none',
     },
   },
+  '& a': {
+    textDecoration: 'none',
+    color: '#333',
+  },
 }));
 
 export default MenuItem;
