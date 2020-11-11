@@ -10,7 +10,7 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from '_redux/actions';
+} from '_redux/slice';
 
 import { get } from 'utils';
 

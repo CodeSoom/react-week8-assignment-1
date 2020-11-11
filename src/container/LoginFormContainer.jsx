@@ -9,7 +9,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from '_redux/actions';
+} from '_redux/slice';
 
 import { get } from 'utils';
 
