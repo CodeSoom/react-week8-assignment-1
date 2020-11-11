@@ -22,7 +22,6 @@ const RegionsContainer = React.memo(() => {
     dispatch(loadRestaurants());
   }, [dispatch]);
 
- 
   return (
     <List>
       {regions.map((region) => (
