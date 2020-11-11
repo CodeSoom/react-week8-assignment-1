@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Global, css } from '@emotion/core';
 
+const fontNormal = '1.6rem';
+
 export default function GlobalStyle() {
   return (
     <Global
@@ -21,6 +23,7 @@ export default function GlobalStyle() {
 
         body {
           background-color: gray;
+          font-size: ${fontNormal};
         }
       `}
     />
