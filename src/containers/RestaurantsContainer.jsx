@@ -3,6 +3,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import SubContainer from '../styles/SubContainer';
+import RestaurantList from '../styles/RestaurantList';
+import RestaurantItem from '../styles/RestaurantItem';
 
 import { get } from '../modules/utils';
 
@@ -21,15 +23,15 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
       <h3>레스토랑 목록</h3>
       {(restaurants.length === 0) ? <p>레스토랑이 없습니다.</p>
         : (
-          <ul>
+          <RestaurantList>
             {restaurants.map((restaurant) => (
-              <li key={restaurant.id}>
-                <a href="/restaurants/1" onClick={handleClick(restaurant)}>
+              <RestaurantItem key={restaurant.id}>
+                <a href={`/restaurants/${restaurant.id}`} onClick={handleClick(restaurant)}>
                   {restaurant.name}
                 </a>
-              </li>
+              </RestaurantItem>
             ))}
-          </ul>
+          </RestaurantList>
         )}
     </SubContainer>
   );
