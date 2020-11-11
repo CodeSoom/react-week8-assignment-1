@@ -1,5 +1,8 @@
 import React from 'react';
 
+import ReviewList from '../styles/ReviewList';
+import ReviewItem from '../styles/ReviewItem';
+
 export default function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -8,21 +11,21 @@ export default function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <ReviewList>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
+        <ReviewItem key={review.id}>
+          <h4>
+            {review.score}
+            점
+          </h4>
+          <p>
+            {review.description}
+          </p>
           <div>
             {review.name}
           </div>
-          <div>
-            {review.score}
-            점
-          </div>
-          <div>
-            {review.description}
-          </div>
-        </li>
+        </ReviewItem>
       ))}
-    </ul>
+    </ReviewList>
   );
 }
