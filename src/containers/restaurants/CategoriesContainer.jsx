@@ -9,7 +9,7 @@ import {
 
 import { get } from '../../lib/utils';
 
-import MenuTypesList from '../../components/menu/MenuTypesList';
+import MenuTypesList from '../../components/restaurants/MenuTypesList';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();

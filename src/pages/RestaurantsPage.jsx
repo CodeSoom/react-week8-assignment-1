@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
-import RegionsContainer from '../containers/menu/RegionsContainer';
-import CategoriesContainer from '../containers/menu/CategoriesContainer';
+import RegionsContainer from '../containers/restaurants/RegionsContainer';
+import CategoriesContainer from '../containers/restaurants/CategoriesContainer';
 import RestaurantsContainer from '../containers/restaurants/RestaurantsContainer';
 
 import {
