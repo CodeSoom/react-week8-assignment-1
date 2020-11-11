@@ -40,6 +40,12 @@ const Header = styled.div({
   alignItems: 'center',
 });
 
+const PageContainer = styled.div({
+  paddingTop: '2rem',
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -56,14 +62,16 @@ export default function App() {
           <Link to="/">Eatgo</Link>
         </h1>
       </Header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <PageContainer>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </PageContainer>
     </Container>
   );
 }
