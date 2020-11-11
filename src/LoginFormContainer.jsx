@@ -27,9 +27,9 @@ const LoginFormContainer = React.memo(() => {
     dispatch(requestLogin());
   }, [dispatch]);
 
-  const handleClickLogout = () => {
+  const handleClickLogout = useCallback(() => {
     dispatch(logout());
-  };
+  }, [dispatch]);
 
   return (
     <>
