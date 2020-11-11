@@ -23,6 +23,11 @@ const LeftSide = styled.div({
   marginRight: '6em',
 });
 
+const RightSide = styled.div({
+  overflow: 'hidden',
+  width: '100%',
+});
+
 const RestaurantContainer = React.memo(({ restaurantId }) => {
   const dispatch = useDispatch();
 
@@ -33,6 +38,7 @@ const RestaurantContainer = React.memo(({ restaurantId }) => {
   const accessToken = useSelector(get('accessToken'));
   const restaurant = useSelector(get('restaurant'));
   const reviewFields = useSelector(get('reviewFields'));
+  const { scrollY } = useSelector(get('scrollState'));
 
   const handleChange = useCallback(({ name, value }) => {
     dispatch(changeReviewField({ name, value }));
@@ -60,7 +66,9 @@ const RestaurantContainer = React.memo(({ restaurantId }) => {
           />
         ) : null}
       </LeftSide>
-      <Reviews reviews={restaurant.reviews} />
+      <RightSide>
+        <Reviews reviews={restaurant.reviews} scrollY={scrollY} />
+      </RightSide>
     </>
   );
 });

@@ -30,9 +30,18 @@ body {
   margin : 0;
   padding: 0;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
 `;
 
+const Warp = styled.div({
+  height: '1000vh',
+});
 const Container = styled.div({
+  position: 'fixed',
+  top: '0',
   margin: 0,
   padding: 0,
   width: '100vw',
@@ -95,7 +104,7 @@ export default function App() {
 
 
   return (
-    <Container>
+    <Warp>
       <Global styles={GlobalStyles} />
       <Header>
         <h1>
@@ -110,6 +119,7 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </Container>
+      <Container />
+    </Warp>
   );
 }

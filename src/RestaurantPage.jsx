@@ -28,10 +28,12 @@ export default function RestaurantPage({ params }) {
   const { id } = params || useParams();
 
   return (
-    <Container>
-      <Restaurant>
-        <RestaurantContainer restaurantId={id} />
-      </Restaurant>
-    </Container>
+    <>
+      <Container>
+        <Restaurant>
+          <RestaurantContainer restaurantId={id} />
+        </Restaurant>
+      </Container>
+    </>
   );
 }
