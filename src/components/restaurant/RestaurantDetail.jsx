@@ -19,4 +19,4 @@ function RestaurantDetail({ restaurant }) {
   );
 }
 
-export default React.memo(RestaurantDetail);
+export default RestaurantDetail;

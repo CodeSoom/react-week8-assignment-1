@@ -13,4 +13,4 @@ function LogoutForm({ onClick }) {
   );
 }
 
-export default React.memo(LogoutForm);
+export default LogoutForm;
