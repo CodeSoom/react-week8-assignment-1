@@ -33,11 +33,15 @@ const Container = styled.div({
 });
 
 const Header = styled.div({
-  backgroundColor: 'yellow',
+  backgroundColor: 'hsl(120, 100%, 37%)',
   height: '100px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  '& a': {
+    color: 'white',
+    textDecoration: 'none',
+  },
 });
 
 const PageContainer = styled.div({

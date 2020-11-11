@@ -25,7 +25,7 @@ export default function RegionsContainer() {
 
   return (
     <>
-      <h3>지역</h3>
+      <p style={{ color: '#696969' }}>지역</p>
       <Row>
         {regions.map((region) => (
           <li key={region.id}>

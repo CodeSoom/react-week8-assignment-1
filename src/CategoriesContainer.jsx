@@ -25,7 +25,7 @@ export default function CategoriesContainer() {
 
   return (
     <>
-      <h3>메뉴</h3>
+      <p style={{ color: '#696969' }}>메뉴</p>
       <Row>
         {categories.map((category) => (
           <li key={category.id}>
