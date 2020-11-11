@@ -9,6 +9,9 @@ import {
 
 import { get } from './utils';
 
+import Button from './style/Button';
+import Row from './style/Row';
+
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
@@ -21,22 +24,25 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
-      {categories.map((category) => (
-        <li key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h3>메뉴</h3>
+      <Row>
+        {categories.map((category) => (
+          <li key={category.id}>
+            <Button
+              type="button"
+              onClick={() => handleClick(category.id)}
+            >
+              {category.name}
+              {selectedCategory ? (
+                <>
+                  {category.id === selectedCategory.id ? '(V)' : null}
+                </>
+              ) : null}
+            </Button>
+          </li>
+        ))}
+      </Row>
+    </>
   );
 }
