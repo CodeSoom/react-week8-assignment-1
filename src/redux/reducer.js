@@ -1,3 +1,3 @@
-import { reducer } from './slice';
+import reducer from './slice';
 
 export default reducer;

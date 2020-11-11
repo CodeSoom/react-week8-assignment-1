@@ -229,7 +229,4 @@ export function sendReview({ restaurantId }) {
   };
 }
 
-export {
-  actions,
-  reducer,
-};
+export default reducer;
