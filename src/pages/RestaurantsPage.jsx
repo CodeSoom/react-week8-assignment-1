@@ -10,7 +10,7 @@ import RestaurantsContainer from '../containers/restaurants/RestaurantsContainer
 
 import {
   loadInitialData,
-} from '../slice';
+} from '../lib/reducers/slice';
 
 export default function RestaurantsPage() {
   const history = useHistory();

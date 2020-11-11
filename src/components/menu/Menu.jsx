@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MenuItem from './MenuItem';
+import MenuItem from '../../lib/styles/MenuItem';
 
 const Menu = ({ name, onClick, check }) => (
   <MenuItem

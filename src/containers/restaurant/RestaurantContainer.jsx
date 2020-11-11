@@ -10,9 +10,9 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from '../../slice';
+} from '../../lib/reducers/slice';
 
-import { get } from '../../utils';
+import { get } from '../../lib/utils';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();

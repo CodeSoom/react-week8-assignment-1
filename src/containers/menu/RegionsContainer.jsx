@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectRegion,
   loadRestaurants,
-} from '../../slice';
+} from '../../lib/reducers/slice';
 
-import { get } from '../../utils';
+import { get } from '../../lib/utils';
 
 import MenuTypesList from '../../components/menu/MenuTypesList';
 
