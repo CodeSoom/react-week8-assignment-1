@@ -35,6 +35,10 @@ const { actions, reducer } = createSlice({
     reviewFields: {
       ...initialReviewFields,
     },
+    scrollState: {
+      prev: 0,
+      scrollY: window.scrollY,
+    },
   },
   reducers: {
     setRegions(state, { payload: regions }) {
@@ -135,6 +139,16 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+
+    setScrollState(state) {
+      return {
+        ...state,
+        scrollState: {
+          prev: state.scrollState.scrollY,
+          scrollY: window.scrollY,
+        },
+      };
+    },
   },
 });
 
@@ -151,6 +165,7 @@ export const {
   changeReviewField,
   clearReviewFields,
   setReviews,
+  setScrollState,
 } = actions;
 
 
