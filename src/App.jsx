@@ -32,6 +32,14 @@ const Container = styled.div({
   transform: 'translate(-50%,-50%)',
 });
 
+const Header = styled.div({
+  backgroundColor: 'yellow',
+  height: '100px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -43,11 +51,11 @@ export default function App() {
   return (
     <Container>
       <GlobalStyle />
-      <header>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">Eatgo</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
