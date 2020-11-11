@@ -25,20 +25,16 @@ export default function CategoriesContainer() {
 
   return (
     <>
-      <p style={{ color: '#696969' }}>메뉴</p>
+      <p style={{ color: '#696969' }}>분류</p>
       <Row>
         {categories.map((category) => (
           <li key={category.id}>
             <Button
               type="button"
               onClick={() => handleClick(category.id)}
+              isSelected={selectedCategory && category.id === selectedCategory.id}
             >
               {category.name}
-              {selectedCategory ? (
-                <>
-                  {category.id === selectedCategory.id ? '(V)' : null}
-                </>
-              ) : null}
             </Button>
           </li>
         ))}
