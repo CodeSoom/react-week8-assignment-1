@@ -8,6 +8,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import { Global } from '@emotion/core';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -32,22 +34,25 @@ export default function App() {
   }
 
   return (
-    <Container>
-      <Header>
-        <h1>
-          <Link to="/">헤더</Link>
-        </h1>
-      </Header>
-      <Cotent>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/login" component={LoginPage} />
-          <Route exact path="/restaurants" component={RestaurantsPage} />
-          <Route path="/restaurants/:id" component={RestaurantPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Cotent>
-    </Container>
+    <>
+      <Global />
+      <Container>
+        <Header>
+          <h1>
+            <Link to="/">헤더</Link>
+          </h1>
+        </Header>
+        <Cotent>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route exact path="/restaurants" component={RestaurantsPage} />
+            <Route path="/restaurants/:id" component={RestaurantPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Cotent>
+      </Container>
+    </>
   );
 }
