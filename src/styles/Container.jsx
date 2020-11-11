@@ -5,10 +5,10 @@ const Container = styled.div({
   maxWidth: '1176px',
   margin: '16px auto',
   padding: '0 16px',
-  '& h3': {
-    fontSize: '20px',
+  '& h2': {
+    fontSize: '24px',
     margin: '0 auto',
-    padding: '8px 0px',
+    padding: '32px 0px',
   },
 });
 

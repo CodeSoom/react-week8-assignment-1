@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import Container from '../styles/Container';
+import SubContainer from '../styles/SubContainer';
 
 import { get } from '../modules/utils';
 
@@ -17,7 +17,7 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <Container>
+    <SubContainer>
       <h3>레스토랑 목록</h3>
       {(restaurants.length === 0) ? <p>레스토랑이 없습니다.</p>
         : (
@@ -31,6 +31,6 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
             ))}
           </ul>
         )}
-    </Container>
+    </SubContainer>
   );
 }

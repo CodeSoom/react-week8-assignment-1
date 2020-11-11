@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import Container from '../styles/Container';
+
 import RegionsContainer from '../containers/RegionsContainer';
 import CategoriesContainer from '../containers/CategoriesContainer';
 import RestaurantsContainer from '../containers/RestaurantsContainer';
@@ -27,10 +29,11 @@ export default function RestaurantsPage() {
   }
 
   return (
-    <div>
+    <Container>
+      <h2>레스토랑 찾기</h2>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+    </Container>
   );
 }

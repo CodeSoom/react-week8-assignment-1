@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Container from '../styles/Container';
+import SubContainer from '../styles/SubContainer';
 import MenuList from '../styles/MenuList';
 import MenuItem from '../styles/MenuItem';
 
@@ -25,7 +25,7 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <Container>
+    <SubContainer>
       <h3>카테고리</h3>
       <MenuList>
         {categories.map((category) => (
@@ -42,6 +42,6 @@ export default function CategoriesContainer() {
           </MenuItem>
         ))}
       </MenuList>
-    </Container>
+    </SubContainer>
   );
 }
