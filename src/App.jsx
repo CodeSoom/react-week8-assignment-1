@@ -8,7 +8,6 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-
 import { Global } from '@emotion/core';
 
 import reset from './style/Reset';
@@ -25,7 +24,6 @@ import NotFoundPage from './NotFoundPage';
 import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
-
 
 export default function App() {
   const dispatch = useDispatch();
