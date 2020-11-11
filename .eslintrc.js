@@ -53,4 +53,5 @@ module.exports = {
     'linebreak-style': 'off',
     'no-proto': 'off',
   },
+  "settings": { "import/resolver": "webpack" }
 };

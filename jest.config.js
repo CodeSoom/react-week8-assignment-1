@@ -12,4 +12,11 @@ module.exports = {
       statements: 100,
     },
   },
+  moduleNameMapper: {
+    '^presentational/(.*)': '<rootDir>/src/presentational/$1',
+    '^container/(.*)': '<rootDir>/src/container/$1',
+    '^_redux/(.*)': '<rootDir>/src/redux/$1',
+    '^utils': '<rootDir>/src/utils.js',
+    '^services/(.*)': '<rootDir>/src/services/$1',
+  },
 };

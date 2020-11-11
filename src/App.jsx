@@ -8,14 +8,14 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from 'presentational/HomePage';
+import AboutPage from 'presentational/AboutPage';
+import LoginPage from 'container/LoginPage';
+import RestaurantsPage from 'container/RestaurantsPage';
+import RestaurantPage from 'container/RestaurantPage';
+import NotFoundPage from 'presentational/NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from '_redux/actions';
 
 import { loadItem } from './services/storage';
 
