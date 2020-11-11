@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 const MenuList = styled.ol({
   display: 'flex',
-  margin: 0,
+  margin: '1.5em 0',
   padding: '.4em 0',
   listStyle: 'none',
 });
