@@ -25,26 +25,8 @@ const LoginInput = styled.div({
 
     '&:hover': {
       backgroundColor: '#ffffff',
-      borderColor: 'rgba(0,0,0,0.1',
+      borderColor: 'rgba(0,0,0,0.1)',
       boxShadow: '0 0 0 4px rgba(234,76,137,0.1)',
-    },
-  },
-
-  '& button': {
-    height: '2.7em',
-    width: '50%',
-    borderRadius: '.5em',
-    backgroundColor: '#ea4c89',
-    color: 'white',
-    fontSize: '.8em',
-    fontWeight: 'bold',
-    border: 'none',
-    cursor: 'pointer',
-    '&:hover': {
-      backgroundColor: '#f082ac',
-    },
-    '&:focus': {
-      outline: 'none',
     },
   },
 });

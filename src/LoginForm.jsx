@@ -1,6 +1,7 @@
 import React from 'react';
 
 import LoginInput from './styles/LoginInput';
+import Button from './styles/Button';
 
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
@@ -36,12 +37,12 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           onChange={handleChange}
         />
       </div>
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
+      </Button>
     </LoginInput>
   );
 });
