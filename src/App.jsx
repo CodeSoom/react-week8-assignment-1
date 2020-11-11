@@ -8,7 +8,6 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 import HomePage from './HomePage';
@@ -21,6 +20,7 @@ import NotFoundPage from './NotFoundPage';
 import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
+import GlobalStyle from './style/GlobalStyle';
 
 const Container = styled.div({
   width: '360px',
@@ -42,26 +42,7 @@ export default function App() {
 
   return (
     <Container>
-      <Global
-        styles={css`
-          *,
-          *::before,
-          *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: inherit;
-          }
-
-          html {
-            box-sizing: border-box;
-            font-size: 62.5%;
-          }
-
-          body {
-            background-color: gray;
-          }
-        `}
-      />
+      <GlobalStyle />
       <header>
         <h1>
           <Link to="/">헤더 영역</Link>
