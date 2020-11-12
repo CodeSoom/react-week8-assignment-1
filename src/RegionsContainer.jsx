@@ -9,6 +9,7 @@ import {
 
 import CriteriaItem from './styles/CriteriaItem';
 import CriteriaList from './styles/CriteriaList';
+import CriteriaTitle from './styles/CriteriaTitle';
 
 import { get } from './utils';
 
@@ -25,7 +26,9 @@ export default function RegionsContainer() {
 
   return (
     <>
-      <p style={{ color: '#696969' }}>지역</p>
+      <CriteriaTitle>
+        지역
+      </CriteriaTitle>
       <CriteriaList>
         {regions.map(({ id, name }) => (
           <li key={id}>

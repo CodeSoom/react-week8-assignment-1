@@ -11,6 +11,7 @@ import { get } from './utils';
 
 import CriteriaItem from './styles/CriteriaItem';
 import CriteriaList from './styles/CriteriaList';
+import CriteriaTitle from './styles/CriteriaTitle';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -25,7 +26,9 @@ export default function CategoriesContainer() {
 
   return (
     <>
-      <p style={{ color: '#696969' }}>분류</p>
+      <CriteriaTitle>
+        분류
+      </CriteriaTitle>
       <CriteriaList>
         {categories.map((category) => (
           <li key={category.id}>
