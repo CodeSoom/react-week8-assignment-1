@@ -2,8 +2,8 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import LoginForm from '../LoginForm';
-import LogoutForm from '../LogoutForm';
+import LoginForm from '../components/LoginForm';
+import LogoutForm from '../components/LogoutForm';
 
 import {
   changeLoginField,
