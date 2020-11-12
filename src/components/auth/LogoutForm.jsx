@@ -1,14 +1,17 @@
 import React from 'react';
 
+import Button from '../../lib/styles/Button';
+
 function LogoutForm({ onClick }) {
   return (
     <>
-      <button
+      <Button
         type="button"
         onClick={onClick}
+        backgroundColor="gray"
       >
         Log out
-      </button>
+      </Button>
     </>
   );
 }
