@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
@@ -27,4 +27,4 @@ function Reviews({ reviews }) {
   );
 }
 
-export default React.memo(Reviews);
+export default memo(Reviews);

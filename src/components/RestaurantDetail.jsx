@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import MenuItems from './MenuItems';
 
@@ -19,4 +19,4 @@ function RestaurantDetail({ restaurant }) {
   );
 }
 
-export default React.memo(RestaurantDetail);
+export default memo(RestaurantDetail);
