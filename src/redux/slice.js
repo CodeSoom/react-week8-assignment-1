@@ -226,5 +226,3 @@ export function sendReview({ restaurantId }) {
     dispatch(clearReviewFields());
   };
 }
-
-export default reducer;
