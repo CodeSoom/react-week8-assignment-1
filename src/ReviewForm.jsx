@@ -12,17 +12,17 @@ function ReviewForm({ fields, onChange, onSubmit }) {
         name="score"
         type="number"
         value={score}
-        onChange={onChange}
+        onChange={() => onChange}
       />
       <TextField
         label="리뷰 내용"
         name="description"
         value={description}
-        onChange={onChange}
+        onChange={() => onChange}
       />
       <button
         type="button"
-        onClick={onSubmit}
+        onClick={() => onSubmit}
       >
         리뷰 남기기
       </button>
