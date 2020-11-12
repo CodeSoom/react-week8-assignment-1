@@ -14,7 +14,7 @@ const CriteriaItem = styled.button(({ active }) => ({
   boxShadow: active ? '0 1px 1px #DDDDDD' : '0 4px 3px #DDDDDD',
   transform: `rotateX(10deg) ${active && 'translateY(2px)'}`,
   transition: 'all .2s',
-  fontWeight: active ? '800' : '400',
+  fontWeight: active ? '600' : '400',
 }));
 
 export default CriteriaItem;
