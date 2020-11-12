@@ -9,6 +9,7 @@ const CriteriaList = styled.ul({
   '&::-webkit-scrollbar': {
     width: 0,
   },
+  height: '7.5rem',
 });
 
 export default CriteriaList;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const CriteriaTitle = styled.ul({
+const CriteriaTitle = styled.p({
   color: '#696969',
 });
 
