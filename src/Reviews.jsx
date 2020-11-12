@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-const Reviews = React.memo(({ reviews, scrollY }) => {
+const Reviews = React.memo(({ reviews, scrollY=0 }) => {
   if (!reviews || !reviews.length) {
     return null;
   }

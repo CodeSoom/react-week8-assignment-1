@@ -29,6 +29,10 @@ describe('App', () => {
       ],
       categories: [],
       restaurants: [],
+      scrollState: {
+        prev: 0,
+        scrollY: 0,
+      },
     }));
   });
 

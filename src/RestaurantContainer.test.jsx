@@ -25,6 +25,10 @@ describe('RestaurantContainer', () => {
         description: '',
       },
       accessToken: given.accessToken,
+      scrollState: {
+        prev: 0,
+        scrollY: 0,
+      },
     }));
   });
 

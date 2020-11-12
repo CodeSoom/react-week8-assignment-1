@@ -32,6 +32,10 @@ describe('reducer', () => {
         score: '',
         description: '',
       },
+      scrollState: {
+        prev: 0,
+        scrollY: 0,
+      },
     };
 
     it('returns initialState', () => {

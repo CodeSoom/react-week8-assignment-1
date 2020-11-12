@@ -37,7 +37,7 @@ const { actions, reducer } = createSlice({
     },
     scrollState: {
       prev: 0,
-      scrollY: window.scrollY,
+      scrollY: 0,
     },
   },
   reducers: {
