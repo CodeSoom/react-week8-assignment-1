@@ -9,7 +9,7 @@ const Field = styled.div(({ id }) => ({
   },
 
   '& input': {
-    width: (id === 'input-description') ? '450px' : '100px',
+    width: (id === 'description') ? '450px' : '100px',
     height: '30px',
     borderRadius: '4px',
   },

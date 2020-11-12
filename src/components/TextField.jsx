@@ -13,7 +13,7 @@ export default function TextField({
   }
 
   return (
-    <Field id={id}>
+    <Field id={name}>
       <label htmlFor={id}>
         {label}
       </label>
