@@ -27,14 +27,14 @@ export default function RegionsContainer() {
     <>
       <p style={{ color: '#696969' }}>지역</p>
       <CriteriaList>
-        {regions.map((region) => (
-          <li key={region.id}>
+        {regions.map(({ id, name }) => (
+          <li key={id}>
             <CriteriaItem
               type="button"
-              onClick={() => handleClick(region.id)}
-              active={selectedRegion && region.id === selectedRegion.id}
+              onClick={() => handleClick(id)}
+              active={selectedRegion && id === selectedRegion.id}
             >
-              {region.name}
+              {name}
             </CriteriaItem>
           </li>
         ))}
