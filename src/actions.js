@@ -9,9 +9,7 @@ import {
 
 import { saveItem } from './services/storage';
 
-import { actions } from './slice';
-
-export const {
+import {
   setRegions,
   setCategories,
   setRestaurants,
@@ -24,7 +22,22 @@ export const {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} = actions;
+} from './slice'
+
+export {
+  setRegions,
+  setCategories,
+  setRestaurants,
+  setRestaurant,
+  selectRegion,
+  selectCategory,
+  changeLoginField,
+  setAccessToken,
+  logout,
+  changeReviewField,
+  clearReviewFields,
+  setReviews,
+};
 
 export function loadInitialData() {
   return async (dispatch) => {

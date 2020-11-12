@@ -131,3 +131,20 @@ export {
   actions,
   reducer,
 };
+
+export const {
+  setRegions,
+  setCategories,
+  setRestaurants,
+  setRestaurant,
+  selectRegion,
+  selectCategory,
+  changeLoginField,
+  setAccessToken,
+  logout,
+  changeReviewField,
+  clearReviewFields,
+  setReviews,
+} = actions;
+
+export default reducer;
