@@ -9,8 +9,8 @@ import {
 
 import { get } from './utils';
 
-import Button from './style/Button';
-import Row from './style/Row';
+import CriteriaItem from './styles/CriteriaItem';
+import CriteriaList from './styles/CriteriaList';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -26,19 +26,19 @@ export default function CategoriesContainer() {
   return (
     <>
       <p style={{ color: '#696969' }}>분류</p>
-      <Row>
+      <CriteriaList>
         {categories.map((category) => (
           <li key={category.id}>
-            <Button
+            <CriteriaItem
               type="button"
               onClick={() => handleClick(category.id)}
               active={selectedCategory && category.id === selectedCategory.id}
             >
               {category.name}
-            </Button>
+            </CriteriaItem>
           </li>
         ))}
-      </Row>
+      </CriteriaList>
     </>
   );
 }

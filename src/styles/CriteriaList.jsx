@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const Row = styled.ul({
+const CriteriaList = styled.ul({
   display: 'flex',
   listStyle: 'none',
   padding: '1rem 0',
@@ -11,4 +11,4 @@ const Row = styled.ul({
   },
 });
 
-export default Row;
+export default CriteriaList;

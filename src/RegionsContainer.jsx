@@ -7,8 +7,8 @@ import {
   loadRestaurants,
 } from './slice';
 
-import Button from './style/Button';
-import Row from './style/Row';
+import CriteriaItem from './styles/CriteriaItem';
+import CriteriaList from './styles/CriteriaList';
 
 import { get } from './utils';
 
@@ -26,19 +26,19 @@ export default function RegionsContainer() {
   return (
     <>
       <p style={{ color: '#696969' }}>지역</p>
-      <Row>
+      <CriteriaList>
         {regions.map((region) => (
           <li key={region.id}>
-            <Button
+            <CriteriaItem
               type="button"
               onClick={() => handleClick(region.id)}
               active={selectedRegion && region.id === selectedRegion.id}
             >
               {region.name}
-            </Button>
+            </CriteriaItem>
           </li>
         ))}
-      </Row>
+      </CriteriaList>
     </>
   );
 }

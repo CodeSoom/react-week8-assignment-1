@@ -17,10 +17,12 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './slice';
+import Global from './styles/Global';
 
 import { loadItem } from './services/storage';
-import GlobalStyle from './style/GlobalStyle';
+
+import { setAccessToken } from './slice';
+
 
 const Container = styled.div({
   width: '360px',
@@ -60,7 +62,7 @@ export default function App() {
 
   return (
     <Container>
-      <GlobalStyle />
+      <Global />
       <Header>
         <h1>
           <Link to="/">Eatgo</Link>

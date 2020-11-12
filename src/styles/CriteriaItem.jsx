@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const Button = styled.button(({ isSelected }) => ({
+const CriteriaItem = styled.button(({ isSelected }) => ({
   margin: '0 .5rem',
   padding: '.5rem 1rem',
   width: 'max-content',
@@ -12,4 +12,4 @@ const Button = styled.button(({ isSelected }) => ({
   outline: 'none',
 }));
 
-export default Button;
+export default CriteriaItem;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Global, css } from '@emotion/core';
+import { Global as GlobalStyle, css } from '@emotion/core';
 
 const fontNormal = '1.6rem';
 
-export default function GlobalStyle() {
+export default function Global() {
   return (
-    <Global
+    <GlobalStyle
       styles={css`
         *,
         *::before,
