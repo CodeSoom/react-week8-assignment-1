@@ -30,7 +30,7 @@ export default function LoginFormContainer() {
 
   const handleClickLogout = useCallback(() => {
     dispatch(logout());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
