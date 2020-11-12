@@ -8,6 +8,7 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 import NavList from './styles/NavList';
@@ -23,6 +24,14 @@ import NotFoundPage from './pages/NotFoundPage';
 import { setAccessToken } from './modules/slice';
 
 import { loadItem } from './services/storage';
+
+const GlobalStyles = css`
+  body{
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 const Container = styled.div({
   margin: '0 auto',
@@ -54,6 +63,7 @@ export default function App() {
 
   return (
     <Container>
+      <Global styles={GlobalStyles} />
       <Header>
         <h1>
           <Link to="/">EatGo</Link>
