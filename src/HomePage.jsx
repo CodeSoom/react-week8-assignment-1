@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import HomePageBackground from './style/HomePageBackground';
+import HomePageBackground from './styles/HomePageBackground';
 
-import Title from './style/Title';
-import List from './style/List';
-import Item from './style/Item';
+import Title from './styles/Title';
+import List from './styles/List';
+import Item from './styles/Item';
 
 export default function HomePage() {
   return (

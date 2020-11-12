@@ -10,9 +10,9 @@ import { useDispatch } from 'react-redux';
 
 import { Global } from '@emotion/core';
 
-import reset from './style/Reset';
+import reset from './styles/Reset';
 
-import Header from './style/Header';
+import Header from './styles/Header';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
