@@ -1,4 +1,5 @@
-import reducer, {
+import {
+  reducer,
   setRegions,
   setCategories,
   setRestaurants,

@@ -9,7 +9,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from '../slice';
+} from '../redux/slice';
 
 import { get } from '../utils';
 
