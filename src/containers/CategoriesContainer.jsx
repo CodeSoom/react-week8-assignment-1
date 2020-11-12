@@ -31,7 +31,7 @@ export default function CategoriesContainer() {
         {categories.map((category) => (
           <MenuItem
             key={category.id}
-            active={selectedCategory && category.id === selectedCategory.id}
+            active={selectedCategory && selectedCategory.id === category.id}
           >
             <button
               type="button"

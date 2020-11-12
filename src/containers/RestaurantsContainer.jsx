@@ -18,21 +18,29 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
     };
   }
 
+  const isEmpty = (arr) => arr.length === 0;
+
+  if (isEmpty(restaurants ?? [])) {
+    return (
+      <SubContainer>
+        <h3>레스토랑 목록</h3>
+        <p>레스토랑이 없습니다.</p>
+      </SubContainer>
+    );
+  }
+
   return (
     <SubContainer>
       <h3>레스토랑 목록</h3>
-      {(restaurants.length === 0) ? <p>레스토랑이 없습니다.</p>
-        : (
-          <RestaurantList>
-            {restaurants.map((restaurant) => (
-              <RestaurantItem key={restaurant.id}>
-                <a href={`/restaurants/${restaurant.id}`} onClick={handleClick(restaurant)}>
-                  {restaurant.name}
-                </a>
-              </RestaurantItem>
-            ))}
-          </RestaurantList>
-        )}
+      <RestaurantList>
+        {restaurants.map((restaurant) => (
+          <RestaurantItem key={restaurant.id}>
+            <a href={`/restaurants/${restaurant.id}`} onClick={handleClick(restaurant)}>
+              {restaurant.name}
+            </a>
+          </RestaurantItem>
+        ))}
+      </RestaurantList>
     </SubContainer>
   );
 }
