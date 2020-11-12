@@ -32,7 +32,7 @@ export default function CategoriesContainer() {
             <Button
               type="button"
               onClick={() => handleClick(category.id)}
-              isSelected={selectedCategory && category.id === selectedCategory.id}
+              active={selectedCategory && category.id === selectedCategory.id}
             >
               {category.name}
             </Button>
