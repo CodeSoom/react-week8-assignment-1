@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 import MenuItems from './MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -18,3 +19,5 @@ export default function RestaurantDetail({ restaurant }) {
     </div>
   );
 }
+
+export default React.memo(RestaurantDetail);

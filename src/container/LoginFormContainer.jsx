@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,6 +12,7 @@ import {
 } from '_redux/slice';
 
 import { get } from 'utils';
+
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -27,9 +28,9 @@ export default function LoginFormContainer() {
     dispatch(requestLogin());
   };
 
-  const handleClickLogout = () => {
+  const handleClickLogout = useCallback(() => {
     dispatch(logout());
-  };
+  }, [dispatch]);
 
   return (
     <>
