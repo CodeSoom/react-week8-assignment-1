@@ -23,12 +23,12 @@ const Nav = styled.ul({
     '&:hover': {
       color: '#FFF',
       fontWeight: 900,
-      backgroundColor: '#00D33B',
+      backgroundColor: '#15BD3A',
     },
     '&.active': {
       color: '#FFF',
       fontWeight: 900,
-      backgroundColor: '#00D33B',
+      backgroundColor: '#15BD3A',
     },
   },
 });

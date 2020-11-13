@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const MenuItem = styled.ul(({ active }) => ({
+const MenuItem = styled.li(({ active }) => ({
   marginRight: '1em',
   fontSize: '1.5em',
   '& button': {
