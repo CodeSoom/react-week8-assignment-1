@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 
-import store from './lib/reducers/store';
+import store from './reducers/store';
 
 ReactDOM.render(
   (
