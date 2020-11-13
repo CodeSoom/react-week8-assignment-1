@@ -43,6 +43,8 @@
   },
   "dependencies": {
     "@codeceptjs/configure": "^0.5.2",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "@reduxjs/toolkit": "^1.4.0",
     "assert": "^2.0.0",
     "emotion": "^10.0.27",

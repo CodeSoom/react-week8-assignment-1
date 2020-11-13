@@ -21,6 +21,7 @@ time, mark, audio, video {
 
 body {
     line-height:1;
+    min-height: 100vh;
 }
 
 article,aside,details,figcaption,figure,
@@ -28,7 +29,7 @@ footer,header,hgroup,menu,nav,section {
     display:block;
 }
 
-nav ul {
+nav ul, ul {
     list-style:none;
 }
 
@@ -48,6 +49,7 @@ a {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    text-decoration: none;
 }
 
 /* change colours to suit your needs */
@@ -91,4 +93,8 @@ hr {
 
 input, select {
     vertical-align:middle;
+}
+
+#app {
+    min-height: 100vh;
 }
