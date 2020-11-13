@@ -23,7 +23,6 @@ import { loadItem } from './services/storage';
 
 import { setAccessToken } from './slice';
 
-
 const Container = styled.div({
   width: '360px',
   height: '740px',
@@ -36,7 +35,7 @@ const Container = styled.div({
 
 const Header = styled.div({
   backgroundColor: 'hsl(120, 100%, 37%)',
-  height: '100px',
+  height: '80px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
