@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
 
+import NavigatorBar from './NavigatorBar';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -22,9 +23,14 @@ import { setAccessToken } from './slice';
 import { loadItem } from './services/storage';
 
 const Container = styled.div({
-  display: 'grid',
   margin: '0 auto',
-  width: '90%',
+  display: 'grid',
+  gridTemplateColumns: '600px',
+  gridTemplateRows: '68px 52px 480px',
+  rowGap: '10px',
+  alignItems: 'stretch',
+  justifyItems: 'stretch',
+  boxShadow: '0 0 8px 2px rgba(0, 0, 0, 0.04)',
 });
 
 const Header = styled.header({
@@ -32,15 +38,22 @@ const Header = styled.header({
   flexFlow: 'row wrap',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: '#EEE',
-  '& h1': {
+  backgroundColor: '#FFFFFF',
+  '& h1, h3': {
     margin: 0,
     padding: '.75em 1em',
     fontSize: '1.5em',
   },
+  '& h1': {
+    fontSize: '1.5em',
+    '& a': {
+      color: '#00c73c',
+      '&:hover': {
+        color: '#00951c',
+      },
+    },
+  },
   '& h3': {
-    margin: 0,
-    padding: '.75em 1em',
     fontSize: '1.2em',
   },
   '& a': {
@@ -51,21 +64,15 @@ const Header = styled.header({
     },
   },
 });
+const Navigator = styled.nav({
+  alignItems: 'center',
+  backgroundColor: '#FFFFFF',
+});
 
 const Section = styled.section({
-  backgroundColor: '#F5F5F5',
-  '& h1': {
-    margin: 0,
-    padding: '1em .5em',
-    fontSize: '1.5em',
-  },
-  '& a': {
-    color: '#111',
-    textDecoration: 'none',
-    '&:hover': {
-      color: '#555',
-    },
-  },
+  margin: 0,
+  padding: '0 1em 2em 1em',
+  backgroundColor: '#FFFFFF',
 });
 
 export default function App() {
@@ -86,6 +93,9 @@ export default function App() {
           <Link to="/login">Log in</Link>
         </h3>
       </Header>
+      <Navigator>
+        <NavigatorBar />
+      </Navigator>
       <Section>
         <Switch>
           <Route exact path="/" component={HomePage} />
