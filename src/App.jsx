@@ -38,7 +38,7 @@ export default function App() {
     <div>
       <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">Eat<br></br>Go</Link>
         </h1>
       </Header>
       <Switch>
