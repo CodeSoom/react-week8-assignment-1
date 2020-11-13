@@ -44,7 +44,7 @@ describe('App', () => {
     it('renders the home page', () => {
       const { container } = renderApp({ path: '/' });
 
-      expect(container).toHaveTextContent('Home');
+      expect(container).toHaveTextContent('GoEat');
     });
   });
 
