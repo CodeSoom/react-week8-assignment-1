@@ -7,16 +7,19 @@ import styled from '@emotion/styled';
 import { get } from './utils';
 
 const List = styled.ul({
+  marginTop: '1rem',
   listStyle: 'none',
   '& a': {
+    fontWeight: '500',
     display: 'block',
     padding: '.5rem',
     paddingBottom: '3rem',
-    border: '1px solid gray',
-    marginBottom: '1rem',
+    border: '1px solid #CCCCCC',
+    borderRadius: '3px',
+    marginBottom: '1.5rem',
     fontSize: '1.8rem',
     textDecoration: 'none',
-    color: '#111111',
+    color: '#333333',
     transition: 'all .15s',
     '&:hover': {
       color: '#EEEEEE',
