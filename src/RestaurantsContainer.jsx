@@ -13,8 +13,8 @@ const List = styled.ul({
     fontWeight: '500',
     display: 'block',
     padding: '.5rem',
-    paddingBottom: '3rem',
-    border: '1px solid #CCCCCC',
+    paddingBottom: '1rem',
+    border: '.5px solid #CCCCCC',
     borderRadius: '3px',
     marginBottom: '1.5rem',
     fontSize: '1.8rem',
@@ -23,6 +23,12 @@ const List = styled.ul({
     transition: 'all .15s',
     '&:hover': {
       color: '#EEEEEE',
+    },
+    '& p': {
+      marginTop: '.5rem',
+      fontSize: '1.5rem',
+      color: '#666666',
+      fontWeight: '400',
     },
   },
 });
@@ -43,6 +49,9 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
         <li key={restaurant.id}>
           <a href="/restaurants/1" onClick={handleClick(restaurant)}>
             {restaurant.name}
+            <p>
+              {restaurant.address}
+            </p>
           </a>
         </li>
       ))}
