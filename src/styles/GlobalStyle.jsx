@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Global as GlobalStyle, css } from '@emotion/core';
+import { Global, css } from '@emotion/core';
 
 const style = css`
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
@@ -26,8 +26,8 @@ const style = css`
   }
 `;
 
-export default function Global() {
+export default function GlobalStyle() {
   return (
-    <GlobalStyle styles={style} />
+    <Global styles={style} />
   );
 }

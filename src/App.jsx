@@ -17,7 +17,7 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import Global from './styles/Global';
+import GlobalStyle from './styles/GlobalStyle';
 
 import { loadItem } from './services/storage';
 
@@ -61,7 +61,7 @@ export default function App() {
 
   return (
     <Container>
-      <Global />
+      <GlobalStyle />
       <Header>
         <h1>
           <Link to="/">Eatgo</Link>
