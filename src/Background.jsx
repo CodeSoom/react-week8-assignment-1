@@ -7,6 +7,7 @@ const BackgroundStyle = styled.div({
   height: '100%',
   width: '100%',
   zIndex: '-100',
+  opacity: '0.85',
   '& div': {
     position: 'absolute',
     display: 'flex',
