@@ -16,24 +16,25 @@ import LoginPage from 'container/LoginPage';
 import RestaurantsPage from 'container/RestaurantsPage';
 import RestaurantPage from 'container/RestaurantPage';
 import NotFoundPage from 'presentational/NotFoundPage';
-
 import { setAccessToken } from '_redux/slice';
+import Background from './Background';
+
 
 import { loadItem } from './services/storage';
 
 const Wrap = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  width: '50%',
+  width: '90%',
   height: '100vh',
   margin: '0 auto',
 });
+
 
 const Header = styled.header({
   height: '50px',
   h1: {
     lineHeight: '50px',
-    textAlign: 'center',
   },
 });
 
@@ -50,23 +51,27 @@ export default function App() {
   }
 
   return (
-    <Wrap>
-      <Header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </Header>
+    <div>
+      <Background />
 
-      <Container>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/login" component={LoginPage} />
-          <Route exact path="/restaurants" component={RestaurantsPage} />
-          <Route path="/restaurants/:id" component={RestaurantPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Container>
-    </Wrap>
+      <Wrap>
+        <Header>
+          <h1>
+            <Link to="/">헤더 영역</Link>
+          </h1>
+        </Header>
+
+        <Container>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route exact path="/restaurants" component={RestaurantsPage} />
+            <Route path="/restaurants/:id" component={RestaurantPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Container>
+      </Wrap>
+    </div>
   );
 }
