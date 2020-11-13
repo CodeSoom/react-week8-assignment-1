@@ -9,7 +9,7 @@ const RestaurantsBlock = styled.ul({
   padding: '.4em 0',
   listStyle: 'none',
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'row',
 });
 
 const RestaurantItem = styled.li({
@@ -23,9 +23,9 @@ const RestaurantItem = styled.li({
     color: 'white',
     outline: 'none',
     textDecoration: 'none',
-    background: palette.Teal[5],
+    background: palette.cyan[5],
     '&:hover': {
-      background: palette.Teal[4],
+      background: palette.cyan[4],
     },
   },
 });
