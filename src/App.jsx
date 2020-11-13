@@ -54,7 +54,7 @@ const Header = styled.header({
     },
   },
   '& h3': {
-    fontSize: '1.2em',
+    fontSize: '1em',
   },
   '& a': {
     color: '#111',
@@ -90,7 +90,7 @@ export default function App() {
           <Link to="/">GoEat</Link>
         </h1>
         <h3>
-          <Link to="/login">Log in</Link>
+          <Link to="/login">내정보</Link>
         </h3>
       </Header>
       <Navigator>

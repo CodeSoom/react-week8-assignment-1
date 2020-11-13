@@ -17,7 +17,7 @@ const Login = styled.div({
 export default function LoginPage() {
   return (
     <Login>
-      <h1>로그인</h1>
+      <h1>안녕하세요.</h1>
       <LoginFormContainer />
     </Login>
   );
