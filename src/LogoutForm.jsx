@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from './styles/Button';
 
-export default function LogoutForm({ onClick }) {
+function LogoutForm({ onClick }) {
   return (
     <>
       <Button
@@ -14,3 +14,5 @@ export default function LogoutForm({ onClick }) {
     </>
   );
 }
+
+export default React.memo(LogoutForm);

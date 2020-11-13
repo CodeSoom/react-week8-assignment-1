@@ -20,7 +20,7 @@ const Divider = styled.div({
   marginRight: '5em',
 });
 
-export default function RestaurantContainer({ restaurantId }) {
+function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -63,3 +63,5 @@ export default function RestaurantContainer({ restaurantId }) {
     </>
   );
 }
+
+export default React.memo(RestaurantContainer);

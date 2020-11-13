@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -18,10 +18,10 @@ export default function CategoriesContainer() {
   const categories = useSelector(get('categories'));
   const selectedCategory = useSelector(get('selectedCategory'));
 
-  function handleClick(categoryId) {
+  const handleClick = useCallback((categoryId) => {
     dispatch(selectCategory(categoryId));
     dispatch(loadRestaurants());
-  }
+  }, [dispatch]);
 
   return (
     <MenuList>
