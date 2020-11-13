@@ -2,19 +2,18 @@ import styled from '@emotion/styled';
 
 const CriteriaItem = styled.button(({ active }) => ({
   margin: '0 .5rem',
-  padding: '.5rem 1rem',
+  padding: '.8rem 1.3rem',
   width: 'max-content',
   fontSize: '1.7rem',
-  letterSpacing: '1px',
+  letterSpacing: '2px',
   border: 'none',
-  color: active ? '#FFFFFF' : '#808080',
+  color: active ? '#FFFFFF' : '#666666',
   background: 'transparent',
-  backgroundColor: active ? '#00CC00' : 'EEEEEE',
+  backgroundColor: active ? '#00AA00' : '#EEEEEE',
+  fontWeight: active ? '650' : '400',
   outline: 'none',
-  boxShadow: active ? '0 1px 1px #DDDDDD' : '0 4px 3px #DDDDDD',
-  transform: `rotateX(10deg) ${active && 'translateY(2px)'}`,
+  borderRadius: '3px',
   transition: 'all .2s',
-  fontWeight: active ? '600' : '400',
 }));
 
 export default CriteriaItem;
