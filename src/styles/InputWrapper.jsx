@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const LoginInput = styled.div({
+const InputWrapper = styled.div({
   width: '400px',
   padding: '.5em 0',
   '& label': {
@@ -31,4 +31,4 @@ const LoginInput = styled.div({
   },
 });
 
-export default LoginInput;
+export default InputWrapper;

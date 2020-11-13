@@ -2,6 +2,8 @@ import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -13,6 +15,10 @@ import {
 } from './slice';
 
 import { get } from './utils';
+
+const Divider = styled.div({
+  marginRight: '5em',
+});
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -41,15 +47,19 @@ export default function RestaurantContainer({ restaurantId }) {
 
   return (
     <>
-      <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
-        <ReviewForm
-          fields={reviewFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      ) : null}
-      <Reviews reviews={restaurant.reviews} />
+      <Divider>
+        <RestaurantDetail restaurant={restaurant} />
+        {accessToken ? (
+          <ReviewForm
+            fields={reviewFields}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        ) : null}
+      </Divider>
+      <Divider>
+        <Reviews reviews={restaurant.reviews} />
+      </Divider>
     </>
   );
 }
