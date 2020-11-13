@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-const List = styled.ul({
+const Nav = styled.ul({
   margin: 0,
   padding: 0,
   listStyle: 'none',
@@ -19,11 +19,16 @@ const List = styled.ul({
     color: '#111',
     textDecoration: 'none',
     textAlign: 'center',
-    border: '1px solid #aaaaaa',
+    border: '1px solid #DADADA',
     '&:hover': {
-      color: '#555',
-      fontWeight: 600,
-      textDecoration: 'underline',
+      color: '#FFF',
+      fontWeight: 900,
+      backgroundColor: '#00D33B',
+    },
+    '&.active': {
+      color: '#FFF',
+      fontWeight: 900,
+      backgroundColor: '#00D33B',
     },
   },
 });
@@ -32,17 +37,22 @@ const Item = styled.li({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  alignSelf: 'stretch',
 });
 
 export default function NavigatorBar() {
   return (
-    <List>
-      <Link to="/restaurants">
-        <Item>Restaurants</Item>
-      </Link>
-      <Link to="/about">
-        <Item>About</Item>
-      </Link>
-    </List>
+    <Nav>
+      <NavLink to="/restaurants" activeClassName={Nav.active}>
+        <Item>
+          Restaurants
+        </Item>
+      </NavLink>
+      <NavLink to="/about" activeClassName={Nav.active}>
+        <Item>
+          About
+        </Item>
+      </NavLink>
+    </Nav>
   );
 }
