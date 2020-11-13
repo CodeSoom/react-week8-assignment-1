@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../../lib/styles/Button';
+import Button from '../../styles/Button';
 
 function LogoutForm({ onClick }) {
   return (

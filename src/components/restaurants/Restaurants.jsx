@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import palette from '../../lib/styles/palette';
+import palette from '../../styles/palette';
 
 const RestaurantsBlock = styled.ul({
   margin: 0,

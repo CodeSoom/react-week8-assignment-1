@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Menu from './Menu';
-import MenuList from '../../lib/styles/MenuList';
+import MenuList from '../../styles/MenuList';
 
 const MenuTypesList = ({ types, onClickType, selectedType }) => {
   if (types.length === 0) {
