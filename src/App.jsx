@@ -38,7 +38,7 @@ const Header = styled.header({
   flexFlow: 'row wrap',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#00D33B',
   '& h1, h3': {
     margin: 0,
     padding: '.75em 1em',
@@ -46,33 +46,28 @@ const Header = styled.header({
   },
   '& h1': {
     fontSize: '1.5em',
-    '& a': {
-      color: '#00c73c',
-      '&:hover': {
-        color: '#00951c',
-      },
-    },
   },
   '& h3': {
     fontSize: '1em',
-  },
-  '& a': {
-    color: '#111',
-    textDecoration: 'none',
     '&:hover': {
       color: '#555',
+      textDecoration: 'underline',
     },
+  },
+  '& a': {
+    color: '#FFF',
+    textDecoration: 'none',
   },
 });
 const Navigator = styled.nav({
   alignItems: 'center',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#FFF',
 });
 
 const Section = styled.section({
   margin: 0,
   padding: '0 1em 2em 1em',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#FFF',
 });
 
 export default function App() {
