@@ -27,9 +27,9 @@ function LoginFormContainer() {
     dispatch(requestLogin());
   }, [dispatch]);
 
-  const handleClickLogout = () => {
+  const handleClickLogout = useCallback(() => {
     dispatch(logout());
-  };
+  }, [dispatch]);
 
   return (
     <>
