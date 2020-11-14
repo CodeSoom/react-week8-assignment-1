@@ -10,6 +10,7 @@ function RestaurantDetail({ restaurant }) {
   return (
     <Details>
       <h2>{name}</h2>
+      <hr />
       <p>
         {address}
       </p>

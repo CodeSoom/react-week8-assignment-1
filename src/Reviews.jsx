@@ -7,7 +7,7 @@ import Details from './Details';
 const ReviewList = styled.ul({
   listStyle: 'none',
   padding: 0,
-  maxHeight: '160px',
+  maxHeight: '200px',
   display: 'flex',
   flexFlow: 'row wrap',
   justifyContent: 'space-evenly',

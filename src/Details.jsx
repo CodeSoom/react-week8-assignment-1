@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const Details = styled.div({
-  margin: '1em',
+  margin: '.6em 1em',
   textAlign: 'center',
   backgroundColor: 'white',
   borderBottom: '3px solid #4CAF50',
