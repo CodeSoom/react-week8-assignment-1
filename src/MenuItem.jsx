@@ -1,17 +1,20 @@
 import styled from '@emotion/styled';
 
 const MenuItem = styled.li(({ active }) => ({
-  marginRight: '1em',
+  flexGrow: 1,
+  alignSelf: 'center',
   fontSize: '1.5em',
   '& button': {
-    color: '#111',
-    border: '1px solid #CCC',
-    padding: '.4em 1em',
-    background: active ? '#eee' : 'transparent',
-    textDecoration: 'none',
     cursor: 'pointer',
+    width: '100%',
+    padding: '.4em 1em',
+    textDecoration: 'none',
+    color: active ? '#008605' : '#111',
+    fontWeight: active ? 600 : 400,
+    border: active ? '1px solid #5d5d5d' : '1px solid #CCC',
+    background: active ? '#FFF' : 'transparent',
     '&:hover': {
-      color: '#555',
+      color: '#008605',
       fontWeight: 600,
     },
   },

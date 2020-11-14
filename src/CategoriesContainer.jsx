@@ -23,10 +23,13 @@ export default function CategoriesContainer() {
   }, [dispatch]);
 
   return (
-    <Categories
-      categories={categories}
-      selectedCategory={selectedCategory}
-      onClick={handleClick}
-    />
+    <>
+      <h4>카테고리</h4>
+      <Categories
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onClick={handleClick}
+      />
+    </>
   );
 }

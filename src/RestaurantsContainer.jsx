@@ -17,9 +17,12 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <Restaurants
-      restaurants={restaurants}
-      onClick={handleClick}
-    />
+    <>
+      <h3>레스토랑</h3>
+      <Restaurants
+        restaurants={restaurants}
+        onClick={handleClick}
+      />
+    </>
   );
 }

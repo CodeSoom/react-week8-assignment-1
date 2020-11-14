@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RegionsContainer from './RegionsContainer';
 import CategoriesContainer from './CategoriesContainer';
 import RestaurantsContainer from './RestaurantsContainer';
@@ -11,6 +13,31 @@ import RestaurantsContainer from './RestaurantsContainer';
 import {
   loadInitialData,
 } from './slice';
+
+const Container = styled.article({
+  display: 'grid',
+  gridTemplateRows: '1fr 4fr',
+  height: '100%',
+  '& div': {
+    padding: '.5em 1em',
+  },
+  '& h4': {
+    margin: 0,
+    display: 'flex',
+    flexDirection: 'row',
+    justifySelf: 'center',
+    alignSelf: 'center',
+  },
+});
+
+const SelectContainer = styled.div({
+  display: 'grid',
+  gridTemplateColumns: '1fr 4fr',
+});
+
+const ListContainer = styled.div({
+  backgroundColor: '#d3d9e0',
+});
 
 export default function RestaurantsPage() {
   const history = useHistory();
@@ -27,10 +54,14 @@ export default function RestaurantsPage() {
   }, [history]);
 
   return (
-    <div>
-      <RegionsContainer />
-      <CategoriesContainer />
-      <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+    <Container>
+      <SelectContainer>
+        <RegionsContainer />
+        <CategoriesContainer />
+      </SelectContainer>
+      <ListContainer>
+        <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
+      </ListContainer>
+    </Container>
   );
 }

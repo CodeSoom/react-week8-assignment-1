@@ -2,6 +2,8 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import Regions from './Regions';
 
 import {
@@ -23,10 +25,13 @@ export default function RegionsContainer() {
   }, [dispatch]);
 
   return (
-    <Regions
-      regions={regions}
-      selectedRegion={selectedRegion}
-      onClick={handleClick}
-    />
+    <>
+      <h4>지역</h4>
+      <Regions
+        regions={regions}
+        selectedRegion={selectedRegion}
+        onClick={handleClick}
+      />
+    </>
   );
 }

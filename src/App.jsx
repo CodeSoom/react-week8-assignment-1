@@ -66,7 +66,6 @@ const Navigator = styled.nav({
 
 const Section = styled.section({
   margin: 0,
-  padding: '0 1em 2em 1em',
   backgroundColor: '#FFF',
 });
 
