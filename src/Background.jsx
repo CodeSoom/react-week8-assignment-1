@@ -5,7 +5,8 @@ import styled from '@emotion/styled';
 const BackgroundStyle = styled.div({
   position: 'absolute',
   height: '100%',
-  width: '100%',
+  width: '95%',
+  margin: '0 auto',
   zIndex: '-100',
   opacity: '0.85',
   '& div': {

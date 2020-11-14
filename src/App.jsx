@@ -25,7 +25,7 @@ import { loadItem } from './services/storage';
 const Wrap = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  width: '90%',
+  width: '85%',
   height: '100vh',
   margin: '0 auto',
 });
