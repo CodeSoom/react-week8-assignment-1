@@ -2,8 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import image from './images/sample.png';
-
 const CardList = styled.ul({
   listStyle: 'none',
   padding: 0,
@@ -46,7 +44,10 @@ function Restaurants({ restaurants, onClick }) {
       {restaurants.map((restaurant) => (
         <CardItem key={restaurant.id}>
           <div>
-            <img src={image} alt={image} />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQTcFI6hTmgUtdxQTZktMt5KgEbySf4mtRgfQ&usqp=CAU"
+              alt="No restaurant images"
+            />
             <a href="/restaurants/1" onClick={onClick(restaurant)}>
               {restaurant.name}
             </a>

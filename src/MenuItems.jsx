@@ -1,5 +1,15 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+const Menus = styled.ul({
+  listStyle: 'none',
+  padding: 0,
+  display: 'flex',
+  flexFlow: 'row wrap',
+  justifyContent: 'space-evenly',
+});
+
 function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -8,13 +18,13 @@ function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <Menus>
       {menuItems.map((menuItem) => (
         <li key={menuItem.id}>
           {menuItem.name}
         </li>
       ))}
-    </ul>
+    </Menus>
   );
 }
 
