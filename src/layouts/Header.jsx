@@ -15,7 +15,7 @@ const Logo = styled.h1({
   alignItems: 'center',
   width: '300px',
   height: '80px',
-  marginLeft: '15px',
+  paddingLeft: '30px',
   fontSize: '30px',
   color: '#34a3ff',
 });

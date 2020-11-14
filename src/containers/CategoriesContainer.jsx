@@ -8,6 +8,7 @@ import {
 } from '../redux/slice';
 
 import { get } from '../utils';
+import { List, Button } from '../layouts/Restaurants';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -23,8 +24,8 @@ export default function CategoriesContainer() {
   return (
     <ul>
       {categories.map((category) => (
-        <li key={category.id}>
-          <button
+        <List key={category.id}>
+          <Button
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -34,8 +35,8 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
-        </li>
+          </Button>
+        </List>
       ))}
     </ul>
   );

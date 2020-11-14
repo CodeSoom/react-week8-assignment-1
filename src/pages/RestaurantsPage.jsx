@@ -27,10 +27,17 @@ export default function RestaurantsPage() {
   }
 
   return (
-    <div>
-      <RegionsContainer />
-      <CategoriesContainer />
-      <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+    <>
+      <div className="left">
+        <h2>지역</h2>
+        <RegionsContainer />
+
+        <h2 style={{ marginTop: '20px' }}>먹고싶은 것</h2>
+        <CategoriesContainer />
+      </div>
+      <div className="right">
+        <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
+      </div>
+    </>
   );
 }

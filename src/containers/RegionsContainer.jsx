@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -8,6 +7,7 @@ import {
 } from '../redux/slice';
 
 import { get } from '../utils';
+import { List, Button } from '../layouts/Restaurants';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -23,8 +23,8 @@ export default function RegionsContainer() {
   return (
     <ul>
       {regions.map((region) => (
-        <li key={region.id}>
-          <button
+        <List key={region.id}>
+          <Button
             type="button"
             onClick={() => handleClick(region.id)}
           >
@@ -34,8 +34,8 @@ export default function RegionsContainer() {
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
-        </li>
+          </Button>
+        </List>
       ))}
     </ul>
   );
