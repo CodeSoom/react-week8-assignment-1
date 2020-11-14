@@ -37,6 +37,9 @@ const SelectContainer = styled.div({
 
 const ListContainer = styled.div({
   backgroundColor: '#d3d9e0',
+  textAlign: 'center',
+  maxHeight: '380px',
+  overflow: 'auto',
 });
 
 export default function RestaurantsPage() {
