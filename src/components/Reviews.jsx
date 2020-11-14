@@ -29,3 +29,5 @@ export default function Reviews({ reviews }) {
     </ReviewList>
   );
 }
+
+// export default React.memo(Reviews);

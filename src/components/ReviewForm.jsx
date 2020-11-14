@@ -5,7 +5,7 @@ import Button from '../styles/Button';
 
 import TextField from './TextField';
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
@@ -32,3 +32,5 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
     </Form>
   );
 }
+
+export default React.memo(ReviewForm);
