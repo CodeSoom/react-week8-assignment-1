@@ -4,18 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-const Container = styled.div({
-  position: 'absolute',
-  top: '35%',
-  width: '30%',
-  height: '20%',
-});
-
-const Title = styled.h2({
-  fontFamily: "'Playfair Display', serif",
-  fontSize: '3em',
-  color: '#F73463',
-});
+import { Title, Container } from './styled';
 
 const Menu = styled.ul({
   marginTop: '100px',
