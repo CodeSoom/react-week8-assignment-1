@@ -2,8 +2,6 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import styled from '@emotion/styled';
-
 import Regions from './Regions';
 
 import {

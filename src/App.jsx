@@ -46,6 +46,11 @@ const Header = styled.header({
   },
   '& h1': {
     fontSize: '1.5em',
+    '& a': {
+      '&:nth-child(n+2)': {
+        fontSize: '.1em',
+      },
+    },
   },
   '& h3': {
     fontSize: '1em',
@@ -82,6 +87,8 @@ export default function App() {
       <Header>
         <h1>
           <Link to="/">GoEat</Link>
+          <Link to="/">헤더</Link>
+          <Link to="/">Home</Link>
         </h1>
         <h3>
           <Link to="/login">내정보</Link>

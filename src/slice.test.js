@@ -4,15 +4,14 @@ import reducer, {
   setRestaurants,
   setRestaurant,
   selectRegion,
+  setReviews,
+  setAccessToken,
   selectCategory,
   changeLoginField,
-  setAccessToken,
-  logout,
   changeReviewField,
   clearReviewFields,
-  setReviews,
+  logout,
 } from './slice';
-
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
