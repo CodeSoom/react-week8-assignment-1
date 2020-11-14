@@ -13,8 +13,14 @@ import LoginPage from './pages/LoginPage';
 import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
 import NotFoundPage from './pages/NotFoundPage';
-import Header from './layouts/Header';
+import Header, {
+  Logo,
+  List,
+  Item,
+  StyledLink,
+} from './layouts/Header';
 import Wrapper from './layouts/Wrapper';
+import Main from './layouts/Main';
 
 import { setAccessToken } from './redux/slice';
 
@@ -30,15 +36,28 @@ export default function App() {
 
   return (
     <Wrapper>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Header>
+        <Logo>
+          <StyledLink to="/">Eat-GO</StyledLink>
+        </Logo>
+
+        <List>
+          <Item><StyledLink to="/restaurants">Restaurants</StyledLink></Item>
+          <Item flexGrow="1"><StyledLink to="/about">About</StyledLink></Item>
+          <Item><StyledLink to="/login">Log in</StyledLink></Item>
+        </List>
+      </Header>
+
+      <Main>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Main>
     </Wrapper>
   );
 }

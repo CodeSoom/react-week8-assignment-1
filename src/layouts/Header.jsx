@@ -2,22 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
-const Wrapper = styled.header({
+const Header = styled.header({
   display: 'flex',
+  flexGrow: '0',
   height: '80px',
   borderBottom: '1px solid #dedede',
 });
 
 const Logo = styled.h1({
   display: 'flex',
+  flexDirection: 'row',
   alignItems: 'center',
   width: '300px',
   height: '80px',
   marginLeft: '15px',
   fontSize: '30px',
+  color: '#34a3ff',
 });
 
 const List = styled.ul({
+  display: 'flex',
+  flexDirection: 'row',
   overflow: 'hidden',
   flexGrow: '1',
   height: '80px',
@@ -26,29 +31,31 @@ const List = styled.ul({
   borderLeft: '1px solid #dedede',
 });
 
-const ItemLeft = styled.li({
-  float: 'left',
+const Item = styled.li(({ flexGrow = 0 }) => ({
   marginRight: '20px',
+  flexGrow,
   listStyle: 'none',
-});
+  '&:last-of-type': {
+    marginRight: '0',
+  },
+}));
 
-const ItemRight = styled.li({
-  float: 'right',
-  listStyle: 'none',
-});
+const StyledLink = ({ to, children }) => (
+  <Link
+    to={to}
+    style={{
+      color: 'inherit',
+      textDecoration: 'none',
+    }}
+  >
+    {children}
+  </Link>
+);
 
-export default function Header() {
-  return (
-    <Wrapper>
-      <Logo>
-        <Link to="/">Eat-GO</Link>
-      </Logo>
-
-      <List>
-        <ItemLeft><Link to="/restaurants">Restaurants</Link></ItemLeft>
-        <ItemLeft><Link to="/about">About</Link></ItemLeft>
-        <ItemRight><Link to="/login">Log in</Link></ItemRight>
-      </List>
-    </Wrapper>
-  );
-}
+export default Header;
+export {
+  Logo,
+  List,
+  Item,
+  StyledLink,
+};
