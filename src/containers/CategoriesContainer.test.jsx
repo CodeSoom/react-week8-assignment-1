@@ -8,30 +8,50 @@ import CategoriesContainer from './CategoriesContainer';
 
 describe('CategoriesContainer', () => {
   const dispatch = jest.fn();
-
   beforeEach(() => {
     dispatch.mockClear();
     useDispatch.mockImplementation(() => dispatch);
-
-    useSelector.mockImplementation((selector) => selector({
-      categories: [
-        { id: 1, name: '한식' },
-        { id: 2, name: '양식' },
-      ],
-      selectedCategory: { id: 1, name: '한식' },
-    }));
   });
 
-  it('renders regions and checked symbol', () => {
-    const { container, getByText } = render((
-      <CategoriesContainer />
-    ));
+  context('with selectedCategory', () => {
+    beforeEach(() => {
+      useSelector.mockImplementation((selector) => selector({
+        categories: [
+          { id: 1, name: '한식' },
+          { id: 2, name: '양식' },
+        ],
+        selectedCategory: { id: 1, name: '한식' },
+      }));
+    });
 
-    expect(container).toHaveTextContent('한식(V)');
-    expect(container).toHaveTextContent('양식');
+    it('renders regions and checked symbol', () => {
+      const { container, getByText } = render((
+        <CategoriesContainer />
+      ));
 
-    fireEvent.click(getByText('양식'));
+      expect(container).toHaveTextContent('한식(V)');
+      expect(container).toHaveTextContent('양식');
 
-    expect(dispatch).toBeCalled();
+      fireEvent.click(getByText('양식'));
+
+      expect(dispatch).toBeCalled();
+    });
+  });
+
+  context('without selectedCategory', () => {
+    beforeEach(() => {
+      useSelector.mockImplementation((selector) => selector({
+        categories: [
+          { id: 1, name: '한식' },
+          { id: 2, name: '양식' },
+        ],
+      }));
+    });
+
+    it('renders well', () => {
+      render((
+        <CategoriesContainer />
+      ));
+    });
   });
 });
