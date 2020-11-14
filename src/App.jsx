@@ -3,7 +3,6 @@ import React from 'react';
 import {
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
@@ -15,6 +14,7 @@ import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './layouts/Header';
+import Wrapper from './layouts/Wrapper';
 
 import { setAccessToken } from './redux/slice';
 
@@ -29,12 +29,8 @@ export default function App() {
   }
 
   return (
-    <div>
-      <Header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </Header>
+    <Wrapper>
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -43,6 +39,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Wrapper>
   );
 }
