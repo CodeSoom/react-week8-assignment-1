@@ -16,13 +16,14 @@ const CardItem = styled.li({
   flexBasis: '30%',
   height: '150px',
   margin: '.5em',
-  border: '1px solid #000',
+  border: '1px solid #9c9c9c',
   boxShadow: '3px 3px 5px 0px #9c9c9c',
   '& div': {
     display: 'grid',
     gridTemplateRows: '3fr 1fr',
     height: '100%',
     padding: 0,
+    backgroundColor: 'white',
     '& img': {
       width: '100%',
     },
