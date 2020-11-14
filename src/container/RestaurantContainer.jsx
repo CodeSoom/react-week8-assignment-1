@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RestaurantDetail from 'presentational/RestaurantDetail';
 import ReviewForm from 'presentational/ReviewForm';
 import Reviews from 'presentational/Reviews';
@@ -13,6 +15,28 @@ import {
 } from '_redux/slice';
 
 import { get } from 'utils';
+
+
+const RestaurantLayout = styled.div({
+  height: '100vh',
+  overflow: 'scroll',
+  scrollSnapType: 'y mandatory',
+  scrollbarWidth: 'none',
+  '& ::-webkit-scrollbar': {
+    display: 'none',
+  },
+  '& ::first-child': {
+    display: 'flex',
+  },
+});
+
+const Section = styled.div({
+  width: '100%',
+  height: '100%',
+  scrollSnapAlign: 'start',
+  overflow: 'scroll',
+});
+
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -40,16 +64,22 @@ export default function RestaurantContainer({ restaurantId }) {
   }
 
   return (
-    <>
-      <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
-        <ReviewForm
-          fields={reviewFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      ) : null}
-      <Reviews reviews={restaurant.reviews} />
-    </>
+    <RestaurantLayout>
+      <Section>
+        <RestaurantDetail restaurant={restaurant} />
+
+      </Section>
+
+      <Section>
+        {accessToken ? (
+          <ReviewForm
+            fields={reviewFields}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        ) : null}
+        <Reviews reviews={restaurant.reviews} />
+      </Section>
+    </RestaurantLayout>
   );
 }

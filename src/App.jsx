@@ -28,6 +28,10 @@ const Wrap = styled.div({
   width: '85%',
   height: '100vh',
   margin: '0 auto',
+  scrollbarWidth: 'none',
+  '& ::-webkit-scrollbar': {
+    display: 'none',
+  },
 });
 
 
