@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import palette from '../../styles/palette';
 import Button from '../../styles/Button';
 
-const LoginTemplateBlock = styled.div({
+const LoginTemplateWrapper = styled.div({
   position: 'absolute',
   left: '25rem',
   top: '10rem',
@@ -64,7 +64,7 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   }
 
   return (
-    <LoginTemplateBlock>
+    <LoginTemplateWrapper>
       <LoginBox>
         <h2>로그인</h2>
         <div>
@@ -99,7 +99,7 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           Log In
         </Button>
       </LoginBox>
-    </LoginTemplateBlock>
+    </LoginTemplateWrapper>
   );
 });
 

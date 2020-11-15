@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import palette from '../../styles/palette';
 
-const RestaurantsBlock = styled.ul({
+const RestaurantsWrapper = styled.ul({
   margin: 0,
   padding: '.4em 0',
   listStyle: 'none',
@@ -31,7 +31,7 @@ const RestaurantItem = styled.li({
 });
 
 const Restaurants = ({ restaurants, onClick }) => (
-  <RestaurantsBlock>
+  <RestaurantsWrapper>
     {restaurants.map((restaurant) => (
       <RestaurantItem key={restaurant.id}>
         <a href="/restaurants/1" onClick={onClick(restaurant)}>
@@ -39,7 +39,7 @@ const Restaurants = ({ restaurants, onClick }) => (
         </a>
       </RestaurantItem>
     ))}
-  </RestaurantsBlock>
+  </RestaurantsWrapper>
 );
 
 export default Restaurants;

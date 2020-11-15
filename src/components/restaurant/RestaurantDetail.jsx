@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import MenuItems from './MenuItems';
 import palette from '../../styles/palette';
 
-const RestaurantDetailBlock = styled.div({
+const RestaurantDetailWrapper = styled.div({
   marginTop: '4rem',
   marginBottom: '5rem',
   padding: '2rem',
@@ -43,7 +43,7 @@ function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
-    <RestaurantDetailBlock>
+    <RestaurantDetailWrapper>
       <h2>{name}</h2>
       <p>
         주소:
@@ -52,7 +52,7 @@ function RestaurantDetail({ restaurant }) {
       </p>
       <h3>메뉴</h3>
       <MenuItems menuItems={menuItems} />
-    </RestaurantDetailBlock>
+    </RestaurantDetailWrapper>
   );
 }
 

@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import palette from '../../styles/palette';
 
-const MenuListBlock = styled.ul({
+const MenuListWrapper = styled.ul({
   margin: 0,
   padding: '.4em 0',
   listStyle: 'none',
@@ -11,7 +11,7 @@ const MenuListBlock = styled.ul({
   flexDirection: 'column',
 });
 
-const MenuItemBlock = styled.ul({
+const MenuItemWrapper = styled.ul({
   padding: '0 1rem',
   marginBottom: '.5rem',
   height: '36px',
@@ -39,13 +39,13 @@ function MenuItems({ menuItems }) {
   }
 
   return (
-    <MenuListBlock>
+    <MenuListWrapper>
       {menuItems.map((menuItem) => (
-        <MenuItemBlock key={menuItem.id}>
+        <MenuItemWrapper key={menuItem.id}>
           {menuItem.name}
-        </MenuItemBlock>
+        </MenuItemWrapper>
       ))}
-    </MenuListBlock>
+    </MenuListWrapper>
   );
 }
 
