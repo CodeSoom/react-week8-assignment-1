@@ -22,12 +22,14 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
     onClickRestaurant(restaurant);
   }, []);
 
+  const sampleImageLink = 'https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking.jpg';
+
   return (
     <ul>
       {restaurants.map((restaurant) => (
         <List key={restaurant.id}>
           <Anchor href="/restaurants/1" onClick={handleClick(restaurant)}>
-            <Image src="https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking.jpg" alt={restaurant.name} />
+            <Image src={sampleImageLink} alt={restaurant.name} />
             <RestaurantWrapper>
               <RestaurantName>{restaurant.name}</RestaurantName>
               <RestaurantDescription>
