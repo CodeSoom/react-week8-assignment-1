@@ -2,12 +2,14 @@ import React from 'react';
 
 import MenuItems from './MenuItems';
 
+import { Container, Title } from '../styled';
+
 function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
-    <di>
-      <h2>{name}</h2>
+    <Container>
+      <Title>{name}</Title>
       <p>
         주소:
         {' '}
@@ -15,7 +17,7 @@ function RestaurantDetail({ restaurant }) {
       </p>
       <h3>메뉴</h3>
       <MenuItems menuItems={menuItems} />
-    </di>
+    </Container>
   );
 }
 

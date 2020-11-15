@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const BackgroundStyle = styled.div({
-  position: 'absolute',
+  position: 'fixed',
   height: '100%',
   width: '95%',
   margin: '0 auto',

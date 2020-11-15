@@ -25,16 +25,13 @@ const RestaurantLayout = styled.div({
   '& ::-webkit-scrollbar': {
     display: 'none',
   },
-  '& ::first-child': {
-    display: 'flex',
-  },
 });
 
 const Section = styled.div({
-  width: '100%',
+  position: 'relative',
   height: '100%',
   scrollSnapAlign: 'start',
-  overflow: 'scroll',
+  overflow: 'auto',
 });
 
 
@@ -67,7 +64,6 @@ export default function RestaurantContainer({ restaurantId }) {
     <RestaurantLayout>
       <Section>
         <RestaurantDetail restaurant={restaurant} />
-
       </Section>
 
       <Section>

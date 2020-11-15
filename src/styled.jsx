@@ -14,7 +14,7 @@ export const Container = styled.div({
 });
 
 
-export const InputBox = styled.div({
+export const InputBox = styled.div((props) => ({
   color: '#FF91AC',
   '& label': {
     display: 'block',
@@ -25,8 +25,8 @@ export const InputBox = styled.div({
   },
 
   '& input': {
-    width: '50%',
+    width: props.width || '50%',
     height: '30px',
     border: '0.3px solid #FF91AC',
   },
-});
+}));
