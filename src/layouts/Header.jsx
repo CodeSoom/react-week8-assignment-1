@@ -17,7 +17,7 @@ const Logo = styled.h1({
   height: '80px',
   paddingLeft: '30px',
   fontSize: '30px',
-  color: '#34a3ff',
+  color: '#09d2e5',
 });
 
 const List = styled.ul({

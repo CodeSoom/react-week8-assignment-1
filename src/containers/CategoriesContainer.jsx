@@ -28,6 +28,7 @@ export default function CategoriesContainer() {
           <Button
             type="button"
             onClick={() => handleClick(category.id)}
+            active={selectedCategory ? category.name === selectedCategory.name : false}
           >
             {category.name}
             {selectedCategory ? (

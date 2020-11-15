@@ -27,6 +27,7 @@ export default function RegionsContainer() {
           <Button
             type="button"
             onClick={() => handleClick(region.id)}
+            active={selectedRegion ? region.name === selectedRegion.name : false}
           >
             {region.name}
             {selectedRegion ? (

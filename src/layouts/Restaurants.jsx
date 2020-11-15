@@ -4,16 +4,19 @@ const List = styled.li({
   listStyle: 'none',
 });
 
-const Button = styled.button({
+const Button = styled.button(({ active }) => ({
   width: '93px',
   marginBottom: '10px',
   lineHeight: '38px',
   border: '1px solid #222228',
-  backgroundColor: 'transparent',
+  backgroundColor: active ? '#09d2e5' : 'transparent',
   fontSize: '13px',
   color: '#222228',
   cursor: 'pointer',
-});
+  '&:hover': {
+    backgroundColor: '#f9f9fa',
+  },
+}));
 
 const Anchor = styled.a({
   display: 'flex',
@@ -24,6 +27,9 @@ const Anchor = styled.a({
   borderBottom: '1px solid #e6e6eb',
   textDecoration: 'none',
   color: 'inherit',
+  '&:hover': {
+    backgroundColor: '#f9f9fa',
+  },
 });
 
 const Image = styled.img({
