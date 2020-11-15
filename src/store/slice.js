@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { equal } from './utils';
+import { equal } from '../utils/utils';
 
 import {
   fetchRegions,
@@ -9,9 +9,9 @@ import {
   fetchRestaurant,
   postLogin,
   postReview,
-} from './services/api';
+} from '../services/api';
 
-import { saveItem } from './services/storage';
+import { saveItem } from '../services/storage';
 
 const initialReviewFields = {
   score: '',
