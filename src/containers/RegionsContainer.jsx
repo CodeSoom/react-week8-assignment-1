@@ -2,6 +2,9 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import MenuList from '../layouts/MenuList';
+import MenuItem from '../layouts/MenuItem';
+
 import {
   selectRegion,
   loadRestaurants,
@@ -21,9 +24,12 @@ export default function RegionsContainer() {
   }, [dispatch]);
 
   return (
-    <ul>
+    <MenuList>
       {regions.map((region) => (
-        <li key={region.id}>
+        <MenuItem
+          key={region.id}
+          active={selectedRegion && region.id === selectedRegion.id}
+        >
           <button
             type="button"
             onClick={() => handleClick(region.id)}
@@ -35,8 +41,8 @@ export default function RegionsContainer() {
               </>
             ) : null}
           </button>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }

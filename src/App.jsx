@@ -8,6 +8,9 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import Container from './layouts/Container';
+import Header from './layouts/Header';
+
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
@@ -28,12 +31,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
+    <Container>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">EatGo</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -42,6 +45,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Container>
   );
 }
