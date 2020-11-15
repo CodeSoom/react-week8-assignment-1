@@ -6,12 +6,12 @@ const Main = styled.main({
   '& > div': {
     padding: '60px',
     overflow: 'auto',
-    '& > h2': {
+    '& > h2, & > h3': {
       marginBottom: '20px',
     },
   },
   '& > div.left': {
-    width: '300px',
+    minWidth: '300px',
   },
   '& > div.right': {
     flexGrow: 1,

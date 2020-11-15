@@ -13,7 +13,7 @@ const Logo = styled.h1({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  width: '300px',
+  minWidth: '300px',
   height: '80px',
   paddingLeft: '30px',
   fontSize: '30px',

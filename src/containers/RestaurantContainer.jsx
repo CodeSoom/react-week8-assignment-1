@@ -41,15 +41,21 @@ export default function RestaurantContainer({ restaurantId }) {
 
   return (
     <>
-      <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
-        <ReviewForm
-          fields={reviewFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      ) : null}
-      <Reviews reviews={restaurant.reviews} />
+      <div className="left">
+        <RestaurantDetail restaurant={restaurant} />
+      </div>
+
+      <div className="right">
+        {accessToken ? (
+          <ReviewForm
+            fields={reviewFields}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        ) : null}
+
+        <Reviews reviews={restaurant.reviews} />
+      </div>
     </>
   );
 }
