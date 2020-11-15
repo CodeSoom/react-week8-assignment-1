@@ -28,14 +28,14 @@ export default function CategoriesContainer() {
           <Button
             type="button"
             onClick={() => handleClick(category.id)}
-            active={selectedCategory ? category.name === selectedCategory.name : false}
+            active={selectedCategory && category.name === selectedCategory.name}
           >
             {category.name}
-            {selectedCategory ? (
+            {selectedCategory && (
               <>
-                {category.id === selectedCategory.id ? '(V)' : null}
+                {category.id === selectedCategory.id && '(V)'}
               </>
-            ) : null}
+            )}
           </Button>
         </List>
       ))}
