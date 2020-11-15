@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { isEmpty } from 'lodash';
 
 import {
   ListItem,
@@ -7,7 +8,7 @@ import {
 } from '../layouts/Restaurant';
 
 function Reviews({ reviews }) {
-  if (!reviews || !reviews.length) {
+  if (isEmpty(reviews)) {
     return null;
   }
 
