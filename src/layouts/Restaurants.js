@@ -38,18 +38,18 @@ const Image = styled.img({
   marginRight: '20px',
 });
 
-const RestaurantWrapper = styled.div({
+const Wrapper = styled.div({
   display: 'flex',
   flexDirection: 'column',
   height: '100px',
   justifyContent: 'space-around',
 });
 
-const RestaurantName = styled.h3({
+const Name = styled.h3({
   fontSize: '18px',
 });
 
-const RestaurantDescription = styled.p({
+const Description = styled.p({
   fontSize: '13px',
   color: '#222228',
 });
@@ -60,7 +60,7 @@ export {
   Button,
   Anchor,
   Image,
-  RestaurantWrapper,
-  RestaurantName,
-  RestaurantDescription,
+  Wrapper,
+  Name,
+  Description,
 };

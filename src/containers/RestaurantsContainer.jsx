@@ -7,9 +7,9 @@ import {
   List,
   Anchor,
   Image,
-  RestaurantWrapper,
-  RestaurantName,
-  RestaurantDescription,
+  Wrapper,
+  Name,
+  Description,
 } from '../layouts/Restaurants';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
@@ -30,21 +30,21 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
         <List key={restaurant.id}>
           <Anchor href="/restaurants/1" onClick={handleClick(restaurant)}>
             <Image src={sampleImageLink} alt={restaurant.name} />
-            <RestaurantWrapper>
-              <RestaurantName>{restaurant.name}</RestaurantName>
-              <RestaurantDescription>
+            <Wrapper>
+              <Name>{restaurant.name}</Name>
+              <Description>
                 {selectedRegion.name}
                 ,
                 {' '}
                 {selectedCategory.name}
-              </RestaurantDescription>
-              <RestaurantDescription>
+              </Description>
+              <Description>
                 {restaurant.information}
-              </RestaurantDescription>
-              <RestaurantDescription>
+              </Description>
+              <Description>
                 {restaurant.address}
-              </RestaurantDescription>
-            </RestaurantWrapper>
+              </Description>
+            </Wrapper>
           </Anchor>
         </List>
       ))}
