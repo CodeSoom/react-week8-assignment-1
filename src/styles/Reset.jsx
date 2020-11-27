@@ -8,7 +8,7 @@ const reset = css`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    box-sizing : boder-box;
+    box-sizing : border-box;
   }
 `;
 
