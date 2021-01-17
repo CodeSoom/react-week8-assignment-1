@@ -1,20 +1,23 @@
 import React from 'react';
 
+import Title from './styles/Title';
+import SubTitle from './styles/SubTitle';
 import MenuItems from './MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
     <div>
-      <h2>{name}</h2>
+      <Title>{name}</Title>
+      <SubTitle>주소</SubTitle>
       <p>
-        주소:
-        {' '}
         {address}
       </p>
-      <h3>메뉴</h3>
+      <SubTitle>메뉴</SubTitle>
       <MenuItems menuItems={menuItems} />
     </div>
   );
 }
+
+export default React.memo(RestaurantDetail);

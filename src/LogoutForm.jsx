@@ -1,14 +1,18 @@
 import React from 'react';
 
-export default function LogoutForm({ onClick }) {
+import Button from './styles/Button';
+
+function LogoutForm({ onClick }) {
   return (
     <>
-      <button
+      <Button
         type="button"
         onClick={onClick}
       >
         Log out
-      </button>
+      </Button>
     </>
   );
 }
+
+export default React.memo(LogoutForm);

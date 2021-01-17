@@ -8,6 +8,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import { Global } from '@emotion/core';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -15,7 +17,11 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import Header from './styles/Header';
+import Container from './styles/Container';
+import Cotent from './styles/Cotent';
+
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
@@ -28,20 +34,25 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <>
+      <Global />
+      <Container>
+        <Header>
+          <h1>
+            <Link to="/">헤더</Link>
+          </h1>
+        </Header>
+        <Cotent>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route exact path="/restaurants" component={RestaurantsPage} />
+            <Route path="/restaurants/:id" component={RestaurantPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Cotent>
+      </Container>
+    </>
   );
 }

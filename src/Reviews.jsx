@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function Reviews({ reviews }) {
+import ReviewWrapper from './styles/ReviewWrapper';
+
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -8,21 +10,21 @@ export default function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
-      {sortedReviews.map((review) => (
-        <li key={review.id}>
-          <div>
-            {review.name}
-          </div>
-          <div>
-            {review.score}
-            점
-          </div>
-          <div>
-            {review.description}
-          </div>
-        </li>
-      ))}
-    </ul>
+    <ReviewWrapper>
+      <ul>
+        {sortedReviews.map((review) => (
+          <li key={review.id}>
+            <div>
+              {review.description}
+            </div>
+            <div>
+              {`${review.score}점 - ${review.name}`}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </ReviewWrapper>
   );
 }
+
+export default React.memo(Reviews);
