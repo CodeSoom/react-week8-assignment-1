@@ -1,5 +1,8 @@
 import React from 'react';
 
+import LoginArticle from './LoginArticle';
+import LoginButton from './LoginButton';
+
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
@@ -9,7 +12,7 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   }
 
   return (
-    <>
+    <LoginArticle>
       <div>
         <label htmlFor="login-email">
           E-mail
@@ -19,6 +22,7 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           id="login-email"
           name="email"
           value={email}
+          placeholder="email"
           onChange={handleChange}
         />
       </div>
@@ -31,16 +35,17 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           id="login-password"
           name="password"
           value={password}
+          placeholder="password"
           onChange={handleChange}
         />
       </div>
-      <button
+      <LoginButton
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
-    </>
+      </LoginButton>
+    </LoginArticle>
   );
 });
 

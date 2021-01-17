@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import styled from '@emotion/styled';
+
+const HomeContainer = styled.div({
+  textAlign: 'center',
+  padding: '1em',
+});
 
 export default function HomePage() {
   return (
-    <div>
-      <h2>Home</h2>
-      <ul>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/login">Log in</Link></li>
-        <li><Link to="/restaurants">Restaurants</Link></li>
-        <li><Link to="/xxx">멸망의 길</Link></li>
-      </ul>
-    </div>
+    <HomeContainer>
+      <h2>레스토랑 예약 서비스</h2>
+      <p>이 서비스를 통해 레스토랑을 쉽게 예약할 수 있습니다.</p>
+    </HomeContainer>
   );
 }

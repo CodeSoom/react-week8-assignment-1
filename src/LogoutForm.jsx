@@ -1,14 +1,19 @@
 import React from 'react';
 
-export default function LogoutForm({ onClick }) {
-  return (
-    <>
-      <button
+import LoginArticle from './LoginArticle';
+import LoginButton from './LoginButton';
+
+const LogoutForm = React.memo(({ onClick }) => (
+  <LoginArticle>
+    <div>
+      <LoginButton
         type="button"
         onClick={onClick}
       >
         Log out
-      </button>
-    </>
-  );
-}
+      </LoginButton>
+    </div>
+  </LoginArticle>
+));
+
+export default LogoutForm;

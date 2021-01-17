@@ -1,6 +1,16 @@
 import React from 'react';
 
-export default function MenuItems({ menuItems }) {
+import styled from '@emotion/styled';
+
+const Menus = styled.ul({
+  listStyle: 'none',
+  padding: 0,
+  display: 'flex',
+  flexFlow: 'row wrap',
+  justifyContent: 'space-evenly',
+});
+
+function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
       <p>메뉴가 없어요!</p>
@@ -8,12 +18,14 @@ export default function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <Menus>
       {menuItems.map((menuItem) => (
         <li key={menuItem.id}>
           {menuItem.name}
         </li>
       ))}
-    </ul>
+    </Menus>
   );
 }
+
+export default React.memo(MenuItems);
