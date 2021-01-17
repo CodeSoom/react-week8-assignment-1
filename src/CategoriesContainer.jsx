@@ -2,12 +2,18 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+
+const CategoryList = styled.ul({
+  backgroundColor: 'red',
+});
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -21,7 +27,7 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <CategoryList>
       {categories.map((category) => (
         <li key={category.id}>
           <button
@@ -37,6 +43,6 @@ export default function CategoriesContainer() {
           </button>
         </li>
       ))}
-    </ul>
+    </CategoryList>
   );
 }

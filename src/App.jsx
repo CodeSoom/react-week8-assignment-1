@@ -8,6 +8,12 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import { Global } from '@emotion/core';
+
+import reset from './styles/Reset';
+
+import Header from './styles/Header';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -15,7 +21,7 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
@@ -29,11 +35,11 @@ export default function App() {
 
   return (
     <div>
-      <header>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">CodeSoom Restaurant</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -42,6 +48,7 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
+      <Global styles={reset} />
     </div>
   );
 }

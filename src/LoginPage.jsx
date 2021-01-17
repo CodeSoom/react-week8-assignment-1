@@ -2,10 +2,12 @@ import React from 'react';
 
 import LoginFormContainer from './LoginFormContainer';
 
+import MenuTitle from './styles/MenuTitle';
+
 export default function LoginPage() {
   return (
     <div>
-      <h2>Log In</h2>
+      <MenuTitle>Log In</MenuTitle>
       <LoginFormContainer />
     </div>
   );

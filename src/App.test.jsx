@@ -85,7 +85,7 @@ describe('App', () => {
   });
 
   context('when logged in', () => {
-    const accessToken = 'ACCESS_TOKEN';
+    const accessToken = 'application/ACCESS_TOKEN';
 
     beforeEach(() => {
       loadItem.mockImplementation(() => accessToken);
@@ -95,8 +95,8 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'application/setAccessToken',
+        payload: accessToken,
       });
     });
   });

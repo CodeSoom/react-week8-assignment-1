@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,9 +11,15 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+const Container = styled.div({
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: 20,
+});
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -32,7 +40,7 @@ export default function LoginFormContainer() {
   };
 
   return (
-    <>
+    <Container>
       {accessToken ? (
         <LogoutForm onClick={handleClickLogout} />
       ) : (
@@ -42,6 +50,6 @@ export default function LoginFormContainer() {
           onSubmit={handleSubmit}
         />
       )}
-    </>
+    </Container>
   );
 }
