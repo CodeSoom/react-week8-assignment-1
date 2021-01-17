@@ -1,6 +1,5 @@
-import thunk from 'redux-thunk';
-
 import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import {
   loadInitialData,
@@ -16,12 +15,12 @@ import {
   loadReview,
   sendReview,
   clearReviewFields,
-} from './actions';
+} from './slice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-jest.mock('./services/api');
+jest.mock('../services/api');
 
 describe('actions', () => {
   let store;

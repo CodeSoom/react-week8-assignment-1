@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import MenuItems from './MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
-    <div>
+    <>
       <h2>{name}</h2>
-      <p>
-        주소:
-        {' '}
+      <address style={{ marginBottom: '40px' }}>
         {address}
-      </p>
+      </address>
+
       <h3>메뉴</h3>
       <MenuItems menuItems={menuItems} />
-    </div>
+    </>
   );
 }
+
+export default memo(RestaurantDetail);

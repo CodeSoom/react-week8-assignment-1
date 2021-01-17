@@ -3,19 +3,26 @@ import React from 'react';
 import {
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import RestaurantsPage from './pages/RestaurantsPage';
+import RestaurantPage from './pages/RestaurantPage';
+import NotFoundPage from './pages/NotFoundPage';
+import Header, {
+  Logo,
+  List,
+  Item,
+  StyledLink,
+} from './layouts/Header';
+import Wrapper from './layouts/Wrapper';
+import Main from './layouts/Main';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './redux/slice';
 
 import { loadItem } from './services/storage';
 
@@ -28,20 +35,29 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <Wrapper>
+      <Header>
+        <Logo>
+          <StyledLink to="/">Eat-GO</StyledLink>
+        </Logo>
+
+        <List>
+          <Item><StyledLink to="/restaurants">Restaurants</StyledLink></Item>
+          <Item flexGrow="1"><StyledLink to="/about">About</StyledLink></Item>
+          <Item><StyledLink to="/login">Log in</StyledLink></Item>
+        </List>
+      </Header>
+
+      <Main>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Main>
+    </Wrapper>
   );
 }

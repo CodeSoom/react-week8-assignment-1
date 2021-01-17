@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { isEmpty } from 'lodash';
 
-export default function MenuItems({ menuItems }) {
-  if (!(menuItems || []).length) {
+function MenuItems({ menuItems }) {
+  if (isEmpty(menuItems)) {
     return (
       <p>메뉴가 없어요!</p>
     );
@@ -17,3 +18,5 @@ export default function MenuItems({ menuItems }) {
     </ul>
   );
 }
+
+export default memo(MenuItems);

@@ -11,6 +11,8 @@ test('RestaurantsContainer', () => {
     restaurants: [
       { id: 1, name: '마법사주방' },
     ],
+    selectedRegion: { id: 1, name: '서울' },
+    selectedCategory: { id: 1, name: '한식' },
   }));
 
   const handleClick = jest.fn();

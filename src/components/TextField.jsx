@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Wrapper, Label, Input } from '../layouts/Review';
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -11,17 +13,17 @@ export default function TextField({
   }
 
   return (
-    <div>
-      <label htmlFor={id}>
+    <Wrapper>
+      <Label htmlFor={id}>
         {label}
-      </label>
-      <input
+      </Label>
+      <Input
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Wrapper>
   );
 }

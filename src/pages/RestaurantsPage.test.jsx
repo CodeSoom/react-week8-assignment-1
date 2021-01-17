@@ -35,6 +35,8 @@ describe('RestaurantsPage', () => {
       restaurants: [
         { id: 1, name: '마법사주방' },
       ],
+      selectedRegion: { id: 1, name: '서울' },
+      selectedCategory: { id: 1, name: '한식' },
     }));
   });
 
@@ -47,12 +49,12 @@ describe('RestaurantsPage', () => {
   }
 
   it('renders region and category select buttons', () => {
-    const { queryByText } = renderRestaurantsPage();
+    const { getAllByText } = renderRestaurantsPage();
 
     expect(dispatch).toBeCalled();
 
-    expect(queryByText('서울')).not.toBeNull();
-    expect(queryByText('한식')).not.toBeNull();
+    expect(getAllByText(/서울/)).not.toBeNull();
+    expect(getAllByText(/한식/)).not.toBeNull();
   });
 
   it('renders links of restaurants', () => {
