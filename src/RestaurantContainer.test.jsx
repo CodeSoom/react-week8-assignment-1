@@ -25,6 +25,10 @@ describe('RestaurantContainer', () => {
         description: '',
       },
       accessToken: given.accessToken,
+      scrollState: {
+        prev: 0,
+        scrollY: 0,
+      },
     }));
   });
 
@@ -84,7 +88,7 @@ describe('RestaurantContainer', () => {
           fireEvent.change(getByLabelText(label), { target: { value } });
 
           expect(dispatch).toBeCalledWith({
-            type: 'changeReviewField',
+            type: 'application/changeReviewField',
             payload: { name, value },
           });
         });

@@ -1,12 +1,28 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import TextField from './TextField';
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+import SubmitButton from './SubmitButton';
+
+const ReviewField = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '25%',
+  width: '100%',
+  '& button': {
+    fontFamily: "'Noto Serif KR', serif",
+  },
+});
+
+const ReviewForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { score, description } = fields;
 
   return (
-    <>
+    <ReviewField>
       <TextField
         label="평점"
         name="score"
@@ -20,12 +36,14 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
+      <SubmitButton
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
-    </>
+      </SubmitButton>
+    </ReviewField>
   );
-}
+});
+
+export default ReviewForm;

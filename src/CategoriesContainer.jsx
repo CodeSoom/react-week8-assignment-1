@@ -1,29 +1,31 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
+
+import List from './List';
 
 import { get } from './utils';
 
-export default function CategoriesContainer() {
+const CategoriesContainer = React.memo(() => {
   const dispatch = useDispatch();
 
   const categories = useSelector(get('categories'));
   const selectedCategory = useSelector(get('selectedCategory'));
 
-  function handleClick(categoryId) {
+  const handleClick = useCallback((categoryId) => {
     dispatch(selectCategory(categoryId));
     dispatch(loadRestaurants());
-  }
+  }, [dispatch]);
 
   return (
     <ul>
       {categories.map((category) => (
-        <li key={category.id}>
+        <List key={category.id}>
           <button
             type="button"
             onClick={() => handleClick(category.id)}
@@ -35,8 +37,10 @@ export default function CategoriesContainer() {
               </>
             ) : null}
           </button>
-        </li>
+        </List>
       ))}
     </ul>
   );
-}
+});
+
+export default CategoriesContainer;

@@ -1,5 +1,25 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+import SubmitButton from './SubmitButton';
+
+const TextField = styled.div({
+  '& label': {
+    fontcolor: '#000',
+    fontSize: '1.2em',
+    display: 'block',
+    marginBottom: '0.5em',
+  },
+  '& input': {
+    fontcolor: '#000',
+    fontSize: '1.2em',
+    height: '2em',
+    width: '100%',
+    border: 'none',
+  },
+});
+
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
@@ -10,7 +30,7 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
 
   return (
     <>
-      <div>
+      <TextField>
         <label htmlFor="login-email">
           E-mail
         </label>
@@ -21,8 +41,8 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           value={email}
           onChange={handleChange}
         />
-      </div>
-      <div>
+      </TextField>
+      <TextField>
         <label htmlFor="login-password">
           Password
         </label>
@@ -33,13 +53,13 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           value={password}
           onChange={handleChange}
         />
-      </div>
-      <button
+      </TextField>
+      <SubmitButton
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
+      </SubmitButton>
     </>
   );
 });

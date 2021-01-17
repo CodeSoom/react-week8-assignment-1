@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import styled from '@emotion/styled';
 
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
@@ -10,11 +12,23 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
-export default function RestaurantContainer({ restaurantId }) {
+const LeftSide = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  marginRight: '6em',
+});
+
+const RightSide = styled.div({
+  overflow: 'hidden',
+  width: '100%',
+});
+
+const RestaurantContainer = React.memo(({ restaurantId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,6 +38,15 @@ export default function RestaurantContainer({ restaurantId }) {
   const accessToken = useSelector(get('accessToken'));
   const restaurant = useSelector(get('restaurant'));
   const reviewFields = useSelector(get('reviewFields'));
+  const { scrollY } = useSelector(get('scrollState'));
+
+  const handleChange = useCallback(({ name, value }) => {
+    dispatch(changeReviewField({ name, value }));
+  }, [dispatch]);
+
+  const handleSubmit = useCallback(() => {
+    dispatch(sendReview({ restaurantId }));
+  }, [dispatch, restaurantId]);
 
   if (!restaurant) {
     return (
@@ -31,25 +54,23 @@ export default function RestaurantContainer({ restaurantId }) {
     );
   }
 
-  function handleChange({ name, value }) {
-    dispatch(changeReviewField({ name, value }));
-  }
-
-  function handleSubmit() {
-    dispatch(sendReview({ restaurantId }));
-  }
-
   return (
     <>
-      <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
-        <ReviewForm
-          fields={reviewFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      ) : null}
-      <Reviews reviews={restaurant.reviews} />
+      <LeftSide>
+        <RestaurantDetail restaurant={restaurant} />
+        {accessToken ? (
+          <ReviewForm
+            fields={reviewFields}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        ) : null}
+      </LeftSide>
+      <RightSide>
+        <Reviews reviews={restaurant.reviews} scrollY={scrollY} />
+      </RightSide>
     </>
   );
-}
+});
+
+export default RestaurantContainer;

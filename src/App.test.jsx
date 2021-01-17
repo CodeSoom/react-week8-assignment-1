@@ -29,6 +29,10 @@ describe('App', () => {
       ],
       categories: [],
       restaurants: [],
+      scrollState: {
+        prev: 0,
+        scrollY: 0,
+      },
     }));
   });
 
@@ -95,8 +99,8 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'application/setAccessToken',
+        payload: accessToken,
       });
     });
   });

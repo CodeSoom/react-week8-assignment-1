@@ -1,8 +1,23 @@
 import React from 'react';
 
-export default function TextField({
+import styled from '@emotion/styled';
+
+const InputBox = styled.div({
+  '& label': {
+    display: 'block',
+    margin: '0.2em',
+  },
+  '& input': {
+    width: '20em',
+    height: '2em',
+    border: '0',
+    outline: '0',
+  },
+});
+
+const TextField = React.memo(({
   label, type = 'text', name, value, onChange,
-}) {
+}) => {
   const id = `input-${name}`;
 
   function handleChange(event) {
@@ -11,7 +26,7 @@ export default function TextField({
   }
 
   return (
-    <div>
+    <InputBox>
       <label htmlFor={id}>
         {label}
       </label>
@@ -22,6 +37,8 @@ export default function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </InputBox>
   );
-}
+});
+
+export default TextField;
