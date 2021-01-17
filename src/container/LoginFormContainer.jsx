@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import LoginForm from './LoginForm';
-import LogoutForm from './LogoutForm';
+import LoginForm from 'presentational/LoginForm';
+import LogoutForm from 'presentational/LogoutForm';
 
 import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from '_redux/slice';
 
-import { get } from './utils';
+import { get } from 'utils';
+
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -27,9 +28,9 @@ export default function LoginFormContainer() {
     dispatch(requestLogin());
   };
 
-  const handleClickLogout = () => {
+  const handleClickLogout = useCallback(() => {
     dispatch(logout());
-  };
+  }, []);
 
   return (
     <>

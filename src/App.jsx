@@ -6,18 +6,45 @@ import {
   Link,
 } from 'react-router-dom';
 
+import styled from '@emotion/styled';
+
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from 'presentational/HomePage';
+import AboutPage from 'presentational/AboutPage';
+import LoginPage from 'container/LoginPage';
+import RestaurantsPage from 'container/RestaurantsPage';
+import RestaurantPage from 'container/RestaurantPage';
+import NotFoundPage from 'presentational/NotFoundPage';
+import { setAccessToken } from '_redux/slice';
+import Background from './Background';
 
-import { setAccessToken } from './actions';
 
 import { loadItem } from './services/storage';
+
+const Wrap = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '70%',
+  height: '100vh',
+  margin: '0 auto',
+  scrollbarWidth: 'none',
+  '& ::-webkit-scrollbar': {
+    display: 'none',
+  },
+});
+
+
+const Header = styled.header({
+  height: '50px',
+  h1: {
+    lineHeight: '50px',
+  },
+});
+
+const Container = styled.div({
+  flex: '1',
+});
 
 export default function App() {
   const dispatch = useDispatch();
@@ -29,19 +56,26 @@ export default function App() {
 
   return (
     <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Background />
+
+      <Wrap>
+        <Header>
+          <h1>
+            <Link to="/">헤더 영역</Link>
+          </h1>
+        </Header>
+
+        <Container>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route exact path="/restaurants" component={RestaurantsPage} />
+            <Route path="/restaurants/:id" component={RestaurantPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Container>
+      </Wrap>
     </div>
   );
 }
