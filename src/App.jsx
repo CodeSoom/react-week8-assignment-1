@@ -8,16 +8,50 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
 
-import { setAccessToken } from './actions';
+import NavList from './styles/NavList';
+import NavItem from './styles/NavItem';
+
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import RestaurantsPage from './pages/RestaurantsPage';
+import RestaurantPage from './pages/RestaurantPage';
+import NotFoundPage from './pages/NotFoundPage';
+
+import { setAccessToken } from './modules/slice';
 
 import { loadItem } from './services/storage';
+
+const GlobalStyles = css`
+  body{
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+`;
+
+const Container = styled.div({
+  margin: '0 auto',
+  padding: 0,
+});
+
+const Header = styled.header({
+  width: '100%',
+  margin: 0,
+  '& h1': {
+    fontSize: '1.5em',
+    margin: '0 auto',
+    padding: '1em .5em',
+    maxWidth: '1176px',
+    '& a': {
+      color: '#000',
+      textDecoration: 'none',
+    },
+  },
+});
 
 export default function App() {
   const dispatch = useDispatch();
@@ -28,12 +62,27 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
+    <Container>
+      <Global styles={GlobalStyles} />
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">EatGo</Link>
         </h1>
-      </header>
+        <NavList>
+          <NavItem>
+            <Link to="/about">About</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/login">Log in</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/restaurants">Restaurants</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/xxx">멸망의 길</Link>
+          </NavItem>
+        </NavList>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -42,6 +91,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Container>
   );
 }
