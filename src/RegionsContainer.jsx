@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectRegion,
   loadRestaurants,
-} from './actions';
+} from './slice';
+
+import CriteriaItem from './styles/CriteriaItem';
+import CriteriaList from './styles/CriteriaList';
+import CriteriaTitle from './styles/CriteriaTitle';
 
 import { get } from './utils';
 
@@ -21,22 +25,23 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
-      {regions.map((region) => (
-        <li key={region.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
-          >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <CriteriaTitle>
+        지역
+      </CriteriaTitle>
+      <CriteriaList>
+        {regions.map(({ id, name }) => (
+          <li key={id}>
+            <CriteriaItem
+              type="button"
+              onClick={() => handleClick(id)}
+              active={selectedRegion && id === selectedRegion.id}
+            >
+              {name}
+            </CriteriaItem>
+          </li>
+        ))}
+      </CriteriaList>
+    </>
   );
 }

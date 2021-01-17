@@ -22,13 +22,10 @@ describe('CategoriesContainer', () => {
     }));
   });
 
-  it('renders regions and checked symbol', () => {
-    const { container, getByText } = render((
+  it('renders categories', () => {
+    const { getByText } = render((
       <CategoriesContainer />
     ));
-
-    expect(container).toHaveTextContent('한식(V)');
-    expect(container).toHaveTextContent('양식');
 
     fireEvent.click(getByText('양식'));
 

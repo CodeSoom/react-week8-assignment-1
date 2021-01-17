@@ -5,9 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+import CriteriaItem from './styles/CriteriaItem';
+import CriteriaList from './styles/CriteriaList';
+import CriteriaTitle from './styles/CriteriaTitle';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -21,22 +25,23 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
-      {categories.map((category) => (
-        <li key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <CriteriaTitle>
+        분류
+      </CriteriaTitle>
+      <CriteriaList>
+        {categories.map((category) => (
+          <li key={category.id}>
+            <CriteriaItem
+              type="button"
+              onClick={() => handleClick(category.id)}
+              active={selectedCategory && category.id === selectedCategory.id}
+            >
+              {category.name}
+            </CriteriaItem>
+          </li>
+        ))}
+      </CriteriaList>
+    </>
   );
 }
