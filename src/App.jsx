@@ -19,6 +19,8 @@ import { setAccessToken } from './actions';
 
 import { loadItem } from './services/storage';
 
+//Steps to Implement features
+
 export default function App() {
   const dispatch = useDispatch();
 
