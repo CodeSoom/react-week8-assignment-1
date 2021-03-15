@@ -47,7 +47,7 @@ describe('LoginFormContainer', () => {
       });
 
       expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
+        type: 'restaurant/changeLoginField',
         payload: { name: 'email', value: 'new email' },
       });
     });
@@ -73,7 +73,7 @@ describe('LoginFormContainer', () => {
 
       fireEvent.click(getByText('Log out'));
 
-      expect(dispatch).toBeCalledWith({ type: 'logout' });
+      expect(dispatch).toBeCalledWith({ type: 'restaurant/logout' });
     });
   });
 });
