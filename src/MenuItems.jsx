@@ -9,9 +9,9 @@ const MenuItems = React.memo(({ menuItems }) => {
 
   return (
     <ul>
-      {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
-          {menuItem.name}
+      {menuItems.map(({ id, name }) => (
+        <li key={id}>
+          {name}
         </li>
       ))}
     </ul>
