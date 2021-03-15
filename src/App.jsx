@@ -27,6 +27,8 @@ export default function App() {
     dispatch(setAccessToken(accessToken));
   }
 
+  /* 시작하기 */
+  
   return (
     <div>
       <header>
