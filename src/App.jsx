@@ -36,6 +36,9 @@ const Header = styled.div({
     textDecoration: 'none',
     margin: '0',
     color: '#edf2f4',
+    '&:hover': {
+      color: '#242423',
+    },
   },
 });
 
