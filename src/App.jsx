@@ -19,7 +19,15 @@ import { setAccessToken } from './actions';
 
 import { loadItem } from './services/storage';
 
-//Steps to Implement features
+// Steps to Implement features
+/**
+ *
+ * 1. Pure Componentize
+ * 2. Simplify Redux with Redux ToolKit
+ * 3. Styling with Emotion
+ *
+ */
+
 
 export default function App() {
   const dispatch = useDispatch();
