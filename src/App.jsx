@@ -8,6 +8,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -19,6 +21,18 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+const Header = styled.div({
+  width: '100%',
+  textAlign: 'center',
+  padding: '0.1em',
+  backgroundColor: '#e07a5f',
+  '& h1 a': {
+    textDecoration: 'none',
+    margin: '0',
+    color: 'WHITE',
+  },
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -29,11 +43,11 @@ export default function App() {
 
   return (
     <div>
-      <header>
+      <Header>
         <h1>
           <Link to="/">헤더 영역</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
