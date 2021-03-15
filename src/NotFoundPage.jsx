@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default function NotFoundPage() {
+function NotFoundPage() {
   return (
     <p>404 Not Found</p>
   );
 }
+
+export default React.memo(NotFoundPage);
