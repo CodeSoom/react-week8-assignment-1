@@ -25,12 +25,13 @@ const Body = styled.div({
   backgroundColor: '#f7ede2',
   height: '100vh',
   width: '100%',
+  boxSizing: 'border-box',
 });
 
 const Header = styled.div({
   width: '100%',
   textAlign: 'center',
-  padding: '0.1em',
+  padding: '0.01em',
   backgroundColor: '#f48c06',
   '& h1 a': {
     textDecoration: 'none',
