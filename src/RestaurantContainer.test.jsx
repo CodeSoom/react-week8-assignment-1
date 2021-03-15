@@ -84,7 +84,7 @@ describe('RestaurantContainer', () => {
           fireEvent.change(getByLabelText(label), { target: { value } });
 
           expect(dispatch).toBeCalledWith({
-            type: 'changeReviewField',
+            type: 'application/changeReviewField',
             payload: { name, value },
           });
         });
