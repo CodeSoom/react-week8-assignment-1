@@ -21,15 +21,21 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+const Body = styled.div({
+  backgroundColor: '#f7ede2',
+  height: '100vh',
+  width: '100%',
+});
+
 const Header = styled.div({
   width: '100%',
   textAlign: 'center',
   padding: '0.1em',
-  backgroundColor: '#e07a5f',
+  backgroundColor: '#f48c06',
   '& h1 a': {
     textDecoration: 'none',
     margin: '0',
-    color: 'WHITE',
+    color: '#edf2f4',
   },
 });
 
@@ -42,7 +48,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <Body>
       <Header>
         <h1>
           <Link to="/">헤더 영역</Link>
@@ -56,6 +62,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Body>
   );
 }
