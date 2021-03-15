@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 const TextField = React.memo(({
   label,
@@ -9,10 +9,10 @@ const TextField = React.memo(({
 }) => {
   const id = `input-${name}`;
 
-  function handleChange(event) {
+  const handleChange = useCallback((event) => {
     const { target } = event;
     onChange({ name, value: target.value });
-  }
+  }, [onChange]);
 
   return (
     <div>
