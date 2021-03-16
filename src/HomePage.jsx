@@ -2,16 +2,49 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import styled from '@emotion/styled';
+
+const Title = styled.h2({
+  fontSize: '1.5em',
+  margin: 0,
+  marginBottom: '.5em',
+});
+
+const List = styled.ul({
+  display: 'flex',
+  margin: 0,
+  padding: 0,
+});
+
+const Item = styled.li({
+  fontSize: '1em',
+  marginRight: '1em',
+  '& a': {
+    display: 'inline-block',
+    color: '#333',
+    textDecoration: 'none',
+    '&:hover': {
+      fontWeight: 'bold',
+      color: '#000',
+    },
+  },
+});
+
 export default function HomePage() {
   return (
     <div>
-      <h2>Home</h2>
-      <ul>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/login">Log in</Link></li>
-        <li><Link to="/restaurants">Restaurants</Link></li>
-        <li><Link to="/xxx">멸망의 길</Link></li>
-      </ul>
+      <Title>Home</Title>
+      <List>
+        <Item>
+          <Link to="/about">About</Link>
+        </Item>
+        <Item>
+          <Link to="/login">Log in</Link>
+        </Item>
+        <Item>
+          <Link to="/restaurants">Restaurants</Link>
+        </Item>
+      </List>
     </div>
   );
 }

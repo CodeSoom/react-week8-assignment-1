@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  background: #FFF;
+  color: #000;
+  word-break: keep-all;
+}
+
+ul, ol, li {
+  list-style: none;
+}
