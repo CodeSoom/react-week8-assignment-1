@@ -4,13 +4,7 @@ import styled from '@emotion/styled';
 
 import { Link } from 'react-router-dom';
 
-const PageMain = styled.div({
-  height: '550px',
-  '& h2': {
-    fontSize: '30px',
-    textAlign: 'center',
-  },
-});
+import PageMain from './PageMain';
 
 const Item = styled.li({
   padding: '35px 0',
