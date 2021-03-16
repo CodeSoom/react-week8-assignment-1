@@ -8,6 +8,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -19,6 +21,31 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+const Main = styled.div({
+  backgroundColor: 'orange',
+  width: '330px',
+  height: '700px',
+  borderRadius: '30px',
+  overflow: 'hidden',
+  boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.2)',
+});
+
+const Header = styled.header({
+  fontFamily: 'Raleway',
+  margin: '0',
+  height: '100px',
+  position: 'relative',
+  top: '-20px',
+  padding: '40px 0 0 0',
+  textAlign: 'center',
+  backgroundColor: 'white',
+  '& a': {
+    textDecoration: 'none',
+    color: 'black',
+    fontSize: '40px',
+  },
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -28,12 +55,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
+    <Main>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">Eat go!</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -42,6 +69,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Main>
   );
 }
