@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-export default function TextField({
+function TextField({
   label, type = 'text', name, value, onChange,
 }) {
   const id = `input-${name}`;
@@ -25,3 +25,5 @@ export default function TextField({
     </div>
   );
 }
+
+export default React.memo(TextField);
