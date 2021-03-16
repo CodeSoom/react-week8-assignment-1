@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Global } from '@emotion/react';
+
+
 import {
   Switch,
   Route,
@@ -7,6 +10,7 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
+import reset from './reset';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
@@ -29,6 +33,7 @@ export default function App() {
 
   return (
     <div>
+      <Global styles={reset} />
       <header>
         <h1>
           <Link to="/">헤더 영역</Link>
