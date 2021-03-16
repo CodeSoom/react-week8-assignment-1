@@ -1,7 +1,7 @@
 
 import styled from '@emotion/styled';
 
-const Container = styled.header`
+const Container = styled.div`
   margin: 0 auto;
   width: 90%;
 `;
