@@ -1,3 +1,7 @@
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
+
+import configureStore from 'redux-mock-store';
+
 import reducer from './reducer';
 
 import {
@@ -13,7 +17,18 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
+  loadRestaurants,
+  loadInitialData,
+  loadRestaurant,
+  requestLogin,
+  loadReview,
+  sendReview,
 } from './slice';
+
+jest.mock('./services/api');
+
+const middlewares = getDefaultMiddleware();
+const mockStore = configureStore(middlewares);
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
@@ -257,6 +272,124 @@ describe('reducer', () => {
 
       expect(state.restaurant.reviews).toHaveLength(reviews.length);
       expect(state.restaurant.reviews[0]).toEqual(reviews[0]);
+    });
+  });
+
+  describe('loadInitialData', () => {
+    const store = mockStore({});
+
+    it('runs setRegions and setCategories', async () => {
+      await store.dispatch(loadInitialData());
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setRegions([]));
+      expect(actions[1]).toEqual(setCategories([]));
+    });
+  });
+
+  describe('loadRestaurants', () => {
+    context('with selectedRegion and selectedCategory', () => {
+      const store = mockStore({
+        selectedRegion: { id: 1, name: '서울' },
+        selectedCategory: { id: 1, name: '한식' },
+      });
+
+      it('runs setRestaurants', async () => {
+        await store.dispatch(loadRestaurants());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setRestaurants([]));
+      });
+    });
+
+    context('without selectedRegion', () => {
+      const store = mockStore({
+        selectedCategory: { id: 1, name: '한식' },
+      });
+
+      it('does\'nt run any actions', async () => {
+        await store.dispatch(loadRestaurants());
+
+        const actions = store.getActions();
+
+        expect(actions).toHaveLength(0);
+      });
+    });
+
+    context('without selectedCategory', () => {
+      const store = mockStore({
+        selectedRegion: { id: 1, name: '서울' },
+      });
+
+
+      it('does\'nt run any actions', async () => {
+        await store.dispatch(loadRestaurants());
+
+        const actions = store.getActions();
+
+        expect(actions).toHaveLength(0);
+      });
+    });
+  });
+
+  describe('loadRestaurant', () => {
+    const store = mockStore({});
+
+    it('dispatchs setRestaurant', async () => {
+      await store.dispatch(loadRestaurant({ restaurantId: 1 }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setRestaurant(null));
+      expect(actions[1]).toEqual(setRestaurant({}));
+    });
+  });
+
+  describe('requestLogin', () => {
+    const store = mockStore({
+      loginFields: { email: '', password: '' },
+    });
+
+    it('dispatchs setAccessToken', async () => {
+      await store.dispatch(requestLogin());
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setAccessToken({}));
+    });
+  });
+
+  describe('loadReview', () => {
+    const store = mockStore({
+      loginFields: { email: '', password: '' },
+    });
+
+    it('dispatchs setReviews', async () => {
+      await store.dispatch(loadReview({ restaurantId: 1 }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setReviews());
+    });
+  });
+
+  describe('sendReview', () => {
+    const store = mockStore({
+      accessToken: '',
+      reviewFields: {
+        score: 1,
+        description: '',
+      },
+    });
+
+    it('dispatchs clearReviewFields', async () => {
+      await store.dispatch(sendReview({ restaurantId: 1 }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(clearReviewFields());
     });
   });
 });
