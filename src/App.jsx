@@ -22,22 +22,29 @@ import { setAccessToken } from './slice';
 import { loadItem } from './services/storage';
 
 const Container = styled.div({
-  margin: '0 auto',
+  margin: 'auto',
   width: '90%',
+  
 })
 
 const Header = styled.header({
-  backgroundColor: '#EEE',
+  fontFamily: "'Tillana', cursive",
+  marginTop: '50px',
+  height: '200px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  opacity: '0.95',
+  borderRadius: '5px',
   '& h1': {
-    fontSize: '1.5em',
+    fontSize: '50px',
     margin: 0,
-    padding: '1em 0.5em',
   },
   '& a': {
-    color: '#555',
+    color: '#F9FDFC',
     textDecoration: 'none',
     '&:hover': {
-      color: '#000',
+      color: '#5B4230',
     },
   }
 })
@@ -54,7 +61,7 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">EatGo</Link>
+          <Link to="/">Soomstaurant</Link>
         </h1>
       </Header>
       <Switch>
