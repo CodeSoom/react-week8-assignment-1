@@ -19,7 +19,7 @@ export default function RestaurantsPage() {
 
   useEffect(() => {
     dispatch(loadInitialData());
-  });
+  }, []);
 
   function handleClickRestaurant(restaurant) {
     const url = `/restaurants/${restaurant.id}`;
