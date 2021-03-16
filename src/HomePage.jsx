@@ -2,16 +2,20 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import Nav from './Nav';
+import NavItem from './NavItem';
+import PageTitle from './PageTitle';
+
 export default function HomePage() {
   return (
     <div>
-      <h2>Home</h2>
-      <ul>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/login">Log in</Link></li>
-        <li><Link to="/restaurants">Restaurants</Link></li>
-        <li><Link to="/xxx">멸망의 길</Link></li>
-      </ul>
+      <PageTitle>Home</PageTitle>
+      <Nav>
+        <NavItem><Link to="/about">About</Link></NavItem>
+        <NavItem><Link to="/login">Log in</Link></NavItem>
+        <NavItem><Link to="/restaurants">Restaurants</Link></NavItem>
+        <NavItem><Link to="/xxx">멸망의 길</Link></NavItem>
+      </Nav>
     </div>
   );
 }
