@@ -15,7 +15,7 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
@@ -27,8 +27,6 @@ export default function App() {
     dispatch(setAccessToken(accessToken));
   }
 
-  /* 시작하기 */
-  
   return (
     <div>
       <header>
