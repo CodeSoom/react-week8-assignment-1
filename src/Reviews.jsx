@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { sortById } from './utils';
+
 const Reviews = React.memo(({ reviews }) => {
   if (!reviews || !reviews.length) {
     return null;
   }
 
-  const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
+  const sortedReviews = [...reviews].sort(sortById);
 
   return (
     <ul>

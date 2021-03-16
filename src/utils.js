@@ -5,3 +5,7 @@ export function get(key) {
 export function equal(key, value) {
   return (obj) => obj[key] === value;
 }
+
+export function sortById(a, b) {
+  return b.id - a.id;
+}
