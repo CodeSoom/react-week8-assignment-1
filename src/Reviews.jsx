@@ -1,5 +1,12 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+const Items = styled.li({
+  width: '100%',
+  marginBottom: '1.2rem',
+});
+
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -10,7 +17,7 @@ function Reviews({ reviews }) {
   return (
     <ul>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
+        <Items key={review.id}>
           <div>
             {review.name}
           </div>
@@ -21,7 +28,7 @@ function Reviews({ reviews }) {
           <div>
             {review.description}
           </div>
-        </li>
+        </Items>
       ))}
     </ul>
   );
