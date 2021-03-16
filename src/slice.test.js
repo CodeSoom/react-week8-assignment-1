@@ -111,12 +111,37 @@ describe('reducer', () => {
         restaurant: null,
       };
 
-      const restaurant = { id: 1, name: '마법사주방' };
+      const restaurant = {
+        id: 1,
+        name: '마법사주방',
+        reviews: [
+          {
+            id: 1,
+            name: '탁1',
+          },
+          {
+            id: 3,
+            name: '탁2',
+          },
+          {
+            id: 6,
+            name: '탁3',
+          },
+          {
+            id: 18,
+            name: '탁4',
+          },
+        ],
+      };
 
       const state = reducer(initialState, setRestaurant(restaurant));
 
       expect(state.restaurant.id).toBe(1);
       expect(state.restaurant.name).toBe('마법사주방');
+      expect(state.restaurant.reviews[0].name).toEqual('탁4');
+      expect(state.restaurant.reviews[1].name).toEqual('탁3');
+      expect(state.restaurant.reviews[2].name).toEqual('탁2');
+      expect(state.restaurant.reviews[3].name).toEqual('탁1');
     });
   });
 

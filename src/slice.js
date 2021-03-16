@@ -11,7 +11,7 @@ import {
 
 import { saveItem } from './services/storage';
 
-import { equal } from './utils';
+import { equal, sortById } from './utils';
 
 const initialReviewFields = {
   score: '',
@@ -61,7 +61,10 @@ const { actions, reducer } = createSlice({
     setRestaurant(state, { payload: restaurant }) {
       return {
         ...state,
-        restaurant,
+        restaurant: {
+          ...restaurant,
+          reviews: (restaurant && restaurant.reviews.sort(sortById)),
+        },
       };
     },
 
@@ -131,7 +134,7 @@ const { actions, reducer } = createSlice({
         ...state,
         restaurant: {
           ...restaurant,
-          reviews,
+          reviews: reviews.sort(sortById),
         },
       };
     },
