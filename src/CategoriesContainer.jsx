@@ -2,6 +2,10 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import List from './List';
+import ListItem from './ListItem';
+import ListWrap from './ListWrap';
+
 import {
   selectCategory,
   loadRestaurants,
@@ -21,22 +25,25 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
-      {categories.map((category) => (
-        <li key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <ListWrap>
+      <h2>카테고리를 선택하세요</h2>
+      <List>
+        {categories.map((category) => (
+          <ListItem key={category.id} active={selectedCategory && category.id === selectedCategory.id}>
+            <button
+              type="button"
+              onClick={() => handleClick(category.id)}
+            >
+              {category.name}
+              {selectedCategory ? (
+                <>
+                  {category.id === selectedCategory.id ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </ListItem>
+        ))}
+      </List>
+    </ListWrap>
   );
 }
