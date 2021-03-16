@@ -44,12 +44,14 @@ export default function App() {
         </h1>
       </Header>
       <Body>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
       </Body>
     </Container>
   );
