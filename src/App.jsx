@@ -28,6 +28,7 @@ const Main = styled.div({
   borderRadius: '30px',
   overflow: 'hidden',
   boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.2)',
+  border: '4px solid black',
 });
 
 const Header = styled.header({

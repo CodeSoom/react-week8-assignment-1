@@ -2,12 +2,18 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import {
   selectRegion,
   loadRestaurants,
 } from './slice';
 
 import { get } from './utils';
+
+const List = styled.ul({
+  // display: 'flex',
+});
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -21,7 +27,7 @@ export default function RegionsContainer() {
   }, [dispatch]);
 
   return (
-    <ul>
+    <List>
       {regions.map((region) => (
         <li key={region.id}>
           <button
@@ -37,6 +43,6 @@ export default function RegionsContainer() {
           </button>
         </li>
       ))}
-    </ul>
+    </List>
   );
 }
