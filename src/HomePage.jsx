@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const Title = styled.h2({
-  fontSize: '30px',
+  fontSize: '35px',
   margin: '30px 10px',
   padding: '10px 20px',
   borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
@@ -15,6 +15,7 @@ const Title = styled.h2({
 const List = styled.ul({
   display: 'flex',
   margin: 0,
+  marginTop: '50px',
   padding: 0,
   listStyle: 'none',
 });
@@ -24,7 +25,7 @@ const Item = styled.li({
   textAlign: 'center',
   margin: '0 20px',
   fontSize: '22px',
-  backgroundColor: 'rgba(255, 255, 255, 0.6)',
+  backgroundColor: 'rgba(255, 255, 255, 0.4)',
   padding: '10px',
   boxShadow: '0px 0px 5px white',
   borderRadius: '5px',
