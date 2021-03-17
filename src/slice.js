@@ -99,6 +99,7 @@ const { actions, reducer } = createSlice({
     },
 
     logout(state) {
+      saveItem('accessToken', '');
       return {
         ...state,
         accessToken: '',
