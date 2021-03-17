@@ -10,7 +10,7 @@ const Title = styled.h2({
   padding: '10px 20px',
   borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
   color: '#F9FDFC',
-})
+});
 
 const List = styled.ul({
   display: 'flex',
@@ -34,9 +34,9 @@ const Item = styled.li({
     fontWeight: '600',
     '&:hover': {
       color: '#33560F',
-    }
-  }
-})
+    },
+  },
+});
 
 export default function HomePage() {
   return (

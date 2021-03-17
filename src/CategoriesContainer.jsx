@@ -26,7 +26,7 @@ export default function CategoriesContainer() {
   return (
     <MenuList>
       {categories.map((category) => (
-        <MenuItem 
+        <MenuItem
           key={category.id}
           active={selectedCategory && category.id === selectedCategory.id}
         >

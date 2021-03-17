@@ -12,8 +12,8 @@ const MenuItem = styled.li(({ active }) => ({
     '&:hover': {
       fontWeight: 'bold',
       color: '#000',
-    }
-  }
-}))
+    },
+  },
+}));
 
 export default MenuItem;

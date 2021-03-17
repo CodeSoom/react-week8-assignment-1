@@ -24,8 +24,7 @@ import { loadItem } from './services/storage';
 const Container = styled.div({
   margin: 'auto',
   width: '90%',
-  
-})
+});
 
 const Header = styled.header({
   fontFamily: "'Tillana', cursive",
@@ -46,8 +45,8 @@ const Header = styled.header({
     '&:hover': {
       color: '#5B4230',
     },
-  }
-})
+  },
+});
 
 export default function App() {
   const dispatch = useDispatch();
