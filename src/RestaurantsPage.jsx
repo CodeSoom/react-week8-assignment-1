@@ -12,6 +12,16 @@ import {
   loadInitialData,
 } from './slice';
 
+import styled from '@emotion/styled';
+
+const Title = styled.h2({
+  fontSize: '35px',
+  margin: '30px 10px',
+  padding: '10px 20px',
+  borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
+  color: '#F9FDFC',
+});
+
 export default function RestaurantsPage() {
   const history = useHistory();
 
@@ -28,6 +38,7 @@ export default function RestaurantsPage() {
 
   return (
     <div>
+      <Title>Restaurants</Title>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
