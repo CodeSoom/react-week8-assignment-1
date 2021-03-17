@@ -36,7 +36,7 @@ export const Button = styled.button`
 
 
 export const ListWrapper = styled.ul`
-display:flex;
-flex-direction:row;
-margin: 15px 0 ;
+    display:flex;
+    flex-direction:row;
+    margin: 15px 0 ;
 `;
