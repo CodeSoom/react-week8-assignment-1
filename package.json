@@ -42,6 +42,9 @@
   },
   "dependencies": {
     "@codeceptjs/configure": "^0.5.2",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "@reduxjs/toolkit": "^1.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
