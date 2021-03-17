@@ -5,6 +5,7 @@ const PageMain = styled.div({
   '& h2': {
     fontSize: '30px',
     textAlign: 'center',
+    marginTop: '30px',
   },
 });
 
