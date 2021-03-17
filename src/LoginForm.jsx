@@ -23,6 +23,7 @@ const Label = styled.label({
   fontWeight: '600',
   color: '#F9FDFC',
   marginRight: '20px',
+  cursor: 'pointer',
   '&:hover': {
     color: '#5B4230',
   },
@@ -53,6 +54,7 @@ const LoginButton = styled.button({
   fontSize: '30px',
   fontFamily: "'Tillana', cursive",
   border: '5px solid rgba(214, 200, 200, 0.5)',
+  cursor: 'pointer',
   '&:hover': {
     color: '#5B4230',
   },

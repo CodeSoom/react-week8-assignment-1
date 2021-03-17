@@ -12,7 +12,7 @@ const Title = styled.h2({
 
 const Text = styled.p({
   fontSize: '40px',
-  color: '#F9FDFC',
+  color: 'rgba(91, 66, 48, 0.8)',
   margin: '10px 20px',
   padding: '10px',
   fontFamily: '"Nanum Pen Script", cursive',
