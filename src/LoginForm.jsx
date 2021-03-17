@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import Button from './Button';
 
 const Input = styled.input({
+  fontFamily: 'Raleway',
   fontSize: '18px',
   backgroundColor: 'orange',
   position: 'relative',
