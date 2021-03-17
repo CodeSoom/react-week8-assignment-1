@@ -11,22 +11,20 @@ const Item = styled.li({
   display: 'flex',
   justifyContent: 'center',
   '& a': {
-    display: 'block',
     textDecoration: 'none',
-    position: 'inline-block',
-    width: '70%',
     backgroundColor: 'teal',
     color: 'white',
-    borderRadius: '10px',
+    width: '70%',
     padding: '5px 0',
+    borderRadius: '10px',
   },
 });
 
 const List = styled.ul({
   listStyle: 'none',
-  paddingLeft: '0px',
   fontSize: '30px',
   textAlign: 'center',
+  paddingLeft: '0px',
 });
 
 export default function HomePage() {

@@ -25,25 +25,24 @@ const Main = styled.div({
   backgroundColor: 'orange',
   width: '330px',
   height: '700px',
-  borderRadius: '30px',
   overflow: 'hidden',
-  boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.2)',
   border: '4px solid black',
+  borderRadius: '30px',
+  boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.2)',
+  margin: '20px 30px',
 });
 
 const Header = styled.header({
   fontFamily: 'Raleway',
-  margin: '0',
-  height: '100px',
-  position: 'relative',
-  top: '-20px',
-  padding: '40px 0 0 0',
   textAlign: 'center',
   backgroundColor: 'white',
+  height: '100px',
+  padding: '25px 0 0 0',
+  margin: '0',
   '& a': {
+    fontSize: '40px',
     textDecoration: 'none',
     color: 'black',
-    fontSize: '40px',
   },
 });
 
