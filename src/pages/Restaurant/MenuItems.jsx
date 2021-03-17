@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 const MenuItems = React.memo(({ menuItems }) => {
   if (!(menuItems || []).length) {
     return (
@@ -8,14 +10,26 @@ const MenuItems = React.memo(({ menuItems }) => {
   }
 
   return (
-    <ul>
-      {menuItems.map(({ id, name }) => (
-        <li key={id}>
-          {name}
-        </li>
-      ))}
-    </ul>
+    <MenuItemWrapper>
+      <ul>
+        {menuItems.map(({ id, name }) => (
+          <MenuList key={id}>
+            {name}
+          </MenuList>
+        ))}
+      </ul>
+    </MenuItemWrapper>
   );
+});
+
+const MenuItemWrapper = styled.ul({
+  textAlign: 'left',
+});
+
+const MenuList = styled.li({
+  padding: '0 .5rem',
+  listStyle: 'inside',
+  color: '#666666',
 });
 
 export default MenuItems;

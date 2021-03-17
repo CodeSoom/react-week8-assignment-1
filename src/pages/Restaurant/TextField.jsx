@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import React, { useCallback } from 'react';
 
 const TextField = React.memo(({
@@ -15,7 +16,7 @@ const TextField = React.memo(({
   }, [onChange]);
 
   return (
-    <div>
+    <Input>
       <label htmlFor={id}>
         {label}
       </label>
@@ -26,8 +27,20 @@ const TextField = React.memo(({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Input>
   );
+});
+
+const Input = styled.div({
+  marginBottom: '.5rem',
+
+  '& label': {
+    display: 'block',
+  },
+
+  '& input': {
+    display: 'block',
+  },
 });
 
 export default TextField;

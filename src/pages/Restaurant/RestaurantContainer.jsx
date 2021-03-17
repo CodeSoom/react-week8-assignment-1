@@ -40,7 +40,7 @@ export default function RestaurantContainer({ restaurantId }) {
   }
 
   return (
-    <>
+    <main>
       <RestaurantDetail restaurant={restaurant} />
       {accessToken && (
         <ReviewForm
@@ -50,6 +50,6 @@ export default function RestaurantContainer({ restaurantId }) {
         />
       )}
       <Reviews reviews={restaurant.reviews} />
-    </>
+    </main>
   );
 }
