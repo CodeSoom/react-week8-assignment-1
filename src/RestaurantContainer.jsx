@@ -19,7 +19,7 @@ export default function RestaurantContainer({ restaurantId }) {
 
   useEffect(() => {
     dispatch(loadRestaurant({ restaurantId }));
-  }, []);
+  }, [dispatch]);
 
   const accessToken = useSelector(get('accessToken'));
   const restaurant = useSelector(get('restaurant'));
@@ -27,11 +27,11 @@ export default function RestaurantContainer({ restaurantId }) {
 
   const handleChange = useCallback(({ name, value }) => {
     dispatch(changeReviewField({ name, value }));
-  }, []);
+  }, [dispatch]);
 
   const handleSubmit = useCallback(() => {
     dispatch(sendReview({ restaurantId }));
-  }, []);
+  }, [dispatch]);
 
   if (!restaurant) {
     return (

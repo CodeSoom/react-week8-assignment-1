@@ -18,7 +18,7 @@ export default function CategoriesContainer() {
   const handleClick = useCallback((categoryId) => {
     dispatch(selectCategory(categoryId));
     dispatch(loadRestaurants());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ul>

@@ -21,15 +21,15 @@ export default function LoginFormContainer() {
 
   const handleChange = useCallback(({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
-  }, []);
+  }, [dispatch]);
 
   const handleSubmit = useCallback(() => {
     dispatch(requestLogin());
-  }, []);
+  }, [dispatch]);
 
   const handleClickLogout = useCallback(() => {
     dispatch(logout());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

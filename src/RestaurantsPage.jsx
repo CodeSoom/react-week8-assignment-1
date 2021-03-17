@@ -19,7 +19,7 @@ export default function RestaurantsPage() {
 
   useEffect(() => {
     dispatch(loadInitialData());
-  }, []);
+  }, [dispatch]);
 
 
   const handleClickRestaurant = useCallback((restaurant) => {
