@@ -8,6 +8,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -19,10 +21,6 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
-import Container from './Container';
-import Header from './Header';
-import Body from './Body';
-
 export default function App() {
   const dispatch = useDispatch();
 
@@ -30,6 +28,25 @@ export default function App() {
   if (accessToken) {
     dispatch(setAccessToken(accessToken));
   }
+
+  const Container = styled.div({
+    margin: '0 auto',
+    width: '90%',
+  });
+
+  const Header = styled.header({
+    margin: '2rem 0',
+    '& h1 a': {
+      display: 'block',
+      color: '#a18cd1',
+      fontSize: '2rem',
+      textAlign: 'center',
+    },
+  });
+
+  const Body = styled.div({
+    padding: '1rem',
+  });
 
   return (
     <Container>
