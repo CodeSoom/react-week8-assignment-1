@@ -12,10 +12,10 @@ const Title = styled.h2({
 
 const Text = styled.p({
   fontSize: '40px',
-  color: 'rgba(91, 66, 48, 0.8)',
+  color: 'rgba(91, 66, 48, 0.95)',
   margin: '10px 20px',
   padding: '10px',
-  fontFamily: '"Nanum Pen Script", cursive',
+  fontFamily: '"Song Myung", serif',
 })
 
 const TextContainer = styled.div({
