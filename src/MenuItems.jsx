@@ -22,7 +22,7 @@ const Item = styled.li({
   background: 'rgba(255, 255, 255, 0.5)',
   color: '#5B4230',
   textDecoration: 'none',
-})
+});
 
 
 export default function MenuItems({ menuItems }) {

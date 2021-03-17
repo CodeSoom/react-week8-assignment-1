@@ -9,7 +9,7 @@ const LogoutContainer = styled.div({
   backgroundColor: 'rgba(255, 255, 255, 0.4)',
   boxShadow: '0px 0px 5px white',
   borderRadius: '5px',
-})
+});
 
 const LogoutButton = styled.button({
   display: 'block',
@@ -29,7 +29,7 @@ const LogoutButton = styled.button({
   '&:focus': {
     outline: '2px solid #5B4230',
   },
-})
+});
 
 export default function LogoutForm({ onClick }) {
   return (

@@ -16,7 +16,7 @@ const Text = styled.p({
   margin: '10px 20px',
   padding: '10px',
   fontFamily: '"Song Myung", serif',
-})
+});
 
 const TextContainer = styled.div({
   margin: '0 20px',
@@ -24,7 +24,7 @@ const TextContainer = styled.div({
   backgroundColor: 'rgba(230, 218, 212, 0.6)',
   boxShadow: '0px 0px 5px white',
   borderRadius: '5px',
-})
+});
 
 export default function AboutPage() {
   return (

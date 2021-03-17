@@ -20,7 +20,7 @@ const List = styled.ul({
   justifyContent: 'center',
   margin: 'auto',
   padding: 0,
-})
+});
 
 const Item = styled.li({
   margin: '10px',
@@ -42,8 +42,7 @@ const Item = styled.li({
       fontWeight: '600',
     },
   },
-
-})
+});
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get('restaurants'));

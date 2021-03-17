@@ -9,14 +9,14 @@ const InputContainer = styled.div({
   backgroundColor: 'rgba(255, 255, 255, 0.4)',
   boxShadow: '0px 0px 5px white',
   borderRadius: '5px',
-})
+});
 
 const InputComponent = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   padding: '5px 15%',
-})
+});
 
 const Label = styled.label({
   fontSize: '25px',
@@ -27,10 +27,9 @@ const Label = styled.label({
   '&:hover': {
     color: '#5B4230',
   },
-})
+});
 
 const Input = styled.input({
-  border: 'none',
   borderRadius: '5px',
   backgroundColor: 'rgba(230, 218, 212, 0.9)',
   border: '2px solid rgba(214, 200, 200, 0.5)',
@@ -61,7 +60,7 @@ const LoginButton = styled.button({
   '&:focus': {
     outline: '2px solid #5B4230',
   },
-})
+});
 
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;

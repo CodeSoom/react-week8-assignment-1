@@ -18,6 +18,6 @@ const ListContainer = styled.div({
   '&::-webkit-scrollbar-corner': {
     backgroundColor: 'transparent',
   },
-})
+});
 
 export default ListContainer;

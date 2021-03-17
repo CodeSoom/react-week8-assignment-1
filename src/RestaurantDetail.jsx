@@ -18,7 +18,7 @@ const Text = styled.p({
   color: '#F9FDFC',
   margin: '10px 20px',
   fontFamily: '"Song Myung", serif',
-})
+});
 
 const Subtitle = styled.h3({
   fontFamily: '"Song Myung", serif',
