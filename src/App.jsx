@@ -54,7 +54,7 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">EatGo</Link>
         </h1>
       </Header>
       <Switch>
