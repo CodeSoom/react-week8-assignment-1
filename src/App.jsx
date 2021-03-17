@@ -8,6 +8,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -20,6 +22,15 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+const Wrapper = styled.div`
+padding: 20px;
+
+& > header {
+padding-bottom:30px;
+}
+
+`;
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -31,7 +42,7 @@ export default function App() {
   return (
     <>
       <InitializeCss />
-      <div>
+      <Wrapper>
         <header>
           <h1>
             <Link to="/">헤더 영역</Link>
@@ -45,7 +56,7 @@ export default function App() {
           <Route path="/restaurants/:id" component={RestaurantPage} />
           <Route component={NotFoundPage} />
         </Switch>
-      </div>
+      </Wrapper>
     </>
   );
 }
