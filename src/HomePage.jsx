@@ -34,7 +34,7 @@ const Item = styled.li({
     textDecoration: 'none',
     fontWeight: '600',
     '&:hover': {
-      color: '#33560F',
+      color: '#5B4230',
     },
   },
 });

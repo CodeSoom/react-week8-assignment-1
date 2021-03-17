@@ -21,7 +21,7 @@ const Text = styled.p({
 const TextContainer = styled.div({
   margin: '0 20px',
   padding: '10px',
-  backgroundColor: 'rgba(255, 255, 255, 0.4)',
+  backgroundColor: 'rgba(230, 218, 212, 0.6)',
   boxShadow: '0px 0px 5px white',
   borderRadius: '5px',
 })
