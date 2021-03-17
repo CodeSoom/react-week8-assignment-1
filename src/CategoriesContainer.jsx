@@ -6,6 +6,7 @@ import {
   selectCategory,
   loadRestaurants,
 } from './slice';
+import { Button, ListWrapper } from './style';
 
 import { get } from './utils';
 
@@ -21,10 +22,10 @@ export default function CategoriesContainer() {
   }, [dispatch]);
 
   return (
-    <ul>
+    <ListWrapper>
       {categories.map((category) => (
         <li key={category.id}>
-          <button
+          <Button
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -34,9 +35,9 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </Button>
         </li>
       ))}
-    </ul>
+    </ListWrapper>
   );
 }

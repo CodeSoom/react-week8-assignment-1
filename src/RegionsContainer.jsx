@@ -7,6 +7,8 @@ import {
   loadRestaurants,
 } from './slice';
 
+import { Button, ListWrapper } from './style';
+
 import { get } from './utils';
 
 export default function RegionsContainer() {
@@ -21,10 +23,11 @@ export default function RegionsContainer() {
   }, [dispatch]);
 
   return (
-    <ul>
+    <ListWrapper>
       {regions.map((region) => (
         <li key={region.id}>
-          <button
+          <Button
+            primary
             type="button"
             onClick={() => handleClick(region.id)}
           >
@@ -34,9 +37,9 @@ export default function RegionsContainer() {
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </Button>
         </li>
       ))}
-    </ul>
+    </ListWrapper>
   );
 }
