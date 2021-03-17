@@ -2,7 +2,7 @@ import React from 'react';
 
 import { fireEvent, render } from '@testing-library/react';
 
-import REGIONS from '../fixtures/regions';
+import REGIONS from '../../../fixtures/regions';
 
 import Buttons from './Buttons';
 

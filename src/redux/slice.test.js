@@ -25,7 +25,7 @@ import {
   sendReview,
 } from './slice';
 
-jest.mock('./services/api');
+jest.mock('../services/api');
 
 const middlewares = getDefaultMiddleware();
 const mockStore = configureStore(middlewares);
