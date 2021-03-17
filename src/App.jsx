@@ -14,7 +14,7 @@ import LoginPage from './LoginPage';
 import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
-import ResetCss from './ResetCss';
+import InitializeCss from './InitializeCss';
 
 import { setAccessToken } from './slice';
 
@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <>
-      <ResetCss />
+      <InitializeCss />
       <div>
         <header>
           <h1>
