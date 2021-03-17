@@ -26,6 +26,7 @@ export default function CategoriesContainer() {
       {categories.map((category) => (
         <li key={category.id}>
           <Button
+            color="secondary"
             type="button"
             onClick={() => handleClick(category.id)}
           >

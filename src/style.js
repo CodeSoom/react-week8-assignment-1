@@ -1,21 +1,24 @@
 import styled from '@emotion/styled';
 
-const primaryColor = {
-
-  basic: '#1976d2',
-  hover: '#115293',
-};
-
-const secondaryColor = {
-
-  basic: '#dc004e',
-  hover: '#9a0036',
+const colors = {
+  primary: {
+    basic: '#1976d2',
+    hover: '#115293',
+  },
+  secondary: {
+    basic: '#dc004e',
+    hover: '#9a0036',
+  },
+  default: {
+    basic: '#e0e0e0',
+    hover: '#d5d5d5',
+  },
 };
 
 
 export const Button = styled.button`
     color: #fff;
-    background-color: ${(props) => (props.primary ? primaryColor.basic : secondaryColor.basic)};
+    background-color: ${(props) => (colors[props.color].basic)};
     padding: 6px 16px;
     margin:5px;
     font-size: 0.875rem;
@@ -26,7 +29,7 @@ export const Button = styled.button`
     vertical-align: middle;
 
     &:hover {
-    background-color: ${(props) => (props.primary ? primaryColor.hover : secondaryColor.hover)}
+    background-color: ${(props) => (colors[props.color].hover)};
     }
     
     `;

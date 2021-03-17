@@ -27,7 +27,7 @@ export default function RegionsContainer() {
       {regions.map((region) => (
         <li key={region.id}>
           <Button
-            primary
+            color="primary"
             type="button"
             onClick={() => handleClick(region.id)}
           >
