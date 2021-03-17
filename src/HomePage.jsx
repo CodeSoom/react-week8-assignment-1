@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
+const Title = styled.h2({
+  fontSize: '2em',
+  margin: 0,
+  padding: '.4em 0',
+});
+
 const List = styled.ul({
   display:'flex',
   margin: 0,
@@ -26,7 +32,7 @@ const Item = styled.li({
 export default function HomePage() {
   return (
     <div>
-      <h2>Home</h2>
+      <Title>Home</Title>
       <List>
         <Item>
           <Link to="/about">About</Link>
