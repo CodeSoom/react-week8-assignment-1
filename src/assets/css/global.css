@@ -12,6 +12,10 @@ body {
   word-break: keep-all;
 }
 
+body, input, button, textarea, select {
+  font-family: 'Spoqa Han Sans Neo';
+}
+
 ul, ol, li {
   list-style: none;
 }

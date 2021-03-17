@@ -22,7 +22,17 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+import { mq } from './designSystem';
+
 const Container = styled.div({
+  fontSize: '22px',
+  minHeight: '100vh',
+  [mq.desktop]: {
+    fontSize: '12px',
+  },
+});
+
+const Wrapper = styled.div({
   margin: '0 auto',
   padding: '1em 0',
   width: '90%',
@@ -37,9 +47,9 @@ export default function App() {
   }
 
   return (
-    <>
+    <Container>
       <Header />
-      <Container>
+      <Wrapper>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
@@ -48,7 +58,7 @@ export default function App() {
           <Route path="/restaurants/:id" component={RestaurantPage} />
           <Route component={NotFoundPage} />
         </Switch>
-      </Container>
-    </>
+      </Wrapper>
+    </Container>
   );
 }

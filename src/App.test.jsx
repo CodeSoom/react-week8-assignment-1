@@ -14,6 +14,7 @@ import { loadItem } from './services/storage';
 
 jest.mock('react-redux');
 jest.mock('./services/storage');
+jest.mock('./assets');
 
 describe('App', () => {
   const dispatch = jest.fn();

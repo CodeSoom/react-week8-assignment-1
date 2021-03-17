@@ -4,10 +4,13 @@ import styled from '@emotion/styled';
 
 import { Link } from 'react-router-dom';
 
-const Cotainer = styled.header({
+import { colors } from './designSystem';
+
+const Container = styled.header({
   padding: '0 5%',
+  borderBottom: `1px solid ${colors.border}`,
   '& h1': {
-    fontSize: '1.5em',
+    fontSize: '2.3em',
     margin: 0,
     padding: '1em 0',
   },
@@ -22,10 +25,10 @@ const Cotainer = styled.header({
 
 export default function Header() {
   return (
-    <Cotainer>
+    <Container>
       <h1>
         <Link to="/">Codesoom Restaurant</Link>
       </h1>
-    </Cotainer>
+    </Container>
   );
 }

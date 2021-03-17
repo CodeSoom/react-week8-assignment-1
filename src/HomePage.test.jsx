@@ -6,6 +6,8 @@ import { render } from '@testing-library/react';
 
 import HomePage from './HomePage';
 
+jest.mock('./assets');
+
 test('HomePage', () => {
   render((
     <MemoryRouter>
