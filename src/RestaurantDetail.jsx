@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import MenuItems from './MenuItems';
 
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   const Restaurant = styled.div({
@@ -35,3 +35,5 @@ export default function RestaurantDetail({ restaurant }) {
     </Restaurant>
   );
 }
+
+export default React.memo(RestaurantDetail);
