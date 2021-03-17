@@ -1,5 +1,19 @@
 import React from 'react';
-import { InputWrap } from './inputStyle';
+
+import styled from '@emotion/styled';
+
+export const InputWrap = styled.div({
+  '& + &': {
+    marginLeft: '1rem',
+  },
+  input: {
+    border: '1px solid #dcdcdc',
+    padding: '0.5em',
+  },
+  'label + input': {
+    marginLeft: '0.5em',
+  },
+});
 
 export default function TextField({
   label, type = 'text', name, value, onChange,
