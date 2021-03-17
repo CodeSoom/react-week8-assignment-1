@@ -1,6 +1,9 @@
 import React from 'react';
 
 import { useSelector } from 'react-redux';
+import List from './List';
+import ListItem from './ListItem';
+import ListWrap from './ListWrap';
 
 import { get } from './utils';
 
@@ -15,14 +18,16 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <ul>
-      {restaurants.map((restaurant) => (
-        <li key={restaurant.id}>
-          <a href="/restaurants/1" onClick={handleClick(restaurant)}>
-            {restaurant.name}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <ListWrap>
+      <List>
+        {restaurants.map((restaurant) => (
+          <ListItem key={restaurant.id} type="card">
+            <a href="/restaurants/1" onClick={handleClick(restaurant)}>
+              {restaurant.name}
+            </a>
+          </ListItem>
+        ))}
+      </List>
+    </ListWrap>
   );
 }
