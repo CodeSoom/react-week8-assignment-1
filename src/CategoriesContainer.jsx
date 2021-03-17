@@ -9,6 +9,7 @@ import {
 
 import { get } from './utils';
 
+import ListContainer from './ListContainer';
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
 
@@ -24,25 +25,27 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <MenuList>
-      {categories.map((category) => (
-        <MenuItem
-          key={category.id}
-          active={selectedCategory && category.id === selectedCategory.id}
-        >
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
+    <ListContainer>
+      <MenuList>
+        {categories.map((category) => (
+          <MenuItem
+            key={category.id}
+            active={selectedCategory && category.id === selectedCategory.id}
           >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </MenuItem>
-      ))}
-    </MenuList>
+            <button
+              type="button"
+              onClick={() => handleClick(category.id)}
+            >
+              {category.name}
+              {selectedCategory ? (
+                <>
+                  {category.id === selectedCategory.id ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </MenuItem>
+        ))}
+      </MenuList>
+    </ListContainer>
   );
 }

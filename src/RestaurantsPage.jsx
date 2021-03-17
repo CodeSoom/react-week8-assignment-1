@@ -22,6 +22,14 @@ const Title = styled.h2({
   color: '#F9FDFC',
 });
 
+const Subtitle = styled.h3({
+  textAlign: 'center',
+  fontSize: '25px',
+  margin: '20px 0px 0px 0px',
+  color: '#F9FDFC',
+  opacity: '0.8',
+});
+
 export default function RestaurantsPage() {
   const history = useHistory();
 
@@ -39,7 +47,9 @@ export default function RestaurantsPage() {
   return (
     <div>
       <Title>Restaurants</Title>
+      <Subtitle>Regions</Subtitle>
       <RegionsContainer />
+      <Subtitle>Categories</Subtitle>
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
     </div>

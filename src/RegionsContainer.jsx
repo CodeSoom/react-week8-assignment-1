@@ -9,6 +9,7 @@ import {
 
 import { get } from './utils';
 
+import ListContainer from './ListContainer';
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
 
@@ -24,25 +25,27 @@ export default function RegionsContainer() {
   }
 
   return (
-    <MenuList>
-      {regions.map((region) => (
-        <MenuItem
-          key={region.id}
-          active={selectedRegion && region.id === selectedRegion.id}
-        >
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
+    <ListContainer>
+      <MenuList>
+        {regions.map((region) => (
+          <MenuItem
+            key={region.id}
+            active={selectedRegion && region.id === selectedRegion.id}
           >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </MenuItem>
-      ))}
-    </MenuList>
+            <button
+              type="button"
+              onClick={() => handleClick(region.id)}
+            >
+              {region.name}
+              {selectedRegion ? (
+                <>
+                  {region.id === selectedRegion.id ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </MenuItem>
+        ))}
+      </MenuList>
+    </ListContainer>
   );
 }
