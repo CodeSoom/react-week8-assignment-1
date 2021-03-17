@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
-  function handleChange(event) {
+  const handleChange = useCallback((event) => {
     const { target: { name, value } } = event;
     onChange({ name, value });
-  }
+  }, []);
 
   return (
     <>
