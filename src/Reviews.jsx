@@ -14,6 +14,7 @@ function Reviews({ reviews }) {
     alignItems: 'flex-end',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
+    gap: '1rem',
     maxHeight: '30rem',
     overflowY: 'scroll',
   });
@@ -25,9 +26,6 @@ function Reviews({ reviews }) {
     width: '49%',
     border: '1px solid #dcdcdc',
     boxSizing: 'border-box',
-    '& + &': {
-      marginTop: '1rem',
-    },
   });
 
   const Name = styled.div({
