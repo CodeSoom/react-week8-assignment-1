@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 
 import { useSelector } from 'react-redux';
+import { ListWrapper, Restaurant } from './style';
 
 import { get } from './utils';
 
@@ -13,14 +14,17 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }, []);
 
   return (
-    <ul>
+    <ListWrapper>
       {restaurants.map((restaurant) => (
-        <li key={restaurant.id}>
+        <Restaurant
+          key={restaurant.id}
+          color="default"
+        >
           <a href="/restaurants/1" onClick={handleClick(restaurant)}>
             {restaurant.name}
           </a>
-        </li>
+        </Restaurant>
       ))}
-    </ul>
+    </ListWrapper>
   );
 }
