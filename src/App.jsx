@@ -31,6 +31,12 @@ import InitializeCSS from './styles/InitializeCSS';
  *
  */
 
+const Header = styled.header({
+  padding: '1rem',
+  // Visual Properties
+  backgroundColor: '#FF8000',
+  color: 'white',
+});
 
 export default function App() {
   const dispatch = useDispatch();

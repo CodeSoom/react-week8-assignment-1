@@ -4,6 +4,19 @@ import styled from '@emotion/styled';
 
 import MenuItems from './MenuItems';
 
+const Address = styled.p({
+  color: '#666666',
+});
+
+const MenuWrapper = styled.div({
+  margin: '1rem 0',
+  padding: '0 .5rem',
+});
+
+const MenuTitle = styled.h3({
+  fontWeight: '700',
+});
+
 const RestaurantDetail = React.memo(({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
@@ -22,19 +35,5 @@ const RestaurantDetail = React.memo(({ restaurant }) => {
     </div>
   );
 });
-
-const Address = styled.p({
-  color: '#666666',
-});
-
-const MenuWrapper = styled.div({
-  margin: '1rem 0',
-  padding: '0 .5rem',
-});
-
-const MenuTitle = styled.h3({
-  fontWeight: '700',
-});
-
 
 export default RestaurantDetail;

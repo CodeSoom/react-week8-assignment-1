@@ -1,7 +1,27 @@
-import styled from '@emotion/styled';
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import TextField from './TextField';
+
+const ReviewFormWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+const ReviewButton = styled.button({
+  // Box Model Properties
+  width: '100px',
+  padding: '.5rem',
+  textAlign: 'center',
+
+  // Visual Properties
+  color: 'white',
+  backgroundColor: '#FF8000',
+
+  // Miscellanenous Properties
+  borderRadius: '5%',
+});
 
 const ReviewForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { score, description } = fields;
@@ -33,23 +53,5 @@ const ReviewForm = React.memo(({ fields, onChange, onSubmit }) => {
   );
 });
 
-const ReviewFormWrapper = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-});
-
-const ReviewButton = styled.button({
-  width: '100px',
-  textAlign: 'center',
-
-  padding: '.5rem',
-
-  color: 'white',
-
-  borderRadius: '5%',
-  backgroundColor: '#FF8000',
-
-
-});
 
 export default ReviewForm;

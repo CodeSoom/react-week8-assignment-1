@@ -2,6 +2,24 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import MenuItemSVG from '../../styles/MenuItemSVG';
+
+const MenuItemWrapper = styled.ul({
+  textAlign: 'left',
+});
+
+const MenuItem = styled.li({
+  // Box Model Properties
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: '0 .5rem',
+  width: '25%',
+
+  // Visual Properties
+  color: '#666666',
+});
+
 const MenuItems = React.memo(({ menuItems }) => {
   if (!(menuItems || []).length) {
     return (
@@ -13,23 +31,14 @@ const MenuItems = React.memo(({ menuItems }) => {
     <MenuItemWrapper>
       <ul>
         {menuItems.map(({ id, name }) => (
-          <MenuList key={id}>
+          <MenuItem key={id}>
+            <MenuItemSVG />
             {name}
-          </MenuList>
+          </MenuItem>
         ))}
       </ul>
     </MenuItemWrapper>
   );
-});
-
-const MenuItemWrapper = styled.ul({
-  textAlign: 'left',
-});
-
-const MenuList = styled.li({
-  padding: '0 .5rem',
-  listStyle: 'inside',
-  color: '#666666',
 });
 
 export default MenuItems;
