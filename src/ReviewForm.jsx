@@ -9,7 +9,7 @@ const FormWrap = styled.div({
   alignItems: 'center',
   justifyContent: 'center',
   margin: '2rem 0',
-  button: {
+  '& button': {
     marginLeft: '0.8rem',
     padding: '0.8em',
     color: '#fff',
