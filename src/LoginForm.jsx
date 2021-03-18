@@ -8,12 +8,10 @@ const Input = styled.input({
   fontFamily: 'Raleway',
   fontSize: '18px',
   backgroundColor: 'orange',
-  position: 'relative',
-  top: '12px',
   padding: '15px 0',
   border: 'none',
   borderBottom: '2px solid black',
-  margin: '0 0 25px 20px',
+  marginTop: '8px',
   transition: 'border-color 0.3s ease-in-out',
   '&:focus': {
     borderColor: 'teal',
