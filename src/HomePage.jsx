@@ -36,7 +36,7 @@ const Item = styled.li({
 
 const Image = styled.div({
   marginLeft: '3em',
-  width: '100vw',
+  width: '100%',
   height: '700px',
   background: `url(${images.restaurant}) no-repeat 0 0/contain`,
   [mq.desktop]: {
@@ -48,13 +48,20 @@ const Image = styled.div({
 const Description = styled.div({
   fontSize: '3em',
   fontWeight: 300,
-  marginTop: '-2.2em',
-  marginLeft: '1.2em',
+  marginTop: '-4.2em',
   '& span': {
     display: 'block',
+    marginLeft: '1.4em',
     '&:first-of-type': {
       color: colors.white,
     },
+  },
+  '&:before': {
+    content: '""',
+    display: 'block',
+    paddingTop: '.7em',
+    width: '15%',
+    borderTop: `15px solid ${colors.highlight}`,
   },
 });
 
@@ -65,8 +72,9 @@ const LinkWrapper = styled.div({
   marginLeft: '1.5em',
   padding: '.5em 1em',
   width: '90%',
-  border: `2.5px solid ${colors.highlight}`,
-  borderRadius: 30,
+  border: `5px solid ${colors.highlight}`,
+  borderRadius: 50,
+  background: `url(${images.icons.arrow}) no-repeat 95% 50%/10%`,
   '& a': {
     display: 'inline-block',
     color: colors.highlight,
