@@ -20,9 +20,9 @@ const NavItem = styled.li({
     marginTop: '1rem',
   },
   '& a': {
+    fontSize: '1.2rem',
     display: 'block',
     padding: '1rem',
-    fontSize: '1.2rem',
     textAlign: 'center',
     border: '1px solid #dcdcdc',
     borderRadius: '2em',
