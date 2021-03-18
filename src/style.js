@@ -61,3 +61,14 @@ export const Restaurant = styled.li`
     background-color: ${(props) => (colors[props.color].hover)};
     }
 `;
+
+export const Menu = styled.li`
+  background-color: #e0e0e0;
+  margin: 4px;
+  padding:5px 12px;
+  height: 32px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+`;
