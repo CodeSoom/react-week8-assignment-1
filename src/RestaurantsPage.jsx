@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RegionsContainer from './RegionsContainer';
 import CategoriesContainer from './CategoriesContainer';
 import RestaurantsContainer from './RestaurantsContainer';
@@ -11,8 +13,6 @@ import RestaurantsContainer from './RestaurantsContainer';
 import {
   loadInitialData,
 } from './slice';
-
-import styled from '@emotion/styled';
 
 const Title = styled.h2({
   fontSize: '35px',

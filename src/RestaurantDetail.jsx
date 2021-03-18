@@ -1,8 +1,8 @@
 import React from 'react';
 
-import MenuItems from './MenuItems';
-
 import styled from '@emotion/styled';
+
+import MenuItems from './MenuItems';
 
 const Title = styled.h2({
   fontSize: '35px',
@@ -25,7 +25,7 @@ const RestaurantDetailContainer = styled.div({
   justifyContent: 'center',
   alignItems: 'flex-end',
   borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
-})
+});
 
 const Subtitle = styled.h3({
   fontFamily: '"Song Myung", serif',

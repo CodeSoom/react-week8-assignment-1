@@ -2,9 +2,9 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { get } from './utils';
-
 import styled from '@emotion/styled';
+
+import { get } from './utils';
 
 const Subtitle = styled.h3({
   textAlign: 'center',
