@@ -2,6 +2,8 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import List from './List';
+
 import {
   selectRegion,
   loadRestaurants,
@@ -21,7 +23,7 @@ export default function RegionsContainer() {
   }, [dispatch]);
 
   return (
-    <ul>
+    <List>
       {regions.map((region) => (
         <li key={region.id}>
           <button
@@ -37,6 +39,6 @@ export default function RegionsContainer() {
           </button>
         </li>
       ))}
-    </ul>
+    </List>
   );
 }

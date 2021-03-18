@@ -7,6 +7,8 @@ import {
   loadRestaurants,
 } from './slice';
 
+import List from './List';
+
 import { get } from './utils';
 
 export default function CategoriesContainer() {
@@ -21,7 +23,7 @@ export default function CategoriesContainer() {
   }, [dispatch]);
 
   return (
-    <ul>
+    <List>
       {categories.map((category) => (
         <li key={category.id}>
           <button
@@ -37,6 +39,6 @@ export default function CategoriesContainer() {
           </button>
         </li>
       ))}
-    </ul>
+    </List>
   );
 }

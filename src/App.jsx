@@ -27,7 +27,7 @@ const Main = styled.div({
   height: '700px',
   overflow: 'hidden',
   border: '4px solid black',
-  borderRadius: '30px',
+  borderRadius: '50px',
   boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.2)',
   margin: '20px 30px',
 });
