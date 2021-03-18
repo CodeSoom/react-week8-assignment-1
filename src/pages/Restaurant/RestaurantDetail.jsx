@@ -24,7 +24,7 @@ const RestaurantDetail = React.memo(({ restaurant }) => {
 
   return (
     <div>
-      <h1>{name}</h1>
+      <h2>{name}</h2>
       <Address>
         주소:
         {' '}

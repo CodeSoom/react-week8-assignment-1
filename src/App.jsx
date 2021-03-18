@@ -22,6 +22,7 @@ import { loadItem } from './services/storage';
 
 import InitializeCSS from './styles/InitializeCSS';
 import { colors } from './styles/Theme';
+import { Logo } from './styles/SVG';
 
 // Steps to Implement features
 /**
@@ -51,9 +52,11 @@ export default function App() {
   return (
     <div>
       <Header>
-        <h2>
-          <Link to="/">Home</Link>
-        </h2>
+        <h1>
+          <Link to="/">
+            <Logo />
+          </Link>
+        </h1>
       </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />

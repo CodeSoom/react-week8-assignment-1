@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import MenuItemSVG from '../../styles/MenuItemSVG';
+import { MenuItemSVG } from '../../styles/SVG';
 import { colors } from '../../styles/Theme';
 
 const MenuItemWrapper = styled.ul({
