@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -7,23 +9,63 @@ function Reviews({ reviews }) {
 
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
+  const List = styled.ul({
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    maxHeight: '30rem',
+    overflowY: 'scroll',
+  });
+
+  const ListItem = styled.li({
+    display: 'flex',
+    alignItems: 'center',
+    padding: '1em',
+    width: '49%',
+    border: '1px solid #dcdcdc',
+    boxSizing: 'border-box',
+    '& + &': {
+      marginTop: '1rem',
+    },
+  });
+
+  const Name = styled.div({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '5em',
+    height: '5em',
+    border: '1px solid #dcdcdc',
+    borderRadius: '50%',
+  });
+
+  const TextBox = styled.div({
+    marginLeft: '1rem',
+    '& > * + *': {
+      marginTop: '1rem',
+    },
+  });
+
   return (
-    <ul>
+    <List>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
-          <div>
+        <ListItem key={review.id}>
+          <Name>
             {review.name}
-          </div>
-          <div>
-            {review.score}
-            점
-          </div>
-          <div>
-            {review.description}
-          </div>
-        </li>
+          </Name>
+          <TextBox>
+            <p>
+              {review.score}
+              점
+            </p>
+            <p>
+              {review.description}
+            </p>
+          </TextBox>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 }
 
