@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 
 import TextField from './TextField';
 
+import { colors } from '../../styles/Theme';
+
 const ReviewFormWrapper = styled.div({
   display: 'flex',
   flexDirection: 'column',
@@ -17,7 +19,7 @@ const ReviewButton = styled.button({
 
   // Visual Properties
   color: 'white',
-  backgroundColor: '#FF8000',
+  backgroundColor: colors.orange,
 
   // Miscellanenous Properties
   borderRadius: '5%',

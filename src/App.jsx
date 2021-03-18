@@ -21,6 +21,7 @@ import { setAccessToken } from './redux/slice';
 import { loadItem } from './services/storage';
 
 import InitializeCSS from './styles/InitializeCSS';
+import { colors } from './styles/Theme';
 
 // Steps to Implement features
 /**
@@ -33,8 +34,9 @@ import InitializeCSS from './styles/InitializeCSS';
 
 const Header = styled.header({
   padding: '1rem',
+
   // Visual Properties
-  backgroundColor: '#FF8000',
+  backgroundColor: colors.orange,
   color: 'white',
 });
 

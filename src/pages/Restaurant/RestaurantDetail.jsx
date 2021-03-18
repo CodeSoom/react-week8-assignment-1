@@ -4,8 +4,10 @@ import styled from '@emotion/styled';
 
 import MenuItems from './MenuItems';
 
+import { colors } from '../../styles/Theme';
+
 const Address = styled.p({
-  color: '#666666',
+  color: colors.gray,
 });
 
 const MenuWrapper = styled.div({

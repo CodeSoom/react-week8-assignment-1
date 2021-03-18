@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import { colors } from '../../styles/Theme';
+
 const Review = styled.li({
   // Box Model Properties
   display: 'flex',
@@ -22,7 +24,7 @@ const Reviewer = styled.div({
   marginBottom: '.5rem',
 
   // Visual Properties
-  color: 'colors.orange',
+  color: colors.orange,
 
   // Typography Properties
   fontWeight: '500',
@@ -33,7 +35,7 @@ const Score = styled.span({
 });
 
 const Description = styled.p({
-  color: '#666666',
+  color: colors.gray,
 });
 
 const Reviews = React.memo(({ reviews }) => {

@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import MenuItemSVG from '../../styles/MenuItemSVG';
+import { colors } from '../../styles/Theme';
 
 const MenuItemWrapper = styled.ul({
   textAlign: 'left',
@@ -17,7 +18,7 @@ const MenuItem = styled.li({
   width: '25%',
 
   // Visual Properties
-  color: '#666666',
+  color: colors.gray,
 });
 
 const MenuItems = React.memo(({ menuItems }) => {
