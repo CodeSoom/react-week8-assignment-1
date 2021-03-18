@@ -23,11 +23,11 @@ import { setAccessToken } from './slice';
 import { loadItem } from './services/storage';
 
 const Wrapper = styled.div`
-padding: 20px;
+  padding: 20px;
 
-& > header {
-padding-bottom:30px;
-}
+  & > header {
+  padding-bottom:30px;
+  } 
 
 `;
 
