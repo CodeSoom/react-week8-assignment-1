@@ -2,9 +2,9 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import ListWrap from './ListWrap';
 import List from './List';
 import ListItem from './ListItem';
-import ListWrap from './ListWrap';
 
 import {
   selectCategory,
