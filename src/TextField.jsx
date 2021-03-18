@@ -1,5 +1,29 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+import { colors } from './designSystem';
+
+const Box = styled.div({
+  display: 'block',
+  margin: '1em 0',
+});
+
+const Label = styled.label({
+  fontSize: '1.2em',
+  fontWeight: 'bold',
+  marginRight: '.5em',
+  padding: '1em .7em',
+});
+
+const Input = styled.input({
+  fontSize: '1.2em',
+  padding: '.7em',
+  height: '1.5em',
+  border: `1px solid ${colors.border}`,
+  borderRadius: '5px',
+});
+
 function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -11,18 +35,18 @@ function TextField({
   }
 
   return (
-    <div>
-      <label htmlFor={id}>
+    <Box>
+      <Label htmlFor={id}>
         {label}
-      </label>
-      <input
+      </Label>
+      <Input
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Box>
   );
 }
 

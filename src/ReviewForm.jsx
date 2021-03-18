@@ -1,12 +1,38 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import TextField from './TextField';
+
+import { colors } from './designSystem';
+
+const Container = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  margin: 0,
+  padding: '2em 3em',
+  borderTop: `1px solid ${colors.border}`,
+  borderBottom: `1px solid ${colors.border}`,
+});
+
+const Button = styled.button({
+  fontSize: '1em',
+  display: 'block',
+  margin: '.2em 1em',
+  padding: '1em .7em',
+  width: '40%',
+  color: colors.white,
+  border: `1px solid ${colors.highlight}`,
+  borderRadius: '5px',
+  background: colors.highlight,
+});
+
 
 function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
-    <>
+    <Container>
       <TextField
         label="평점"
         name="score"
@@ -20,13 +46,13 @@ function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
-    </>
+      </Button>
+    </Container>
   );
 }
 

@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-import { colors, mq, styles } from './designSystem';
+import { colors, styles } from './designSystem';
 
 import { images } from './assets';
+
+const Container = styled.div({
+  overflow: 'hidden',
+});
 
 const Title = styled.h2({
   ...styles.screenReaderOnly,
@@ -14,15 +18,15 @@ const Title = styled.h2({
 
 const List = styled.ul({
   display: 'flex',
+  float: 'right',
   margin: 0,
-  marginLeft: '2em',
   padding: 0,
 });
 
 const Item = styled.li({
-  fontSize: '2.5em',
+  fontSize: '1.5em',
   fontWeight: 300,
-  margin: '.5em',
+  margin: '1em',
   '& a': {
     display: 'inline-block',
     color: '#333',
@@ -34,45 +38,43 @@ const Item = styled.li({
   },
 });
 
-const Image = styled.div({
-  marginLeft: '3em',
+const Image = styled.img({
+  paddingLeft: '22em',
   width: '100%',
-  height: '700px',
-  background: `url(${images.restaurant}) no-repeat 0 0/contain`,
-  [mq.desktop]: {
-    marginLeft: '40em',
-    maxWidth: '800px',
-  },
+  hieght: 'auto',
 });
 
-const Description = styled.div({
-  fontSize: '3em',
+const ContentWrapper = styled.div({
+  display: 'inline-block',
+  marginTop: '-15em',
+  padding: '0 2em',
+});
+
+const Slogan = styled.div({
+  fontSize: '2em',
   fontWeight: 300,
-  marginTop: '-4.2em',
   '& span': {
     display: 'block',
-    marginLeft: '1.4em',
-    '&:first-of-type': {
-      color: colors.white,
-    },
+    marginLeft: '1.5em',
   },
   '&:before': {
     content: '""',
-    display: 'block',
-    paddingTop: '.7em',
-    width: '15%',
-    borderTop: `15px solid ${colors.highlight}`,
+    display: 'inline-block',
+    marginLeft: '1em',
+    paddingTop: '.2em',
+    width: '20%',
+    borderTop: `5px solid ${colors.highlight}`,
   },
 });
 
 const LinkWrapper = styled.div({
-  fontSize: '2.5em',
+  fontSize: '1.1em',
   fontWeight: 600,
-  margin: '1em 0',
-  marginLeft: '1.5em',
+  display: 'inline-block',
+  margin: '.5em 2.5em',
   padding: '.5em 1em',
-  width: '90%',
-  border: `5px solid ${colors.highlight}`,
+  width: '80%',
+  border: `2px solid ${colors.highlight}`,
   borderRadius: 50,
   background: `url(${images.icons.arrow}) no-repeat 95% 50%/10%`,
   '& a': {
@@ -84,7 +86,7 @@ const LinkWrapper = styled.div({
 
 export default function HomePage() {
   return (
-    <>
+    <Container>
       <Title>Home</Title>
       <List>
         <Item>
@@ -94,15 +96,20 @@ export default function HomePage() {
           <Link to="/login">log in</Link>
         </Item>
       </List>
-      <Image />
-      <Description>
-        <span>지금</span>
-        <span>가장 가고 싶은</span>
-        <span>바로 그 레스토랑,</span>
-      </Description>
-      <LinkWrapper>
-        <Link to="/restaurants">자세히 보기</Link>
-      </LinkWrapper>
-    </>
+      <Image
+        src={images.restaurant}
+        alt=""
+      />
+      <ContentWrapper>
+        <Slogan>
+          <span>지금</span>
+          <span>가장 가고 싶은</span>
+          <span>바로 그 레스토랑,</span>
+        </Slogan>
+        <LinkWrapper>
+          <Link to="/restaurants">자세히 보기</Link>
+        </LinkWrapper>
+      </ContentWrapper>
+    </Container>
   );
 }

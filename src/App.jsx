@@ -22,20 +22,14 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
-import { mq } from './designSystem';
-
 const Container = styled.div({
-  fontSize: '22px',
+  fontSize: '16px',
   minHeight: '100vh',
-  [mq.desktop]: {
-    fontSize: '12px',
-  },
 });
 
 const Wrapper = styled.div({
   margin: '0 auto',
   padding: '1em 0',
-  width: '90%',
 });
 
 export default function App() {

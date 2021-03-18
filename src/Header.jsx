@@ -10,7 +10,7 @@ const Container = styled.header({
   padding: '0 5%',
   borderBottom: `1px solid ${colors.border}`,
   '& h1': {
-    fontSize: '2.3em',
+    fontSize: '2em',
     margin: 0,
     padding: '1em 0',
   },

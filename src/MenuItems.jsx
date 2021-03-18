@@ -1,5 +1,16 @@
 import React from 'react';
 
+import styeld from '@emotion/styled';
+
+import { markerStyle } from './designSystem';
+
+const List = styeld.ul({
+  marginLeft: '.5em',
+  '& li': {
+    ...markerStyle,
+  },
+});
+
 function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -8,13 +19,13 @@ function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <List>
       {menuItems.map((menuItem) => (
         <li key={menuItem.id}>
           {menuItem.name}
         </li>
       ))}
-    </ul>
+    </List>
   );
 }
 

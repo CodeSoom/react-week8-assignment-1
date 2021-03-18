@@ -1,12 +1,19 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import LoginFormContainer from './LoginFormContainer';
+
+const Container = styled.div({
+  padding: '2em 3em',
+  margin: 0,
+});
 
 export default function LoginPage() {
   return (
-    <div>
-      <h2>Log In</h2>
+    <Container>
+      <h1>Log In</h1>
       <LoginFormContainer />
-    </div>
+    </Container>
   );
 }

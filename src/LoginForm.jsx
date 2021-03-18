@@ -1,5 +1,42 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+import { colors } from './designSystem';
+
+const Box = styled.div({
+  display: 'block',
+  margin: '1em 0',
+});
+
+const Label = styled.label({
+  fontSize: '1.2em',
+  fontWeight: 'bold',
+  marginRight: '.5em',
+  padding: '1em .7em',
+});
+
+const Input = styled.input({
+  fontSize: '1.2em',
+  padding: '.7em',
+  height: '1.5em',
+  border: `1px solid ${colors.border}`,
+  borderRadius: '5px',
+});
+
+const Button = styled.button({
+  fontSize: '1em',
+  display: 'block',
+  margin: '0 1em',
+  padding: '1em .7em',
+  width: '40%',
+  color: colors.white,
+  border: `1px solid ${colors.highlight}`,
+  borderRadius: '5px',
+  background: colors.highlight,
+});
+
+
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
@@ -10,36 +47,36 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
 
   return (
     <>
-      <div>
-        <label htmlFor="login-email">
+      <Box>
+        <Label htmlFor="login-email">
           E-mail
-        </label>
-        <input
+        </Label>
+        <Input
           type="email"
           id="login-email"
           name="email"
           value={email}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label htmlFor="login-password">
+      </Box>
+      <Box>
+        <Label htmlFor="login-password">
           Password
-        </label>
-        <input
+        </Label>
+        <Input
           type="password"
           id="login-password"
           name="password"
           value={password}
           onChange={handleChange}
         />
-      </div>
-      <button
+      </Box>
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
+      </Button>
     </>
   );
 });
