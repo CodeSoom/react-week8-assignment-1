@@ -1,46 +1,37 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+
+import TextField from '../../components/TextField';
+
+import { Button, FormWrapper } from '../../commons/components';
 
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
-  const handleChange = useCallback((event) => {
-    const { target: { name, value } } = event;
-    onChange({ name, value });
-  }, [onChange]);
-
   return (
-    <>
-      <div>
-        <label htmlFor="login-email">
-          E-mail
-        </label>
-        <input
-          type="email"
-          id="login-email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="login-password">
-          Password
-        </label>
-        <input
-          type="password"
-          id="login-password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-      </div>
-      <button
+    <FormWrapper>
+      <TextField
+        label="E-mail"
+        type="email"
+        name="email"
+        value={email}
+        onChange={onChange}
+      />
+
+      <TextField
+        label="Password"
+        type="password"
+        name="password"
+        value={password}
+        onChange={onChange}
+      />
+
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
-    </>
+      </Button>
+    </FormWrapper>
   );
 });
 

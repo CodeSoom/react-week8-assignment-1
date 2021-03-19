@@ -1,35 +1,14 @@
 import React from 'react';
 
-import styled from '@emotion/styled';
+import TextField from '../../components/TextField';
 
-import TextField from './TextField';
-
-import { colors } from '../../styles/Theme';
-
-const ReviewFormWrapper = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-});
-
-const ReviewButton = styled.button({
-  // Box Model Properties
-  width: '100px',
-  padding: '.5rem',
-  textAlign: 'center',
-
-  // Visual Properties
-  color: 'white',
-  backgroundColor: colors.orange,
-
-  // Miscellanenous Properties
-  borderRadius: '5%',
-});
+import { Button, FormWrapper } from '../../commons/components';
 
 const ReviewForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { score, description } = fields;
 
   return (
-    <ReviewFormWrapper>
+    <FormWrapper>
       <TextField
         label="평점"
         name="score"
@@ -45,13 +24,13 @@ const ReviewForm = React.memo(({ fields, onChange, onSubmit }) => {
         onChange={onChange}
       />
 
-      <ReviewButton
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </ReviewButton>
-    </ReviewFormWrapper>
+      </Button>
+    </FormWrapper>
   );
 });
 
