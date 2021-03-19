@@ -25,17 +25,18 @@ import { loadItem } from './services/storage';
 const Container = styled.div({
   margin: '0 auto',
   width: '90%',
+  height: '100vh',
 });
 
 const Header = styled.header({
-  backgroundColor: '#EEE',
   '& h1': {
     fontsize: '1.5em',
     margin: 0,
     padding: '1em .5em',
+    fontFamily: 'Nanum Gothic Coding',
   },
   '& a': {
-    color: '#555',
+    color: 'rgb(212, 212, 212)',
     textDecoration: 'none',
     '&:hover': {
       color: '#000',
