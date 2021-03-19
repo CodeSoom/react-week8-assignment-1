@@ -1,13 +1,15 @@
 import React from 'react';
 
+import { Button } from '../../commons/components';
+
 const LogoutForm = React.memo(({ onClick }) => (
   <>
-    <button
+    <Button
       type="button"
       onClick={onClick}
     >
       Log out
-    </button>
+    </Button>
   </>
 ));
 
