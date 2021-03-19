@@ -20,7 +20,6 @@ import { setAccessToken } from './redux/slice';
 
 import { loadItem } from './services/storage';
 
-import { colors } from './styles/Theme';
 import { LogoSvg } from './commons/svg';
 
 // Steps to Implement features
@@ -32,13 +31,13 @@ import { LogoSvg } from './commons/svg';
  *
  */
 
-const Header = styled.header({
+const Header = styled.header(({ theme }) => ({
   padding: '1rem',
 
   // Visual Properties
-  backgroundColor: colors.orange,
+  backgroundColor: theme.colors.orange,
   color: 'white',
-});
+}));
 
 export default function App() {
   const dispatch = useDispatch();

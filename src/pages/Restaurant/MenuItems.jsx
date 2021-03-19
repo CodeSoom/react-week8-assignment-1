@@ -3,13 +3,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { MenuItemSvg } from '../../commons/svg';
-import { colors } from '../../styles/Theme';
 
 const MenuItemWrapper = styled.ul({
   textAlign: 'left',
 });
 
-const MenuItem = styled.li({
+const MenuItem = styled.li(({ theme }) => ({
   // Box Model Properties
   display: 'flex',
   justifyContent: 'space-between',
@@ -18,8 +17,8 @@ const MenuItem = styled.li({
   margin: '.5rem 0',
 
   // Visual Properties
-  color: colors.gray,
-});
+  color: theme.colors.gray,
+}));
 
 const MenuItems = React.memo(({ menuItems }) => {
   if (!(menuItems || []).length) {

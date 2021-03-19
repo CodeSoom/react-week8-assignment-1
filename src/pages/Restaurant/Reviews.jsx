@@ -2,8 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { colors, fontWeights } from '../../styles/Theme';
-
 const Review = styled.li({
   // Box Model Properties
   display: 'flex',
@@ -18,28 +16,28 @@ const Review = styled.li({
   '0 3px 2px rgba(0, 0, 0, 0.05),0 7px 5px rgba(0, 0, 0, 0.05)',
 });
 
-const Reviewer = styled.div({
+const Reviewer = styled.div(({ theme }) => ({
   // Box Model Properties
   marginBottom: '.5rem',
 
   // Visual Properties
-  color: colors.orange,
+  color: theme.colors.orange,
 
   // Typography Properties
-  fontWeight: fontWeights.medium,
-});
+  fontWeight: theme.fontWeights.medium,
+}));
 
-const Score = styled.span({
-  fontWeight: fontWeights.medium,
-});
+const Score = styled.span(({ theme }) => ({
+  fontWeight: theme.fontWeights.medium,
+}));
 
 const DescriptionWrapper = styled.div({
   marginTop: '1rem',
 });
 
-const Description = styled.p({
-  color: colors.gray,
-});
+const Description = styled.p(({ theme }) => ({
+  color: theme.colors.gray,
+}));
 
 const Reviews = React.memo(({ reviews }) => {
   if (!reviews || !reviews.length) {

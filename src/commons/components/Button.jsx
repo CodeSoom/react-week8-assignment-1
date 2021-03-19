@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../../styles/Theme';
-
-const Button = styled.button({
+const Button = styled.button(({ theme }) => ({
   // Box Model Properties
   width: '100px',
   padding: '.5rem',
@@ -10,10 +8,10 @@ const Button = styled.button({
 
   // Visual Properties
   color: 'white',
-  backgroundColor: colors.orange,
+  backgroundColor: theme.colors.orange,
 
   // Miscellanenous Properties
   borderRadius: '5%',
-});
+}));
 
 export default Button;
