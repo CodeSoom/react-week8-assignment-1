@@ -16,7 +16,6 @@ const Review = styled.li({
   backgroundColor: '#F8F5F2',
   boxShadow:
   '0 3px 2px rgba(0, 0, 0, 0.05),0 7px 5px rgba(0, 0, 0, 0.05)',
-
 });
 
 const Reviewer = styled.div({
@@ -32,6 +31,10 @@ const Reviewer = styled.div({
 
 const Score = styled.span({
   fontWeight: '500',
+});
+
+const DescriptionWrapper = styled.div({
+  marginTop: '1rem',
 });
 
 const Description = styled.p({
@@ -56,11 +59,11 @@ const Reviews = React.memo(({ reviews }) => {
               점
             </Score>
           </div>
-          <div>
+          <DescriptionWrapper>
             <Description>
               {review.description}
             </Description>
-          </div>
+          </DescriptionWrapper>
         </Review>
       ))}
     </ul>

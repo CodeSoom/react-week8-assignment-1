@@ -14,8 +14,8 @@ const MenuItem = styled.li({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '0 .5rem',
   width: '25%',
+  margin: '.5rem 0',
 
   // Visual Properties
   color: colors.gray,
