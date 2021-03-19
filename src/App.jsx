@@ -33,6 +33,7 @@ const Header = styled.header({
     color: '#FFF5BA',
     textDecoration: 'none',
     '&:hover': {
+      fontWeight: 'bold',
       color: '#F3FFE3',
     },
   },

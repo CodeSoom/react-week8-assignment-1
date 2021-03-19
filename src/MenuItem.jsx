@@ -14,6 +14,11 @@ const MenuItem = styled.li({
     fontWeight: 'bold',
     color: '#F3FFE3',
   },
+  '&:active': {
+    color: '#B28DFF',
+    backgroundColor: '#DCD3FF',
+    textDecoration: 'none',
+  },
 });
 
 export default MenuItem;
