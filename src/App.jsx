@@ -21,6 +21,8 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+import InitialCSS from './InitialCSS';
+
 const Container = styled.div({
   margin: 'auto',
   width: '90%',
@@ -71,6 +73,7 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
+      <InitialCSS />
     </Container>
   );
 }
