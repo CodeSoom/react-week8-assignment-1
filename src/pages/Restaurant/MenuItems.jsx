@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { MenuItemSVG } from '../../styles/SVG';
+import { MenuItemSvg } from '../../commons/svg';
 import { colors } from '../../styles/Theme';
 
 const MenuItemWrapper = styled.ul({
@@ -33,7 +33,7 @@ const MenuItems = React.memo(({ menuItems }) => {
       <ul>
         {menuItems.map(({ id, name }) => (
           <MenuItem key={id}>
-            <MenuItemSVG />
+            <MenuItemSvg />
             {name}
           </MenuItem>
         ))}
