@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { colors } from '../../styles/Theme';
+import { colors, fontWeights } from '../../styles/Theme';
 
 const Review = styled.li({
   // Box Model Properties
@@ -26,11 +26,11 @@ const Reviewer = styled.div({
   color: colors.orange,
 
   // Typography Properties
-  fontWeight: '500',
+  fontWeight: fontWeights.medium,
 });
 
 const Score = styled.span({
-  fontWeight: '500',
+  fontWeight: fontWeights.medium,
 });
 
 const DescriptionWrapper = styled.div({
