@@ -2,6 +2,8 @@ import React, { useCallback, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -13,6 +15,21 @@ import {
 } from './slice';
 
 import { get } from './utils';
+
+const Loading = styled.div({
+  backgroundColor: 'orange',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '580px',
+  color: 'red',
+  fontSize: '35px',
+  '& p': {
+    margin: '0',
+    padding: '0',
+  },
+});
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -35,7 +52,9 @@ export default function RestaurantContainer({ restaurantId }) {
 
   if (!restaurant) {
     return (
-      <p>Loading...</p>
+      <Loading>
+        <p>Loading...</p>
+      </Loading>
     );
   }
 
@@ -49,7 +68,10 @@ export default function RestaurantContainer({ restaurantId }) {
           onSubmit={handleSubmit}
         />
       ) : null}
-      <Reviews reviews={restaurant.reviews} />
+      <Reviews
+        accessToken={accessToken}
+        reviews={restaurant.reviews}
+      />
     </>
   );
 }
