@@ -3,5 +3,10 @@ export const colors = {
   gray: '#666666',
 };
 
-// ToDo : Delete
-export const tobeDeleted = 'will be deleted';
+export const fontWeights = {
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+};
