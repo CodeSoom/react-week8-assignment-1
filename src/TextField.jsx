@@ -12,14 +12,15 @@ const Box = styled.div({
 const Label = styled.label({
   fontSize: '1.2em',
   fontWeight: 'bold',
-  marginRight: '.5em',
-  padding: '1em .7em',
+  display: 'block',
+  marginBottom: '.5em',
 });
 
 const Input = styled.input({
   fontSize: '1.2em',
   padding: '.7em',
-  height: '1.5em',
+  width: '30%',
+  height: '2em',
   border: `1px solid ${colors.border}`,
   borderRadius: '5px',
 });

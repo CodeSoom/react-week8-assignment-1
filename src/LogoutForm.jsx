@@ -18,7 +18,7 @@ const Button = styled.button({
 });
 
 
-function LogoutForm({ onClick }) {
+export default function LogoutForm({ onClick }) {
   return (
     <>
       <Button
@@ -30,5 +30,3 @@ function LogoutForm({ onClick }) {
     </>
   );
 }
-
-export default React.memo(LogoutForm);

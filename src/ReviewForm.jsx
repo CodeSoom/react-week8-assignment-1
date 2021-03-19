@@ -18,9 +18,10 @@ const Container = styled.div({
 const Button = styled.button({
   fontSize: '1em',
   display: 'block',
-  margin: '.2em 1em',
+  position: 'relative',
+  margin: '.2em 0',
   padding: '1em .7em',
-  width: '40%',
+  width: '30%',
   color: colors.white,
   border: `1px solid ${colors.highlight}`,
   borderRadius: '5px',

@@ -12,14 +12,15 @@ const Box = styled.div({
 const Label = styled.label({
   fontSize: '1.2em',
   fontWeight: 'bold',
-  marginRight: '.5em',
-  padding: '1em .7em',
+  display: 'block',
+  marginBottom: '.5em',
 });
 
 const Input = styled.input({
   fontSize: '1.2em',
   padding: '.7em',
-  height: '1.5em',
+  width: '30%',
+  height: '2em',
   border: `1px solid ${colors.border}`,
   borderRadius: '5px',
 });
@@ -27,15 +28,15 @@ const Input = styled.input({
 const Button = styled.button({
   fontSize: '1em',
   display: 'block',
-  margin: '0 1em',
+  position: 'relative',
+  margin: '.2em 0',
   padding: '1em .7em',
-  width: '40%',
+  width: '30%',
   color: colors.white,
   border: `1px solid ${colors.highlight}`,
   borderRadius: '5px',
   background: colors.highlight,
 });
-
 
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;

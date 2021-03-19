@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { colors } from './designSystem';
 
 const Container = styled.header({
-  padding: '0 5%',
+  padding: '0 3em',
   borderBottom: `1px solid ${colors.border}`,
   '& h1': {
     fontSize: '2em',

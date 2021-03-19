@@ -2,14 +2,10 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import Container from './styles/Container';
 import MenuItems from './MenuItems';
 
 import { colors } from './designSystem';
-
-const Container = styled.div({
-  padding: '2em 3em',
-  margin: 0,
-});
 
 const Content = styled.div({
   margin: '1em 0',
@@ -17,11 +13,11 @@ const Content = styled.div({
     color: colors.highlight,
   },
   '& h3': {
-    fontSize: '1.1em',
+    fontSize: '1.5em',
     marginTop: '1em',
   },
   '& p': {
-    fontSize: '1em',
+    fontSize: '1.2em',
     marginTop: '1em',
   },
 });

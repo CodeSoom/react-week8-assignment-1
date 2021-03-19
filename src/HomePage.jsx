@@ -8,17 +8,13 @@ import { colors, styles } from './designSystem';
 
 import { images } from './assets';
 
-const Container = styled.div({
-  overflow: 'hidden',
-});
-
 const Title = styled.h2({
   ...styles.screenReaderOnly,
 });
 
 const List = styled.ul({
   display: 'flex',
-  float: 'right',
+  justifyContent: 'flex-end',
   margin: 0,
   padding: 0,
 });
@@ -38,15 +34,8 @@ const Item = styled.li({
   },
 });
 
-const Image = styled.img({
-  paddingLeft: '22em',
-  width: '100%',
-  hieght: 'auto',
-});
-
 const ContentWrapper = styled.div({
-  display: 'inline-block',
-  marginTop: '-15em',
+  position: 'relative',
   padding: '0 2em',
 });
 
@@ -61,8 +50,7 @@ const Slogan = styled.div({
     content: '""',
     display: 'inline-block',
     marginLeft: '1em',
-    paddingTop: '.2em',
-    width: '20%',
+    width: '5%',
     borderTop: `5px solid ${colors.highlight}`,
   },
 });
@@ -70,13 +58,12 @@ const Slogan = styled.div({
 const LinkWrapper = styled.div({
   fontSize: '1.1em',
   fontWeight: 600,
-  display: 'inline-block',
   margin: '.5em 2.5em',
   padding: '.5em 1em',
-  width: '80%',
+  width: '15%',
   border: `2px solid ${colors.highlight}`,
   borderRadius: 50,
-  background: `url(${images.icons.arrow}) no-repeat 95% 50%/10%`,
+  background: `url(${images.icons.arrow}) no-repeat 90% 50%`,
   '& a': {
     display: 'inline-block',
     color: colors.highlight,
@@ -84,32 +71,43 @@ const LinkWrapper = styled.div({
   },
 });
 
+const Image = styled.img({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  paddingLeft: '22em',
+  width: '90%',
+  hieght: 'auto',
+});
+
 export default function HomePage() {
   return (
-    <Container>
-      <Title>Home</Title>
-      <List>
-        <Item>
-          <Link to="/about">about</Link>
-        </Item>
-        <Item>
-          <Link to="/login">log in</Link>
-        </Item>
-      </List>
-      <Image
-        src={images.restaurant}
-        alt=""
-      />
+    <>
+      <div>
+        <Title>Home</Title>
+        <List>
+          <Item>
+            <Link to="/about">about</Link>
+          </Item>
+          <Item>
+            <Link to="/login">log in</Link>
+          </Item>
+        </List>
+      </div>
       <ContentWrapper>
         <Slogan>
           <span>지금</span>
           <span>가장 가고 싶은</span>
           <span>바로 그 레스토랑,</span>
         </Slogan>
-        <LinkWrapper>
+        <LinkWrapper type="button">
           <Link to="/restaurants">자세히 보기</Link>
         </LinkWrapper>
+        <Image
+          src={images.restaurant}
+          alt=""
+        />
       </ContentWrapper>
-    </Container>
+    </>
   );
 }

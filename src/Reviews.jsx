@@ -6,7 +6,7 @@ import { colors } from './designSystem';
 
 const List = styled.ul({
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   flexFlow: 'wrap',
   justifyContent: 'space-between',
   padding: '2em 3em',
@@ -16,8 +16,9 @@ const Item = styled.li({
   width: '30%',
   margin: '.5em',
   padding: '1em 2em',
-  border: `1px solid ${colors.border}`,
+  border: `1px solid ${colors.highlight}`,
   borderRadius: '10px',
+  boxShadow: '0.4em 0.4em .4em rgba(100, 100, 100, 0.3)',
 });
 
 const Name = styled.div({
@@ -41,7 +42,10 @@ const Score = styled.div({
 const Description = styled.div({
   fontSize: '1em',
   padding: '1em 0',
+  heigth: '2em',
   color: colors.gray,
+  overflow: 'auto',
+  textOverflow: 'ellipsis',
 });
 
 function Reviews({ reviews }) {

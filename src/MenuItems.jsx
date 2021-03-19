@@ -8,6 +8,7 @@ const List = styeld.ul({
   marginLeft: '.5em',
   '& li': {
     ...markerStyle,
+    fontSize: '1.2em',
   },
 });
 
