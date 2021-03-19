@@ -20,7 +20,6 @@ import { setAccessToken } from './redux/slice';
 
 import { loadItem } from './services/storage';
 
-import InitializeCSS from './styles/InitializeCSS';
 import { colors } from './styles/Theme';
 import { LogoSvg } from './commons/svg';
 
@@ -66,7 +65,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-      <InitializeCSS />
     </div>
   );
 }
