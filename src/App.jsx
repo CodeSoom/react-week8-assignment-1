@@ -26,12 +26,16 @@ const Container = styled.div({
   margin: '0 auto',
   width: '90%',
   height: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  color: 'rgb(212, 212, 212)',
 });
 
 const Header = styled.header({
   '& h1': {
     fontsize: '1.5em',
-    margin: 0,
+    marginBottom: '20vh',
     padding: '1em .5em',
     fontFamily: 'Nanum Gothic Coding',
   },
@@ -39,7 +43,7 @@ const Header = styled.header({
     color: 'rgb(212, 212, 212)',
     textDecoration: 'none',
     '&:hover': {
-      color: '#000',
+      color: 'rgba(150, 150, 150)',
     },
   },
 });

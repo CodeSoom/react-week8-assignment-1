@@ -4,27 +4,23 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-const Title = styled.h2({
-  margin: 0,
-  fontsize: '2em',
-  padding: '.4em 0',
-});
-
 const List = styled.ul({
   display: 'flex',
   margin: 0,
   padding: 0,
   listStyle: 'none',
+  flexDirection: 'column',
 });
 
 const Item = styled.li({
+  margin: '2vh',
   marginRight: '1em',
   '& a': {
-    color: '#333',
+    color: 'rgb(212, 212, 212)',
     textDecoration: 'none',
     '&:hover': {
       fontWeight: 'bold',
-      color: '#000',
+      color: 'rgba(150, 150, 150)',
     },
   },
 });
@@ -32,7 +28,6 @@ const Item = styled.li({
 export default function HomePage() {
   return (
     <div>
-      <Title>Home</Title>
       <List>
         <Item>
           <Link to="/about">About</Link>

@@ -12,6 +12,8 @@ Scenario('헤더를 클릭하면 메인 페이지로 돌아옵니다.', (I) => {
 
     I.click('EatGo');
 
-    I.see('Home');
+    I.see('About');
+    I.see('Log in');
+    I.see('Restaurants');
   });
 });
