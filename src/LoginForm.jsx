@@ -72,7 +72,7 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
 
   return (
     <InputContainer>
-      <InputComponent>
+      <InputWrapper>
         <Label htmlFor="login-email">
           E-mail
         </Label>
@@ -83,8 +83,8 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           value={email}
           onChange={handleChange}
         />
-      </InputComponent>
-      <InputComponent>
+      </InputWrapper>
+      <InputWrapper>
         <Label htmlFor="login-password">
           Password
         </Label>
@@ -95,7 +95,7 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
           value={password}
           onChange={handleChange}
         />
-      </InputComponent>
+      </InputWrapper>
       <LoginButton
         type="button"
         onClick={onSubmit}
