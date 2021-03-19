@@ -11,30 +11,17 @@ export default function MenuItems({ menuItems }) {
 
   const Menu = styled.ul({
     display: 'flex',
-    marginBottom: '1rem',
+    marginTop: '0.8rem',
+    background: '#fff',
+    padding: '1rem',
+    borderRadius: '1rem',
   });
 
   const MenuItem = styled.li({
-    display: 'flex',
-    flex: 1,
-    padding: '1em',
-    height: '10em',
+    flex: '1',
     textAlign: 'center',
-    background: '#E0E3DA',
-    borderRadius: '0.5rem',
     '& + &': {
-      marginLeft: '1rem',
-    },
-    '& span': {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: 'auto',
-      height: '6em',
-      width: '6em',
-      fontSize: '1.2rem',
-      background: '#fff',
-      borderRadius: '50%',
+      borderLeft: '1px solid #dcdcdc',
     },
   });
 

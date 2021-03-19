@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import TextField from './TextField';
+import green from '../fixtures/color';
 
 const FormWrap = styled.div({
   display: 'flex',
@@ -13,7 +14,7 @@ const FormWrap = styled.div({
     marginLeft: '0.8rem',
     padding: '0.8em',
     color: '#fff',
-    background: '#a18cd1',
+    background: `${green}`,
     borderRadius: '2rem',
   },
 });

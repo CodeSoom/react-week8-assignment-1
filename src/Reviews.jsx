@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import green from '../fixtures/color';
+
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -11,38 +13,69 @@ function Reviews({ reviews }) {
 
   const List = styled.ul({
     display: 'flex',
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
     flexWrap: 'wrap',
-    gap: '1rem',
-    maxHeight: '30rem',
-    overflowY: 'scroll',
+    justifyContent: 'space-between',
+    gap: '5rem 1rem',
+
+    width: '80%',
+    margin: '5rem auto',
   });
 
   const ListItem = styled.li({
+    position: 'relative',
+
     display: 'flex',
-    alignItems: 'center',
-    padding: '1em',
-    width: '49%',
-    border: '1px solid #dcdcdc',
+    justifyContent: 'center',
+
     boxSizing: 'border-box',
+    width: '23%',
+    padding: '4em 1em 1em',
+    borderRadius: '1rem',
+
+    border: '1px solid #dcdcdc',
+
+    textAlign: 'center',
+    lineHeight: '1.5',
   });
 
   const Name = styled.div({
+    position: 'absolute',
+    top: '-2.5em',
+    left: '50%',
+    transform: 'translateX(-50%)',
+
     display: 'flex',
+    flexShrink: 0,
     alignItems: 'center',
     justifyContent: 'center',
+
     width: '5em',
     height: '5em',
-    border: '1px solid #dcdcdc',
     borderRadius: '50%',
+
+    color: '#fff',
+    border: '1px solid #dcdcdc',
+    background: '#248a78',
   });
 
   const TextBox = styled.div({
-    marginLeft: '1rem',
     '& > * + *': {
       marginTop: '1rem',
     },
+    '& p': {
+      wordBreak: 'break-word',
+    },
+  });
+
+  const Score = styled.p({
+    fontSize: '0.9rem',
+    display: 'inline-block',
+    padding: '0.2em 1em',
+
+    borderRadius: '1rem',
+
+    border: `1px solid ${green}`,
+    color: `${green}`,
   });
 
   return (
@@ -53,10 +86,10 @@ function Reviews({ reviews }) {
             {review.name}
           </Name>
           <TextBox>
-            <p>
+            <Score>
               {review.score}
               점
-            </p>
+            </Score>
             <p>
               {review.description}
             </p>
