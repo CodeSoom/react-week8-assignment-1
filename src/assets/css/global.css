@@ -1,10 +1,6 @@
 @import 'normalize';
 
 *, *::after, *::before {
-    box-sizing: border-box;
-}
-
-* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,8 +14,6 @@ html,
 body {
     /*  Box Model Properties */
     min-height: 100%;
-    padding: 0;
-    margin: 0;
     word-break: keep-all;
     
     /*  Visual Properties */
@@ -40,7 +34,6 @@ body {
     0 7px 5px rgba(0, 0, 0, 0.05);
 
     /*  Typography Properties */
-    font-size:14px;
     line-height: 1.33;        
 }
 
@@ -57,7 +50,7 @@ h1 {
 
     /*  Typography Properties */
     font-size: 30px;
-    font-weight:600;
+    font-weight:500;
 }
 
 
@@ -67,10 +60,6 @@ a{
 }
 
 ol, ul, li {
-    /*  Box Model Properties */
-    margin: 0;
-    padding: 0;
-
     /*  Visual Properties */
     border: 0;
     list-style: none;
