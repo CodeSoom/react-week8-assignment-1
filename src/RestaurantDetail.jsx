@@ -7,16 +7,18 @@ import green from '../fixtures/color';
 import { PageTop } from './style/layout';
 
 const RestaurantDetailTop = styled(PageTop)({
-  padding: '3rem 5rem 3rem 50%',
-  background: '#f4f7f8 url(/public/eat.png) no-repeat 0 38% / 45%',
+  padding: '3rem 20rem',
+  background: '#f4f7f8',
   h2: {
-    textAlign: 'left',
+    justifyContent: 'center',
+    marginBottom: '0.2em',
   },
 });
 
 const Address = styled.p({
   fontSize: '1.3rem',
   color: `${green}`,
+  textAlign: 'center',
 });
 
 const MenuWrap = styled.div({
@@ -36,7 +38,7 @@ function RestaurantDetail({ restaurant }) {
           {address}
         </Address>
         <MenuWrap>
-          <h3>메뉴</h3>
+          {/* <h3>메뉴</h3> */}
           <MenuItems menuItems={menuItems} />
         </MenuWrap>
       </div>
