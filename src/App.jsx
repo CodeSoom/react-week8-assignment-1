@@ -27,11 +27,11 @@ import green from '../fixtures/color';
 const Header = styled.header({
   margin: '2rem 0',
   '& h1 a': {
+    fontSize: '2rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     color: `${green}`,
-    fontSize: '2rem',
     textAlign: 'center',
   },
 });

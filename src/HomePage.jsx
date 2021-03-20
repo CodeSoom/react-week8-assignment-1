@@ -19,9 +19,9 @@ const NavItem = styled.li({
     fontSize: '1.2rem',
     display: 'block',
     padding: '1rem',
-    textAlign: 'center',
     border: '1px solid #dcdcdc',
     borderRadius: '2em',
+    textAlign: 'center',
     transition: '0.2s linear',
     '&:hover': {
       background: `${green}`,

@@ -37,8 +37,8 @@ const Name = styled.div({
   width: '5em',
   height: '5em',
   borderRadius: '50%',
-  color: '#fff',
   border: '1px solid #dcdcdc',
+  color: '#fff',
   background: '#248a78',
 });
 

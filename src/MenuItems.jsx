@@ -12,9 +12,9 @@ export default function MenuItems({ menuItems }) {
   const Menu = styled.ul({
     display: 'flex',
     marginTop: '0.8rem',
-    background: '#fff',
     padding: '1rem',
     borderRadius: '1rem',
+    background: '#fff',
   });
 
   const MenuItem = styled.li({
