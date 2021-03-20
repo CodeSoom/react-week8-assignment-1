@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
 
+import { GiForkKnifeSpoon } from 'react-icons/gi';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -25,11 +27,17 @@ import green from '../fixtures/color';
 const Header = styled.header({
   margin: '2rem 0',
   '& h1 a': {
-    display: 'block',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     color: `${green}`,
     fontSize: '2rem',
     textAlign: 'center',
   },
+});
+
+const Icon = styled.span({
+  marginLeft: '0.5rem',
 });
 
 export default function App() {
@@ -44,7 +52,10 @@ export default function App() {
     <>
       <Header>
         <h1>
-          <Link to="/">윤토랑</Link>
+          <Link to="/">
+            윤토랑
+            <Icon><GiForkKnifeSpoon /></Icon>
+          </Link>
         </h1>
       </Header>
       <Switch>
