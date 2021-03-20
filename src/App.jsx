@@ -22,10 +22,6 @@ import { setAccessToken } from './slice';
 import { loadItem } from './services/storage';
 import green from '../fixtures/color';
 
-const Container = styled.div({
-
-});
-
 const Header = styled.header({
   margin: '2rem 0',
   '& h1 a': {
@@ -45,7 +41,7 @@ export default function App() {
   }
 
   return (
-    <Container>
+    <>
       <Header>
         <h1>
           <Link to="/">윤토랑</Link>
@@ -59,6 +55,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </Container>
+    </>
   );
 }
