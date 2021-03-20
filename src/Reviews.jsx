@@ -3,28 +3,24 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import green from '../fixtures/color';
+
 import { PageBody } from './style/layout';
 
 const List = styled.ul({
   display: 'flex',
   flexWrap: 'wrap',
-  justifyContent: 'space-between',
-  gap: '5rem 1rem',
+  gap: '5rem 2.6%',
 });
 
 const ListItem = styled.li({
   position: 'relative',
-
   display: 'flex',
   justifyContent: 'center',
-
   boxSizing: 'border-box',
   width: '23%',
   padding: '4em 1em 1em',
   borderRadius: '1rem',
-
   border: '1px solid #dcdcdc',
-
   textAlign: 'center',
   lineHeight: '1.5',
 });
@@ -34,16 +30,13 @@ const Name = styled.div({
   top: '-2.5em',
   left: '50%',
   transform: 'translateX(-50%)',
-
   display: 'flex',
   flexShrink: 0,
   alignItems: 'center',
   justifyContent: 'center',
-
   width: '5em',
   height: '5em',
   borderRadius: '50%',
-
   color: '#fff',
   border: '1px solid #dcdcdc',
   background: '#248a78',
@@ -62,9 +55,7 @@ const Score = styled.p({
   fontSize: '0.9rem',
   display: 'inline-block',
   padding: '0.2em 1em',
-
   borderRadius: '1rem',
-
   border: `1px solid ${green}`,
   color: `${green}`,
 });
