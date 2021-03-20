@@ -1,6 +1,8 @@
 
 import styled from '@emotion/styled';
 
+import green from '../fixtures/color';
+
 const ListItem = styled.li(({ active }) => ({
   width: '23%',
   'button, a': {
@@ -14,7 +16,7 @@ const ListItem = styled.li(({ active }) => ({
     border: '1px solid #dcdcdc',
     borderRadius: '1em',
 
-    background: active && '#8989ba',
+    background: active && `${green}`,
     color: active && '#fff',
 
     textAlign: 'center',
@@ -25,7 +27,7 @@ const ListItem = styled.li(({ active }) => ({
 
     '&:hover': {
       color: '#fff',
-      background: '#8989ba',
+      background: `${green}`,
     },
   },
 }));
