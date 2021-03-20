@@ -13,12 +13,20 @@ function Reviews({ reviews }) {
     justifyContent: 'space-evenly',
     color: '#FFF5BA',
     backgroundColor: '#FFABAB',
-    boxShadow: '12px 12px 2px 1px rgba(255,245,186,1)',
+    boxShadow: '12px 12px 2px 1px rgba(255,171,171,0.3)',
+    borderRadius: '10px 100px / 120px',
+    textAlign: 'center',
+    marginBottom: '.7em',
   });
 
   const Reviewer = styled.div({
     marginBottom: '.7em',
+    fontWeight: 'bold',
+    color: '#F3FFE3',
+  });
 
+  const Descripton = styled.div({
+    marginBottom: '.7em',
   });
 
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
@@ -34,9 +42,9 @@ function Reviews({ reviews }) {
             {review.score}
             점
           </div>
-          <div>
+          <Descripton>
             {review.description}
-          </div>
+          </Descripton>
         </Review>
       ))}
     </ul>
