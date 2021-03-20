@@ -48,7 +48,7 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">레스토랑 검색 서비스</Link>
+          <Link to="/">윤토랑</Link>
         </h1>
       </Header>
       <Switch>
