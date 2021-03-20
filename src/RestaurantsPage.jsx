@@ -12,6 +12,8 @@ import {
   loadInitialData,
 } from './slice';
 
+import { PageBody, PageTop } from './style/layout';
+
 export default function RestaurantsPage() {
   const history = useHistory();
 
@@ -28,9 +30,14 @@ export default function RestaurantsPage() {
 
   return (
     <div>
-      <RegionsContainer />
-      <CategoriesContainer />
-      <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
+      <PageTop>
+        <h2>레스토랑 선택</h2>
+      </PageTop>
+      <PageBody>
+        <RegionsContainer />
+        <CategoriesContainer />
+        <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
+      </PageBody>
     </div>
   );
 }

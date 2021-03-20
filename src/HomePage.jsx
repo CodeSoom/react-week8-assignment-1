@@ -3,12 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
-
-const PageTitle = styled.h2({
-  marginBottom: '1rem',
-  fontSize: '2rem',
-  textAlign: 'center',
-});
+import { PageBody, PageTop } from './style/layout';
+import green from '../fixtures/color';
 
 const Nav = styled.ul({
   margin: '0 auto',
@@ -28,7 +24,7 @@ const NavItem = styled.li({
     borderRadius: '2em',
     transition: '0.2s linear',
     '&:hover': {
-      background: '#a18cd1',
+      background: `${green}`,
       color: '#fff',
     },
   },
@@ -37,13 +33,17 @@ const NavItem = styled.li({
 export default function HomePage() {
   return (
     <div>
-      <PageTitle>Home</PageTitle>
-      <Nav>
-        <NavItem><Link to="/about">About</Link></NavItem>
-        <NavItem><Link to="/login">Log in</Link></NavItem>
-        <NavItem><Link to="/restaurants">Restaurants</Link></NavItem>
-        <NavItem><Link to="/xxx">멸망의 길</Link></NavItem>
-      </Nav>
+      <PageTop>
+        <h2>Home</h2>
+      </PageTop>
+      <PageBody>
+        <Nav>
+          <NavItem><Link to="/about">About</Link></NavItem>
+          <NavItem><Link to="/login">Log in</Link></NavItem>
+          <NavItem><Link to="/restaurants">Restaurants</Link></NavItem>
+          <NavItem><Link to="/xxx">멸망의 길</Link></NavItem>
+        </Nav>
+      </PageBody>
     </div>
   );
 }
