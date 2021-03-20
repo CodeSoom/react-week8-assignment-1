@@ -75,9 +75,8 @@ const Image = styled.img({
   position: 'absolute',
   top: 0,
   right: 0,
-  paddingLeft: '22em',
+  left: '25em',
   width: '90%',
-  hieght: 'auto',
 });
 
 export default function HomePage() {
@@ -100,7 +99,7 @@ export default function HomePage() {
           <span>가장 가고 싶은</span>
           <span>바로 그 레스토랑,</span>
         </Slogan>
-        <LinkWrapper type="button">
+        <LinkWrapper>
           <Link to="/restaurants">자세히 보기</Link>
         </LinkWrapper>
         <Image
