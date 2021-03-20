@@ -34,7 +34,7 @@ const ReviewButton = styled.button({
   },
 });
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
@@ -61,3 +61,5 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
     </ReviewContainer>
   );
 }
+
+export default React.memo(ReviewForm);

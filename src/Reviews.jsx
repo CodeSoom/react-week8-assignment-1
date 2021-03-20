@@ -44,7 +44,7 @@ const ReviewItem = styled.li({
   padding: '20px',
 });
 
-export default function Reviews({ reviews }) {
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -73,3 +73,5 @@ export default function Reviews({ reviews }) {
     </div>
   );
 }
+
+export default React.memo(Reviews);
