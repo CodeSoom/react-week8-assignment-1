@@ -5,10 +5,10 @@ import styled from '@emotion/styled';
 import LoginFormContainer from './LoginFormContainer';
 
 const Title = styled.h2({
-  fontSize: '35px',
   margin: '30px 10px',
   padding: '10px 20px',
   borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
+  fontSize: '35px',
   color: '#F9FDFC',
 });
 

@@ -9,7 +9,6 @@ export default function InitialCSS() {
       @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 
       body {
-        font-size: 16px;
         margin: 0;
         padding: 0;
         height: 100vh;
@@ -17,6 +16,7 @@ export default function InitialCSS() {
         background-size:cover;
         background-position: top;
         background-repeat: no-repeat;
+        font-size: 16px;
         font-family: 'Tillana', cursive;
       };`}
     />

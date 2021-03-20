@@ -3,18 +3,18 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const Title = styled.h2({
-  fontSize: '35px',
   margin: '30px 10px',
   padding: '10px 20px',
   borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
   color: '#F9FDFC',
+  fontSize: '35px',
 });
 
 const Text = styled.p({
-  fontSize: '40px',
-  color: 'rgba(91, 66, 48, 0.95)',
   margin: '10px 20px',
   padding: '10px',
+  color: 'rgba(91, 66, 48, 0.95)',
+  fontSize: '40px',
   fontFamily: '"Song Myung", serif',
 });
 

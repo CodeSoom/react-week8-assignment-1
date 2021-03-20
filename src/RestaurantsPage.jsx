@@ -15,19 +15,19 @@ import {
 } from './slice';
 
 const Title = styled.h2({
-  fontSize: '35px',
   margin: '30px 10px',
   padding: '10px 20px',
   borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
   color: '#F9FDFC',
+  fontSize: '35px',
 });
 
 const Subtitle = styled.h3({
-  textAlign: 'center',
-  fontSize: '25px',
   margin: '20px 0px 0px 0px',
-  color: '#F9FDFC',
   opacity: '0.8',
+  color: '#F9FDFC',
+  fontSize: '25px',
+  textAlign: 'center',
 });
 
 export default function RestaurantsPage() {

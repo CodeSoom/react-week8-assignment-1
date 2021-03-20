@@ -10,11 +10,11 @@ const ReviewComponent = styled.div({
 });
 
 const Label = styled.label({
+  marginRight: '20px',
   fontSize: '25px',
   fontWeight: '600',
   fontFamily: '"Song Myung", serif',
   color: '#F9FDFC',
-  marginRight: '20px',
   cursor: 'pointer',
   '&:hover': {
     color: '#5B4230',
@@ -22,12 +22,12 @@ const Label = styled.label({
 });
 
 const Input = styled.input({
-  borderRadius: '5px',
-  backgroundColor: 'rgba(230, 218, 212, 0.9)',
   border: '2px solid rgba(214, 200, 200, 0.5)',
   width: '250px',
   height: '25px',
   opacity: '0.7',
+  borderRadius: '5px',
+  backgroundColor: 'rgba(230, 218, 212, 0.9)',
   '&:focus': {
     outline: '2px solid #5B4230',
   },

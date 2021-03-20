@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const Title = styled.h2({
-  fontSize: '35px',
   margin: '30px 10px',
   padding: '10px 20px',
   borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
   color: '#F9FDFC',
+  fontSize: '35px',
 });
 
 const List = styled.ul({
@@ -21,14 +21,14 @@ const List = styled.ul({
 });
 
 const Item = styled.li({
-  width: '20vw',
-  textAlign: 'center',
   margin: '0 20px',
-  fontSize: '22px',
-  backgroundColor: 'rgba(255, 255, 255, 0.4)',
   padding: '10px',
+  width: '20vw',
+  backgroundColor: 'rgba(255, 255, 255, 0.4)',
   boxShadow: '0px 0px 5px white',
   borderRadius: '5px',
+  textAlign: 'center',
+  fontSize: '22px',
   '& a': {
     color: '#F9FDFC',
     textDecoration: 'none',

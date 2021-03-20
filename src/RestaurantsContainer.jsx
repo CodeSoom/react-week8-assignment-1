@@ -26,12 +26,12 @@ const Item = styled.li({
   margin: '10px',
   padding: '5px 15px',
   width: '150px',
-  textAlign: 'center',
   borderRadius: '5px',
   border: 'none',
   cursor: 'pointer',
   boxShadow: '0px 0px 5px white',
   background: 'rgba(214, 200, 200, 0.5)',
+  textAlign: 'center',
   fontFamily: '"Song Myung", serif',
   '& a': {
     color: '#F9FDFC',

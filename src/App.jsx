@@ -29,17 +29,17 @@ const Container = styled.div({
 });
 
 const Header = styled.header({
-  fontFamily: "'Tillana', cursive",
-  marginTop: '50px',
-  height: '200px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  height: '200px',
+  marginTop: '50px',
   opacity: '0.95',
   borderRadius: '5px',
+  fontFamily: "'Tillana', cursive",
   '& h1': {
-    fontSize: '50px',
     margin: 0,
+    fontSize: '50px',
   },
   '& a': {
     color: '#F9FDFC',

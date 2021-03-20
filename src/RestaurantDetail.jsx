@@ -5,18 +5,18 @@ import styled from '@emotion/styled';
 import MenuItems from './MenuItems';
 
 const Title = styled.h2({
-  fontSize: '35px',
   margin: '10px 10px',
   padding: '5px',
   color: '#F9FDFC',
+  fontSize: '35px',
   fontFamily: '"Song Myung", serif',
 });
 
 const Text = styled.p({
-  fontSize: '25px',
-  color: '#F9FDFC',
   margin: '10px 20px',
   padding: '5px',
+  color: '#F9FDFC',
+  fontSize: '25px',
   fontFamily: '"Song Myung", serif',
 });
 
@@ -28,12 +28,13 @@ const RestaurantDetailContainer = styled.div({
 });
 
 const Subtitle = styled.h3({
-  fontFamily: '"Song Myung", serif',
-  fontSize: '30px',
+
   margin: '10px 20px',
   marginTop: '10px',
-  color: '#F9FDFC',
   opacity: '0.8',
+  color: '#F9FDFC',
+  fontFamily: '"Song Myung", serif',
+  fontSize: '30px',
   textAlign: 'center',
 });
 

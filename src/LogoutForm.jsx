@@ -17,11 +17,11 @@ const LogoutButton = styled.button({
   backgroundColor: 'rgba(230, 218, 212, 0.8)',
   padding: '5px 50px',
   borderRadius: '5px',
-  fontWeight: '600',
+  border: '5px solid rgba(214, 200, 200, 0.5)',
   color: '#F9FDFC',
   fontSize: '30px',
+  fontWeight: '600',
   fontFamily: "'Tillana', cursive",
-  border: '5px solid rgba(214, 200, 200, 0.5)',
   cursor: 'pointer',
   '&:hover': {
     color: '#5B4230',
