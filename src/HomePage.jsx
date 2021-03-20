@@ -6,13 +6,23 @@ import styled from '@emotion/styled';
 
 import MenuContainer from './MenuContainer';
 
-import MenuItem from './MenuItem';
+import Title from './Title';
 
-const Title = styled.h2({
-  fontSize: '2em',
-  margin: 0,
-  padding: '.2em',
-  color: '#FFABAB',
+const MenuItem = styled.li({
+  padding: '1em 0 0 0',
+  '& a': {
+    marginLeft: '2em',
+    color: '#FFF5BA',
+    backgroundColor: '#FFABAB',
+    textDecoration: 'none',
+    border: 0,
+    borderRadius: '50% 20% / 10% 40%',
+    cursor: 'pointer',
+    '&:hover': {
+      fontWeight: 'bold',
+      color: '#F3FFE3',
+    },
+  },
 });
 
 export default function HomePage() {

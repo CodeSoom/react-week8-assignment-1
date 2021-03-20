@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
 
+import { Label, Input, Container } from './InputStyles';
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -12,16 +14,18 @@ export default function TextField({
 
   return (
     <div>
-      <label htmlFor={id}>
+      <Label htmlFor={id}>
         {label}
-      </label>
-      <input
-        type={type}
-        id={id}
-        name={name}
-        value={value}
-        onChange={handleChange}
-      />
+      </Label>
+      <Container>
+        <Input
+          type={type}
+          id={id}
+          name={name}
+          value={value}
+          onChange={handleChange}
+        />
+      </Container>
     </div>
   );
 }

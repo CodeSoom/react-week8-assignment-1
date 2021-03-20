@@ -1,15 +1,8 @@
 import React from 'react';
 
-import styled from '@emotion/styled';
-
 import LoginFormContainer from './LoginFormContainer';
 
-const Title = styled.h2({
-  fontSize: '2em',
-  margin: 0,
-  padding: '.2em',
-  color: '#FFABAB',
-});
+import Title from './Title';
 
 export default function LoginPage() {
   return (

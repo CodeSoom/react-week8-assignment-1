@@ -24,6 +24,7 @@ import { loadItem } from './services/storage';
 const Header = styled.header({
   textAlign: 'center',
   backgroundColor: '#FFABAB',
+  borderRadius: '0 0 20px 100px',
   '& h1': {
     fontSize: '3.2em',
     margin: 0,

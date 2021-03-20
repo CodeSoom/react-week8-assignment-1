@@ -1,7 +1,11 @@
 import React from 'react';
 
+import Wrapper from './Wrapper';
+
 export default function NotFoundPage() {
   return (
-    <p>404 Not Found</p>
+    <Wrapper>
+      <p>404 Not Found</p>
+    </Wrapper>
   );
 }
