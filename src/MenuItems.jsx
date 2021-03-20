@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MenuItem from './MenuItem';
+import styled from '@emotion/styled';
 
 function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
@@ -9,14 +9,18 @@ function MenuItems({ menuItems }) {
     );
   }
 
+  const Ul = styled.ul({
+    listStyle: 'none',
+  });
+
   return (
-    <ul>
+    <Ul>
       {menuItems.map((menuItem) => (
-        <MenuItem key={menuItem.id}>
+        <li key={menuItem.id}>
           {menuItem.name}
-        </MenuItem>
+        </li>
       ))}
-    </ul>
+    </Ul>
   );
 }
 
