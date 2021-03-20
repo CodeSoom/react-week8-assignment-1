@@ -11,7 +11,7 @@ const InputContainer = styled.div({
   borderRadius: '5px',
 });
 
-const InputComponent = styled.div({
+const InputWrapper = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
