@@ -1,9 +1,10 @@
 import React from 'react';
 
-import {
-  InputWrapper, Container,
-  Label, Input, Button,
-} from './InputStyles';
+import InputWrapper from './InputWrapper';
+import Container from './Container';
+import Label from './Label';
+import Input from './Input';
+import Button from './Button';
 
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;

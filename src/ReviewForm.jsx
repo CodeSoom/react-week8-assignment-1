@@ -2,7 +2,8 @@ import React from 'react';
 
 import TextField from './TextField';
 
-import { Button, InputWrapper } from './InputStyles';
+import Button from './Button';
+import InputWrapper from './InputWrapper';
 
 function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;

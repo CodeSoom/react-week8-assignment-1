@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 
-import { Label, Input, Container } from './InputStyles';
+import Label from './Label';
+import Input from './Input';
+import Container from './Container';
 
 export default function TextField({
   label, type = 'text', name, value, onChange,

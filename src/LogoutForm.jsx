@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Button, InputWrapper } from './InputStyles';
+import Button from './Button';
+import InputWrapper from './InputWrapper';
 
 export default function LogoutForm({ onClick }) {
   return (
