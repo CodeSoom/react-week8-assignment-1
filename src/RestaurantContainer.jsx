@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import styled from '@emotion/styled';
 
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
@@ -10,9 +12,24 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+const Loading = styled.div({
+  backgroundColor: 'orange',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '580px',
+  color: 'red',
+  fontSize: '35px',
+  '& p': {
+    margin: '0',
+    padding: '0',
+  },
+});
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -25,18 +42,20 @@ export default function RestaurantContainer({ restaurantId }) {
   const restaurant = useSelector(get('restaurant'));
   const reviewFields = useSelector(get('reviewFields'));
 
+  const handleChange = useCallback(({ name, value }) => {
+    dispatch(changeReviewField({ name, value }));
+  }, [dispatch]);
+
+  const handleSubmit = useCallback(() => {
+    dispatch(sendReview({ restaurantId }));
+  }, [dispatch, restaurantId]);
+
   if (!restaurant) {
     return (
-      <p>Loading...</p>
+      <Loading>
+        <p>Loading...</p>
+      </Loading>
     );
-  }
-
-  function handleChange({ name, value }) {
-    dispatch(changeReviewField({ name, value }));
-  }
-
-  function handleSubmit() {
-    dispatch(sendReview({ restaurantId }));
   }
 
   return (
@@ -49,7 +68,10 @@ export default function RestaurantContainer({ restaurantId }) {
           onSubmit={handleSubmit}
         />
       ) : null}
-      <Reviews reviews={restaurant.reviews} />
+      <Reviews
+        accessToken={accessToken}
+        reviews={restaurant.reviews}
+      />
     </>
   );
 }

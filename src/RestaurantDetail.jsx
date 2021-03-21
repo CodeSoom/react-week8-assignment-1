@@ -1,12 +1,23 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import MenuItems from './MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+const Detail = styled.div({
+  paddingLeft: '20px',
+  '& h2': {
+    fontSize: '30px',
+    textAlign: 'center',
+    paddingRight: '20px',
+  },
+});
+
+const RestaurantDetail = ({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
   return (
-    <div>
+    <Detail>
       <h2>{name}</h2>
       <p>
         주소:
@@ -15,6 +26,8 @@ export default function RestaurantDetail({ restaurant }) {
       </p>
       <h3>메뉴</h3>
       <MenuItems menuItems={menuItems} />
-    </div>
+    </Detail>
   );
-}
+};
+
+export default React.memo(RestaurantDetail);
