@@ -2,10 +2,15 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import Container from './styles/Container';
+import List from './styles/List';
+import Item from './styles/Item';
+import SelectButton from './styles/SelectButton';
+
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
@@ -20,23 +25,28 @@ export default function CategoriesContainer() {
     dispatch(loadRestaurants());
   }
 
+  const isSelected = (item) => (item.id === selectedCategory.id);
+
   return (
-    <ul>
-      {categories.map((category) => (
-        <li key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <Container>
+      <List>
+        {categories.map((category) => (
+          <Item key={category.id}>
+            <SelectButton
+              type="button"
+              active={selectedCategory && isSelected(category)}
+              onClick={() => handleClick(category.id)}
+            >
+              {category.name}
+              {selectedCategory ? (
+                <>
+                  {isSelected(category) ? '(V)' : null}
+                </>
+              ) : null}
+            </SelectButton>
+          </Item>
+        ))}
+      </List>
+    </Container>
   );
 }

@@ -1,6 +1,31 @@
 import React from 'react';
 
-export default function TextField({
+import styled from '@emotion/styled';
+
+import { colors } from './designSystem';
+
+const Box = styled.div({
+  display: 'block',
+  margin: '1em 0',
+});
+
+const Label = styled.label({
+  fontSize: '1.2em',
+  fontWeight: 'bold',
+  display: 'block',
+  marginBottom: '.5em',
+});
+
+const Input = styled.input({
+  fontSize: '1.2em',
+  padding: '.7em',
+  width: '30%',
+  height: '2em',
+  border: `1px solid ${colors.border}`,
+  borderRadius: '5px',
+});
+
+function TextField({
   label, type = 'text', name, value, onChange,
 }) {
   const id = `input-${name}`;
@@ -11,17 +36,19 @@ export default function TextField({
   }
 
   return (
-    <div>
-      <label htmlFor={id}>
+    <Box>
+      <Label htmlFor={id}>
         {label}
-      </label>
-      <input
+      </Label>
+      <Input
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Box>
   );
 }
+
+export default React.memo(TextField);

@@ -2,10 +2,15 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import Container from './styles/Container';
+import List from './styles/List';
+import Item from './styles/Item';
+import SelectButton from './styles/SelectButton';
+
 import {
   selectRegion,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
@@ -20,23 +25,28 @@ export default function RegionsContainer() {
     dispatch(loadRestaurants());
   }
 
+  const isSelected = (item) => (item.id === selectedRegion.id);
+
   return (
-    <ul>
-      {regions.map((region) => (
-        <li key={region.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
-          >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <Container>
+      <List>
+        {regions.map((region) => (
+          <Item key={region.id}>
+            <SelectButton
+              type="button"
+              active={selectedRegion && isSelected(region)}
+              onClick={() => handleClick(region.id)}
+            >
+              {region.name}
+              {selectedRegion ? (
+                <>
+                  {selectedRegion && isSelected(region) ? '(V)' : null}
+                </>
+              ) : null}
+            </SelectButton>
+          </Item>
+        ))}
+      </List>
+    </Container>
   );
 }
