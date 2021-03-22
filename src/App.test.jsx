@@ -95,8 +95,8 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'restaurant/setAccessToken',
+        payload: accessToken,
       });
     });
   });

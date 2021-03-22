@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import RestaurantsContainer from './RestaurantsContainer';
 
 import {
   loadInitialData,
-} from './actions';
+} from './slice';
 
 export default function RestaurantsPage() {
   const history = useHistory();
@@ -19,12 +19,13 @@ export default function RestaurantsPage() {
 
   useEffect(() => {
     dispatch(loadInitialData());
-  });
+  }, [dispatch]);
 
-  function handleClickRestaurant(restaurant) {
+
+  const handleClickRestaurant = useCallback((restaurant) => {
     const url = `/restaurants/${restaurant.id}`;
     history.push(url);
-  }
+  }, [history]);
 
   return (
     <div>

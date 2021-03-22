@@ -1,4 +1,5 @@
 import React from 'react';
+import { ListWrapper, Menu } from './style';
 
 export default function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
@@ -8,12 +9,12 @@ export default function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <ListWrapper>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
+        <Menu key={menuItem.id}>
           {menuItem.name}
-        </li>
+        </Menu>
       ))}
-    </ul>
+    </ListWrapper>
   );
 }
