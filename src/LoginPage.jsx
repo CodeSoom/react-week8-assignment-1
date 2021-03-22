@@ -1,11 +1,21 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import LoginFormContainer from './LoginFormContainer';
+
+const Title = styled.h2({
+  margin: '30px 10px',
+  padding: '10px 20px',
+  borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
+  fontSize: '35px',
+  color: '#F9FDFC',
+});
 
 export default function LoginPage() {
   return (
     <div>
-      <h2>Log In</h2>
+      <Title>Log In</Title>
       <LoginFormContainer />
     </div>
   );

@@ -1,11 +1,40 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+const Title = styled.h2({
+  margin: '30px 10px',
+  padding: '10px 20px',
+  borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
+  color: '#F9FDFC',
+  fontSize: '35px',
+});
+
+const Text = styled.p({
+  margin: '10px 20px',
+  padding: '10px',
+  color: 'rgba(91, 66, 48, 0.95)',
+  fontSize: '40px',
+  fontFamily: '"Song Myung", serif',
+});
+
+const TextContainer = styled.div({
+  margin: '0 20px',
+  padding: '10px',
+  backgroundColor: 'rgba(230, 218, 212, 0.6)',
+  boxShadow: '0px 0px 5px white',
+  borderRadius: '5px',
+});
+
 export default function AboutPage() {
   return (
     <div>
-      <h2>이 서비스에 대해서...</h2>
-      <p>이 서비스는 영국에서 시작되었습니다.</p>
-      <p>이 서비스를 보셨다면 주변에 있는 20명에게 추천하셔야 합니다.</p>
+      <Title>About</Title>
+      <TextContainer>
+        <Text>우리 레스토랑은 폐업했습니다</Text>
+        <Text>배고프시죠?</Text>
+        <Text>다른 가게라도 추천해드릴게요!</Text>
+      </TextContainer>
     </div>
   );
 }

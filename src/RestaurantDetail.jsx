@@ -1,20 +1,60 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import MenuItems from './MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+const Title = styled.h2({
+  margin: '10px 10px',
+  padding: '5px',
+  color: '#F9FDFC',
+  fontSize: '35px',
+  fontFamily: '"Song Myung", serif',
+});
+
+const Text = styled.p({
+  margin: '10px 20px',
+  padding: '5px',
+  color: '#F9FDFC',
+  fontSize: '25px',
+  fontFamily: '"Song Myung", serif',
+});
+
+const RestaurantDetailContainer = styled.div({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'flex-end',
+  borderBottom: '2px solid rgba(249, 253, 252, 0.5)',
+});
+
+const Subtitle = styled.h3({
+
+  margin: '10px 20px',
+  marginTop: '10px',
+  opacity: '0.8',
+  color: '#F9FDFC',
+  fontFamily: '"Song Myung", serif',
+  fontSize: '30px',
+  textAlign: 'center',
+});
+
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
     <div>
-      <h2>{name}</h2>
-      <p>
-        주소:
-        {' '}
-        {address}
-      </p>
-      <h3>메뉴</h3>
+      <RestaurantDetailContainer>
+        <Title>{name}</Title>
+        <Text>
+          주소:
+          {' '}
+          {address}
+        </Text>
+      </RestaurantDetailContainer>
+      <Subtitle>메뉴</Subtitle>
       <MenuItems menuItems={menuItems} />
     </div>
   );
 }
+
+export default React.memo(RestaurantDetail);
