@@ -29,7 +29,11 @@ export default function CategoriesContainer() {
       <h2>카테고리를 선택하세요</h2>
       <List>
         {categories.map((category) => (
-          <ListItem key={category.id} active={selectedCategory && category.id === selectedCategory.id}>
+          <ListItem
+            key={category.id}
+            active={selectedCategory
+          && category.id === selectedCategory.id}
+          >
             <button
               type="button"
               onClick={() => handleClick(category.id)}
