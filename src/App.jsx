@@ -8,16 +8,36 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import styled from '@emotion/styled';
+import HomePage from './pages/Home';
+import AboutPage from './pages/About';
+import LoginPage from './pages/LogIn';
+import RestaurantsPage from './pages/Restaurants';
+import RestaurantPage from './pages/Restaurant';
+import NotFoundPage from './pages/NotFound';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './redux/slice';
 
 import { loadItem } from './services/storage';
+
+import { LogoSvg } from './commons/svg';
+
+// Steps to Implement features
+/**
+ *
+ * 1. Pure Componentize
+ * 2. Simplify Redux with Redux ToolKit
+ * 3. Styling with Emotion
+ *
+ */
+
+const Header = styled.header(({ theme }) => ({
+  padding: '1rem',
+
+  // Visual Properties
+  backgroundColor: theme.colors.orange,
+  color: 'white',
+}));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -29,19 +49,23 @@ export default function App() {
 
   return (
     <div>
-      <header>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">
+            <LogoSvg />
+          </Link>
         </h1>
-      </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      </Header>
+      <main>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </main>
     </div>
   );
 }
