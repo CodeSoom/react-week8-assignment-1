@@ -1,5 +1,11 @@
 import React from 'react';
 
+import InputWrapper from './InputWrapper';
+import Container from './Container';
+import Label from './Label';
+import Input from './Input';
+import Button from './Button';
+
 const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
@@ -10,36 +16,43 @@ const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
 
   return (
     <>
-      <div>
-        <label htmlFor="login-email">
-          E-mail
-        </label>
-        <input
-          type="email"
-          id="login-email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="login-password">
-          Password
-        </label>
-        <input
-          type="password"
-          id="login-password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-      </div>
-      <button
-        type="button"
-        onClick={onSubmit}
-      >
-        Log In
-      </button>
+      <InputWrapper>
+        <div>
+          <Label htmlFor="login-email">
+            E-mail
+          </Label>
+          <Container>
+            <Input
+              type="email"
+              id="login-email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+          </Container>
+        </div>
+        <div>
+          <Label htmlFor="login-password">
+            Password
+          </Label>
+          <Container>
+            <Input
+              type="password"
+              id="login-password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+          </Container>
+        </div>
+
+        <Button
+          type="button"
+          onClick={onSubmit}
+        >
+          Log In
+        </Button>
+      </InputWrapper>
     </>
   );
 });

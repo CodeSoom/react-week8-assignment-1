@@ -8,6 +8,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -15,9 +17,28 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
+
+const Header = styled.header({
+  textAlign: 'center',
+  backgroundColor: '#FFABAB',
+  borderRadius: '0 0 20px 100px',
+  '& h1': {
+    fontSize: '3.2em',
+    margin: 0,
+    padding: '1em 3em',
+  },
+  '& a': {
+    color: '#FFF5BA',
+    textDecoration: 'none',
+    '&:hover': {
+      fontWeight: 'bold',
+      color: '#F3FFE3',
+    },
+  },
+});
 
 export default function App() {
   const dispatch = useDispatch();
@@ -29,11 +50,11 @@ export default function App() {
 
   return (
     <div>
-      <header>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">Tastes-good</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
