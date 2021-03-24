@@ -1,5 +1,20 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
+export const InputWrap = styled.div({
+  '& + &': {
+    marginLeft: '1rem',
+  },
+  input: {
+    border: '1px solid #dcdcdc',
+    padding: '0.5em',
+  },
+  'label + input': {
+    marginLeft: '0.5em',
+  },
+});
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -11,7 +26,7 @@ export default function TextField({
   }
 
   return (
-    <div>
+    <InputWrap>
       <label htmlFor={id}>
         {label}
       </label>
@@ -22,6 +37,6 @@ export default function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </InputWrap>
   );
 }

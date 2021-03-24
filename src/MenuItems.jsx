@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 export default function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -7,13 +9,30 @@ export default function MenuItems({ menuItems }) {
     );
   }
 
+  const Menu = styled.ul({
+    display: 'flex',
+    marginTop: '0.8rem',
+    padding: '1rem',
+    borderRadius: '1rem',
+    background: '#fff',
+  });
+
+  const MenuItem = styled.li({
+    flex: '1',
+    textAlign: 'center',
+    '& + &': {
+      borderLeft: '1px solid #dcdcdc',
+    },
+  });
+
+
   return (
-    <ul>
+    <Menu>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
-          {menuItem.name}
-        </li>
+        <MenuItem key={menuItem.id}>
+          <span>{menuItem.name}</span>
+        </MenuItem>
       ))}
-    </ul>
+    </Menu>
   );
 }
