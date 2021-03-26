@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,7 +10,7 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
@@ -25,18 +25,18 @@ export default function RestaurantContainer({ restaurantId }) {
   const restaurant = useSelector(get('restaurant'));
   const reviewFields = useSelector(get('reviewFields'));
 
+  const handleChange = useCallback(({ name, value }) => {
+    dispatch(changeReviewField({ name, value }));
+  }, [dispatch]);
+
+  const handleSubmit = useCallback(() => {
+    dispatch(sendReview({ restaurantId }));
+  }, [dispatch, restaurantId]);
+
   if (!restaurant) {
     return (
       <p>Loading...</p>
     );
-  }
-
-  function handleChange({ name, value }) {
-    dispatch(changeReviewField({ name, value }));
-  }
-
-  function handleSubmit() {
-    dispatch(sendReview({ restaurantId }));
   }
 
   return (
