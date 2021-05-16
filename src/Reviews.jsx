@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;

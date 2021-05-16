@@ -1,6 +1,6 @@
-import React from 'react';
+import { memo } from 'react';
 
-const LoginForm = React.memo(({ fields, onChange, onSubmit }) => {
+const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
   function handleChange(event) {
