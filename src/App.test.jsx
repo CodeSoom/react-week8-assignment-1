@@ -44,7 +44,7 @@ describe('App', () => {
     it('renders the home page', () => {
       const { container } = renderApp({ path: '/' });
 
-      expect(container).toHaveTextContent('Home');
+      expect(container).toHaveTextContent('EatGo');
     });
   });
 
@@ -95,8 +95,8 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'application/setAccessToken',
+        payload: accessToken,
       });
     });
   });
