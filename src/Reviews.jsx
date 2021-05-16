@@ -1,6 +1,13 @@
 import React from 'react';
 
-export default function Reviews({ reviews }) {
+import styled from '@emotion/styled';
+
+const Items = styled.li({
+  width: '100%',
+  marginBottom: '1.2rem',
+});
+
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -10,7 +17,7 @@ export default function Reviews({ reviews }) {
   return (
     <ul>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
+        <Items key={review.id}>
           <div>
             {review.name}
           </div>
@@ -21,8 +28,10 @@ export default function Reviews({ reviews }) {
           <div>
             {review.description}
           </div>
-        </li>
+        </Items>
       ))}
     </ul>
   );
 }
+
+export default React.memo(Reviews);
