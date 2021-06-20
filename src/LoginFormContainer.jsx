@@ -7,7 +7,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './redux_modules/actions';
 
 import { get } from './utils';
 

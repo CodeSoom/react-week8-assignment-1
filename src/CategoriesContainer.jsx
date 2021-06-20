@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './redux_modules/actions';
 
 import { get } from './utils';
 
