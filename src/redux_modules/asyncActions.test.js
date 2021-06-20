@@ -4,19 +4,22 @@ import configureStore from 'redux-mock-store';
 
 import {
   loadInitialData,
-  setRegions,
-  setCategories,
   loadRestaurants,
   loadRestaurant,
-  setRestaurants,
-  setRestaurant,
-  setReviews,
-  setAccessToken,
   requestLogin,
   loadReview,
   sendReview,
+} from './asyncActions';
+
+import {
   clearReviewFields,
-} from './actions';
+  setAccessToken,
+  setCategories,
+  setRegions,
+  setRestaurant,
+  setRestaurants,
+  setReviews,
+} from './restaurantSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

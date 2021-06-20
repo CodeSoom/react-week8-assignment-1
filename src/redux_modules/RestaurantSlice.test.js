@@ -1,4 +1,11 @@
-describe('RestaurantSlice', () => {
+import reducer, {
+  setRegions, setCategories, setRestaurants, setRestaurant,
+  selectRegion, selectCategory,
+  changeLoginField, setAccessToken, logout,
+  changeReviewField, clearReviewFields, setReviews,
+} from './restaurantSlice';
+
+describe('restaurantSlice', () => {
   describe('reducer', () => {
     context('when previous state is undefined', () => {
       const initialState = {
