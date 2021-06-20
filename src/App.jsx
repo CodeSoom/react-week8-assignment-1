@@ -13,7 +13,7 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './redux_modules/actions';
+import { setAccessToken } from './redux_modules/restaurantSlice';
 
 import { loadItem } from './services/storage';
 

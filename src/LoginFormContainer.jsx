@@ -5,9 +5,10 @@ import LogoutForm from './LogoutForm';
 
 import {
   changeLoginField,
-  requestLogin,
   logout,
-} from './redux_modules/actions';
+} from './redux_modules/restaurantSlice';
+
+import { requestLogin } from './redux_modules/asyncActions';
 
 import { get } from './utils';
 

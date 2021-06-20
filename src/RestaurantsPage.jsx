@@ -10,7 +10,7 @@ import RestaurantsContainer from './RestaurantsContainer';
 
 import {
   loadInitialData,
-} from './redux_modules/actions';
+} from './redux_modules/asyncActions';
 
 export default function RestaurantsPage() {
   const history = useHistory();

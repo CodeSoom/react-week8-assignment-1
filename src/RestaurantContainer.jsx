@@ -8,9 +8,10 @@ import Reviews from './Reviews';
 
 import {
   loadRestaurant,
-  changeReviewField,
   sendReview,
-} from './redux_modules/actions';
+} from './redux_modules/asyncActions';
+
+import { changeReviewField } from './redux_modules/restaurantSlice';
 
 import { get } from './utils';
 
