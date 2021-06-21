@@ -13,8 +13,6 @@ import {
 
 import { changeReviewField } from './redux_modules/restaurantSlice';
 
-import { get } from './utils';
-
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
 
@@ -22,9 +20,9 @@ export default function RestaurantContainer({ restaurantId }) {
     dispatch(loadRestaurant({ restaurantId }));
   }, []);
 
-  const accessToken = useSelector(get('accessToken'));
-  const restaurant = useSelector(get('restaurant'));
-  const reviewFields = useSelector(get('reviewFields'));
+  const accessToken = useSelector((state) => state.restaurant.accessToken);
+  const restaurant = useSelector((state) => state.restaurant.restaurant);
+  const reviewFields = useSelector((state) => state.restaurant.reviewFields);
 
   if (!restaurant) {
     return (

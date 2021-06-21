@@ -14,9 +14,11 @@ describe('RestaurantPage', () => {
 
     useSelector.mockImplementation((state) => state({
       restaurant: {
-        id: 1,
-        name: '마법사주방',
-        address: '서울시 강남구',
+        restaurant: {
+          id: 1,
+          name: '마법사주방',
+          address: '서울시 강남구',
+        },
       },
     }));
   });

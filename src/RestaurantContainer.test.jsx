@@ -17,12 +17,14 @@ describe('RestaurantContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      restaurant: given.restaurant,
-      reviewFields: {
-        score: '',
-        description: '',
+      restaurant: {
+        restaurant: given.restaurant,
+        reviewFields: {
+          score: '',
+          description: '',
+        },
+        accessToken: given.accessToken,
       },
-      accessToken: given.accessToken,
     }));
   });
 

@@ -10,13 +10,11 @@ import {
 
 import { requestLogin } from './redux_modules/asyncActions';
 
-import { get } from './utils';
-
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
-  const loginFields = useSelector(get('loginFields'));
-  const accessToken = useSelector(get('accessToken'));
+  const loginFields = useSelector((state) => state.restaurant.loginFields);
+  const accessToken = useSelector((state) => state.restaurant.accessToken);
 
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
