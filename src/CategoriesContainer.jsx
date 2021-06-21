@@ -19,21 +19,28 @@ export default function CategoriesContainer() {
 
   return (
     <MenuList>
-      {categories.map((category) => (
-        <MenuItem key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
+      {categories.map((category) => {
+        const isSelected = selectedCategory && (category.id === selectedCategory.id);
+
+        return (
+          <MenuItem
+            key={category.id}
+            isSelected={isSelected}
           >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </MenuItem>
-      ))}
+            <button
+              type="button"
+              onClick={() => handleClick(category.id)}
+            >
+              {category.name}
+              {selectedCategory ? (
+                <>
+                  {isSelected ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </MenuItem>
+        );
+      })}
     </MenuList>
   );
 }

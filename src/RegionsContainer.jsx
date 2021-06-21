@@ -19,21 +19,28 @@ export default function RegionsContainer() {
 
   return (
     <MenuList>
-      {regions.map((region) => (
-        <MenuItem key={region.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
+      {regions.map((region) => {
+        const isSelected = selectedRegion && (region.id === selectedRegion.id);
+
+        return (
+          <MenuItem
+            key={region.id}
+            isSelected={isSelected}
           >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </MenuItem>
-      ))}
+            <button
+              type="button"
+              onClick={() => handleClick(region.id)}
+            >
+              {region.name}
+              {selectedRegion ? (
+                <>
+                  {isSelected ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </MenuItem>
+        );
+      })}
     </MenuList>
   );
 }
