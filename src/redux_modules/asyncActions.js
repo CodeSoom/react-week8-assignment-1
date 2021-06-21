@@ -32,8 +32,10 @@ export function loadInitialData() {
 export function loadRestaurants() {
   return async (dispatch, getState) => {
     const {
-      selectedRegion: region,
-      selectedCategory: category,
+      restaurant: {
+        selectedRegion: region,
+        selectedCategory: category,
+      },
     } = getState();
 
     if (!region || !category) {
@@ -60,7 +62,11 @@ export function loadRestaurant({ restaurantId }) {
 
 export function requestLogin() {
   return async (dispatch, getState) => {
-    const { loginFields: { email, password } } = getState();
+    const {
+      restaurant: {
+        loginFields: { email, password },
+      },
+    } = getState();
 
     const accessToken = await postLogin({ email, password });
 
@@ -80,7 +86,11 @@ export function loadReview({ restaurantId }) {
 
 export function sendReview({ restaurantId }) {
   return async (dispatch, getState) => {
-    const { accessToken, reviewFields: { score, description } } = getState();
+    const {
+      restaurant: {
+        accessToken, reviewFields: { score, description },
+      },
+    } = getState();
 
     await postReview({
       accessToken, restaurantId, score, description,
