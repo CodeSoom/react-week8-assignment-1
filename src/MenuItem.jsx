@@ -9,9 +9,9 @@ const MenuItem = styled.li(({ active }) => ({
     color: '#333',
     textDecoration: 'none',
     '&:hover': {
-      cursor: 'pointer',
-      fontWeight: 'bold',
       color: '#000',
+      fontWeight: 'bold',
+      cursor: 'pointer',
     },
   },
 }));

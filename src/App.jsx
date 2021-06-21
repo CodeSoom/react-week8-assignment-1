@@ -20,16 +20,16 @@ import { setAccessToken } from './slice';
 import { loadItem } from './services/storage';
 
 const Container = styled.div({
-  margin: '0 auto',
   width: '90%',
+  margin: '0 auto',
 });
 
 const Header = styled.header({
   backgroundColor: '#EEE',
   '& h1': {
-    fontSize: '1.5em',
-    margin: 0,
     padding: '1em .5em',
+    margin: 0,
+    fontSize: '1.5em',
   },
   '& a': {
     color: '#555',
