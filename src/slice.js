@@ -7,7 +7,7 @@ import {
   fetchRestaurant,
   fetchRestaurants,
   postLogin,
-  postReview
+  postReview,
 } from './services/api';
 
 import { saveItem } from './services/storage';

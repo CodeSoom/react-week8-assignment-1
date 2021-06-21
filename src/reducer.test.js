@@ -1,6 +1,4 @@
-import reducer from './slice';
-
-import {
+import reducer, {
   setRegions,
   setCategories,
   setRestaurants,

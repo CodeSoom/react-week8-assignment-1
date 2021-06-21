@@ -37,7 +37,7 @@ export default function HomePage() {
         </Item>
         <Item>
           <Link to="/login">Log in</Link>
-          </Item>
+        </Item>
         <Item>
           <Link to="/restaurants">Restaurants</Link>
         </Item>
