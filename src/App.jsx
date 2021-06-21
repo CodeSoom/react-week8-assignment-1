@@ -15,7 +15,7 @@ import NotFoundPage from './NotFoundPage';
 
 import styled from '@emotion/styled';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
