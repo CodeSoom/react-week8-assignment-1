@@ -6,6 +6,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -17,6 +19,30 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+const Container = styled.div({
+  margin: '0 auto',
+  width: '98%',
+});
+
+const Header = styled.header({
+  margin: '.5em auto',
+  backgroundColor: '#efefe2',
+  borderTopLeftRadius: '1.5em',
+  borderTopRightRadius: '1.5em',
+  '& h1': {
+    fontsize: '2.5em',
+    margin: 0,
+    padding: '1em 1.5em',
+  },
+  '& a': {
+    color: '#55462b',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#311800',
+    },
+  },
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -26,12 +52,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
+    <Container>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">Eat Go</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -40,6 +66,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Container>
   );
 }
