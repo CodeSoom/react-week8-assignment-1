@@ -13,9 +13,32 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
+import styled from '@emotion/styled';
+
 import { setAccessToken } from './actions';
 
 import { loadItem } from './services/storage';
+
+const Container = styled.div({
+  margin: '0 auto',
+  width: '90%',
+});
+
+const Header = styled.header({
+  backgroundColor: '#EEE',
+  '& h1': {
+    fontSize: '1.5em',
+    margin: 0,
+    padding: '1em .5em',
+  },
+  '& a': {
+    color: '#555',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#000',
+    },
+  },
+});
 
 export default function App() {
   const dispatch = useDispatch();
@@ -26,12 +49,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
+    <Container>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">EatGo</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -40,6 +63,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Container>
   );
 }
