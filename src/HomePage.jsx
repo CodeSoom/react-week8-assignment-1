@@ -1,12 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
-const List = styled.ul({
-  display: 'flex',
-  listStyle: 'none',
-  margin: 0,
-  padding: 0,
-});
+import MenuList from './MenuList';
 
 const Item = styled.li({
   marginRight: '1em',
@@ -29,12 +24,12 @@ export default function HomePage() {
   return (
     <div>
       <Title>Home</Title>
-      <List>
+      <MenuList>
         <Item><Link to="/about">About</Link></Item>
         <Item><Link to="/login">Log in</Link></Item>
         <Item><Link to="/restaurants">Restaurants</Link></Item>
         <Item><Link to="/xxx">멸망의 길</Link></Item>
-      </List>
+      </MenuList>
     </div>
   );
 }
