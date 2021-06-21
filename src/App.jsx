@@ -52,7 +52,7 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">EatGo</Link>
+          <Link to="/">헤더</Link>
         </h1>
       </Header>
       <Switch>
