@@ -24,7 +24,7 @@ const Container = styled.div({
   margin: '0 auto',
 });
 
-const Header = styled.h1({
+const Header = styled.header({
   fontSize: '1.5em',
   backgroundColor: 'lightgrey',
   '& h1': {
