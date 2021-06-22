@@ -11,8 +11,10 @@ const RestaurantsList = styled.ul({
 });
 
 const RestaurantsItem = styled.li({
+  display: 'inline-block',
+  width: '20%',
   textAlign: 'center',
-  margin: '1em auto',
+  margin: '1em 2.5em',
   '& a': {
     color: '#55462b',
     textDecoration: 'none',
