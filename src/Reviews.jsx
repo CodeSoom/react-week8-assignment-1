@@ -1,3 +1,25 @@
+import styled from '@emotion/styled';
+
+const ReviewList = styled.ul({
+  marginTop: '5em',
+  margin: '0 auto',
+  padding: 0,
+  listStyle: 'none',
+  width: '55em',
+});
+
+const ReviewItem = styled.li({
+  height: '3em',
+  margin: '0.2em',
+  padding: '.4em',
+  '& div': {
+    width: '15em',
+    display: 'inline-block',
+    margin: 0,
+    padding: '.2em',
+  },
+});
+
 export default function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -6,9 +28,9 @@ export default function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <ReviewList>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
+        <ReviewItem key={review.id}>
           <div>
             {review.name}
           </div>
@@ -19,8 +41,8 @@ export default function Reviews({ reviews }) {
           <div>
             {review.description}
           </div>
-        </li>
+        </ReviewItem>
       ))}
-    </ul>
+    </ReviewList>
   );
 }
