@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 const MenuItem = styled.li(({ active }) => ({
-  // marginRight: '1em',
   margin: '0 .5em',
   '& button': {
     width: '5.5em',
