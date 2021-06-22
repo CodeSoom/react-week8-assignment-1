@@ -32,11 +32,7 @@ export default function CategoriesContainer() {
               onClick={() => handleClick(category.id)}
             >
               {category.name}
-              {selectedCategory ? (
-                <>
-                  {isSelected ? '(V)' : null}
-                </>
-              ) : null}
+              {isSelected ? '(V)' : null}
             </button>
           </MenuItem>
         );
