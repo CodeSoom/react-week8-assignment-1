@@ -7,6 +7,7 @@ import {
 import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
+import Container from './Container';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
@@ -18,11 +19,6 @@ import NotFoundPage from './NotFoundPage';
 import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
-
-const Container = styled.div({
-  margin: '0 auto',
-  width: '98%',
-});
 
 const Header = styled.header({
   margin: '.5em auto',

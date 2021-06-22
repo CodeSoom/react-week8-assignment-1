@@ -1,12 +1,15 @@
+import Container from './Container';
+import LogButton from './LogButton';
+
 export default function LogoutForm({ onClick }) {
   return (
-    <>
-      <button
+    <Container>
+      <LogButton
         type="button"
         onClick={onClick}
       >
         Log out
-      </button>
-    </>
+      </LogButton>
+    </Container>
   );
 }
