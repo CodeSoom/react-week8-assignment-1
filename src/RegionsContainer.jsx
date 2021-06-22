@@ -5,6 +5,7 @@ import { selectRegion } from './redux_modules/restaurantSlice';
 
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
+import SelectButton from './SelectButton';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -27,17 +28,11 @@ export default function RegionsContainer() {
             key={region.id}
             isSelected={isSelected}
           >
-            <button
-              type="button"
+            <SelectButton
               onClick={() => handleClick(region.id)}
-            >
-              {region.name}
-              {selectedRegion ? (
-                <>
-                  {isSelected ? '(V)' : null}
-                </>
-              ) : null}
-            </button>
+              name={region.name}
+              isSelected={isSelected}
+            />
           </MenuItem>
         );
       })}

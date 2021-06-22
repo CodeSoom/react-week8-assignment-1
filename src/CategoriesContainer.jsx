@@ -5,6 +5,7 @@ import { loadRestaurants } from './redux_modules/asyncActions';
 
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
+import SelectButton from './SelectButton';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -27,13 +28,11 @@ export default function CategoriesContainer() {
             key={category.id}
             isSelected={isSelected}
           >
-            <button
-              type="button"
+            <SelectButton
               onClick={() => handleClick(category.id)}
-            >
-              {category.name}
-              {isSelected ? '(V)' : null}
-            </button>
+              name={category.name}
+              isSelected={isSelected}
+            />
           </MenuItem>
         );
       })}
