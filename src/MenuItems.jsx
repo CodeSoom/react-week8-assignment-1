@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 const NoMenuItem = styled.p({
@@ -27,7 +29,7 @@ const Menu = styled.li({
   margin: '1em 2.5em',
 });
 
-export default function MenuItems({ menuItems }) {
+function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
       <NoMenuItem>메뉴가 없어요!</NoMenuItem>
@@ -44,3 +46,5 @@ export default function MenuItems({ menuItems }) {
     </MenuItemList>
   );
 }
+
+export default React.memo(MenuItems);

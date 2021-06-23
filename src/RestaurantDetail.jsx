@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 import Container from './style/Container';
@@ -20,7 +22,7 @@ const MenuTitle = styled.h3({
   color: '#311800',
 });
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -36,3 +38,5 @@ export default function RestaurantDetail({ restaurant }) {
     </Container>
   );
 }
+
+export default React.memo(RestaurantDetail);

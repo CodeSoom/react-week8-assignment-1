@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 import Container from './style/Container';
@@ -19,7 +21,7 @@ const Button = styled.button({
   },
 });
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
@@ -46,3 +48,5 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
     </Container>
   );
 }
+
+export default React.memo(ReviewForm);

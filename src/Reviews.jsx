@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 const ReviewList = styled.ul({
@@ -17,7 +19,7 @@ const ReviewItem = styled.li({
   },
 });
 
-export default function Reviews({ reviews }) {
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -43,3 +45,5 @@ export default function Reviews({ reviews }) {
     </ReviewList>
   );
 }
+
+export default React.memo(Reviews);
