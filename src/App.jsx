@@ -6,6 +6,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -17,6 +19,27 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+const Container = styled.div({
+  maxWidth: '768px',
+  margin: 'auto',
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+});
+
+const Header = styled.header({
+  h1: {
+    fontSize: '100px',
+    fontFamily: '\'Dancing Script\', cursive', // 전역 body에서 왜 안먹는건지 잘 모르겠습니다.
+    a: {
+      color: '#555',
+      ':hover': {
+        color: '#222',
+      },
+    },
+  },
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -26,12 +49,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
+    <Container>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">Eat Go!</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -40,6 +63,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Container>
   );
 }
