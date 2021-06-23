@@ -15,6 +15,7 @@ const Container = styled.div({
       a: {
         display: 'block',
         padding: '10px 0',
+        textDecoration: 'none',
         fontSize: '25px',
         color: '#555',
         ':hover': {
