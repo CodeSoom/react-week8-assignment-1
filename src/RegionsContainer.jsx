@@ -21,7 +21,7 @@ export default function RegionsContainer() {
   return (
     <MenuList>
       {regions.map((region) => {
-        const isSelected = selectedRegion && (region.id === selectedRegion.id);
+        const isSelected = (region.id === selectedRegion?.id);
 
         return (
           <MenuItem

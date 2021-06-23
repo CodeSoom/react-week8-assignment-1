@@ -21,7 +21,7 @@ export default function CategoriesContainer() {
   return (
     <MenuList>
       {categories.map((category) => {
-        const isSelected = selectedCategory && (category.id === selectedCategory.id);
+        const isSelected = (category.id === selectedCategory?.id);
 
         return (
           <MenuItem
