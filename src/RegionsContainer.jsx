@@ -20,17 +20,17 @@ export default function RegionsContainer() {
 
   return (
     <MenuList>
-      {regions.map((region) => {
-        const isSelected = (region.id === selectedRegion?.id);
+      {regions.map(({ id, name }) => {
+        const isSelected = (id === selectedRegion?.id);
 
         return (
           <MenuItem
-            key={region.id}
+            key={id}
             isSelected={isSelected}
           >
             <SelectButton
-              onClick={() => handleClick(region.id)}
-              name={region.name}
+              onClick={() => handleClick(id)}
+              name={name}
               isSelected={isSelected}
             />
           </MenuItem>

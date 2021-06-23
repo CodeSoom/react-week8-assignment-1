@@ -20,17 +20,17 @@ export default function CategoriesContainer() {
 
   return (
     <MenuList>
-      {categories.map((category) => {
-        const isSelected = (category.id === selectedCategory?.id);
+      {categories.map(({ id, name }) => {
+        const isSelected = (id === selectedCategory?.id);
 
         return (
           <MenuItem
-            key={category.id}
+            key={id}
             isSelected={isSelected}
           >
             <SelectButton
-              onClick={() => handleClick(category.id)}
-              name={category.name}
+              onClick={() => handleClick(id)}
+              name={name}
               isSelected={isSelected}
             />
           </MenuItem>

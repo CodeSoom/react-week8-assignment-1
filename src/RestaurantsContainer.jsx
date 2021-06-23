@@ -12,13 +12,18 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
 
   return (
     <ul>
-      {restaurants.map((restaurant) => (
-        <li key={restaurant.id}>
-          <a href="/restaurants/1" onClick={handleClick(restaurant)}>
-            {restaurant.name}
-          </a>
-        </li>
-      ))}
+      {restaurants.map((restaurant) => {
+        const { id, name } = restaurant;
+
+        return (
+          <li key={id}>
+            <a href="/restaurants/1" onClick={handleClick(restaurant)}>
+              {name}
+            </a>
+          </li>
+        );
+      })}
+
     </ul>
   );
 }

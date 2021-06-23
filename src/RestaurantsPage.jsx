@@ -21,8 +21,8 @@ export default function RestaurantsPage() {
     dispatch(loadInitialData());
   });
 
-  function handleClickRestaurant(restaurant) {
-    const url = `/restaurants/${restaurant.id}`;
+  function handleClickRestaurant({ id }) {
+    const url = `/restaurants/${id}`;
     history.push(url);
   }
 
