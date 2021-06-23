@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import styled from '@emotion/styled';
 
 import {
   selectRegion,
@@ -6,6 +7,33 @@ import {
 } from './slice';
 
 import { get } from './utils';
+
+const Regions = styled.ul({
+  display: 'flex',
+  margin: '20px 0',
+  li: {
+    marginRight: '5px',
+    button: {
+      appearance: 'none',
+      background: '#28a745',
+      color: '#fff',
+      margin: 0,
+      padding: '8px 16px',
+      fontFamily: '\'Dancing Script\', cursive, \'Nanum Brush Script\', cursive',
+      fontSize: '16px',
+      textAlign: 'center',
+      border: 'none',
+      borderRadius: '4px',
+      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+      cursor: 'pointer',
+      transition: '0.5s',
+      ':active, :hover, :focus': {
+        background: '#218838',
+        outline: 0,
+      },
+    },
+  },
+});
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -19,7 +47,7 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
+    <Regions>
       {regions.map((region) => (
         <li key={region.id}>
           <button
@@ -35,6 +63,6 @@ export default function RegionsContainer() {
           </button>
         </li>
       ))}
-    </ul>
+    </Regions>
   );
 }
