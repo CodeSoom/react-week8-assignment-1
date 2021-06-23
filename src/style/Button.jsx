@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const LogButton = styled.button({
+const Button = styled.button({
   margin: '2em 15em',
   padding: '.2em',
   color: '#d9c97e',
@@ -14,4 +14,4 @@ const LogButton = styled.button({
   },
 });
 
-export default LogButton;
+export default Button;

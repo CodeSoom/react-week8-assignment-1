@@ -3,7 +3,7 @@ import { memo } from 'react';
 import styled from '@emotion/styled';
 
 import Container from './style/Container';
-import LogButton from './style/LogButton';
+import Button from './style/Button';
 
 const LoginContainer = styled.div({
   padding: '.5em 4em',
@@ -60,12 +60,12 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           onChange={handleChange}
         />
       </LoginContainer>
-      <LogButton
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </LogButton>
+      </Button>
     </Container>
   );
 });

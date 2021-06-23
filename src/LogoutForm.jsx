@@ -1,15 +1,15 @@
 import Container from './style/Container';
-import LogButton from './style/LogButton';
+import Button from './style/Button';
 
 export default function LogoutForm({ onClick }) {
   return (
     <Container>
-      <LogButton
+      <Button
         type="button"
         onClick={onClick}
       >
         Log out
-      </LogButton>
+      </Button>
     </Container>
   );
 }

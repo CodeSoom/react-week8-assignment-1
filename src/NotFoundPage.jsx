@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const ErrorParagraph = styled.p({
+const ErrorContent = styled.p({
   fontSize: '1em',
   margin: '0 auto',
   color: '#d16b60',
@@ -10,6 +10,6 @@ const ErrorParagraph = styled.p({
 
 export default function NotFoundPage() {
   return (
-    <ErrorParagraph>404 Not Found</ErrorParagraph>
+    <ErrorContent>404 Not Found</ErrorContent>
   );
 }

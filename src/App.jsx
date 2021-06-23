@@ -11,6 +11,7 @@ import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
 
 import reset from './style/reset';
+import colors from './style/colors';
 import Container from './style/Container';
 
 import HomePage from './HomePage';
@@ -34,7 +35,8 @@ const Header = styled.header({
     padding: '1em 1.5em',
   },
   '& a': {
-    color: '#55462b',
+    // color: '#55462b',
+    color: `${colors.headerTitle}`,
     '&:hover': {
       color: '#311800',
     },
