@@ -7,7 +7,11 @@ import {
 import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
-import Container from './Container';
+
+import { Global } from '@emotion/react';
+
+import reset from './style/reset';
+import Container from './style/Container';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
@@ -27,12 +31,10 @@ const Header = styled.header({
   borderTopRightRadius: '1.5em',
   '& h1': {
     fontsize: '2.5em',
-    margin: 0,
     padding: '1em 1.5em',
   },
   '& a': {
     color: '#55462b',
-    textDecoration: 'none',
     '&:hover': {
       color: '#311800',
     },
@@ -48,20 +50,23 @@ export default function App() {
   }
 
   return (
-    <Container>
-      <Header>
-        <h1>
-          <Link to="/">Eat Go</Link>
-        </h1>
-      </Header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </Container>
+    <>
+      <Global styles={reset} />
+      <Container>
+        <Header>
+          <h1>
+            <Link to="/">Eat Go</Link>
+          </h1>
+        </Header>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Container>
+    </>
   );
 }

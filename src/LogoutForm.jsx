@@ -1,5 +1,5 @@
-import Container from './Container';
-import LogButton from './LogButton';
+import Container from './style/Container';
+import LogButton from './style/LogButton';
 
 export default function LogoutForm({ onClick }) {
   return (

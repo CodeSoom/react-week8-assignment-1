@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import MenuList from './MenuList';
-import MenuItem from './MenuItem';
+import MenuList from './style/MenuList';
+import MenuItem from './style/MenuItem';
 
 import {
   selectCategory,

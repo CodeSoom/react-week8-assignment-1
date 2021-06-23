@@ -14,7 +14,6 @@ const TextFieldContainer = styled.div({
     color: '#55462b',
   },
   '& input': {
-    backgroundColor: 'transparent',
     color: '#777a75',
     outline: '#d8ddbe auto 2px',
     fontWeight: '500',

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import Container from './Container';
+import Container from './style/Container';
 
 import TextField from './TextField';
 
@@ -10,7 +10,6 @@ const Button = styled.button({
   margin: '0 2em',
   padding: '.2em',
   color: '#b5ac82',
-  backgroundColor: 'white',
   outline: '#d8ddbe auto .5px',
   '&:hover': {
     backgroundColor: '#efefe2',

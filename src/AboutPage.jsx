@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import Container from './Container';
-import Title from './Title';
+
+import Container from './style/Container';
+import Title from './style/Title';
 
 const Paragraph = styled.p({
-  margin: 0,
   padding: '.5em 4em',
   color: '#311800',
 });

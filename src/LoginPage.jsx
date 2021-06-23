@@ -1,5 +1,5 @@
-import Container from './Container';
-import Title from './Title';
+import Container from './style/Container';
+import Title from './style/Title';
 
 import LoginFormContainer from './LoginFormContainer';
 

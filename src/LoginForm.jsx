@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
 import styled from '@emotion/styled';
-import Container from './Container';
-import LogButton from './LogButton';
+
+import Container from './style/Container';
+import LogButton from './style/LogButton';
 
 const LoginContainer = styled.div({
-  margin: 0,
   padding: '.5em 4em',
 });
 
@@ -20,7 +20,6 @@ const Label = styled.label({
 });
 
 const Input = styled.input({
-  backgroundColor: 'transparent',
   color: '#777a75',
   outline: '#d8ddbe auto 2px',
   fontWeight: '500',

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Container from './Container';
+import Container from './style/Container';
 
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';

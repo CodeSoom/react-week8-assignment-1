@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import Container from './Container';
-import Title from './Title';
+
+import Container from './style/Container';
+import Title from './style/Title';
 
 import MenuItems from './MenuItems';
 

@@ -14,7 +14,6 @@ const NoMenuItem = styled.p({
 const MenuItemList = styled.ul({
   margin: '0 auto',
   padding: '1em 2em',
-  listStyle: 'none',
   borderBottom: '#e8e8c5 solid 1px',
 });
 
@@ -26,7 +25,6 @@ const Menu = styled.li({
   height: '4em',
   textAlign: 'center',
   margin: '1em 2.5em',
-  padding: 0,
 });
 
 export default function MenuItems({ menuItems }) {

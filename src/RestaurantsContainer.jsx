@@ -7,7 +7,6 @@ import { get } from './utils';
 const RestaurantsList = styled.ul({
   margin: '0 auto',
   padding: '5em 0',
-  listStyle: 'none',
 });
 
 const RestaurantsItem = styled.li({
@@ -17,7 +16,6 @@ const RestaurantsItem = styled.li({
   margin: '1em 2.5em',
   '& a': {
     color: '#55462b',
-    textDecoration: 'none',
     '&:hover': {
       color: '#311800',
       fontWeight: '700',

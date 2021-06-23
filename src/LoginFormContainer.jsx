@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import Container from './Container';
+import Container from './style/Container';
 
 import LoginForm from './LoginForm';
 import LogoutForm from './LogoutForm';

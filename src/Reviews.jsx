@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 const ReviewList = styled.ul({
   marginTop: '5em',
   margin: '0 auto',
-  padding: 0,
-  listStyle: 'none',
   width: '55em',
 });
 
@@ -15,7 +13,6 @@ const ReviewItem = styled.li({
   '& div': {
     width: '15em',
     display: 'inline-block',
-    margin: 0,
     padding: '.2em',
   },
 });
