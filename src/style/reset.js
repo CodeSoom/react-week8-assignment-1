@@ -23,10 +23,10 @@ ul {
   list-style: none;
 }
 a {
-  textDecoration: none;
+  text-decoration: none;
 }
 input button {
-  backgroundColor: transparent;
+  background-color: transparent;
 }
 `;
 

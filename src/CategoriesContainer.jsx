@@ -23,19 +23,19 @@ export default function CategoriesContainer() {
 
   return (
     <MenuList>
-      {categories.map((category) => (
+      {categories.map(({ id, name }) => (
         <MenuItem
-          key={category.id}
-          active={selectedCategory && category.id === selectedCategory.id}
+          key={id}
+          active={selectedCategory?.id === id}
         >
           <button
             type="button"
-            onClick={() => handleClick(category.id)}
+            onClick={() => handleClick(id)}
           >
-            {category.name}
+            {name}
             {selectedCategory ? (
               <>
-                {category.id === selectedCategory.id ? '(V)' : null}
+                {id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
           </button>

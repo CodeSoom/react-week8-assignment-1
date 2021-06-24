@@ -23,19 +23,19 @@ export default function RegionsContainer() {
 
   return (
     <MenuList>
-      {regions.map((region) => (
+      {regions.map(({ id, name }) => (
         <MenuItem
-          key={region.id}
-          active={selectedRegion && region.id === selectedRegion.id}
+          key={id}
+          active={selectedRegion?.id === id}
         >
           <button
             type="button"
-            onClick={() => handleClick(region.id)}
+            onClick={() => handleClick(id)}
           >
-            {region.name}
+            {name}
             {selectedRegion ? (
               <>
-                {region.id === selectedRegion.id ? '(V)' : null}
+                {id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
           </button>
