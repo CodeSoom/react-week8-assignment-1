@@ -10,7 +10,7 @@ import {
   postReview,
 } from './services/api';
 
-import { saveItem } from './services/storage';
+import { saveItem, removeItem } from './services/storage';
 
 // actionCreate & reducer 를 하나로
 
@@ -99,6 +99,7 @@ const reducers = {
   },
 
   logout(state) {
+    removeItem('accessToken');
     return {
       ...state,
       accessToken: '',
