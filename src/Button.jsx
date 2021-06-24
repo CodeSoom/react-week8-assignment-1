@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+// 질문: 이렇게 props로 css 값을 받아서 사용하는 것은 괜찮나요?
 const Button = styled.button(({ background, hoverBackground }) => ({
   appearance: 'none',
   background,
