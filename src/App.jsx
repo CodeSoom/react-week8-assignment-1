@@ -29,10 +29,7 @@ const Container = styled.div({
 
 const Header = styled.header({
   '& h1': {
-    fontSize: '100px',
-    fontFamily: '\'Dancing Script\', cursive', // 전역 body에서 왜 안먹는건지 잘 모르겠습니다.
     '& a': {
-      textDecoration: 'none',
       color: '#555',
       '&:hover': {
         color: '#222',

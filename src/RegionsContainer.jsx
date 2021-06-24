@@ -11,7 +11,7 @@ import { get } from './utils';
 const Regions = styled.ul({
   display: 'flex',
   margin: '20px 0',
-  li: {
+  '& li': {
     marginRight: '5px',
     button: {
       appearance: 'none',
@@ -19,7 +19,6 @@ const Regions = styled.ul({
       color: '#fff',
       margin: 0,
       padding: '8px 16px',
-      fontFamily: '\'Dancing Script\', cursive, \'Nanum Brush Script\', cursive',
       fontSize: '16px',
       textAlign: 'center',
       border: 'none',

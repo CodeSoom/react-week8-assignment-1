@@ -15,7 +15,6 @@ const Restaurants = styled.ul({
       color: '#212529',
       margin: 0,
       padding: '8px 16px',
-      fontFamily: '\'Dancing Script\', cursive, \'Nanum Brush Script\', cursive',
       fontSize: '16px',
       textAlign: 'center',
       border: 'none',
