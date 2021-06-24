@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import styled from '@emotion/styled';
 
 const MenuItem = styled.li(({ active }) => ({
@@ -17,4 +16,4 @@ const MenuItem = styled.li(({ active }) => ({
     },
   },
 }));
-export default memo(MenuItem);
+export default MenuItem;
