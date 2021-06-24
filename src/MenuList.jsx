@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 
 const MenuList = styled.ul({
@@ -7,4 +8,4 @@ const MenuList = styled.ul({
   listStyle: 'none',
 });
 
-export default MenuList;
+export default React.memo(MenuList);
