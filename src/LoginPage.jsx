@@ -3,7 +3,7 @@ import LoginFormContainer from './LoginFormContainer';
 
 const Container = styled.div({
   fontFamily: '\'Dancing Script\', cursive',
-  h2: {
+  '& h2': {
     fontSize: '40px',
     margin: '20px 0 15px 0',
     textAlign: 'center',

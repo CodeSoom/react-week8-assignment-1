@@ -12,9 +12,9 @@ import { get } from './utils';
 const Categories = styled.ul({
   display: 'flex',
   margin: '20px 0',
-  li: {
+  '& li': {
     marginRight: '5px',
-    button: {
+    '& button': {
       appearance: 'none',
       background: '#28a745',
       color: '#fff',

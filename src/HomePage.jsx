@@ -3,11 +3,11 @@ import styled from '@emotion/styled';
 
 const Container = styled.div({
   fontFamily: '\'Dancing Script\', cursive', // 전역 body에서 왜 안먹는건지 잘 모르겠습니다.
-  h2: {
+  '& h2': {
     fontSize: '40px',
     margin: '20px 0 15px 0',
   },
-  ul: {
+  '& ul': {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

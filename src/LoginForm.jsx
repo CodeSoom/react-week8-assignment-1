@@ -3,10 +3,10 @@ import { memo } from 'react';
 
 const TextField = styled.div({
   marginBottom: '10px',
-  label: {
+  '& label': {
     marginRight: '10px',
   },
-  input: {
+  '& input': {
     outline: 'none',
     border: 'none',
     borderBottom: '1px solid #222',
