@@ -7,30 +7,13 @@ import {
 } from './slice';
 
 import { get } from './utils';
+import Button from './Button';
 
 const Regions = styled.ul({
   display: 'flex',
   margin: '20px 0',
   '& li': {
     marginRight: '5px',
-    button: {
-      appearance: 'none',
-      background: '#28a745',
-      color: '#fff',
-      margin: 0,
-      padding: '8px 16px',
-      fontSize: '16px',
-      textAlign: 'center',
-      border: 'none',
-      borderRadius: '4px',
-      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-      cursor: 'pointer',
-      transition: '0.5s',
-      '&:active, &:hover, &:focus': {
-        background: '#218838',
-        outline: 0,
-      },
-    },
   },
 });
 
@@ -49,7 +32,9 @@ export default function RegionsContainer() {
     <Regions>
       {regions.map((region) => (
         <li key={region.id}>
-          <button
+          <Button
+            background="#28a745"
+            hoverBackground="#218838"
             type="button"
             onClick={() => handleClick(region.id)}
           >
@@ -59,7 +44,7 @@ export default function RegionsContainer() {
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </Button>
         </li>
       ))}
     </Regions>

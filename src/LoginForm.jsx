@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { memo } from 'react';
 
+import Button from './Button';
+
 const TextField = styled.div({
   marginBottom: '10px',
   '& label': {
@@ -10,25 +12,6 @@ const TextField = styled.div({
     outline: 'none',
     border: 'none',
     borderBottom: '1px solid #222',
-  },
-});
-
-const Button = styled.div({
-  appearance: 'none',
-  background: '#0d6efd',
-  color: '#fff',
-  margin: 0,
-  padding: '8px 16px',
-  fontSize: '16px',
-  textAlign: 'center',
-  border: 'none',
-  borderRadius: '4px',
-  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-  cursor: 'pointer',
-  transition: '0.5s',
-  ':active, :hover, :focus': {
-    background: '#025ce2',
-    outline: 0,
   },
 });
 
@@ -67,6 +50,8 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
         />
       </TextField>
       <Button
+        background="#0d6efd"
+        hoverBackground="#025ce2"
         type="button"
         onClick={onSubmit}
       >
