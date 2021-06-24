@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 function AboutPage() {
   return (
@@ -10,4 +10,4 @@ function AboutPage() {
   );
 }
 
-export default React.memo(AboutPage);
+export default memo(AboutPage);

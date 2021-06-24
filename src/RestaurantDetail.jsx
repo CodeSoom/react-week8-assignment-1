@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import MenuItems from './MenuItems';
 
 function RestaurantDetail({ restaurant }) {
@@ -17,4 +17,4 @@ function RestaurantDetail({ restaurant }) {
     </div>
   );
 }
-export default React.memo(RestaurantDetail);
+export default memo(RestaurantDetail);

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
@@ -26,16 +27,26 @@ const Title = styled.h2({
   padding: '.4em 0',
 });
 
-export default function HomePage() {
+function HomePage() {
   return (
     <div>
       <Title>Home</Title>
       <List>
-        <Item><Link to="/about">About</Link></Item>
-        <Item><Link to="/login">Log in</Link></Item>
-        <Item><Link to="/restaurants">Restaurants</Link></Item>
-        <Item><Link to="/xxx">멸망의 길</Link></Item>
+        <Item>
+          <Link to="/about">About</Link>
+        </Item>
+        <Item>
+          <Link to="/login">Log in</Link>
+        </Item>
+        <Item>
+          <Link to="/restaurants">Restaurants</Link>
+        </Item>
+        <Item>
+          <Link to="/xxx">멸망의 길</Link>
+        </Item>
       </List>
     </div>
   );
 }
+
+export default memo(HomePage);

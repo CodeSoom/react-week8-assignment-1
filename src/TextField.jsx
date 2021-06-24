@@ -1,5 +1,11 @@
-export default function TextField({
-  label, type = 'text', name, value, onChange,
+import { memo } from 'react';
+
+function TextField({
+  label,
+  type = 'text',
+  name,
+  value,
+  onChange,
 }) {
   const id = `input-${name}`;
 
@@ -10,9 +16,7 @@ export default function TextField({
 
   return (
     <div>
-      <label htmlFor={id}>
-        {label}
-      </label>
+      <label htmlFor={id}>{label}</label>
       <input
         type={type}
         id={id}
@@ -23,3 +27,5 @@ export default function TextField({
     </div>
   );
 }
+
+export default memo(TextField);

@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 import TextField from './TextField';
 
@@ -30,4 +30,4 @@ function ReviewForm({ fields, onChange, onSubmit }) {
   );
 }
 
-export default React.memo(ReviewForm);
+export default memo(ReviewForm);
