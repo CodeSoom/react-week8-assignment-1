@@ -19,7 +19,7 @@ describe('restaurantSlice', () => {
           email: '',
           password: '',
         },
-        accessToken: '',
+        accessToken: null,
         reviewFields: {
           score: '',
           description: '',

@@ -16,7 +16,7 @@ const { actions, reducer } = createSlice({
       email: '',
       password: '',
     },
-    accessToken: '',
+    accessToken: null,
     reviewFields: {
       score: '',
       description: '',

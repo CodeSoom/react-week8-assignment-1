@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectCategory } from './redux_modules/restaurantSlice';
-import { loadRestaurants } from './redux_modules/asyncActions';
+import { selectCategory } from '../redux_modules/restaurantSlice';
+import { loadRestaurants } from '../redux_modules/asyncActions';
 
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';

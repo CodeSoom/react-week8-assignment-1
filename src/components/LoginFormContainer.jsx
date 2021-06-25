@@ -6,9 +6,10 @@ import LogoutForm from './LogoutForm';
 import {
   changeLoginField,
   logout,
-} from './redux_modules/restaurantSlice';
+  setAccessToken,
+} from '../redux_modules/restaurantSlice';
 
-import { requestLogin } from './redux_modules/asyncActions';
+import { requestLogin } from '../redux_modules/asyncActions';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default function LoginFormContainer() {
 
   const handleClickLogout = () => {
     dispatch(logout());
+    dispatch(setAccessToken(null));
   };
 
   return (

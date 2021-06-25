@@ -8,12 +8,12 @@ import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import RestaurantsPage from './pages/RestaurantsPage';
+import RestaurantPage from './pages/RestaurantPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 import { setAccessToken } from './redux_modules/restaurantSlice';
 
@@ -52,7 +52,7 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">Restaurants</Link>
+          <Link to="/">Restaurants Finder</Link>
         </h1>
       </Header>
       <Switch>

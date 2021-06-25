@@ -9,9 +9,9 @@ import Reviews from './Reviews';
 import {
   loadRestaurant,
   sendReview,
-} from './redux_modules/asyncActions';
+} from '../redux_modules/asyncActions';
 
-import { changeReviewField } from './redux_modules/restaurantSlice';
+import { changeReviewField } from '../redux_modules/restaurantSlice';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ export default function RestaurantContainer({ restaurantId }) {
   return (
     <>
       <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
+      {(accessToken === null) ? (
         <ReviewForm
           fields={reviewFields}
           onChange={handleChange}

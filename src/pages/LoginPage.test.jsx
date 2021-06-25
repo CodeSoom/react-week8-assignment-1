@@ -27,7 +27,7 @@ describe('LoginPage', () => {
       </MemoryRouter>
     ));
 
-    expect(container).toHaveTextContent('Log In');
+    expect(container).toHaveTextContent('Log In / Log Out');
   });
 
   it('renders input control', () => {

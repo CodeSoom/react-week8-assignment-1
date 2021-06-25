@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
-import MenuList from './MenuList';
-import MenuItem from './MenuItem';
+import MenuList from '../components/MenuList';
+import MenuItem from '../components/MenuItem';
 
 const Title = styled.h1({
   fontSize: '2.5em',

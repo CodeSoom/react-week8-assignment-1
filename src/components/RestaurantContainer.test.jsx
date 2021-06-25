@@ -54,6 +54,8 @@ describe('RestaurantContainer', () => {
     });
 
     context('without logged-in', () => {
+      given('accessToken', () => 'ACCESS_TOKEN');
+
       it('renders no review write field', () => {
         const { queryByLabelText } = renderRestaurantContainer();
 
@@ -63,7 +65,7 @@ describe('RestaurantContainer', () => {
     });
 
     context('with logged-in', () => {
-      given('accessToken', () => 'ACCESS_TOKEN');
+      given('accessToken', () => null);
 
       it('renders review write fields', () => {
         const { queryByLabelText } = renderRestaurantContainer();
