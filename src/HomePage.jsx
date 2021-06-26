@@ -2,22 +2,31 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
+import colors from './style/colors';
 import Container from './style/Container';
 import Title from './style/Title';
 
 const List = styled.ul({
   display: 'flex',
+  float: 'right',
   padding: '0 2.5em',
+  textAlign: 'center',
 });
 
 const Item = styled.li({
-  padding: '0 1.5em',
-  fontsize: '.5em',
+  width: '10em',
+  height: '3em',
+  margin: '0 .5em',
+  padding: '.4em .8em',
+  border: `${colors.border} solid 1px`,
+  borderRadius: '1em',
+  fontSize: '.5em',
+  lineHeight: '2em',
   '& a': {
-    color: '#55462b',
+    color: `${colors.title}`,
     '&:hover': {
-      color: '#311800',
-      fontWeight: '600',
+      color: `${colors.body}`,
+      fontWeight: '700',
     },
   },
 });

@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import MenuList from './style/MenuList';
-import MenuItem from './style/MenuItem';
+import ListBox from './style/ListBox';
+import List from './style/List';
+import Item from './style/Item';
 
 import {
   selectCategory,
@@ -22,25 +23,28 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <MenuList>
-      {categories.map(({ id, name }) => (
-        <MenuItem
-          key={id}
-          active={selectedCategory?.id === id}
-        >
-          <button
-            type="button"
-            onClick={() => handleClick(id)}
+    <ListBox>
+      <h4>카테고리 선택</h4>
+      <List>
+        {categories.map(({ id, name }) => (
+          <Item
+            key={id}
+            active={selectedCategory?.id === id}
           >
-            {name}
-            {selectedCategory ? (
-              <>
-                {id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </MenuItem>
-      ))}
-    </MenuList>
+            <button
+              type="button"
+              onClick={() => handleClick(id)}
+            >
+              {name}
+              {selectedCategory ? (
+                <>
+                  {id === selectedCategory.id ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </Item>
+        ))}
+      </List>
+    </ListBox>
   );
 }

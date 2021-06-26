@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
 
+import colors from './colors';
+
 const Title = styled.h2({
-  fontsize: '1.5em',
-  // margin: 0,
-  padding: '.5em 2.5em',
-  color: '#311800',
+  margin: '1.5em auto',
+  color: `${colors.body}`,
+  fontsize: '1em',
+  textAlign: 'center',
 });
 
 export default Title;

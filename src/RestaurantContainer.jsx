@@ -2,8 +2,6 @@ import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Container from './style/Container';
-
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -42,7 +40,7 @@ function RestaurantContainer({ restaurantId }) {
   }
 
   return (
-    <Container>
+    <>
       <RestaurantDetail restaurant={restaurant} />
       {accessToken ? (
         <ReviewForm
@@ -52,7 +50,7 @@ function RestaurantContainer({ restaurantId }) {
         />
       ) : null}
       <Reviews reviews={restaurant.reviews} />
-    </Container>
+    </>
   );
 }
 

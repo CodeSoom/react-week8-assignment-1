@@ -1,19 +1,26 @@
 import styled from '@emotion/styled';
 
-import Container from './style/Container';
+import colors from './style/colors';
 import Title from './style/Title';
 
-const Paragraph = styled.p({
+const Body = styled.div({
+  width: '90%',
+  margin: '8em auto',
+  textAlign: 'center',
+});
+
+const Text = styled.p({
   padding: '.5em 4em',
-  color: '#311800',
+  color: `${colors.body}`,
+  fontSize: '.8em',
 });
 
 export default function AboutPage() {
   return (
-    <Container>
+    <Body>
       <Title>이 서비스에 대해서...</Title>
-      <Paragraph>이 서비스는 영국에서 시작되었습니다.</Paragraph>
-      <Paragraph>이 서비스를 보셨다면 주변에 있는 20명에게 추천하셔야 합니다.</Paragraph>
-    </Container>
+      <Text>이 서비스는 영국에서 시작되었습니다.</Text>
+      <Text>이 서비스를 보셨다면 주변에 있는 20명에게 추천하셔야 합니다.</Text>
+    </Body>
   );
 }

@@ -1,16 +1,20 @@
 import styled from '@emotion/styled';
 
+import colors from './colors';
+
 const Button = styled.button({
-  margin: '2em 15em',
-  padding: '.2em',
-  color: '#d9c97e',
-  backgroundColor: 'white',
-  outline: '#d8ddbe auto .5px',
+  width: '25%',
+  margin: '3em auto',
+  padding: '.4em',
+  outline: `${colors.titlehover} auto .5px`,
+  color: `${colors.titlehover}`,
+  backgroundColor: `${colors.basic}`,
+  fontSize: '.5em',
   '&:hover': {
-    backgroundColor: '#d9c97e',
-    color: '#e5e5e5',
+    outline: `${colors.back} auto 1px`,
+    color: `${colors.title}`,
+    backgroundColor: `${colors.back}`,
     fontWeight: '600',
-    outline: '#d8ddbe auto 1px',
   },
 });
 

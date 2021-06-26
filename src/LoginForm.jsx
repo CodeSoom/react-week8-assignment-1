@@ -2,28 +2,38 @@ import { memo } from 'react';
 
 import styled from '@emotion/styled';
 
-import Container from './style/Container';
+import colors from './style/colors';
 import Button from './style/Button';
 
-const LoginContainer = styled.div({
-  padding: '.5em 4em',
+const LoginBox = styled.div({
+  width: '50%',
+  height: '30%',
+  margin: '0 auto',
+  textAlign: 'center',
+});
+
+const InputBox = styled.div({
+  padding: '.5em',
+  textAlign: 'center',
 });
 
 const Label = styled.label({
-  textAlign: 'center',
   display: 'inline-block',
-  width: '90px',
-  fontsize: '.5em',
-  fontWeight: '700',
+  width: '30%',
   padding: '.5em',
-  color: '#202a09',
+  color: `${colors.body}`,
+  fontSize: '.9em',
+  fontWeight: '700',
+  textAlign: 'center',
 });
 
 const Input = styled.input({
-  color: '#777a75',
-  outline: '#d8ddbe auto 2px',
-  fontWeight: '500',
+  width: '40%',
   padding: '.2em .5em',
+  outline: `${colors.titlehover} auto 2px`,
+  color: `${colors.input}`,
+  fontSize: '.5em',
+  fontWeight: '500',
 });
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
@@ -35,8 +45,8 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   }
 
   return (
-    <Container>
-      <LoginContainer>
+    <LoginBox>
+      <InputBox>
         <Label htmlFor="login-email">
           E-mail
         </Label>
@@ -47,8 +57,8 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           value={email}
           onChange={handleChange}
         />
-      </LoginContainer>
-      <LoginContainer>
+      </InputBox>
+      <InputBox>
         <Label htmlFor="login-password">
           Password
         </Label>
@@ -59,14 +69,14 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           value={password}
           onChange={handleChange}
         />
-      </LoginContainer>
+      </InputBox>
       <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
       </Button>
-    </Container>
+    </LoginBox>
   );
 });
 

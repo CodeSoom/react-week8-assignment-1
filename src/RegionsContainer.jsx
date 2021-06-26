@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import MenuList from './style/MenuList';
-import MenuItem from './style/MenuItem';
+import ListBox from './style/ListBox';
+import List from './style/List';
+import Item from './style/Item';
 
 import {
   selectRegion,
@@ -22,25 +23,28 @@ export default function RegionsContainer() {
   }
 
   return (
-    <MenuList>
-      {regions.map(({ id, name }) => (
-        <MenuItem
-          key={id}
-          active={selectedRegion?.id === id}
-        >
-          <button
-            type="button"
-            onClick={() => handleClick(id)}
+    <ListBox>
+      <h4>지역 선택</h4>
+      <List>
+        {regions.map(({ id, name }) => (
+          <Item
+            key={id}
+            active={selectedRegion?.id === id}
           >
-            {name}
-            {selectedRegion ? (
-              <>
-                {id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </MenuItem>
-      ))}
-    </MenuList>
+            <button
+              type="button"
+              onClick={() => handleClick(id)}
+            >
+              {name}
+              {selectedRegion ? (
+                <>
+                  {id === selectedRegion.id ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </Item>
+        ))}
+      </List>
+    </ListBox>
   );
 }

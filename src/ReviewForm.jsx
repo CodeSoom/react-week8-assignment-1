@@ -2,22 +2,29 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import Container from './style/Container';
+import colors from './style/colors';
 
 import TextField from './TextField';
 
+const Container = styled.div({
+  width: '90%',
+  margin: '1em auto',
+  textAlign: 'center',
+});
+
 const Button = styled.button({
-  fontsize: '.4em',
   width: '8em',
   margin: '0 2em',
   padding: '.2em',
-  color: '#b5ac82',
-  outline: '#d8ddbe auto .5px',
+  outline: `${colors.titlehover} auto .5px`,
+  color: `${colors.titlehover}`,
+  backgroundColor: `${colors.basic}`,
+  fontSize: '.5em',
   '&:hover': {
-    backgroundColor: '#efefe2',
-    color: '#3f8766',
+    outline: `${colors.title} auto 1px`,
+    color: `${colors.title}`,
+    backgroundColor: `${colors.back}`,
     fontWeight: '600',
-    outline: '#d8ddbe auto 1px',
   },
 });
 

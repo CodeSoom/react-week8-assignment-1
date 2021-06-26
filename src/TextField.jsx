@@ -1,24 +1,26 @@
 import styled from '@emotion/styled';
 
-const TextFieldContainer = styled.div({
-  margin: '2em auto',
-  padding: '.5em 1em',
+import colors from './style/colors';
+
+const ReviewField = styled.div({
   display: 'inline-block',
+  margin: '2em auto',
+  padding: '.5em 0',
   '& label': {
-    textAlign: 'center',
     display: 'inline-block',
     width: '90px',
-    fontsize: '.5em',
+    padding: '.5em 0',
+    color: `${colors.title}`,
+    fontSize: '.5em',
     fontWeight: '700',
-    padding: '.5em',
-    color: '#55462b',
+    textAlign: 'center',
   },
   '& input': {
-    color: '#777a75',
-    outline: '#d8ddbe auto 2px',
+    width: '13em',
+    padding: '.2em',
+    outline: `${colors.titlehover} auto 2px`,
+    color: `${colors.input}`,
     fontWeight: '500',
-    padding: '.2em .5em',
-    width: '18em',
   },
 });
 
@@ -33,7 +35,7 @@ export default function TextField({
   }
 
   return (
-    <TextFieldContainer>
+    <ReviewField>
       <label htmlFor={id}>
         {label}
       </label>
@@ -44,6 +46,6 @@ export default function TextField({
         value={value}
         onChange={handleChange}
       />
-    </TextFieldContainer>
+    </ReviewField>
   );
 }

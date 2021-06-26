@@ -1,15 +1,17 @@
 import styled from '@emotion/styled';
 
-const ErrorContent = styled.p({
-  fontSize: '1em',
-  margin: '0 auto',
-  color: '#d16b60',
+import colors from './style/colors';
+
+const Error = styled.p({
+  margin: '8em auto',
+  color: `${colors.body}`,
+  fontSize: '.8em',
   textAlign: 'center',
   lineHeight: '10em',
 });
 
 export default function NotFoundPage() {
   return (
-    <ErrorContent>404 Not Found</ErrorContent>
+    <Error>404 Not Found</Error>
   );
 }

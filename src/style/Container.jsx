@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 const Container = styled.div({
-  margin: '0 auto',
   width: '98%',
+  margin: '0 auto',
 });
 
 export default Container;

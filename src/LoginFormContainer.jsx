@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import Container from './style/Container';
-
 import LoginForm from './LoginForm';
 import LogoutForm from './LogoutForm';
 
@@ -32,7 +30,7 @@ export default function LoginFormContainer() {
   };
 
   return (
-    <Container>
+    <>
       {accessToken ? (
         <LogoutForm onClick={handleClickLogout} />
       ) : (
@@ -42,6 +40,6 @@ export default function LoginFormContainer() {
           onSubmit={handleSubmit}
         />
       )}
-    </Container>
+    </>
   );
 }

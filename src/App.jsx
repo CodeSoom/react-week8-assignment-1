@@ -11,6 +11,7 @@ import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
 
 import reset from './style/reset';
+
 import colors from './style/colors';
 import Container from './style/Container';
 
@@ -27,18 +28,20 @@ import { loadItem } from './services/storage';
 
 const Header = styled.header({
   margin: '.5em auto',
-  backgroundColor: '#efefe2',
   borderTopLeftRadius: '1.5em',
   borderTopRightRadius: '1.5em',
+  backgroundColor: `${colors.back}`,
+  textAlign: 'center',
   '& h1': {
-    fontsize: '2.5em',
-    padding: '1em 1.5em',
+    display: 'block',
+    margin: '0 auto',
+    lineHeight: '2.5em',
   },
   '& a': {
-    // color: '#55462b',
-    color: `${colors.headerTitle}`,
+    color: `${colors.title}`,
+    cursor: 'pointer',
     '&:hover': {
-      color: '#311800',
+      color: `${colors.body}`,
     },
   },
 });
@@ -52,23 +55,21 @@ export default function App() {
   }
 
   return (
-    <>
+    <Container>
       <Global styles={reset} />
-      <Container>
-        <Header>
-          <h1>
-            <Link to="/">Eat Go</Link>
-          </h1>
-        </Header>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/login" component={LoginPage} />
-          <Route exact path="/restaurants" component={RestaurantsPage} />
-          <Route path="/restaurants/:id" component={RestaurantPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Container>
-    </>
+      <Header>
+        <h1>
+          <Link to="/">Eat Go</Link>
+        </h1>
+      </Header>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route exact path="/restaurants" component={RestaurantsPage} />
+        <Route path="/restaurants/:id" component={RestaurantPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </Container>
   );
 }
