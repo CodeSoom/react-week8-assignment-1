@@ -7,8 +7,17 @@ import {
 
 import { get } from './utils';
 
-import MenuList from './MenuList';
-import MenuItem from './MenuItem';
+import styled from '@emotion/styled';
+
+import styles from './styles';
+
+const MenuList = styled.ul({
+  ...styles.menuList,
+});
+
+const MenuItem = styled.li(({ active }) => ({
+  ...styles.menuItem(active),
+}));
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
