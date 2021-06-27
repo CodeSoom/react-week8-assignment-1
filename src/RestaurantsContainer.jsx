@@ -37,9 +37,14 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
     };
   }
 
+  if (restaurants.length !== 0) {
+    return (
+      <p>식당을 선택하세요</p>
+    )
+  }
+
   return (
     <>
-      {(restaurants.length !== 0) && <p>식당을 선택하세요</p>}
       <List>
         {restaurants.map((restaurant) => (
           <Item key={restaurant.id}>
