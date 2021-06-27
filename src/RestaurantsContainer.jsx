@@ -48,7 +48,7 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
       <List>
         {restaurants.map((restaurant) => (
           <Item key={restaurant.id}>
-            <a href="/restaurants/1" onClick={handleClick(restaurant)}>
+            <a href={`/restaurants/${restaurant.id}`} onClick={handleClick(restaurant)}>
               {restaurant.name}
             </a>
           </Item>
