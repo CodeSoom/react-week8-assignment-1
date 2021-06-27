@@ -1,4 +1,9 @@
+import React from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
+
+import MenuList from './MenuList';
+import MenuItem from './MenuItem';
 
 import {
   selectCategory,
@@ -19,9 +24,12 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <MenuList>
       {categories.map((category) => (
-        <li key={category.id}>
+        <MenuItem
+          key={category.id}
+          active={selectedCategory && category.id === selectedCategory.id}
+        >
           <button
             type="button"
             onClick={() => handleClick(category.id)}
@@ -33,8 +41,8 @@ export default function CategoriesContainer() {
               </>
             ) : null}
           </button>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }
