@@ -37,7 +37,7 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
     };
   }
 
-  if (restaurants.length !== 0) {
+  if (restaurants.length === 0) {
     return (
       <p>식당을 선택하세요</p>
     )
