@@ -40,9 +40,9 @@ function MenuItems({ menuItems }) {
 
   return (
     <List>
-      {menuItems.map((menuItem) => (
-        <Item key={menuItem.id}>
-          {menuItem.name}
+      {menuItems.map(({ id, name }) => (
+        <Item key={id}>
+          {name}
         </Item>
       ))}
     </List>

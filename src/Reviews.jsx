@@ -52,17 +52,19 @@ function Reviews({ reviews }) {
   return (
     <ReviewBox>
       <List>
-        {sortedReviews.map((review) => (
-          <Item key={review.id}>
+        {sortedReviews.map(({
+          id, name, score, description,
+        }) => (
+          <Item key={id}>
             <div>
-              {review.name}
+              {name}
             </div>
             <div>
-              {review.score}
+              {score}
               점
             </div>
             <Description>
-              {review.description}
+              {description}
             </Description>
           </Item>
         ))}
