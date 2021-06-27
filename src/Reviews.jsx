@@ -14,7 +14,7 @@ const List = styled.ul({
   display: 'flex',
   flexWrap: 'wrap',
   borderRadius: '1em',
-  backgroundColor: `${colors.box}`,
+  backgroundColor: `${colors.background_gray}`,
   textAlign: 'center',
 });
 
@@ -24,9 +24,9 @@ const Item = styled.li({
   margin: '1.2em',
   padding: '.4em',
   borderRadius: '1em',
-  boxShadow: `1em 1em .5em ${colors.box}`,
+  boxShadow: `.5em .5em .2em ${colors.button_gray020}`,
   fontSize: '.5em',
-  backgroundColor: `${colors.basic}`,
+  backgroundColor: `${colors.base_white}`,
   textAlign: 'center',
   '& div': {
     display: 'inline-block',

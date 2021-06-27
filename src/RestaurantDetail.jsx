@@ -13,14 +13,14 @@ const Card = styled.div({
 
 const Name = styled.h2({
   margin: '1.5em auto',
-  color: `${colors.body}`,
+  color: `${colors.text_secondary}`,
   textAlign: 'center',
 });
 
 const Address = styled.p({
   margin: '.1em auto',
   padding: '0 15em',
-  color: `${colors.title}`,
+  color: `${colors.text_primary}`,
   fontSize: '.5em',
   textAlign: 'right',
 });
@@ -28,8 +28,8 @@ const Address = styled.p({
 const Menu = styled.h3({
   margin: '3em auto',
   padding: '1em 5em',
-  borderTop: `${colors.border} solid 1px`,
-  color: `${colors.body}`,
+  borderTop: `${colors.border_green} solid 1px`,
+  color: `${colors.text_secondary}`,
   fontSize: '1em',
 });
 

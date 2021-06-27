@@ -21,7 +21,7 @@ const Label = styled.label({
   display: 'inline-block',
   width: '30%',
   padding: '.5em',
-  color: `${colors.body}`,
+  color: `${colors.text_secondary}`,
   fontSize: '.9em',
   fontWeight: '700',
   textAlign: 'center',
@@ -30,8 +30,8 @@ const Label = styled.label({
 const Input = styled.input({
   width: '40%',
   padding: '.2em .5em',
-  outline: `${colors.titlehover} auto 2px`,
-  color: `${colors.input}`,
+  outline: `${colors.button_gray010} auto 2px`,
+  color: `${colors.button_gray020}`,
   fontSize: '.5em',
   fontWeight: '500',
 });

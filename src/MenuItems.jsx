@@ -8,8 +8,8 @@ const NoItem = styled.p({
   height: '20em',
   margin: '0 auto',
   padding: '0',
-  borderBottom: `${colors.border} solid 1px`,
-  color: `${colors.title}`,
+  borderBottom: `${colors.border_green} solid 1px`,
+  color: `${colors.text_primary}`,
   fontSize: '.5em',
   textAlign: 'center',
   lineHeight: '10em',
@@ -18,7 +18,7 @@ const NoItem = styled.p({
 const List = styled.ul({
   margin: '0 auto',
   padding: '1em 2em',
-  borderBottom: `${colors.border} solid 1px`,
+  borderBottom: `${colors.border_green} solid 1px`,
 });
 
 const Item = styled.li({
@@ -26,7 +26,7 @@ const Item = styled.li({
   width: '20%',
   height: '4em',
   margin: '1em 2.5em',
-  color: `${colors.title}`,
+  color: `${colors.text_primary}`,
   fontSize: '.7em',
   textAlign: 'center',
 });

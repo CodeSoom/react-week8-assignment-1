@@ -30,7 +30,7 @@ const Header = styled.header({
   margin: '.5em auto',
   borderTopLeftRadius: '1.5em',
   borderTopRightRadius: '1.5em',
-  backgroundColor: `${colors.back}`,
+  backgroundColor: `${colors.background_green}`,
   textAlign: 'center',
   '& h1': {
     display: 'block',
@@ -38,10 +38,10 @@ const Header = styled.header({
     lineHeight: '2.5em',
   },
   '& a': {
-    color: `${colors.title}`,
+    color: `${colors.text_primary}`,
     cursor: 'pointer',
     '&:hover': {
-      color: `${colors.body}`,
+      color: `${colors.text_secondary}`,
     },
   },
 });

@@ -18,14 +18,14 @@ const Item = styled.li({
   height: '3em',
   margin: '0 .5em',
   padding: '.4em .8em',
-  border: `${colors.border} solid 1px`,
+  border: `${colors.border_green} solid 1px`,
   borderRadius: '1em',
   fontSize: '.5em',
   lineHeight: '2em',
   '& a': {
-    color: `${colors.title}`,
+    color: `${colors.text_primary}`,
     '&:hover': {
-      color: `${colors.body}`,
+      color: `${colors.text_secondary}`,
       fontWeight: '700',
     },
   },

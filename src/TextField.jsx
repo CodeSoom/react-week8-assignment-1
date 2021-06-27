@@ -10,7 +10,7 @@ const ReviewField = styled.div({
     display: 'inline-block',
     width: '90px',
     padding: '.5em 0',
-    color: `${colors.title}`,
+    color: `${colors.text_primary}`,
     fontSize: '.5em',
     fontWeight: '700',
     textAlign: 'center',
@@ -18,8 +18,8 @@ const ReviewField = styled.div({
   '& input': {
     width: '13em',
     padding: '.2em',
-    outline: `${colors.titlehover} auto 2px`,
-    color: `${colors.input}`,
+    outline: `${colors.text_secondary} auto 2px`,
+    color: `${colors.button_gray020}`,
     fontWeight: '500',
   },
 });

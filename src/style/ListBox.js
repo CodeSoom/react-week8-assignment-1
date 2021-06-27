@@ -4,10 +4,10 @@ import colors from './colors';
 const ListBox = styled.div({
   width: '90%',
   margin: '.4em auto',
-  borderBottom: `${colors.back} solid 1px`,
+  borderBottom: `${colors.background_green} solid 1px`,
   '& h4': {
     margin: '1em 2em',
-    color: `${colors.body}`,
+    color: `${colors.text_secondary}`,
     fontSize: '.8em',
   },
 });

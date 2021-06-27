@@ -21,9 +21,9 @@ const Item = styled.li({
   textAlign: 'center',
   lineHeight: '10em',
   '& a': {
-    color: `${colors.title}`,
+    color: `${colors.text_primary}`,
     '&:hover': {
-      color: `${colors.body}`,
+      color: `${colors.text_secondary}`,
       fontWeight: '700',
     },
   },

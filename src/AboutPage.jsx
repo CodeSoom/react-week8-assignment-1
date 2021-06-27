@@ -11,7 +11,7 @@ const Body = styled.div({
 
 const Text = styled.p({
   padding: '.5em 4em',
-  color: `${colors.body}`,
+  color: `${colors.text_secondary}`,
   fontSize: '.8em',
 });
 
