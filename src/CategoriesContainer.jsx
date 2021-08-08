@@ -1,11 +1,22 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from '@emotion/styled';
 
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+import Button from './Button';
+
+const Categories = styled.ul({
+  display: 'flex',
+  margin: '20px 0',
+  '& li': {
+    marginRight: '5px',
+  },
+});
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -13,16 +24,18 @@ export default function CategoriesContainer() {
   const categories = useSelector(get('categories'));
   const selectedCategory = useSelector(get('selectedCategory'));
 
-  function handleClick(categoryId) {
+  const handleClick = useCallback((categoryId) => {
     dispatch(selectCategory(categoryId));
     dispatch(loadRestaurants());
-  }
+  }, [dispatch]);
 
   return (
-    <ul>
+    <Categories>
       {categories.map((category) => (
         <li key={category.id}>
-          <button
+          <Button
+            background="#28a745"
+            hoverBackground="#218838"
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -32,9 +45,9 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </Button>
         </li>
       ))}
-    </ul>
+    </Categories>
   );
 }

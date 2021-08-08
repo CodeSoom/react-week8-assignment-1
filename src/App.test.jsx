@@ -66,7 +66,7 @@ describe('App', () => {
     it('renders the not found page', () => {
       const { container } = renderApp({ path: '/xxx' });
 
-      expect(container).toHaveTextContent('Not Found');
+      expect(container).toContainHTML('<img alt=');
     });
   });
 
@@ -89,12 +89,12 @@ describe('App', () => {
       loadItem.mockImplementation(() => accessToken);
     });
 
-    it('calls dispatch with “setAccessToken” action', () => {
+    it('calls dispatch with “application/setAccessToken” action', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'application/setAccessToken',
+        payload: accessToken,
       });
     });
   });

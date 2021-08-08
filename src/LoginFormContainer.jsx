@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LoginForm from './LoginForm';
@@ -7,7 +8,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
@@ -17,17 +18,18 @@ export default function LoginFormContainer() {
   const loginFields = useSelector(get('loginFields'));
   const accessToken = useSelector(get('accessToken'));
 
-  const handleChange = ({ name, value }) => {
+  const handleChange = useCallback(({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
-  };
+  }, [dispatch]);
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     dispatch(requestLogin());
-  };
+  }, [dispatch]);
 
-  const handleClickLogout = () => {
+  // 질문: 이 아이는 굳이 메모리에 올려서 캐싱을 할 필요가 없어보이는데 트레이너님 의견은 어떠신가요?
+  const handleClickLogout = useCallback(() => {
     dispatch(logout());
-  };
+  }, [dispatch]);
 
   return (
     <>
