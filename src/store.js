@@ -1,9 +1,8 @@
-import { createStore, applyMiddleware } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+// Redux Toolkit의 configureStore 사용하여 store 생성시, 기본으로 thunk 미들웨어 지원
 
-import thunk from 'redux-thunk';
+import reducer from './slice';
 
-import reducer from './reducer';
-
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = configureStore({ reducer });
 
 export default store;

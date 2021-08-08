@@ -1,4 +1,6 @@
-export default function AboutPage() {
+import { memo } from 'react';
+
+function AboutPage() {
   return (
     <div>
       <h2>이 서비스에 대해서...</h2>
@@ -7,3 +9,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
+export default memo(AboutPage);

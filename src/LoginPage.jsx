@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import LoginFormContainer from './LoginFormContainer';
 
-export default function LoginPage() {
+function LoginPage() {
   return (
     <div>
       <h2>Log In</h2>
@@ -8,3 +9,5 @@ export default function LoginPage() {
     </div>
   );
 }
+
+export default memo(LoginPage);
