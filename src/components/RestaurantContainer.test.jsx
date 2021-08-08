@@ -17,12 +17,14 @@ describe('RestaurantContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      restaurant: given.restaurant,
-      reviewFields: {
-        score: '',
-        description: '',
+      restaurant: {
+        restaurant: given.restaurant,
+        reviewFields: {
+          score: '',
+          description: '',
+        },
+        accessToken: given.accessToken,
       },
-      accessToken: given.accessToken,
     }));
   });
 
@@ -52,6 +54,8 @@ describe('RestaurantContainer', () => {
     });
 
     context('without logged-in', () => {
+      given('accessToken', () => 'ACCESS_TOKEN');
+
       it('renders no review write field', () => {
         const { queryByLabelText } = renderRestaurantContainer();
 
@@ -61,7 +65,7 @@ describe('RestaurantContainer', () => {
     });
 
     context('with logged-in', () => {
-      given('accessToken', () => 'ACCESS_TOKEN');
+      given('accessToken', () => null);
 
       it('renders review write fields', () => {
         const { queryByLabelText } = renderRestaurantContainer();
@@ -82,7 +86,7 @@ describe('RestaurantContainer', () => {
           fireEvent.change(getByLabelText(label), { target: { value } });
 
           expect(dispatch).toBeCalledWith({
-            type: 'changeReviewField',
+            type: 'restaurant/changeReviewField',
             payload: { name, value },
           });
         });

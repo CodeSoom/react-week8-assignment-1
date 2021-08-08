@@ -24,15 +24,17 @@ describe('RestaurantsPage', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      regions: [
-        { id: 1, name: '서울' },
-      ],
-      categories: [
-        { id: 1, name: '한식' },
-      ],
-      restaurants: [
-        { id: 1, name: '마법사주방' },
-      ],
+      restaurant: {
+        regions: [
+          { id: 1, name: '서울' },
+        ],
+        categories: [
+          { id: 1, name: '한식' },
+        ],
+        restaurants: [
+          { id: 1, name: '마법사주방' },
+        ],
+      },
     }));
   });
 

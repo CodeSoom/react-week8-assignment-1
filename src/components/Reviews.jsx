@@ -1,4 +1,6 @@
-export default function Reviews({ reviews }) {
+import React from 'react';
+
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -7,20 +9,24 @@ export default function Reviews({ reviews }) {
 
   return (
     <ul>
-      {sortedReviews.map((review) => (
-        <li key={review.id}>
+      {sortedReviews.map(({
+        id, name, score, description,
+      }) => (
+        <li key={id}>
           <div>
-            {review.name}
+            {name}
           </div>
           <div>
-            {review.score}
+            {score}
             점
           </div>
           <div>
-            {review.description}
+            {description}
           </div>
         </li>
       ))}
     </ul>
   );
 }
+
+export default React.memo(Reviews);

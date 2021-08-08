@@ -11,9 +11,11 @@ jest.mock('react-redux');
 describe('LoginPage', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
-      loginFields: {
-        email: 'test@test',
-        password: '1234',
+      restaurant: {
+        loginFields: {
+          email: 'test@test',
+          password: '1234',
+        },
       },
     }));
   });
@@ -25,7 +27,7 @@ describe('LoginPage', () => {
       </MemoryRouter>
     ));
 
-    expect(container).toHaveTextContent('Log In');
+    expect(container).toHaveTextContent('Log In / Log Out');
   });
 
   it('renders input control', () => {

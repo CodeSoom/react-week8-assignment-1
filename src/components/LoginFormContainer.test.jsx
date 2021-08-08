@@ -15,11 +15,13 @@ describe('LoginFormContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      loginFields: {
-        email: 'test@test',
-        password: '1234',
+      restaurant: {
+        loginFields: {
+          email: 'test@test',
+          password: '1234',
+        },
+        accessToken: given.accessToken,
       },
-      accessToken: given.accessToken,
     }));
   });
 
@@ -45,7 +47,7 @@ describe('LoginFormContainer', () => {
       });
 
       expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
+        type: 'restaurant/changeLoginField',
         payload: { name: 'email', value: 'new email' },
       });
     });
@@ -71,7 +73,12 @@ describe('LoginFormContainer', () => {
 
       fireEvent.click(getByText('Log out'));
 
-      expect(dispatch).toBeCalledWith({ type: 'logout' });
+      expect(dispatch).toBeCalledWith(
+        {
+          type: 'restaurant/logout',
+          payload: undefined,
+        },
+      );
     });
   });
 });

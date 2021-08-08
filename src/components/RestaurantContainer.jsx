@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,11 +8,10 @@ import Reviews from './Reviews';
 
 import {
   loadRestaurant,
-  changeReviewField,
   sendReview,
-} from './actions';
+} from '../redux_modules/asyncActions';
 
-import { get } from './utils';
+import { changeReviewField } from '../redux_modules/restaurantSlice';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -21,9 +20,17 @@ export default function RestaurantContainer({ restaurantId }) {
     dispatch(loadRestaurant({ restaurantId }));
   }, []);
 
-  const accessToken = useSelector(get('accessToken'));
-  const restaurant = useSelector(get('restaurant'));
-  const reviewFields = useSelector(get('reviewFields'));
+  const accessToken = useSelector((state) => state.restaurant.accessToken);
+  const restaurant = useSelector((state) => state.restaurant.restaurant);
+  const reviewFields = useSelector((state) => state.restaurant.reviewFields);
+
+  const handleChange = useCallback(({ name, value }) => {
+    dispatch(changeReviewField({ name, value }));
+  }, [dispatch]);
+
+  const handleSubmit = useCallback(() => {
+    dispatch(sendReview({ restaurantId }));
+  }, [dispatch, restaurantId]);
 
   if (!restaurant) {
     return (
@@ -31,18 +38,10 @@ export default function RestaurantContainer({ restaurantId }) {
     );
   }
 
-  function handleChange({ name, value }) {
-    dispatch(changeReviewField({ name, value }));
-  }
-
-  function handleSubmit() {
-    dispatch(sendReview({ restaurantId }));
-  }
-
   return (
     <>
       <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
+      {(accessToken === null) ? (
         <ReviewForm
           fields={reviewFields}
           onChange={handleChange}

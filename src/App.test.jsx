@@ -22,11 +22,13 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      regions: [
-        { id: 1, name: '서울' },
-      ],
-      categories: [],
-      restaurants: [],
+      restaurant: {
+        regions: [
+          { id: 1, name: '서울' },
+        ],
+        categories: [],
+        restaurants: [],
+      },
     }));
   });
 
@@ -93,8 +95,8 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'restaurant/setAccessToken',
+        payload: 'ACCESS_TOKEN',
       });
     });
   });

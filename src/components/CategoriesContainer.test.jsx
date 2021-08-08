@@ -12,11 +12,13 @@ describe('CategoriesContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      categories: [
-        { id: 1, name: '한식' },
-        { id: 2, name: '양식' },
-      ],
-      selectedCategory: { id: 1, name: '한식' },
+      restaurant: {
+        categories: [
+          { id: 1, name: '한식' },
+          { id: 2, name: '양식' },
+        ],
+        selectedCategory: { id: 1, name: '한식' },
+      },
     }));
   });
 

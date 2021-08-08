@@ -5,17 +5,17 @@ import LogoutForm from './LogoutForm';
 
 import {
   changeLoginField,
-  requestLogin,
   logout,
-} from './actions';
+  setAccessToken,
+} from '../redux_modules/restaurantSlice';
 
-import { get } from './utils';
+import { requestLogin } from '../redux_modules/asyncActions';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
-  const loginFields = useSelector(get('loginFields'));
-  const accessToken = useSelector(get('accessToken'));
+  const loginFields = useSelector((state) => state.restaurant.loginFields);
+  const accessToken = useSelector((state) => state.restaurant.accessToken);
 
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
@@ -27,6 +27,7 @@ export default function LoginFormContainer() {
 
   const handleClickLogout = () => {
     dispatch(logout());
+    dispatch(setAccessToken(null));
   };
 
   return (

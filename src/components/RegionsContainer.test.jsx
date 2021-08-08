@@ -12,11 +12,13 @@ describe('RegionsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      regions: [
-        { id: 1, name: '서울' },
-        { id: 2, name: '부산' },
-      ],
-      selectedRegion: { id: 1, name: '서울' },
+      restaurant: {
+        regions: [
+          { id: 1, name: '서울' },
+          { id: 2, name: '부산' },
+        ],
+        selectedRegion: { id: 1, name: '서울' },
+      },
     }));
   });
 
