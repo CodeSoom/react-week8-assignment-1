@@ -8,6 +8,8 @@ import RegionsContainer from './RegionsContainer';
 import CategoriesContainer from './CategoriesContainer';
 import RestaurantsContainer from './RestaurantsContainer';
 
+import PageTitle from './PageTitle';
+
 import {
   loadInitialData,
 } from './actions';
@@ -28,6 +30,7 @@ export default function RestaurantsPage() {
 
   return (
     <div>
+      <PageTitle>Restaurants</PageTitle>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />

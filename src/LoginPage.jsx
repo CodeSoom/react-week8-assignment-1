@@ -1,9 +1,11 @@
 import LoginFormContainer from './LoginFormContainer';
 
+import PageTitle from './PageTitle';
+
 export default function LoginPage() {
   return (
     <div>
-      <h2>Log In</h2>
+      <PageTitle>Log In</PageTitle>
       <LoginFormContainer />
     </div>
   );
