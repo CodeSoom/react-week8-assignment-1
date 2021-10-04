@@ -1,19 +1,7 @@
 import { memo } from 'react';
 
-import styled from '@emotion/styled';
-
 import FormButton from './FormButton';
-
-const Form = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  marginBottom: '10px',
-  '& input': {
-    width: '150px',
-    border: 'none',
-    borderBottom: '1px solid black',
-  },
-});
+import InputForm from './InputForm';
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
@@ -25,7 +13,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
 
   return (
     <>
-      <Form>
+      <InputForm>
         <label htmlFor="login-email">
           E-mail
         </label>
@@ -36,8 +24,8 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           value={email}
           onChange={handleChange}
         />
-      </Form>
-      <Form>
+      </InputForm>
+      <InputForm>
         <label htmlFor="login-password">
           Password
         </label>
@@ -48,7 +36,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           value={password}
           onChange={handleChange}
         />
-      </Form>
+      </InputForm>
       <FormButton
         type="button"
         onClick={onSubmit}

@@ -7,6 +7,10 @@ const FormButton = styled.div({
   padding: '5px',
   borderRadius: '3px',
   cursor: 'pointer',
+  marginBottom: '10px',
+  '&:hover': {
+    color: '#2ecc71',
+  },
 });
 
 export default FormButton;
