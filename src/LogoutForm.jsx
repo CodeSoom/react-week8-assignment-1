@@ -1,12 +1,14 @@
+import FormButton from './FormButton';
+
 export default function LogoutForm({ onClick }) {
   return (
     <>
-      <button
+      <FormButton
         type="button"
         onClick={onClick}
       >
         Log out
-      </button>
+      </FormButton>
     </>
   );
 }
