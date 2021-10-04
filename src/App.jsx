@@ -28,7 +28,7 @@ const Header = styled.header({
   backgroundColor: '#EEE',
   padding: '10px 5px',
   '& h1': {
-    fontSize: '1.5em',
+    fontSize: '2em',
   },
   '& a': {
     color: '#2ecc71',
