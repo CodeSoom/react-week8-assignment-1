@@ -12,7 +12,7 @@ import PageTitle from './PageTitle';
 
 import {
   loadInitialData,
-} from './actions';
+} from './slice';
 
 export default function RestaurantsPage() {
   const history = useHistory();

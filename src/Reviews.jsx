@@ -12,7 +12,7 @@ const Item = styled.li({
   borderRadius: '15px',
   '& div': {
     padding: '5px 10px',
-    '&:first-child': {
+    '&:first-of-type': {
       color: '#2ecc71',
       fontWeight: '600',
     },
