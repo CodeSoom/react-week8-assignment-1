@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const FormButton = styled.div({
+const FormButton = styled.button({
   width: 'fit-content',
   border: 'none',
   backgroundColor: '#EEE',
