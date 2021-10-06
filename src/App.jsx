@@ -6,12 +6,16 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import { Global } from '@emotion/react';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
 import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
+
+import Reset from './Reset';
 
 import { setAccessToken } from './slice';
 
@@ -27,6 +31,7 @@ export default function App() {
 
   return (
     <div>
+      <Global styles={Reset} />
       <header>
         <h1>
           <Link to="/">헤더 영역</Link>
