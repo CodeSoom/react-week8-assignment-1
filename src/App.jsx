@@ -26,8 +26,9 @@ const Container = styled.div({
 
 const Header = styled.header({
   backgroundColor: '#EEE',
+  textAlign: 'center',
   '& h1': {
-    fontSize: '2em',
+    fontSize: '2.5em',
     margin: 0,
     padding: '1em .5em',
   },
