@@ -3,17 +3,17 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const List = styled.ul({
-  listStyle: 'none',
-  padding: '0',
   margin: '0',
+  padding: '0',
+  listStyle: 'none',
 });
 
 const Item = styled.li({
-  marginBottom: '10px',
+  marginBottom: '.8em',
+  borderRadius: '.5em',
   backgroundColor: '#EEE',
-  borderRadius: '15px',
   '& div': {
-    padding: '5px 10px',
+    padding: '.3em .6em',
     '&:first-of-type': {
       color: '#2ecc71',
       fontWeight: '600',

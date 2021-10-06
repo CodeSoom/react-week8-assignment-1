@@ -5,8 +5,8 @@ import styled from '@emotion/styled';
 import MenuItems from './MenuItems';
 
 const Container = styled.div({
+  marginBottom: '1em',
   borderBottom: '1px solid rgba(0, 0, 0, 0.3)',
-  marginBottom: '15px',
 });
 
 function RestaurantDetail({ restaurant }) {

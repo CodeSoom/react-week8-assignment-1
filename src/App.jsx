@@ -20,13 +20,13 @@ import { setAccessToken } from './slice';
 import { loadItem } from './services/storage';
 
 const Container = styled.div({
-  padding: '0 15px',
+  padding: '0 1em',
 });
 
 const Header = styled.header({
+  padding: '1em .5em',
   width: '100%',
   backgroundColor: '#EEE',
-  padding: '10px 5px',
   '& h1': {
     fontSize: '2em',
   },

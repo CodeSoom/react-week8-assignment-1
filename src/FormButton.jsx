@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
 const FormButton = styled.button({
-  width: 'fit-content',
+  marginBottom: '1em',
   border: 'none',
+  borderRadius: '.3em',
+  padding: '.3em',
+  width: 'fit-content',
   backgroundColor: '#EEE',
-  padding: '5px',
-  borderRadius: '3px',
   cursor: 'pointer',
-  marginBottom: '10px',
   '&:hover': {
     color: '#2ecc71',
   },

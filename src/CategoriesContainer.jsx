@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import MenuList from './MenuList';
+import Menu from './Menu';
 import MenuItem from './MenuItem';
 
 import {
@@ -22,7 +22,7 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <MenuList>
+    <Menu>
       {categories.map((category) => (
         <MenuItem
           key={category.id}
@@ -41,6 +41,6 @@ export default function CategoriesContainer() {
           </button>
         </MenuItem>
       ))}
-    </MenuList>
+    </Menu>
   );
 }

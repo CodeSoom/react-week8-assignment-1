@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 import PageTitle from './PageTitle';
-import MenuList from './MenuList';
+import Menu from './Menu';
 
 const Container = styled.div({
   padding: '10px 5px',
@@ -25,12 +25,12 @@ export default function HomePage() {
   return (
     <Container>
       <PageTitle>Home</PageTitle>
-      <MenuList>
+      <Menu>
         <Item><Link to="/about">About</Link></Item>
         <Item><Link to="/login">Log in</Link></Item>
         <Item><Link to="/restaurants">Restaurants</Link></Item>
         <Item><Link to="/xxx">멸망의 길</Link></Item>
-      </MenuList>
+      </Menu>
     </Container>
   );
 }
