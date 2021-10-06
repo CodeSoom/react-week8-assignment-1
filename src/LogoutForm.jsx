@@ -1,6 +1,8 @@
+import React from 'react';
+
 import FormButton from './FormButton';
 
-export default function LogoutForm({ onClick }) {
+function LogoutForm({ onClick }) {
   return (
     <>
       <FormButton
@@ -12,3 +14,5 @@ export default function LogoutForm({ onClick }) {
     </>
   );
 }
+
+export default React.memo(LogoutForm);

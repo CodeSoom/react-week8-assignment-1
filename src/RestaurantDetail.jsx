@@ -1,4 +1,7 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
+
 import MenuItems from './MenuItems';
 
 const Container = styled.div({
@@ -6,7 +9,7 @@ const Container = styled.div({
   marginBottom: '15px',
 });
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -22,3 +25,5 @@ export default function RestaurantDetail({ restaurant }) {
     </Container>
   );
 }
+
+export default React.memo(RestaurantDetail);
