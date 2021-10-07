@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 const MenuItem = styled.li(({ active }) => ({
+  boxSizing: 'border-box',
   marginRight: '1em',
   '& button': {
     padding: '.4em .5em',
