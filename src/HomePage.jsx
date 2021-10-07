@@ -2,11 +2,19 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-import PageTitle from './PageTitle';
-import Menu from './Menu';
+const Title = styled.h2({
+  fontsize: '1.5em',
+});
 
 const Container = styled.div({
   padding: '10px 5px',
+});
+
+const List = styled.ul({
+  margin: '0',
+  padding: '0',
+  display: 'flex',
+  listStyle: 'none',
 });
 
 const Item = styled.li({
@@ -24,13 +32,13 @@ const Item = styled.li({
 export default function HomePage() {
   return (
     <Container>
-      <PageTitle>Home</PageTitle>
-      <Menu>
+      <Title>Home</Title>
+      <List>
         <Item><Link to="/about">About</Link></Item>
         <Item><Link to="/login">Log in</Link></Item>
         <Item><Link to="/restaurants">Restaurants</Link></Item>
         <Item><Link to="/xxx">멸망의 길</Link></Item>
-      </Menu>
+      </List>
     </Container>
   );
 }

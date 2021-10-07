@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -21,7 +21,7 @@ const Item = styled.li({
   },
 });
 
-function Reviews({ reviews }) {
+const Reviews = memo(({ reviews }) => {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -47,6 +47,6 @@ function Reviews({ reviews }) {
       ))}
     </List>
   );
-}
+});
 
-export default React.memo(Reviews);
+export default Reviews;

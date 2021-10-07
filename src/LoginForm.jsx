@@ -1,7 +1,30 @@
 import { memo } from 'react';
 
-import FormButton from './FormButton';
-import InputForm from './InputForm';
+import styled from '@emotion/styled';
+
+const Form = styled.div({
+  marginBottom: '.5em',
+  display: 'flex',
+  flexDirection: 'column',
+  '& input': {
+    border: 'none',
+    borderBottom: '1px solid black',
+    width: '10em',
+  },
+});
+
+const Button = styled.button({
+  marginBottom: '1em',
+  border: 'none',
+  borderRadius: '.3em',
+  padding: '.3em',
+  width: 'fit-content',
+  backgroundColor: '#EEE',
+  cursor: 'pointer',
+  '&:hover': {
+    color: '#2ecc71',
+  },
+});
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
@@ -13,7 +36,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
 
   return (
     <>
-      <InputForm>
+      <Form>
         <label htmlFor="login-email">
           E-mail
         </label>
@@ -24,8 +47,8 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           value={email}
           onChange={handleChange}
         />
-      </InputForm>
-      <InputForm>
+      </Form>
+      <Form>
         <label htmlFor="login-password">
           Password
         </label>
@@ -36,13 +59,13 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           value={password}
           onChange={handleChange}
         />
-      </InputForm>
-      <FormButton
+      </Form>
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </FormButton>
+      </Button>
     </>
   );
 });

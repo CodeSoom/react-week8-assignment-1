@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -9,7 +9,7 @@ const Container = styled.div({
   borderBottom: '1px solid rgba(0, 0, 0, 0.3)',
 });
 
-function RestaurantDetail({ restaurant }) {
+const RestaurantDetail = memo(({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -24,6 +24,6 @@ function RestaurantDetail({ restaurant }) {
       <MenuItems menuItems={menuItems} />
     </Container>
   );
-}
+});
 
-export default React.memo(RestaurantDetail);
+export default RestaurantDetail;

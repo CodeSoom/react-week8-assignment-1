@@ -1,10 +1,23 @@
-import React from 'react';
+import { memo } from 'react';
+
+import styled from '@emotion/styled';
 
 import TextField from './TextField';
 
-import FormButton from './FormButton';
+const Button = styled.button({
+  marginBottom: '1em',
+  border: 'none',
+  borderRadius: '.3em',
+  padding: '.3em',
+  width: 'fit-content',
+  backgroundColor: '#EEE',
+  cursor: 'pointer',
+  '&:hover': {
+    color: '#2ecc71',
+  },
+});
 
-function ReviewForm({ fields, onChange, onSubmit }) {
+const ReviewForm = memo(({ fields, onChange, onSubmit }) => {
   const { score, description } = fields;
 
   return (
@@ -22,14 +35,14 @@ function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <FormButton
-        type="FormButton"
+      <Button
+        type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </FormButton>
+      </Button>
     </>
   );
-}
+});
 
-export default React.memo(ReviewForm);
+export default ReviewForm;

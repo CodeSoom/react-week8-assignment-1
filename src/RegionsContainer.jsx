@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -7,8 +9,26 @@ import {
 
 import { get } from './utils';
 
-import Menu from './Menu';
-import MenuItem from './MenuItem';
+const List = styled.ul({
+  margin: '0',
+  padding: '0',
+  display: 'flex',
+  listStyle: 'none',
+});
+
+const Item = styled.li(({ active }) => ({
+  marginRight: '5px',
+  padding: '10px',
+  '& button': {
+    border: 'none',
+    borderRadius: '5px',
+    padding: '5px 10px',
+    background: active ? '#2ecc71' : '#EEE',
+    color: active ? '#EEE' : 'black',
+    outline: 'none',
+    cursor: 'pointer',
+  },
+}));
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -22,9 +42,9 @@ export default function RegionsContainer() {
   }
 
   return (
-    <Menu>
+    <List>
       {regions.map((region) => (
-        <MenuItem
+        <Item
           key={region.id}
           active={selectedRegion && region.id === selectedRegion.id ? '(V)' : null}
         >
@@ -39,8 +59,8 @@ export default function RegionsContainer() {
               </>
             ) : null}
           </button>
-        </MenuItem>
+        </Item>
       ))}
-    </Menu>
+    </List>
   );
 }

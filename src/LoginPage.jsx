@@ -1,11 +1,15 @@
+import styled from '@emotion/styled';
+
 import LoginFormContainer from './LoginFormContainer';
 
-import PageTitle from './PageTitle';
+const Title = styled.h2({
+  fontsize: '1.5em',
+});
 
 export default function LoginPage() {
   return (
     <div>
-      <PageTitle>Log In</PageTitle>
+      <Title>Log In</Title>
       <LoginFormContainer />
     </div>
   );

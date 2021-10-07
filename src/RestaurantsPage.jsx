@@ -2,17 +2,21 @@ import { useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
+import styled from '@emotion/styled';
+
 import { useDispatch } from 'react-redux';
 
 import RegionsContainer from './RegionsContainer';
 import CategoriesContainer from './CategoriesContainer';
 import RestaurantsContainer from './RestaurantsContainer';
 
-import PageTitle from './PageTitle';
-
 import {
   loadInitialData,
 } from './slice';
+
+const Title = styled.h2({
+  fontsize: '1.5em',
+});
 
 export default function RestaurantsPage() {
   const history = useHistory();
@@ -30,7 +34,7 @@ export default function RestaurantsPage() {
 
   return (
     <div>
-      <PageTitle>Restaurants</PageTitle>
+      <Title>Restaurants</Title>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
