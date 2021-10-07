@@ -2,8 +2,8 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import MenuList from '../styles/MenuList';
-import MenuItem from '../styles/MenuItem';
+import MenuList from './MenuList';
+import MenuItem from './MenuItem';
 
 import {
   selectRegion,

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const Title = styled.h2({
-  margin: 0,
   fontSize: '2em',
+  margin: 0,
   padding: '.4em 0',
 });
 
