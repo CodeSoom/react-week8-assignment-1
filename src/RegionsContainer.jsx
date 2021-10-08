@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import {
   selectRegion,
   loadRestaurants,
@@ -19,10 +21,10 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
+    <Ul>
       {regions.map((region) => (
         <li key={region.id}>
-          <button
+          <Button
             type="button"
             onClick={() => handleClick(region.id)}
           >
@@ -32,9 +34,25 @@ export default function RegionsContainer() {
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </Button>
         </li>
       ))}
-    </ul>
+    </Ul>
   );
 }
+
+const Ul = styled.ul`
+  display: flex;
+  justify-content: space-around;
+`;
+
+const Button = styled.button`
+  padding: 0.5em 1.5em;
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  &:hover {
+    color: #FFF;
+    background-color: #000;
+  }
+`;

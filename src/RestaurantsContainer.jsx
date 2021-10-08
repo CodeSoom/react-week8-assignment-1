@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import { get } from './utils';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
@@ -13,14 +15,28 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <ul>
+    <Ul>
       {restaurants.map((restaurant) => (
         <li key={restaurant.id}>
-          <a href="/restaurants/1" onClick={handleClick(restaurant)}>
+          <RestaurantName
+            href="/restaurants/1"
+            onClick={handleClick(restaurant)}
+          >
             {restaurant.name}
-          </a>
+          </RestaurantName>
         </li>
       ))}
-    </ul>
+    </Ul>
   );
 }
+
+const Ul = styled.ul`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2em;
+`;
+
+const RestaurantName = styled.a`
+  font-size: 1.2em;
+  color: rgb(255, 0, 0);
+`;
