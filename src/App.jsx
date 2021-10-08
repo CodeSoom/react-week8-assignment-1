@@ -7,6 +7,7 @@ import {
 import { useDispatch } from 'react-redux';
 
 import { Global } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
@@ -32,11 +33,11 @@ export default function App() {
   return (
     <div>
       <Global styles={Reset} />
-      <header>
+      <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <StyledLink to="/">헤더 영역</StyledLink>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -48,3 +49,12 @@ export default function App() {
     </div>
   );
 }
+
+const Header = styled.header`
+  text-align: center;
+  margin-bottom: 2em;
+`;
+
+const StyledLink = styled(Link)`
+  font-size: 2em;
+`;
