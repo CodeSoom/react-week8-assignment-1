@@ -10,19 +10,19 @@ import {
 import { get } from './utils';
 
 const List = styled.ul({
-  margin: '0',
-  padding: '0',
   display: 'flex',
   listStyle: 'none',
+  margin: '0',
+  padding: '0',
 });
 
 const Item = styled.li(({ active }) => ({
-  marginRight: '5px',
-  padding: '10px',
+  marginRight: '.3em',
+  padding: '.6em',
   '& button': {
     border: 'none',
-    borderRadius: '5px',
-    padding: '5px 10px',
+    borderRadius: '.3em',
+    padding: '.3em .6em',
     background: active ? '#2ecc71' : '#EEE',
     color: active ? '#EEE' : 'black',
     outline: 'none',

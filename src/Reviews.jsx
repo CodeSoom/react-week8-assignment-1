@@ -3,9 +3,9 @@ import { memo } from 'react';
 import styled from '@emotion/styled';
 
 const List = styled.ul({
+  listStyle: 'none',
   margin: '0',
   padding: '0',
-  listStyle: 'none',
 });
 
 const Item = styled.li({
@@ -15,8 +15,8 @@ const Item = styled.li({
   '& div': {
     padding: '.3em .6em',
     '&:first-of-type': {
-      color: '#2ecc71',
       fontWeight: '600',
+      color: '#2ecc71',
     },
   },
 });

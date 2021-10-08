@@ -7,19 +7,19 @@ const Title = styled.h2({
 });
 
 const Container = styled.div({
-  padding: '10px 5px',
+  padding: '.3em .6em',
 });
 
 const List = styled.ul({
-  margin: '0',
-  padding: '0',
   display: 'flex',
   listStyle: 'none',
+  margin: '0',
+  padding: '0',
 });
 
 const Item = styled.li({
-  marginRight: '5px',
-  padding: '10px',
+  marginRight: '.3em',
+  padding: '.6em',
   '& a': {
     color: 'black',
     textDecoration: 'none',

@@ -5,11 +5,11 @@ import styled from '@emotion/styled';
 import TextField from './TextField';
 
 const Button = styled.button({
+  width: 'fit-content',
   marginBottom: '1em',
   border: 'none',
   borderRadius: '.3em',
   padding: '.3em',
-  width: 'fit-content',
   backgroundColor: '#EEE',
   cursor: 'pointer',
   '&:hover': {

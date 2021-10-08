@@ -3,22 +3,22 @@ import { memo } from 'react';
 import styled from '@emotion/styled';
 
 const Form = styled.div({
-  marginBottom: '.5em',
   display: 'flex',
   flexDirection: 'column',
+  marginBottom: '.5em',
   '& input': {
+    width: '10em',
     border: 'none',
     borderBottom: '1px solid black',
-    width: '10em',
   },
 });
 
 const Button = styled.button({
+  width: 'fit-content',
   marginBottom: '1em',
   border: 'none',
   borderRadius: '.3em',
   padding: '.3em',
-  width: 'fit-content',
   backgroundColor: '#EEE',
   cursor: 'pointer',
   '&:hover': {
