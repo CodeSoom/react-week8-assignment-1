@@ -6,7 +6,7 @@ import MenuItem from './MenuItem';
 import {
   selectRegion,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
