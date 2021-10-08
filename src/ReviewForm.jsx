@@ -10,7 +10,8 @@ const Button = styled.button({
   border: 'none',
   borderRadius: '.3em',
   padding: '.3em',
-  backgroundColor: '#EEE',
+  backgroundColor: '#718093',
+  color: 'white',
   cursor: 'pointer',
   '&:hover': {
     color: '#2ecc71',
