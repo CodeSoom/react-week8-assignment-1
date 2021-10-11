@@ -1,11 +1,34 @@
+import styled from '@emotion/styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+const List = styled.ul({
+  display: 'flex',
+  listStyle: 'none',
+  margin: '0',
+  padding: '0',
+});
+
+const Item = styled.li(({ active }) => ({
+  marginRight: '.3em',
+  padding: '.6em',
+  '& button': {
+    border: 'none',
+    borderRadius: '.3em',
+    padding: '.3em .6em',
+    background: active ? '#2ecc71' : '#EEE',
+    color: active ? '#EEE' : 'black',
+    outline: 'none',
+    cursor: 'pointer',
+  },
+}));
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -19,9 +42,12 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <List>
       {categories.map((category) => (
-        <li key={category.id}>
+        <Item
+          key={category.id}
+          active={selectedCategory && category.id === selectedCategory.id ? '(V)' : null}
+        >
           <button
             type="button"
             onClick={() => handleClick(category.id)}
@@ -33,8 +59,8 @@ export default function CategoriesContainer() {
               </>
             ) : null}
           </button>
-        </li>
+        </Item>
       ))}
-    </ul>
+    </List>
   );
 }

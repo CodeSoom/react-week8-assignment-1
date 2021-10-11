@@ -1,3 +1,16 @@
+import styled from '@emotion/styled';
+
+const Form = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '.5em',
+  '& input': {
+    width: '10em',
+    border: 'none',
+    borderBottom: '1px solid black',
+  },
+});
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -9,7 +22,7 @@ export default function TextField({
   }
 
   return (
-    <div>
+    <Form>
       <label htmlFor={id}>
         {label}
       </label>
@@ -20,6 +33,6 @@ export default function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Form>
   );
 }
