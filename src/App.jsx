@@ -6,6 +6,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -17,6 +19,12 @@ import { setAccessToken } from './actions';
 
 import { loadItem } from './services/storage';
 
+const Container = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -26,10 +34,10 @@ export default function App() {
   }
 
   return (
-    <div>
+    <Container>
       <header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">Eat Go</Link>
         </h1>
       </header>
       <Switch>
@@ -40,6 +48,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Container>
   );
 }
