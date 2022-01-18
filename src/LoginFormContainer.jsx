@@ -18,16 +18,16 @@ export default function LoginFormContainer() {
   const loginFields = useSelector(get('loginFields'));
   const accessToken = useSelector(get('accessToken'));
 
-  const handleClickLogout = () => {
-    dispatch(logout());
-  };
-
   const handleChange = useCallback(({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
   }, [dispatch]);
 
   const handleSubmit = useCallback(() => {
     dispatch(requestLogin());
+  }, [dispatch]);
+
+  const handleClickLogout = useCallback(() => {
+    dispatch(logout());
   }, [dispatch]);
 
   return (
