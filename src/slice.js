@@ -19,7 +19,7 @@ const initialReviewFields = {
 };
 
 const { actions, reducer } = createSlice({
-  name: '',
+  name: 'application',
   initialState: {
     regions: [],
     categories: [],
@@ -141,7 +141,7 @@ const { actions, reducer } = createSlice({
 // 슬라이스 이름 및 초기 상태 값을 받아서 자동으로 만들어진
 // slice reducer와 action creator, action types 를 export!!!
 
-const {
+export const {
   setRegions,
   setCategories,
   setRestaurants,
@@ -227,20 +227,5 @@ export function sendReview({ restaurantId }) {
     dispatch(clearReviewFields());
   };
 }
-
-export {
-  setRegions,
-  setCategories,
-  setRestaurants,
-  setRestaurant,
-  selectRegion,
-  selectCategory,
-  changeLoginField,
-  setAccessToken,
-  logout,
-  changeReviewField,
-  clearReviewFields,
-  setReviews,
-};
 
 export default reducer;
