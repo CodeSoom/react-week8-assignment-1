@@ -1,8 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialReviewFields = {
+  score: '',
+  description: '',
+};
+
 const { actions, reducer } = createSlice({
   name: '',
-  initialState: {},
+  initialState: {
+    regions: [],
+    categories: [],
+    restaurants: [],
+    restaurant: null,
+    selectedRegion: null,
+    selectedCategory: null,
+    loginFields: {
+      email: '',
+      password: '',
+    },
+    accessToken: '',
+    reviewFields: {
+      ...initialReviewFields,
+    },
+  },
   reducers: {},
 });
 

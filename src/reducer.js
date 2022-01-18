@@ -1,27 +1,5 @@
 import { equal } from './utils';
 
-const initialReviewFields = {
-  score: '',
-  description: '',
-};
-
-const initialState = {
-  regions: [],
-  categories: [],
-  restaurants: [],
-  restaurant: null,
-  selectedRegion: null,
-  selectedCategory: null,
-  loginFields: {
-    email: '',
-    password: '',
-  },
-  accessToken: '',
-  reviewFields: {
-    ...initialReviewFields,
-  },
-};
-
 const reducers = {
   setRegions(state, { payload: { regions } }) {
     return {
