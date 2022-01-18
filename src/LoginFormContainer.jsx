@@ -7,7 +7,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './store/actions';
 
 import { get } from './utils';
 
