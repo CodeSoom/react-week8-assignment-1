@@ -94,7 +94,7 @@ describe('App', () => {
 
       expect(dispatch).toBeCalledWith({
         type: 'application/setAccessToken',
-        payload: { accessToken },
+        payload: accessToken,
       });
     });
   });
