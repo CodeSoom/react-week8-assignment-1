@@ -1,4 +1,4 @@
-import reducer from './reducer';
+import reducer from './slice';
 
 import {
   setRegions,
