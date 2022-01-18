@@ -16,13 +16,14 @@ import {
   loadReview,
   sendReview,
   clearReviewFields,
-} from './actions';
+} from './slice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 jest.mock('./services/api');
 
+// thunk 테스트
 describe('actions', () => {
   let store;
 

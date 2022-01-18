@@ -10,6 +10,8 @@ import App from './App';
 
 import { loadItem } from './services/storage';
 
+import { setAccessToken } from './slice';
+
 jest.mock('react-redux');
 jest.mock('./services/storage');
 
@@ -92,10 +94,7 @@ describe('App', () => {
     it('calls dispatch with “setAccessToken” action', () => {
       renderApp({ path: '/' });
 
-      expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
-      });
+      expect(dispatch).toBeCalledWith(setAccessToken(accessToken));
     });
   });
 });
