@@ -1,4 +1,3 @@
-const { createSlice } = require("@reduxjs/toolkit");
 import {
   fetchRegions,
   fetchCategories,
@@ -9,7 +8,10 @@ import {
 } from './services/api';
 
 import { saveItem } from './services/storage';
+
 import { equal } from './utils';
+
+const { createSlice } = require('@reduxjs/toolkit');
 
 const initialReviewFields = {
   score: '',
@@ -43,28 +45,28 @@ const { actions, reducer } = createSlice({
         regions,
       };
     },
-  
+
     setCategories(state, { payload: categories }) {
       return {
         ...state,
         categories,
       };
     },
-  
+
     setRestaurants(state, { payload: restaurants }) {
       return {
         ...state,
         restaurants,
       };
     },
-  
+
     setRestaurant(state, { payload: restaurant }) {
       return {
         ...state,
         restaurant,
       };
     },
-  
+
     selectRegion(state, { payload: regionId }) {
       const { regions } = state;
       return {
@@ -72,7 +74,7 @@ const { actions, reducer } = createSlice({
         selectedRegion: regions.find(equal('id', regionId)),
       };
     },
-  
+
     selectCategory(state, { payload: categoryId }) {
       const { categories } = state;
       return {
@@ -80,7 +82,7 @@ const { actions, reducer } = createSlice({
         selectedCategory: categories.find(equal('id', categoryId)),
       };
     },
-  
+
     changeLoginField(state, { payload: { name, value } }) {
       return {
         ...state,
@@ -90,21 +92,21 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-  
+
     setAccessToken(state, { payload: accessToken }) {
       return {
         ...state,
         accessToken,
       };
     },
-  
+
     logout(state) {
       return {
         ...state,
         accessToken: '',
       };
     },
-  
+
     changeReviewField(state, { payload: { name, value } }) {
       return {
         ...state,
@@ -114,7 +116,7 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-  
+
     clearReviewFields(state) {
       return {
         ...state,
@@ -123,10 +125,10 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-  
+
     setReviews(state, { payload: reviews }) {
       const { restaurant } = state;
-  
+
       return {
         ...state,
         restaurant: {

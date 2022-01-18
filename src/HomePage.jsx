@@ -6,7 +6,7 @@ const Title = styled.h2({
   fontSize: '2em',
   margin: 0,
   padding: '.4em 0',
-})
+});
 
 const List = styled.ul({
   display: 'flex',
@@ -23,8 +23,8 @@ const Item = styled.li({
     '&:hover': {
       fontWeight: 'bold',
       color: '#000',
-    }
-  }
+    },
+  },
 });
 
 export default function HomePage() {

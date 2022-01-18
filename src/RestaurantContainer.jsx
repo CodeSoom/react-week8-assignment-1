@@ -28,17 +28,17 @@ export default function RestaurantContainer({ restaurantId }) {
   const handleChange = useCallback(({ name, value }) => {
     dispatch(changeReviewField({ name, value }));
   }, [dispatch]);
-  
+
   const handleSubmit = useCallback(() => {
     dispatch(sendReview({ restaurantId }));
   }, [dispatch, restaurantId]);
-  
+
   if (!restaurant) {
     return (
       <p>Loading...</p>
     );
   }
-  
+
   return (
     <>
       <RestaurantDetail restaurant={restaurant} />

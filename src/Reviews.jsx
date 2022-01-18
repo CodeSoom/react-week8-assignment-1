@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
