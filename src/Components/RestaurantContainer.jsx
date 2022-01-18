@@ -10,9 +10,9 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from '../redux/actions';
 
-import { get } from './utils';
+import { get } from '../Utils/utils';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();

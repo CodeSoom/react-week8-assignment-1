@@ -7,9 +7,9 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from '../redux/actions';
 
-import { get } from './utils';
+import { get } from '../Utils/utils';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
