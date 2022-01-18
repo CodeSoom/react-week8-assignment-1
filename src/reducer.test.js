@@ -36,7 +36,7 @@ describe('reducer', () => {
     };
 
     it('returns initialState', () => {
-      const state = reducer(undefined, { type: 'action' });
+      const state = reducer(undefined, { type: 'application/action' });
 
       expect(state).toEqual(initialState);
     });
