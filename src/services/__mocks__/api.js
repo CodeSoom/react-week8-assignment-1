@@ -1,5 +1,4 @@
 export async function fetchRegions() {
-  console.log('이렇게 써줘야 하는데?');
   return [];
 }
 
