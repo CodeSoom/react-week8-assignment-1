@@ -1,4 +1,5 @@
 export async function fetchRegions() {
+  console.log('이렇게 써줘야 하는데?');
   return [];
 }
 
@@ -19,7 +20,10 @@ export async function postLogin() {
 }
 
 export async function postReview({
-  accessToken, restaurantId, score, description,
+  accessToken,
+  restaurantId,
+  score,
+  description,
 }) {
   return {
     accessToken,

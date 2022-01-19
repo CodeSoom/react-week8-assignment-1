@@ -16,7 +16,9 @@ import ACCESS_TOKEN from '../../fixtures/access-token';
 describe('api', () => {
   const mockFetch = (data) => {
     global.fetch = jest.fn().mockResolvedValue({
-      async json() { return data; },
+      async json() {
+        return data;
+      },
     });
   };
 
