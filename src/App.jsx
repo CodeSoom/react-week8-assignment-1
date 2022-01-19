@@ -13,8 +13,8 @@ import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
 import NotFoundPage from './pages/NotFoundPage';
 
-import Container from './tags/Container';
-import Header from './tags/Header';
+import Container from './tags/App/Container';
+import Header from './tags/App/Header';
 
 import { setAccessToken } from './actions';
 
