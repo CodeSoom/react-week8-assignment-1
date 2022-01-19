@@ -15,7 +15,7 @@ import RestaurantsPage from './Pages/RestaurantsPage';
 import RestaurantPage from './Pages/RestaurantPage';
 import NotFoundPage from './Pages/NotFoundPage';
 
-import { setAccessToken } from './redux/actions';
+import { setAccessToken } from './redux/slice';
 
 import { loadItem } from './services/storage';
 

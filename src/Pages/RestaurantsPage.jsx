@@ -10,7 +10,7 @@ import RestaurantsContainer from '../Components/RestaurantsContainer';
 
 import {
   loadInitialData,
-} from '../redux/actions';
+} from '../redux/slice';
 
 export default function RestaurantsPage() {
   const history = useHistory();

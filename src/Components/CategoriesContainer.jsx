@@ -6,7 +6,7 @@ import MenuItem from './style/MenuItem';
 import {
   selectCategory,
   loadRestaurants,
-} from '../redux/actions';
+} from '../redux/slice';
 
 import { get } from '../Utils/utils';
 
