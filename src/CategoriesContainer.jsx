@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Button from './components/Button';
+import ButtonGroup from './components/ButtonGroup';
 
 import {
   selectCategory,
@@ -20,7 +21,7 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <ButtonGroup>
       {categories.map((category) => (
         <li key={category.id}>
           <Button
@@ -36,6 +37,6 @@ export default function CategoriesContainer() {
           </Button>
         </li>
       ))}
-    </ul>
+    </ButtonGroup>
   );
 }

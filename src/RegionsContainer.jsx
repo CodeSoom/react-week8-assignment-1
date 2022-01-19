@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import Button from './components/Button';
+import ButtonGroup from './components/ButtonGroup';
 
 import {
   selectRegion,
@@ -20,7 +22,7 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
+    <ButtonGroup>
       {regions.map((region) => (
         <li key={region.id}>
           <Button
@@ -36,6 +38,6 @@ export default function RegionsContainer() {
           </Button>
         </li>
       ))}
-    </ul>
+    </ButtonGroup>
   );
 }
