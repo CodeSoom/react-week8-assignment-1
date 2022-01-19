@@ -16,7 +16,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import Container from './tags/App/Container';
 import Header from './tags/App/Header';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
