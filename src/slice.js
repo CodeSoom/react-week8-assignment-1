@@ -124,10 +124,11 @@ export default reducer;
 
 export function loadInitialData() {
   return async (dispatch) => {
-    const regions = await fetchRegions();
+    const [regions, categories] = await Promise.all([
+      fetchRegions(),
+      fetchCategories(),
+    ]);
     dispatch(setRegions(regions));
-
-    const categories = await fetchCategories();
     dispatch(setCategories(categories));
   };
 }
