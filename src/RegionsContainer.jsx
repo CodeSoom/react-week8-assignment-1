@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import Button from './components/Button';
 
 import {
   selectRegion,
@@ -22,7 +23,7 @@ export default function RegionsContainer() {
     <ul>
       {regions.map((region) => (
         <li key={region.id}>
-          <button
+          <Button
             type="button"
             onClick={() => handleClick(region.id)}
           >
@@ -32,7 +33,7 @@ export default function RegionsContainer() {
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

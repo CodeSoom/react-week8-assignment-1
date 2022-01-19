@@ -1,12 +1,14 @@
+import Button from './components/Button';
+
 export default function LogoutForm({ onClick }) {
   return (
     <>
-      <button
+      <Button
         type="button"
         onClick={onClick}
       >
         Log out
-      </button>
+      </Button>
     </>
   );
 }

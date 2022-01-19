@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import Button from './components/Button';
 
 import {
   selectCategory,
@@ -22,7 +23,7 @@ export default function CategoriesContainer() {
     <ul>
       {categories.map((category) => (
         <li key={category.id}>
-          <button
+          <Button
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -32,7 +33,7 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </Button>
         </li>
       ))}
     </ul>
