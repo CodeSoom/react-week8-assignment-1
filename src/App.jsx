@@ -37,7 +37,6 @@ const Header = styled.header({
     '&:hover': {
       color: '#000',
     },
-
   },
 });
 

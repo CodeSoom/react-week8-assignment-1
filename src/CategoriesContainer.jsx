@@ -7,6 +7,9 @@ import {
 
 import { get } from './utils';
 
+import List from './MenuList';
+import Item from './MenuItem';
+
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
@@ -19,9 +22,12 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <List>
       {categories.map((category) => (
-        <li key={category.id}>
+        <Item
+          key={category.id}
+          active={selectedCategory && category.id === selectedCategory.id}
+        >
           <button
             type="button"
             onClick={() => handleClick(category.id)}
@@ -33,8 +39,8 @@ export default function CategoriesContainer() {
               </>
             ) : null}
           </button>
-        </li>
+        </Item>
       ))}
-    </ul>
+    </List>
   );
 }
