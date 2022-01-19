@@ -23,11 +23,6 @@ const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: '#e0e0e0',
-});
-
-const Header = styled.header({
-  backgroundColor: '#ff5722',
 });
 
 export default function App() {
@@ -40,11 +35,11 @@ export default function App() {
 
   return (
     <Container>
-      <Header>
+      <header>
         <h1>
           <Link to="/">Tangerine</Link>
         </h1>
-      </Header>
+      </header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
