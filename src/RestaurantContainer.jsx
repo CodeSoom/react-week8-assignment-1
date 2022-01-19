@@ -31,7 +31,7 @@ export default function RestaurantContainer({ restaurantId }) {
 
   const handleSubmit = useCallback(() => {
     dispatch(sendReview({ restaurantId }));
-  }, [dispatch]);
+  }, [dispatch, restaurantId]);
 
   if (!restaurant) {
     return (
