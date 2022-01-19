@@ -1,3 +1,5 @@
+import thunk from 'redux-thunk';
+import configureStore from 'redux-mock-store';
 import reducer, {
   setRegions,
   setCategories,
@@ -147,7 +149,7 @@ describe('reducer', () => {
 
         const state = reducer(
           initialState,
-          changeLoginField({ name: 'email', value: 'test' })
+          changeLoginField({ name: 'email', value: 'test' }),
         );
 
         expect(state.loginFields.email).toBe('test');
@@ -166,7 +168,7 @@ describe('reducer', () => {
 
         const state = reducer(
           initialState,
-          changeLoginField({ name: 'password', value: 'test' })
+          changeLoginField({ name: 'password', value: 'test' }),
         );
 
         expect(state.loginFields.email).toBe('email');
@@ -210,7 +212,7 @@ describe('reducer', () => {
 
       const state = reducer(
         initialState,
-        changeReviewField({ name: 'score', value: '5' })
+        changeReviewField({ name: 'score', value: '5' }),
       );
 
       expect(state.reviewFields.score).toBe('5');
@@ -257,9 +259,6 @@ describe('reducer', () => {
     });
   });
 });
-
-import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

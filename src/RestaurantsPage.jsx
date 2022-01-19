@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -19,10 +19,13 @@ export default function RestaurantsPage() {
     dispatch(loadInitialData());
   });
 
-  function handleClickRestaurant(restaurant) {
-    const url = `/restaurants/${restaurant.id}`;
-    history.push(url);
-  }
+  const handleClickRestaurant = useCallback(
+    (restaurant) => {
+      const url = `/restaurants/${restaurant.id}`;
+      history.push(url);
+    },
+    [history],
+  );
 
   return (
     <div>

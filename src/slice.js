@@ -141,6 +141,23 @@ const { actions, reducer } = createSlice({
   reducers,
 });
 
+export const {
+  setRegions,
+  setCategories,
+  setRestaurants,
+  setRestaurant,
+  selectRegion,
+  selectCategory,
+  changeLoginField,
+  setAccessToken,
+  logout,
+  changeReviewField,
+  clearReviewFields,
+  setReviews,
+} = actions;
+
+export default reducer;
+
 export function loadInitialData() {
   return async (dispatch) => {
     const regions = await fetchRegions();
@@ -217,20 +234,3 @@ export function sendReview({ restaurantId }) {
     dispatch(clearReviewFields());
   };
 }
-
-export const {
-  setRegions,
-  setCategories,
-  setRestaurants,
-  setRestaurant,
-  selectRegion,
-  selectCategory,
-  changeLoginField,
-  setAccessToken,
-  logout,
-  changeReviewField,
-  clearReviewFields,
-  setReviews,
-} = actions;
-
-export default reducer;
