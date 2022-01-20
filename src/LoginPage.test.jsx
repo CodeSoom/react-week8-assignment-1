@@ -15,6 +15,9 @@ describe('LoginPage', () => {
         email: 'test@test',
         password: '1234',
       },
+      apiStatus: {
+        postLogin: 'SUCCESS',
+      },
     }));
   });
 

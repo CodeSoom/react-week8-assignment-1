@@ -21,6 +21,9 @@ describe('LoginFormContainer', () => {
         password: '1234',
       },
       accessToken: given.accessToken,
+      apiStatus: {
+        postLogin: 'SUCCESS',
+      },
     }));
   });
 
