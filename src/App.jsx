@@ -19,10 +19,10 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
-const Container = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+const Header = styled.header({
+  backgroundColor: '#1b1b1b',
+  padding: '24px 18px',
+  textAlign: 'center',
 });
 
 export default function App() {
@@ -34,12 +34,12 @@ export default function App() {
   }
 
   return (
-    <Container>
-      <header>
+    <>
+      <Header>
         <h1>
-          <Link to="/">Tangerine</Link>
+          <Link to="/">Eat Go</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -48,6 +48,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </Container>
+    </>
   );
 }

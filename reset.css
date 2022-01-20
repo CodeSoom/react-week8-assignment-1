@@ -1,10 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,18 +15,16 @@ time, mark, audio, video {
   margin: 0; /*바디태그 margin defalut값 때문에 흰선 발생. 이를 제거 */
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-  display: block;
 }
 body {
   line-height: 1;
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #424242;
+  display: flex;
+  justify-content: center;
 }
 ol, ul {
   list-style: none;
@@ -52,9 +44,12 @@ table {
 input:focus {
   outline: none;
 }
-a, a:visited {
+a, a:visited, a:hover {
   text-decoration: none;
-  color: black;
+  color: #ffffff;
+}
+a:hover {
+  color: #ccc;
 }
 * {
   box-sizing: border-box;
