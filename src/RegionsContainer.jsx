@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectRegion, loadRestaurants } from './slice';
@@ -11,10 +10,10 @@ export default function RegionsContainer() {
   const regions = useSelector(get('regions'));
   const selectedRegion = useSelector(get('selectedRegion'));
 
-  const handleClick = useCallback((regionId) => {
+  const handleClick = (regionId) => {
     dispatch(selectRegion(regionId));
     dispatch(loadRestaurants());
-  }, []);
+  };
 
   return (
     <ul>

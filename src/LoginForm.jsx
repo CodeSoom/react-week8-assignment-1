@@ -1,14 +1,15 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
-  const handleChange = useCallback((event) => {
+  // 어차피 리렌더링 되므로 callback 사용하지 않는다
+  const handleChange = (event) => {
     const {
       target: { name, value },
     } = event;
     onChange({ name, value });
-  }, []);
+  };
 
   return (
     <>

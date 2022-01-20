@@ -36,7 +36,10 @@ const initialState = {
 
 const reducers = {
   // 차이
-  // 가독성의 변화, 함수 선언문과 표현식의 차이 정도?
+  // 1. 가독성의 변화
+  // 2. 메서드와 일반함수의 차이
+  //  일반함수로 나타냄으로서 constructor로서의 기능을 가지고 prototype객체도 가지지만
+  //  화살표 함수로 표현함으로서 메서드 본질의 기능으로 맞춘다
   setRegions: (state, { payload: regions }) => ({ ...state, regions }),
   setCategories: (state, { payload: categories }) => ({ ...state, categories }),
   setRestaurants: (state, { payload: restaurants }) => ({
@@ -132,7 +135,8 @@ export function loadInitialData() {
       dispatch(setRegions(regions));
       dispatch(setCategories(categories));
     } catch (e) {
-      console.error(e);
+      const { log } = console;
+      log(e);
     }
   };
 }
@@ -152,7 +156,8 @@ export function loadRestaurants() {
       });
       dispatch(setRestaurants(restaurants));
     } catch (e) {
-      console.error(e);
+      const { log } = console;
+      log(e);
     }
   };
 }
@@ -166,7 +171,8 @@ export function loadRestaurant({ restaurantId }) {
 
       dispatch(setRestaurant(restaurant));
     } catch (e) {
-      console.error(e);
+      const { log } = console;
+      log(e);
     }
   };
 }
@@ -181,7 +187,8 @@ export function requestLogin() {
       saveItem('accessToken', accessToken);
       dispatch(setAccessToken(accessToken));
     } catch (e) {
-      console.error(e);
+      const { log } = console;
+      log(e);
     }
   };
 }
@@ -193,7 +200,8 @@ export function loadReview({ restaurantId }) {
 
       dispatch(setReviews(restaurant.reviews));
     } catch (e) {
-      console.error(e);
+      const { log } = console;
+      log(e);
     }
   };
 }
@@ -213,7 +221,8 @@ export function sendReview({ restaurantId }) {
         description,
       });
     } catch (e) {
-      console.error(e);
+      const { log } = console;
+      log(e);
     }
 
     dispatch(loadReview({ restaurantId }));

@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { get } from './utils';
@@ -6,10 +6,10 @@ import { get } from './utils';
 export default memo(({ onClickRestaurant }) => {
   const restaurants = useSelector(get('restaurants'));
 
-  const handleClick = useCallback((restaurant) => (event) => {
+  const handleClick = (restaurant) => (event) => {
     event.preventDefault();
     onClickRestaurant(restaurant);
-  }, []);
+  };
 
   return (
     <ul>
