@@ -220,12 +220,12 @@ export function sendReview({ restaurantId }) {
         score,
         description,
       });
+
+      dispatch(loadReview({ restaurantId }));
+      dispatch(clearReviewFields());
     } catch (e) {
       const { log } = console;
       log(e);
     }
-
-    dispatch(loadReview({ restaurantId }));
-    dispatch(clearReviewFields());
   };
 }

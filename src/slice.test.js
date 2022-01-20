@@ -21,6 +21,9 @@ import reducer, {
   sendReview,
 } from './slice';
 
+import { postReview } from './services/api';
+jest.mock('./services/api');
+
 describe('reducer', () => {
   context('when previous state is undefined', () => {
     const initialState = {
@@ -149,7 +152,7 @@ describe('reducer', () => {
 
         const state = reducer(
           initialState,
-          changeLoginField({ name: 'email', value: 'test' }),
+          changeLoginField({ name: 'email', value: 'test' })
         );
 
         expect(state.loginFields.email).toBe('test');
@@ -168,7 +171,7 @@ describe('reducer', () => {
 
         const state = reducer(
           initialState,
-          changeLoginField({ name: 'password', value: 'test' }),
+          changeLoginField({ name: 'password', value: 'test' })
         );
 
         expect(state.loginFields.email).toBe('email');
@@ -212,7 +215,7 @@ describe('reducer', () => {
 
       const state = reducer(
         initialState,
-        changeReviewField({ name: 'score', value: '5' }),
+        changeReviewField({ name: 'score', value: '5' })
       );
 
       expect(state.reviewFields.score).toBe('5');
@@ -398,6 +401,20 @@ describe('actions', () => {
       const actions = store.getActions();
 
       expect(actions[0]).toEqual(clearReviewFields());
+    });
+
+    context('when postReview fails', () => {
+      beforeEach(() => {
+        postReview.mockImplementation(() => {
+          throw new Error('그 오류등장!');
+        });
+      });
+      it('dispatch 실패', async () => {
+        await store.dispatch(sendReview({ restaurantId: 1 }));
+        const log = jest.spyOn(console, 'log').mockImplementation(() => {});
+
+        expect(log).toBeCalled();
+      });
     });
   });
 });
