@@ -36,6 +36,12 @@ const { actions, reducer } = createSlice({
     reviewFields: {
       ...initialReviewFields,
     },
+    apiStatus: {
+      fetchRestaurants: 'IDLE',
+      fetchRestaurant: 'IDLE',
+      postLogin: 'IDLE',
+      postReview: 'IDLE',
+    },
   },
   reducers: {
     setRegions(state, { payload: regions }) {
@@ -136,6 +142,42 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setFetchRestaurantsStatus(state, { payload: status }) {
+      return {
+        ...state,
+        apiStatus: {
+          ...state.apiStatus,
+          fetchRestaurants: status,
+        },
+      };
+    },
+    setPostLoginStatus(state, { payload: status }) {
+      return {
+        ...state,
+        apiStatus: {
+          ...state.apiStatus,
+          postLogin: status,
+        },
+      };
+    },
+    setFetchRestaurantStatus(state, { payload: status }) {
+      return {
+        ...state,
+        apiStatus: {
+          ...state.apiStatus,
+          fetchRestaurant: status,
+        },
+      };
+    },
+    setPostReviewStatus(state, { payload: status }) {
+      return {
+        ...state,
+        apiStatus: {
+          ...state.apiStatus,
+          postReview: status,
+        },
+      };
+    },
   },
 });
 
@@ -152,6 +194,10 @@ export const {
   changeReviewField,
   clearReviewFields,
   setReviews,
+  setFetchRestaurantsStatus,
+  setPostLoginStatus,
+  setFetchRestaurantStatus,
+  setPostReviewStatus,
 } = actions;
 
 export function loadInitialData() {
@@ -178,11 +224,15 @@ export function loadRestaurants() {
       return;
     }
 
-    const restaurants = await fetchRestaurants({
-      regionName: region.name,
-      categoryId: category.id,
-    });
-    dispatch(setRestaurants(restaurants));
+    try {
+      const restaurants = await fetchRestaurants({
+        regionName: region.name,
+        categoryId: category.id,
+      });
+      dispatch(setRestaurants(restaurants));
+    } catch (error) {
+      setFetchRestaurantsStatus();
+    }
   };
 }
 
@@ -190,9 +240,13 @@ export function loadRestaurant({ restaurantId }) {
   return async (dispatch) => {
     dispatch(setRestaurant(null));
 
-    const restaurant = await fetchRestaurant({ restaurantId });
+    try {
+      const restaurant = await fetchRestaurant({ restaurantId });
 
-    dispatch(setRestaurant(restaurant));
+      dispatch(setRestaurant(restaurant));
+    } catch (error) {
+      setFetchRestaurantStatus();
+    }
   };
 }
 
@@ -200,19 +254,27 @@ export function requestLogin() {
   return async (dispatch, getState) => {
     const { loginFields: { email, password } } = getState();
 
-    const accessToken = await postLogin({ email, password });
+    try {
+      const accessToken = await postLogin({ email, password });
 
-    saveItem('accessToken', accessToken);
+      saveItem('accessToken', accessToken);
 
-    dispatch(setAccessToken(accessToken));
+      dispatch(setAccessToken(accessToken));
+    } catch (error) {
+      setPostLoginStatus();
+    }
   };
 }
 
 export function loadReview({ restaurantId }) {
   return async (dispatch) => {
-    const restaurant = await fetchRestaurant({ restaurantId });
+    try {
+      const restaurant = await fetchRestaurant({ restaurantId });
 
-    dispatch(setReviews(restaurant.reviews));
+      dispatch(setReviews(restaurant.reviews));
+    } catch (error) {
+      setFetchRestaurantStatus();
+    }
   };
 }
 
@@ -220,12 +282,16 @@ export function sendReview({ restaurantId }) {
   return async (dispatch, getState) => {
     const { accessToken, reviewFields: { score, description } } = getState();
 
-    await postReview({
-      accessToken, restaurantId, score, description,
-    });
+    try {
+      await postReview({
+        accessToken, restaurantId, score, description,
+      });
 
-    dispatch(loadReview({ restaurantId }));
-    dispatch(clearReviewFields());
+      dispatch(loadReview({ restaurantId }));
+      dispatch(clearReviewFields());
+    } catch (error) {
+      setPostReviewStatus();
+    }
   };
 }
 

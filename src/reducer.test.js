@@ -13,6 +13,10 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
+  setFetchRestaurantsStatus,
+  setPostLoginStatus,
+  setFetchRestaurantStatus,
+  setPostReviewStatus,
 } from './slice';
 
 describe('reducer', () => {
@@ -32,6 +36,12 @@ describe('reducer', () => {
       reviewFields: {
         score: '',
         description: '',
+      },
+      apiStatus: {
+        fetchRestaurants: 'IDLE',
+        fetchRestaurant: 'IDLE',
+        postLogin: 'IDLE',
+        postReview: 'IDLE',
       },
     };
 
@@ -257,6 +267,51 @@ describe('reducer', () => {
 
       expect(state.restaurant.reviews).toHaveLength(reviews.length);
       expect(state.restaurant.reviews[0]).toEqual(reviews[0]);
+    });
+  });
+
+  describe('', () => {
+    it('change api status', () => {
+      const initialState = {
+        apiStatus: {
+          fetchRestaurants: 'IDLE',
+        },
+      };
+      const state = reducer(initialState, setFetchRestaurantsStatus('SUCCESS'));
+      expect(state.apiStatus.fetchRestaurants).toEqual('SUCCESS');
+    });
+  });
+  describe('', () => {
+    it('change api status', () => {
+      const initialState = {
+        apiStatus: {
+          fetchRestaurant: 'IDLE',
+        },
+      };
+      const state = reducer(initialState, setPostLoginStatus('SUCCESS'));
+      expect(state.apiStatus.postLogin).toEqual('SUCCESS');
+    });
+  });
+  describe('', () => {
+    it('change api status', () => {
+      const initialState = {
+        apiStatus: {
+          postLogin: 'IDLE',
+        },
+      };
+      const state = reducer(initialState, setFetchRestaurantStatus('SUCCESS'));
+      expect(state.apiStatus.fetchRestaurant).toEqual('SUCCESS');
+    });
+  });
+  describe('', () => {
+    it('change api status', () => {
+      const initialState = {
+        apiStatus: {
+          postReview: 'IDLE',
+        },
+      };
+      const state = reducer(initialState, setPostReviewStatus('SUCCESS'));
+      expect(state.apiStatus.postReview).toEqual('SUCCESS');
     });
   });
 });
