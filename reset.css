@@ -17,6 +17,11 @@ time, mark, audio, video {
   border: 0;
   vertical-align: baseline;
 }
+header {
+  background-color: #1b1b1b;
+  padding: 24px 18px;
+  text-align: center;
+}
 body {
   line-height: 1;
   font-family: 'Roboto', sans-serif;

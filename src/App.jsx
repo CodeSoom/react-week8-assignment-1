@@ -6,8 +6,6 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import styled from '@emotion/styled';
-
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -19,12 +17,6 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
-const Header = styled.header({
-  backgroundColor: '#1b1b1b',
-  padding: '24px 18px',
-  textAlign: 'center',
-});
-
 export default function App() {
   const dispatch = useDispatch();
 
@@ -35,11 +27,11 @@ export default function App() {
 
   return (
     <>
-      <Header>
+      <header>
         <h1>
           <Link to="/">Eat Go</Link>
         </h1>
-      </Header>
+      </header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
