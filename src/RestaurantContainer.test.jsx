@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import RestaurantContainer from './RestaurantContainer';
+import { changeReviewField } from './slice';
 
 describe('RestaurantContainer', () => {
   const dispatch = jest.fn();
@@ -80,11 +81,7 @@ describe('RestaurantContainer', () => {
 
         controls.forEach(({ label, name, value }) => {
           fireEvent.change(getByLabelText(label), { target: { value } });
-
-          expect(dispatch).toBeCalledWith({
-            type: 'application/changeReviewField',
-            payload: { name, value },
-          });
+          expect(dispatch).toBeCalledWith(changeReviewField({ name, value }));
         });
       });
 
