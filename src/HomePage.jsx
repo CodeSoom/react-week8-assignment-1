@@ -2,16 +2,14 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-const Container = styled.div({
-  padding: '24px 18px',
-});
-
-const Title = styled.h2({
-  marginBottom: '24px',
-});
+import Container from './styles/Container';
 
 const List = styled.ul({
   display: 'flex',
+  justifyContent: 'space-between',
+  marginBottom: '24px',
+  position: 'fixed',
+  top: '100px',
 });
 
 const Item = styled.li({
@@ -24,12 +22,12 @@ const Item = styled.li({
 export default function HomePage() {
   return (
     <Container>
-      <Title>반갑습니다! 메뉴를 골라주세요 ☺️</Title>
       <List>
         <Item><Link to="/about">About</Link></Item>
         <Item><Link to="/restaurants">Restaurants</Link></Item>
         <Item><Link to="/login">Log in</Link></Item>
       </List>
+      <h2>반갑습니다! 메뉴를 골라주세요 ☺️</h2>
     </Container>
   );
 }
