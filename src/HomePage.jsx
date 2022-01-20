@@ -4,11 +4,6 @@ import styled from '@emotion/styled';
 
 import Container from './styles/Container';
 
-const Text = styled.h2({
-  position: 'absolute',
-  top: '358px',
-});
-
 const List = styled.ul({
   display: 'flex',
   justifyContent: 'space-between',
@@ -24,6 +19,13 @@ const Item = styled.li({
   padding: '12px 18px',
 });
 
+const Box = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
 export default function HomePage() {
   return (
     <Container>
@@ -32,7 +34,9 @@ export default function HomePage() {
         <Item><Link to="/restaurants">Restaurants</Link></Item>
         <Item><Link to="/login">Log in</Link></Item>
       </List>
-      <Text>반갑습니다! 메뉴를 골라주세요 ☺️</Text>
+      <Box>
+        <h2>반갑습니다! 메뉴를 골라주세요 ☺️</h2>
+      </Box>
     </Container>
   );
 }

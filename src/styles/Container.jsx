@@ -4,6 +4,7 @@ const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  justifyContent: 'center',
 
   padding: '24px 18px',
   height: '100vh',
