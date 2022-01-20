@@ -1,18 +1,17 @@
-import { Link } from 'react-router-dom';
-
-import Item from '../tags/HomePage/Item';
 import List from '../tags/HomePage/List';
 import Title from '../tags/HomePage/Title';
+
+import ItemLink from '../components/ItemLink';
 
 export default function HomePage() {
   return (
     <div>
       <Title>Home</Title>
       <List>
-        <Item><Link to="/about">About</Link></Item>
-        <Item><Link to="/login">Log in</Link></Item>
-        <Item><Link to="/restaurants">Restaurants</Link></Item>
-        <Item><Link to="/xxx">멸망의 길</Link></Item>
+        <ItemLink to="/about" text="About" />
+        <ItemLink to="/login" text="Log in" />
+        <ItemLink to="/restaurants" text="Restaurants" />
+        <ItemLink to="/xxx" text="멸망의 길" />
       </List>
     </div>
   );
