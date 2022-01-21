@@ -1,6 +1,7 @@
-import styled from '@emotion/styled';
-
 import { Link } from 'react-router-dom';
+
+import List from '../components/List.style';
+import Item from '../components/Item.style';
 
 export default function HomePage() {
   return (
@@ -15,22 +16,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-const List = styled.ul({
-  display: 'flex',
-  margin: 0,
-  padding: 0,
-  listStyle: 'none',
-});
-
-const Item = styled.li({
-  marginRight: '1em',
-  '& a': {
-    color: '#333',
-    textDecoration: 'none',
-    '&:hover': {
-      fontWeight: 'bold',
-      color: '#000',
-    },
-  },
-});

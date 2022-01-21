@@ -56,7 +56,7 @@ const Header = styled.header({
   '& h1': {
     fontSize: '1.5em',
     margin: 0,
-    padding: '1em .5em',
+    padding: '1em 0',
   },
   '& a': {
     color: '#555',
