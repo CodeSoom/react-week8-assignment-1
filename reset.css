@@ -11,6 +11,8 @@ header {
   text-align: center;
 }
 body {
+  margin: 0; /*바디태그 margin defalut값 때문에 흰선 발생. 이를 제거 */
+  padding: 0;
   line-height: 1;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;

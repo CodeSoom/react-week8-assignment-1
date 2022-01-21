@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import { useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
@@ -11,6 +13,8 @@ import RestaurantsContainer from './RestaurantsContainer';
 import {
   loadInitialData,
 } from './slice';
+
+import Container from './styles/Container';
 
 export default function RestaurantsPage() {
   const history = useHistory();
@@ -27,10 +31,12 @@ export default function RestaurantsPage() {
   }
 
   return (
-    <div>
+    <Container>
       <RegionsContainer />
       <CategoriesContainer />
-      <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+      <RestaurantsContainer
+        onClickRestaurant={handleClickRestaurant}
+      />
+    </Container>
   );
 }
