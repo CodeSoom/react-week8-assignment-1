@@ -19,4 +19,4 @@ function RestaurantDetail({ restaurant }) {
   );
 }
 
-export default memo(RestaurantDetail);
+export default RestaurantDetail;
