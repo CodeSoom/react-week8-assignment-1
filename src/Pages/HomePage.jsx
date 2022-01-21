@@ -16,7 +16,7 @@ const List = styled.ul({
 
 const Item = styled.li({
   marginRight: '1em',
-  '& a': {
+  '& .link': {
     color: '#333',
     textDecoration: 'none',
     '&:hover': {
@@ -26,6 +26,29 @@ const Item = styled.li({
   },
 });
 
+const links = [
+  {
+    id: 1,
+    path: '/about',
+    name: 'About',
+  },
+  {
+    id: 2,
+    path: '/login',
+    name: 'Log in',
+  },
+  {
+    id: 3,
+    path: '/restaurants',
+    name: 'Restaurants',
+  },
+  {
+    id: 4,
+    path: '/xxx',
+    name: '멸망의 길',
+  },
+];
+
 export default function HomePage() {
   return (
     <div>
@@ -33,18 +56,11 @@ export default function HomePage() {
         Home
       </Title>
       <List>
-        <Item>
-          <Link to="/about">About</Link>
-        </Item>
-        <Item>
-          <Link to="/login">Log in</Link>
-        </Item>
-        <Item>
-          <Link to="/restaurants">Restaurants</Link>
-        </Item>
-        <Item>
-          <Link to="/xxx">멸망의 길</Link>
-        </Item>
+        {links.map((link) => (
+          <Item key={link.id}>
+            <Link className="link" to={link.path}>{link.name}</Link>
+          </Item>
+        ))}
       </List>
     </div>
   );

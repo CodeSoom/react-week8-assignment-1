@@ -37,33 +37,13 @@ const { actions, reducer } = createSlice({
     },
   },
   reducers: {
-    setRegions(state, { payload: regions }) {
-      return {
-        ...state,
-        regions,
-      };
-    },
+    setRegions: (state, { payload: regions }) => ({ ...state, regions }),
 
-    setCategories(state, { payload: categories }) {
-      return {
-        ...state,
-        categories,
-      };
-    },
+    setCategories: (state, { payload: categories }) => ({ ...state, categories }),
 
-    setRestaurants(state, { payload: restaurants }) {
-      return {
-        ...state,
-        restaurants,
-      };
-    },
+    setRestaurants: (state, { payload: restaurants }) => ({ ...state, restaurants }),
 
-    setRestaurant(state, { payload: restaurant }) {
-      return {
-        ...state,
-        restaurant,
-      };
-    },
+    setRestaurant: (state, { payload: restaurant }) => ({ ...state, restaurant }),
 
     selectRegion(state, { payload: regionId }) {
       const { regions } = state;
@@ -91,19 +71,9 @@ const { actions, reducer } = createSlice({
       };
     },
 
-    setAccessToken(state, { payload: accessToken }) {
-      return {
-        ...state,
-        accessToken,
-      };
-    },
+    setAccessToken: (state, { payload: accessToken }) => ({ ...state, accessToken }),
 
-    logout(state) {
-      return {
-        ...state,
-        accessToken: '',
-      };
-    },
+    logout: (state) => ({ ...state, accessToken: '' }),
 
     changeReviewField(state, { payload: { name, value } }) {
       return {

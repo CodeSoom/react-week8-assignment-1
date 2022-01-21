@@ -26,11 +26,11 @@ const Container = styled.div({
 
 const Header = styled.header({
   backgroundColor: '#EEE',
-  '& h1': {
+  '& .title': {
     margin: '0',
     padding: '1em .5em',
   },
-  '& a': {
+  '& .link': {
     color: '#555',
     textDecoration: 'none',
     '&:hover': {
@@ -50,8 +50,8 @@ export default function App() {
   return (
     <Container>
       <Header>
-        <h1>
-          <Link to="/">EatGo</Link>
+        <h1 className="title">
+          <Link className="link" to="/">EatGo</Link>
         </h1>
       </Header>
       <Switch>

@@ -1,5 +1,7 @@
 import configureStore from 'redux-mock-store';
 
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
+
 import {
   loadInitialData,
   setRegions,
@@ -16,8 +18,7 @@ import {
   clearReviewFields,
 } from './slice';
 
-const middlewares = [];
-const mockStore = configureStore(middlewares);
+const mockStore = configureStore(getDefaultMiddleware());
 
 jest.mock('../services/api');
 
