@@ -1,6 +1,7 @@
 import {
   fetchRegions,
   fetchCategories,
+  fetchRegionsAndCategories,
   fetchRestaurants,
   fetchRestaurant,
   postLogin,
@@ -40,6 +41,25 @@ describe('api', () => {
     it('returns categories', async () => {
       const categories = await fetchCategories();
 
+      expect(categories).toEqual(CATEGORIES);
+    });
+  });
+
+  describe('fetchRegionsAndCategories', () => {
+    const mockTwoFetchs = ({ regions, categories }) => {
+      global.fetch = jest.fn().mockResolvedValueOnce({
+        async json() { return regions; },
+      });
+      global.fetch = jest.fn().mockResolvedValueOnce({
+        async json() { return categories; },
+      });
+    };
+    mockTwoFetchs({ regions: REGIONS, categories: CATEGORIES });
+
+    it('returns categories', async () => {
+      const { regions, categories } = await fetchRegionsAndCategories();
+
+      expect(regions).toEqual(CATEGORIES);
       expect(categories).toEqual(CATEGORIES);
     });
   });
