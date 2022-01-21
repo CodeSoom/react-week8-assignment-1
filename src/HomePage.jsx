@@ -28,22 +28,22 @@ const Item = styled.li({
 });
 
 export default function HomePage() {
+  const lists = [
+    ['/about', 'About'],
+    ['/login', 'Login'],
+    ['/restaurants', 'Restaurants'],
+    ['/xxx', '멸망의 길'],
+  ];
+
   return (
     <div>
       <Title>Home</Title>
       <List>
-        <Item>
-          <Link to="/about">About</Link>
-        </Item>
-        <Item>
-          <Link to="/login">Log in</Link>
-        </Item>
-        <Item>
-          <Link to="/restaurants">Restaurants</Link>
-        </Item>
-        <Item>
-          <Link to="/xxx">멸망의 길</Link>
-        </Item>
+        {lists.map((list) => (
+          <Item>
+            <Link to={list[0]}>{list[1]}</Link>
+          </Item>
+        ))}
       </List>
     </div>
   );
