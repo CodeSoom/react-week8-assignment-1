@@ -25,7 +25,7 @@ describe('RegionsContainer', () => {
       <RegionsContainer />
     ));
 
-    expect(container).toHaveTextContent('서울');
+    expect(getByText('서울')).toHaveStyle({ fontWeight: 'bold' });
     expect(container).toHaveTextContent('부산');
 
     fireEvent.click(getByText('부산'));

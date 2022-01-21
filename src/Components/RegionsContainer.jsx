@@ -33,11 +33,11 @@ export default function RegionsContainer() {
             onClick={() => handleClick(region.id)}
           >
             {region.name}
-            {selectedRegion ? (
+            {/* {selectedRegion ? (
               <>
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
-            ) : null}
+            ) : null} */}
           </button>
         </MenuItem>
       ))}
