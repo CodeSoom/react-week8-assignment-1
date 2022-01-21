@@ -1,4 +1,6 @@
-export default function MenuItems({ menuItems }) {
+import { memo } from 'react';
+
+function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
       <p>메뉴가 없어요!</p>
@@ -15,3 +17,5 @@ export default function MenuItems({ menuItems }) {
     </ul>
   );
 }
+
+export default memo(MenuItems);
