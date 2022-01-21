@@ -38,13 +38,17 @@ const { actions, reducer } = createSlice({
   reducers: {
     setRegions: (state, { payload: regions }) => ({ ...state, regions }),
 
-    setCategories: (state, { payload: categories }) => ({ ...state, categories, }),
+    setCategories: (state, { payload: categories }) => ({ ...state, categories }),
 
-    setRegionsAndCategories: (state, { payload: { regions, categories } }) => ({ ...state, regions, categories }),
+    setRegionsAndCategories: (state, { payload: { regions, categories } }) => ({
+      ...state,
+      regions,
+      categories,
+    }),
 
-    setRestaurants: (state, { payload: restaurants }) => ({ ...state, restaurants, }),
+    setRestaurants: (state, { payload: restaurants }) => ({ ...state, restaurants }),
 
-    setRestaurant: (state, { payload: restaurant }) => ({ ...state, restaurant, }),
+    setRestaurant: (state, { payload: restaurant }) => ({ ...state, restaurant }),
 
     selectRegion: (state, { payload: regionId }) => ({
       ...state,
@@ -79,7 +83,7 @@ const { actions, reducer } = createSlice({
       reviewFields: {
         ...state.reviewFields,
         [name]: value,
-      }
+      },
     }),
     clearReviewFields: (state) => ({
       ...state,
@@ -94,10 +98,9 @@ const { actions, reducer } = createSlice({
         ...state.restaurant,
         reviews,
       },
-    })
+    }),
 
-
-  }
+  },
 });
 
 export const {
@@ -120,7 +123,7 @@ export function loadInitialData() {
   return async (dispatch) => {
     const { regions, categories } = await fetchRegionsAndCategories();
 
-    dispatch(setRegionsAndCategories({ regions, categories }))
+    dispatch(setRegionsAndCategories({ regions, categories }));
   };
 }
 

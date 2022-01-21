@@ -2,6 +2,8 @@ import thunk from 'redux-thunk';
 
 import configureStore from 'redux-mock-store';
 
+import given from 'given2';
+
 import reducer, {
   setRegions,
   setCategories,
@@ -79,6 +81,27 @@ describe('reducer', () => {
 
       const state = reducer(initialState, setCategories(categories));
 
+      expect(state.categories).toHaveLength(1);
+    });
+  });
+
+  describe('setRegionsAndCategories', () => {
+    it('changes restaurants', () => {
+      const initialState = {
+        regions: [],
+        categories: [],
+      };
+
+      const regions = [
+        { id: 1, name: '서울' },
+      ];
+      const categories = [
+        { id: 1, name: '한식' },
+      ];
+
+      const state = reducer(initialState, setRegionsAndCategories({ regions, categories }));
+
+      expect(state.regions).toHaveLength(1);
       expect(state.categories).toHaveLength(1);
     });
   });
@@ -278,11 +301,17 @@ jest.mock('./services/api');
 describe('actions', () => {
   let store;
 
-  describe('loadInitialData', () => {
-    beforeEach(() => {
-      store = mockStore({});
-    });
+  beforeEach(() => {
+    store = mockStore(() => ({
+      selectedRegion: given.selectedRegion,
+      selectedCategory: given.selectedCategory,
+      loginFields: given.loginFields,
+      accessToken: given.accessToken,
+      reviewFields: given.reviewFields,
+    }));
+  });
 
+  describe('loadInitialData', () => {
     it('runs setRegions and setCategories', async () => {
       await store.dispatch(loadInitialData());
 
@@ -294,14 +323,10 @@ describe('actions', () => {
 
   describe('loadRestaurants', () => {
     context('with selectedRegion and selectedCategory', () => {
-      beforeEach(() => {
-        store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
-          selectedCategory: { id: 1, name: '한식' },
-        });
-      });
-
       it('runs setRestaurants', async () => {
+        given('selectedRegion', () => ({ id: 1, name: '서울' }));
+        given('selectedCategory', () => ({ id: 1, name: '한식' }));
+
         await store.dispatch(loadRestaurants());
 
         const actions = store.getActions();
@@ -311,11 +336,7 @@ describe('actions', () => {
     });
 
     context('without selectedRegion', () => {
-      beforeEach(() => {
-        store = mockStore({
-          selectedCategory: { id: 1, name: '한식' },
-        });
-      });
+      given('selectedCategory', () => ({ id: 1, name: '한식' }));
 
       it('does\'nt run any actions', async () => {
         await store.dispatch(loadRestaurants());
@@ -327,11 +348,7 @@ describe('actions', () => {
     });
 
     context('without selectedCategory', () => {
-      beforeEach(() => {
-        store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
-        });
-      });
+      given('selectedRegion', () => ({ id: 1, name: '한식' }));
 
       it('does\'nt run any actions', async () => {
         await store.dispatch(loadRestaurants());
@@ -344,10 +361,6 @@ describe('actions', () => {
   });
 
   describe('loadRestaurant', () => {
-    beforeEach(() => {
-      store = mockStore({});
-    });
-
     it('dispatchs setRestaurant', async () => {
       await store.dispatch(loadRestaurant({ restaurantId: 1 }));
 
@@ -359,11 +372,7 @@ describe('actions', () => {
   });
 
   describe('requestLogin', () => {
-    beforeEach(() => {
-      store = mockStore({
-        loginFields: { email: '', password: '' },
-      });
-    });
+    given('loginFields', () => ({ email: '', password: '' }));
 
     it('dispatchs setAccessToken', async () => {
       await store.dispatch(requestLogin());
@@ -375,11 +384,7 @@ describe('actions', () => {
   });
 
   describe('loadReview', () => {
-    beforeEach(() => {
-      store = mockStore({
-        loginFields: { email: '', password: '' },
-      });
-    });
+    given('loginFields', () => ({ email: '', password: '' }));
 
     it('dispatchs setReviews', async () => {
       await store.dispatch(loadReview({ restaurantId: 1 }));
@@ -391,15 +396,9 @@ describe('actions', () => {
   });
 
   describe('sendReview', () => {
-    beforeEach(() => {
-      store = mockStore({
-        accessToken: '',
-        reviewFields: {
-          score: 1,
-          description: '',
-        },
-      });
-    });
+    given('accessToken', () => '');
+
+    given('reviewFields', () => ({ score: 1, description: '' }));
 
     it('dispatchs clearReviewFields', async () => {
       await store.dispatch(sendReview({ restaurantId: 1 }));
