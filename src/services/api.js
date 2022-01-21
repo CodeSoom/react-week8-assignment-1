@@ -12,6 +12,18 @@ export async function fetchCategories() {
   return data;
 }
 
+export async function fetchRegionsAndCategories() {
+  const regionsUrl = 'https://eatgo-customer-api.ahastudio.com/regions';
+  const regionsResponse = await fetch(regionsUrl);
+  const regions = await regionsResponse.json();
+
+  const categoriesUrl = 'https://eatgo-customer-api.ahastudio.com/categories';
+  const categoriesResponse = await fetch(categoriesUrl);
+  const categories = await categoriesResponse.json();
+
+  return { regions, categories };
+}
+
 export async function fetchRestaurants({ regionName, categoryId }) {
   const url = 'https://eatgo-customer-api.ahastudio.com/restaurants'
     + `?region=${regionName}&category=${categoryId}`;
