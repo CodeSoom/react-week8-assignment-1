@@ -13,15 +13,16 @@ import reducer, {
   changeReviewField,
   clearReviewFields,
   setReviews,
-  loadInitialData,
   loadRestaurants,
   loadRestaurant,
+  loadInitialData,
   requestLogin,
   loadReview,
   sendReview,
 } from './slice';
 
-import { postReview } from './services/api';
+import { postReview, fetchRegions, fetchCategories } from './services/api';
+
 jest.mock('./services/api');
 
 describe('reducer', () => {
@@ -152,7 +153,7 @@ describe('reducer', () => {
 
         const state = reducer(
           initialState,
-          changeLoginField({ name: 'email', value: 'test' })
+          changeLoginField({ name: 'email', value: 'test' }),
         );
 
         expect(state.loginFields.email).toBe('test');
@@ -171,7 +172,7 @@ describe('reducer', () => {
 
         const state = reducer(
           initialState,
-          changeLoginField({ name: 'password', value: 'test' })
+          changeLoginField({ name: 'password', value: 'test' }),
         );
 
         expect(state.loginFields.email).toBe('email');
@@ -215,7 +216,7 @@ describe('reducer', () => {
 
       const state = reducer(
         initialState,
-        changeReviewField({ name: 'score', value: '5' })
+        changeReviewField({ name: 'score', value: '5' }),
       );
 
       expect(state.reviewFields.score).toBe('5');
@@ -272,17 +273,40 @@ describe('actions', () => {
   let store;
 
   describe('loadInitialData', () => {
-    beforeEach(() => {
-      store = mockStore({});
+    context('when loadInitialData succeed', () => {
+      beforeEach(() => {
+        store = mockStore({});
+        jest.spyOn(console, 'log').mockImplementation(() => []);
+      });
+
+      it('runs setRegions and setCategories', async () => {
+        await store.dispatch(loadInitialData());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setRegions([]));
+        expect(actions[1]).toEqual(setCategories([]));
+      });
     });
 
-    it('runs setRegions and setCategories', async () => {
-      await store.dispatch(loadInitialData());
+    context('when loadInitialData fail', () => {
+      beforeEach(() => {
+        fetchRegions.mockImplementation(() => {
+          throw new Error('fetchRegions 오류');
+        });
+        fetchCategories.mockImplementation(() => {
+          throw new Error('fetchCategories 오류');
+        });
+        store = mockStore({});
+      });
 
-      const actions = store.getActions();
+      it('runs setRegions and setCategories', async () => {
+        await store.dispatch(loadInitialData());
 
-      expect(actions[0]).toEqual(setRegions([]));
-      expect(actions[1]).toEqual(setCategories([]));
+        const actions = store.getActions();
+
+        expect(actions[0]).toBeUndefined();
+      });
     });
   });
 
@@ -385,35 +409,45 @@ describe('actions', () => {
   });
 
   describe('sendReview', () => {
-    beforeEach(() => {
-      store = mockStore({
-        accessToken: '',
-        reviewFields: {
-          score: 1,
-          description: '',
-        },
+    context('when postReview succeed', () => {
+      beforeEach(() => {
+        store = mockStore({
+          accessToken: '',
+          reviewFields: {
+            score: 1,
+            description: '',
+          },
+        });
       });
-    });
 
-    it('dispatchs clearReviewFields', async () => {
-      await store.dispatch(sendReview({ restaurantId: 1 }));
+      it('dispatchs clearReviewFields', async () => {
+        await store.dispatch(sendReview({ restaurantId: 1 }));
 
-      const actions = store.getActions();
+        const actions = store.getActions();
 
-      expect(actions[0]).toEqual(clearReviewFields());
+        expect(actions[0]).toEqual(clearReviewFields());
+      });
     });
 
     context('when postReview fails', () => {
       beforeEach(() => {
         postReview.mockImplementation(() => {
-          throw new Error('그 오류등장!');
+          throw new Error('postReview 오류');
+        });
+        store = mockStore({
+          accessToken: '',
+          reviewFields: {
+            score: 1,
+            description: '',
+          },
         });
       });
       it('dispatch 실패', async () => {
         await store.dispatch(sendReview({ restaurantId: 1 }));
-        const log = jest.spyOn(console, 'log').mockImplementation(() => {});
 
-        expect(log).toBeCalled();
+        const actions = store.getActions();
+
+        expect(actions[0]).toBeUndefined();
       });
     });
   });

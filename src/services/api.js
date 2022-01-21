@@ -13,9 +13,8 @@ export async function fetchCategories() {
 }
 
 export async function fetchRestaurants({ regionName, categoryId }) {
-  const url =
-    'https://eatgo-customer-api.ahastudio.com/restaurants' +
-    `?region=${regionName}&category=${categoryId}`;
+  const url = 'https://eatgo-customer-api.ahastudio.com/restaurants'
+    + `?region=${regionName}&category=${categoryId}`;
   const response = await fetch(url);
   const data = await response.json();
   return data;
@@ -47,9 +46,8 @@ export async function postReview({
   score,
   description,
 }) {
-  const url =
-    'https://eatgo-customer-api.ahastudio.com' +
-    `/restaurants/${restaurantId}/reviews`;
+  const url = 'https://eatgo-customer-api.ahastudio.com'
+    + `/restaurants/${restaurantId}/reviews`;
 
   const response = await fetch(url, {
     method: 'POST',
@@ -59,9 +57,6 @@ export async function postReview({
     },
     body: JSON.stringify({ score, description }),
   });
-  if (!response.ok) {
-    throw new Error('postReview 에러입니다');
-  }
 
   await response.json();
 }

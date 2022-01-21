@@ -149,31 +149,21 @@ export function loadRestaurants() {
       return;
     }
 
-    try {
-      const restaurants = await fetchRestaurants({
-        regionName: region.name,
-        categoryId: category.id,
-      });
-      dispatch(setRestaurants(restaurants));
-    } catch (e) {
-      const { log } = console;
-      log(e);
-    }
+    const restaurants = await fetchRestaurants({
+      regionName: region.name,
+      categoryId: category.id,
+    });
+    dispatch(setRestaurants(restaurants));
   };
 }
 
 export function loadRestaurant({ restaurantId }) {
   return async (dispatch) => {
-    try {
-      dispatch(setRestaurant(null));
+    dispatch(setRestaurant(null));
 
-      const restaurant = await fetchRestaurant({ restaurantId });
+    const restaurant = await fetchRestaurant({ restaurantId });
 
-      dispatch(setRestaurant(restaurant));
-    } catch (e) {
-      const { log } = console;
-      log(e);
-    }
+    dispatch(setRestaurant(restaurant));
   };
 }
 
@@ -182,27 +172,18 @@ export function requestLogin() {
     const {
       loginFields: { email, password },
     } = getState();
-    try {
-      const accessToken = await postLogin({ email, password });
-      saveItem('accessToken', accessToken);
-      dispatch(setAccessToken(accessToken));
-    } catch (e) {
-      const { log } = console;
-      log(e);
-    }
+
+    const accessToken = await postLogin({ email, password });
+    saveItem('accessToken', accessToken);
+    dispatch(setAccessToken(accessToken));
   };
 }
 
 export function loadReview({ restaurantId }) {
   return async (dispatch) => {
-    try {
-      const restaurant = await fetchRestaurant({ restaurantId });
+    const restaurant = await fetchRestaurant({ restaurantId });
 
-      dispatch(setReviews(restaurant.reviews));
-    } catch (e) {
-      const { log } = console;
-      log(e);
-    }
+    dispatch(setReviews(restaurant.reviews));
   };
 }
 
