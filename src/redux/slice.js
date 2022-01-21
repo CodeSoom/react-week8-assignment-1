@@ -166,11 +166,16 @@ export function requestLogin() {
   return async (dispatch, getState) => {
     const { loginFields: { email, password } } = getState();
 
-    const accessToken = await postLogin({ email, password });
+    try {
+      const { accessToken } = await postLogin({ email, password });
 
-    saveItem('accessToken', accessToken);
+      saveItem('accessToken', accessToken);
 
-    dispatch(setAccessToken(accessToken));
+      dispatch(setAccessToken(accessToken));
+    } catch (e) {
+      console.error(e);
+      alert('이메일이나 비밀번호를 확인하세요.');
+    }
   };
 }
 

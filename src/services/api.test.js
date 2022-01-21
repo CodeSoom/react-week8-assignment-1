@@ -77,7 +77,7 @@ describe('api', () => {
     });
 
     it('returns accessToken', async () => {
-      const accessToken = await postLogin({
+      const { accessToken } = await postLogin({
         email: 'tester@example.com',
         password: '1234',
       });
