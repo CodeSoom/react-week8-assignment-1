@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -6,6 +8,15 @@ import {
 } from './slice';
 
 import { get } from './utils';
+
+import MenuItems from './styles/MenuItems';
+
+const List = styled.ul({
+  display: 'flex',
+  justifyContent: 'space-between',
+  position: 'fixed',
+  top: '200px',
+});
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -19,10 +30,10 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <List>
       {categories.map((category) => (
         <li key={category.id}>
-          <button
+          <MenuItems
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -32,9 +43,9 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </MenuItems>
         </li>
       ))}
-    </ul>
+    </List>
   );
 }

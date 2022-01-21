@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -6,6 +8,16 @@ import {
 } from './slice';
 
 import { get } from './utils';
+
+import MenuItems from './styles/MenuItems';
+
+const List = styled.ul({
+  display: 'flex',
+  justifyContent: 'space-between',
+  marginBottom: '24px',
+  position: 'fixed',
+  top: '100px',
+});
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -19,10 +31,10 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
+    <List>
       {regions.map((region) => (
         <li key={region.id}>
-          <button
+          <MenuItems
             type="button"
             onClick={() => handleClick(region.id)}
           >
@@ -32,9 +44,9 @@ export default function RegionsContainer() {
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </MenuItems>
         </li>
       ))}
-    </ul>
+    </List>
   );
 }

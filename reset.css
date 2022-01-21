@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
 html, div, span, h1, h2, p, a, ol, ul, li {
-  margin: 0; /*바디태그 margin defalut값 때문에 흰선 발생. 이를 제거 */
-  padding: 0;
   border: 0;
   vertical-align: baseline;
 }
@@ -11,12 +9,9 @@ header {
   text-align: center;
 }
 body {
-  margin: 0; /*바디태그 margin defalut값 때문에 흰선 발생. 이를 제거 */
-  padding: 0;
   line-height: 1;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  color: #ffffff;
   background-image: url(https://cdn.pixabay.com/photo/2016/12/26/17/28/spaghetti-1932466_1280.jpg);
   overflow: hidden;
 }
@@ -38,13 +33,20 @@ table {
 input:focus {
   outline: none;
 }
-a, a:visited, a:hover {
+a, a:visited {
   text-decoration: none;
-  color: #ffffff;
 }
-a:hover {
+a:hover, button:hover {
   color: #ccc;
+  cursor: pointer;
+}
+button{
+  outline: none;
+  border: none;
 }
 * {
   box-sizing: border-box;
+  margin: 0; /*바디태그 margin defalut값 때문에 흰선 발생. 이를 제거 */
+  padding: 0;
+  color: #ffffff;
 }

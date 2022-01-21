@@ -1,5 +1,3 @@
-import styled from '@emotion/styled';
-
 import { useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
