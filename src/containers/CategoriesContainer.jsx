@@ -5,6 +5,9 @@ import {
   loadRestaurants,
 } from '../slice';
 
+import MenuList from '../components/MenuList.style';
+import MenuItem from '../components/MenuItem.style';
+
 import { get } from '../utils';
 
 export default function CategoriesContainer() {
@@ -19,22 +22,25 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
-      {categories.map((category) => (
-        <li key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h2>Categories</h2>
+      <MenuList>
+        {categories.map((category) => (
+          <MenuItem key={category.id}>
+            <button
+              type="button"
+              onClick={() => handleClick(category.id)}
+            >
+              {category.name}
+              {selectedCategory ? (
+                <>
+                  {category.id === selectedCategory.id ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </MenuItem>
+        ))}
+      </MenuList>
+    </>
   );
 }

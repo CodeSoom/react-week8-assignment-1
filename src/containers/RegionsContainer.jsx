@@ -5,6 +5,9 @@ import {
   loadRestaurants,
 } from '../slice';
 
+import MenuList from '../components/MenuList.style';
+import MenuItem from '../components/MenuItem.style';
+
 import { get } from '../utils';
 
 export default function RegionsContainer() {
@@ -19,22 +22,25 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
-      {regions.map((region) => (
-        <li key={region.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
-          >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h2>Regions</h2>
+      <MenuList>
+        {regions.map((region) => (
+          <MenuItem key={region.id}>
+            <button
+              type="button"
+              onClick={() => handleClick(region.id)}
+            >
+              {region.name}
+              {selectedRegion ? (
+                <>
+                  {region.id === selectedRegion.id ? '(V)' : null}
+                </>
+              ) : null}
+            </button>
+          </MenuItem>
+        ))}
+      </MenuList>
+    </>
   );
 }
