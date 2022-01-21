@@ -2,6 +2,9 @@ import { useSelector } from 'react-redux';
 
 import { get } from '../utils';
 
+import List from '../components/List.style';
+import Item from '../components/Item.style';
+
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get('restaurants'));
 
@@ -16,15 +19,15 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
     <>
       <h2>Restaurants</h2>
       {restaurants.length ? (
-        <ul>
+        <List>
           {restaurants.map((restaurant) => (
-            <li key={restaurant.id}>
+            <Item key={restaurant.id}>
               <a href="/restaurants/1" onClick={handleClick(restaurant)}>
                 {restaurant.name}
               </a>
-            </li>
+            </Item>
           ))}
-        </ul>
+        </List>
       ) : <p>레스토랑이 존재하지 않습니다.</p>}
     </>
   );
