@@ -4,6 +4,8 @@ import { selectCategory, loadRestaurants } from './slice';
 
 import { get } from './utils';
 
+import { MenuList, MenuItem } from './styles/Menu';
+
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
@@ -16,17 +18,20 @@ export default function CategoriesContainer() {
   };
 
   return (
-    <ul>
+    <MenuList>
       {categories.map((category) => (
-        <li key={category.id}>
+        <MenuItem
+          key={category.id}
+          select={selectedCategory && selectedCategory.id === category.id}
+        >
           <button type="button" onClick={() => handleClick(category.id)}>
             {category.name}
             {selectedCategory ? (
               <>{category.id === selectedCategory.id ? '(V)' : null}</>
             ) : null}
           </button>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }

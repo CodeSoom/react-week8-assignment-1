@@ -2,6 +2,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -13,27 +14,22 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
-import styled from '@emotion/styled';
-
 const Container = styled.div({
   width: '90%',
   margin: '0 auto',
-});
 
-const Header = styled.header({
-  backgroundColor: '#EEE',
-
-  '& h1': {
-    margin: 0,
-    padding: '1em .5em',
-  },
-
-  '& a': {
-    textDecoration: 'none',
-    color: 'black',
-    '&:hover': {
-      // color: '#4169e1',
-      color: 'red',
+  '& header': {
+    backgroundColor: '#EEE',
+    '& h1': {
+      margin: 0,
+      padding: '1em .5em',
+    },
+    '& a': {
+      textDecoration: 'none',
+      color: 'black',
+      '&:hover': {
+        color: 'red',
+      },
     },
   },
 });
@@ -48,11 +44,11 @@ export default function App() {
 
   return (
     <Container>
-      <Header>
+      <header>
         <h1>
           <Link to="/">헤더 영역</Link>
         </h1>
-      </Header>
+      </header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />

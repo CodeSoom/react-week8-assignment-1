@@ -11,10 +11,12 @@ const List = styled.ul({
 const Item = styled.li({
   marginRight: '1em',
   '& a': {
-    textDecoration: 'none',
     color: '#333',
+    textDecoration: 'none',
     '&:hover': {
       cursor: 'pointer',
+      fontWeight: 'bold',
+      color: '#000',
     },
   },
 });
