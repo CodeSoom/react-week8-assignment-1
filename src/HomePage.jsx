@@ -32,7 +32,7 @@ export default function HomePage() {
       <List>
         <Item><Link to="/about">About</Link></Item>
         <Item><Link to="/restaurants">Restaurants</Link></Item>
-        <Item><Link to="/login">Log in</Link></Item>
+        <Item><Link to="/login">Sign in</Link></Item>
       </List>
       <Box>
         <h2>반갑습니다! 메뉴를 골라주세요 ☺️</h2>
