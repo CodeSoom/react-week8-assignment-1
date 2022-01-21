@@ -21,6 +21,7 @@ import reducer, {
   requestLogin,
   loadRestaurant,
   loadInitialData,
+  setRegionsAndCategories,
 } from './slice';
 
 describe('reducer', () => {
@@ -287,8 +288,7 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setRegions([]));
-      expect(actions[1]).toEqual(setCategories([]));
+      expect(actions[0]).toEqual(setRegionsAndCategories({ regions: [], categories: [] }));
     });
   });
 

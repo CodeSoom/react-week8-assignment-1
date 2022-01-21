@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { equal } from './utils';
 
 import {
-  fetchRegions,
-  fetchCategories,
+  fetchRegionsAndCategories,
   fetchRestaurants,
   fetchRestaurant,
   postLogin,
@@ -40,6 +39,8 @@ const { actions, reducer } = createSlice({
     setRegions: (state, { payload: regions }) => ({ ...state, regions }),
 
     setCategories: (state, { payload: categories }) => ({ ...state, categories, }),
+
+    setRegionsAndCategories: (state, { payload: { regions, categories } }) => ({ ...state, regions, categories }),
 
     setRestaurants: (state, { payload: restaurants }) => ({ ...state, restaurants, }),
 
@@ -79,28 +80,30 @@ const { actions, reducer } = createSlice({
         ...state.reviewFields,
         [name]: value,
       }
+    }),
+    clearReviewFields: (state) => ({
+      ...state,
+      reviewFields: {
+        ...initialReviewFields,
+      },
+    }),
+
+    setReviews: (state, { payload: reviews }) => ({
+      ...state,
+      restaurant: {
+        ...state.restaurant,
+        reviews,
+      },
     })
-  },
 
-  clearReviewFields: (state) => ({
-    ...state,
-    reviewFields: {
-      ...initialReviewFields,
-    },
-  }),
 
-  setReviews: (state, { payload: reviews }) => ({
-    ...state,
-    restaurant: {
-      ...state.restaurant,
-      reviews,
-    },
-  })
+  }
 });
 
 export const {
   setRegions,
   setCategories,
+  setRegionsAndCategories,
   setRestaurants,
   setRestaurant,
   selectRegion,
@@ -115,11 +118,9 @@ export const {
 
 export function loadInitialData() {
   return async (dispatch) => {
-    const regions = await fetchRegions();
-    dispatch(setRegions(regions));
+    const { regions, categories } = await fetchRegionsAndCategories();
 
-    const categories = await fetchCategories();
-    dispatch(setCategories(categories));
+    dispatch(setRegionsAndCategories({ regions, categories }))
   };
 }
 
@@ -167,7 +168,6 @@ export function requestLogin() {
 export function loadReview({ restaurantId }) {
   return async (dispatch) => {
     const restaurant = await fetchRestaurant({ restaurantId });
-
     dispatch(setReviews(restaurant.reviews));
   };
 }
