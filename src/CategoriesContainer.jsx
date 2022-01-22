@@ -11,11 +11,9 @@ import { get } from './utils';
 
 import MenuItems from './styles/MenuItems';
 
-const List = styled.ul({
+const Menu = styled.ul({
   display: 'flex',
   justifyContent: 'space-between',
-  position: 'fixed',
-  top: '200px',
 });
 
 export default function CategoriesContainer() {
@@ -30,7 +28,7 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <List>
+    <Menu>
       {categories.map((category) => (
         <li key={category.id}>
           <MenuItems
@@ -46,6 +44,6 @@ export default function CategoriesContainer() {
           </MenuItems>
         </li>
       ))}
-    </List>
+    </Menu>
   );
 }

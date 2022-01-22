@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import { useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
@@ -13,6 +15,20 @@ import {
 } from './slice';
 
 import Container from './styles/Container';
+
+const Box = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  height: '30%',
+  fontWeight: '700',
+  fontSize: '36px',
+  '& ul': {
+    display: 'flex',
+  },
+  '& li': {
+    marginRight: '48px',
+  },
+});
 
 export default function RestaurantsPage() {
   const history = useHistory();
@@ -32,9 +48,11 @@ export default function RestaurantsPage() {
     <Container>
       <RegionsContainer />
       <CategoriesContainer />
-      <RestaurantsContainer
-        onClickRestaurant={handleClickRestaurant}
-      />
+      <Box>
+        <RestaurantsContainer
+          onClickRestaurant={handleClickRestaurant}
+        />
+      </Box>
     </Container>
   );
 }
