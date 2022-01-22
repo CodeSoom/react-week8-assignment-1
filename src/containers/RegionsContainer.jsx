@@ -7,6 +7,7 @@ import {
 } from '../slice';
 
 import { get } from '../utils';
+import { List, ListItem } from './RegionsContainer.style';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -20,9 +21,9 @@ export default function RegionsContainer() {
   }, []);
 
   return (
-    <ul>
+    <List>
       {regions.map((region) => (
-        <li key={region.id}>
+        <ListItem key={region.id}>
           <button
             type="button"
             onClick={() => handleClick(region.id)}
@@ -34,8 +35,8 @@ export default function RegionsContainer() {
               </>
             ) : null}
           </button>
-        </li>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 }

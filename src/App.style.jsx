@@ -17,6 +17,12 @@ export const AppWrapper = styled.div`
   li {
     list-style-type: none;
   }
+
+  button {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
 `;
 
 export const AppHeader = styled.header`
