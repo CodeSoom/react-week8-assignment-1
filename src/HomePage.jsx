@@ -28,7 +28,7 @@ const Item = styled.li({
 });
 
 export default function HomePage() {
-  const lists = [
+  const Link_lists = [
     ['/about', 'About'],
     ['/login', 'Login'],
     ['/restaurants', 'Restaurants'],
@@ -39,9 +39,9 @@ export default function HomePage() {
     <div>
       <Title>Home</Title>
       <List>
-        {lists.map((list) => (
+        {Link_lists.map(([link, title]) => (
           <Item>
-            <Link to={list[0]}>{list[1]}</Link>
+            <Link to={link}>{title}</Link>
           </Item>
         ))}
       </List>
