@@ -86,6 +86,7 @@ const { actions, reducer } = createSlice({
         [name]: value,
       },
     }),
+
     clearReviewFields: (state) => ({
       ...state,
       reviewFields: {
@@ -193,6 +194,7 @@ export function loadReview({ restaurantId }) {
 export function sendReview({ restaurantId }) {
   return async (dispatch, getState) => {
     const { accessToken, reviewFields: { score, description } } = getState();
+
     try {
       await postReview({
         accessToken, restaurantId, score, description,
