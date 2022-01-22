@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import Container from './styles/Container';
 import MenuItems from './styles/MenuItems';
 
-const Greeting = styled.h2({
-
-});
-
 const Menu = styled.ul({
-  display: 'flex',
   position: 'fixed',
   top: '100px',
+});
+
+const Greeting = styled.h2({
+  fontWeight: '700',
+  fontSize: '36px',
 });
 
 export default function HomePage() {

@@ -16,17 +16,22 @@ import {
 
 import Container from './styles/Container';
 
-const Box = styled.div({
+const TopBox = styled.div({
+  position: 'fixed',
+  top: '100px',
+});
+
+const BottomBox = styled.div({
   display: 'flex',
   alignItems: 'center',
-  height: '30%',
-  fontWeight: '700',
-  fontSize: '36px',
+  height: '50%',
   '& ul': {
     display: 'flex',
   },
   '& li': {
     marginRight: '48px',
+    fontWeight: '700',
+    fontSize: '36px',
   },
 });
 
@@ -46,13 +51,15 @@ export default function RestaurantsPage() {
 
   return (
     <Container>
-      <RegionsContainer />
-      <CategoriesContainer />
-      <Box>
+      <TopBox>
+        <RegionsContainer />
+        <CategoriesContainer />
+      </TopBox>
+      <BottomBox>
         <RestaurantsContainer
           onClickRestaurant={handleClickRestaurant}
         />
-      </Box>
+      </BottomBox>
     </Container>
   );
 }

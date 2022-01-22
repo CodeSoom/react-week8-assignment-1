@@ -13,7 +13,6 @@ import MenuItems from './styles/MenuItems';
 
 const Menu = styled.ul({
   display: 'flex',
-  justifyContent: 'space-between',
 });
 
 export default function CategoriesContainer() {

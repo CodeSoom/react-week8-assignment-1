@@ -9,6 +9,8 @@ const Box = styled.div({
   alignItems: 'center',
   '& h2': {
     marginBottom: '24px',
+    fontWeight: '700',
+    fontSize: '36px',
   },
   '& p': {
     lineHeight: '24px',
