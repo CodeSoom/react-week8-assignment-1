@@ -12,8 +12,6 @@ import {
   sendReview,
 } from './store/actions';
 
-import { get } from './utils';
-
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
 
@@ -21,9 +19,11 @@ export default function RestaurantContainer({ restaurantId }) {
     dispatch(loadRestaurant({ restaurantId }));
   }, []);
 
-  const accessToken = useSelector(get('accessToken'));
-  const restaurant = useSelector(get('restaurant'));
-  const reviewFields = useSelector(get('reviewFields'));
+  const {
+    restaurant: { restaurant },
+    user: { accessToken },
+    review: { reviewFields },
+  } = useSelector((state) => state);
 
   if (!restaurant) {
     return (

@@ -6,50 +6,26 @@ import {
   postLogin,
   postReview,
 } from '../services/api';
-
 import { saveItem } from '../services/storage';
 
-export function setRegions(regions) {
-  return {
-    type: 'setRegions',
-    payload: { regions },
-  };
-}
+import {
+  setRegions, setCategories, setRestaurants, setRestaurant, selectRegion, selectCategory,
+} from './restaurantSlice';
+import { setReviews, changeReviewField, clearReviewFields } from './reviewSlice';
+import { setAccessToken, changeLoginField, logout } from './userSlice';
 
-export function setCategories(categories) {
-  return {
-    type: 'setCategories',
-    payload: { categories },
-  };
-}
-
-export function setRestaurants(restaurants) {
-  return {
-    type: 'setRestaurants',
-    payload: { restaurants },
-  };
-}
-
-export function setRestaurant(restaurant) {
-  return {
-    type: 'setRestaurant',
-    payload: { restaurant },
-  };
-}
-
-export function selectRegion(regionId) {
-  return {
-    type: 'selectRegion',
-    payload: { regionId },
-  };
-}
-
-export function selectCategory(categoryId) {
-  return {
-    type: 'selectCategory',
-    payload: { categoryId },
-  };
-}
+export {
+  setRegions,
+  setCategories,
+  setRestaurants,
+  setRestaurant,
+  selectRegion,
+  selectCategory,
+  setAccessToken,
+  changeReviewField,
+  changeLoginField,
+  logout,
+};
 
 export function loadInitialData() {
   return async (dispatch) => {
@@ -64,8 +40,10 @@ export function loadInitialData() {
 export function loadRestaurants() {
   return async (dispatch, getState) => {
     const {
-      selectedRegion: region,
-      selectedCategory: category,
+      restaurant: {
+        selectedRegion: region,
+        selectedCategory: category,
+      },
     } = getState();
 
     if (!region || !category) {
@@ -90,55 +68,15 @@ export function loadRestaurant({ restaurantId }) {
   };
 }
 
-export function changeLoginField({ name, value }) {
-  return {
-    type: 'changeLoginField',
-    payload: { name, value },
-  };
-}
-
-export function setAccessToken(accessToken) {
-  return {
-    type: 'setAccessToken',
-    payload: { accessToken },
-  };
-}
-
 export function requestLogin() {
   return async (dispatch, getState) => {
-    const { loginFields: { email, password } } = getState();
+    const { user: { loginFields: { email, password } } } = getState();
 
     const accessToken = await postLogin({ email, password });
 
     saveItem('accessToken', accessToken);
 
     dispatch(setAccessToken(accessToken));
-  };
-}
-
-export function logout() {
-  return {
-    type: 'logout',
-  };
-}
-
-export function changeReviewField({ name, value }) {
-  return {
-    type: 'changeReviewField',
-    payload: { name, value },
-  };
-}
-
-export function clearReviewFields() {
-  return {
-    type: 'clearReviewFields',
-  };
-}
-
-export function setReviews(reviews) {
-  return {
-    type: 'setReviews',
-    payload: { reviews },
   };
 }
 
@@ -152,7 +90,7 @@ export function loadReview({ restaurantId }) {
 
 export function sendReview({ restaurantId }) {
   return async (dispatch, getState) => {
-    const { accessToken, reviewFields: { score, description } } = getState();
+    const { user: { accessToken }, review: { reviewFields: { score, description } } } = getState();
 
     await postReview({
       accessToken, restaurantId, score, description,

@@ -9,13 +9,10 @@ import {
   logout,
 } from './store/actions';
 
-import { get } from './utils';
-
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
-  const loginFields = useSelector(get('loginFields'));
-  const accessToken = useSelector(get('accessToken'));
+  const { loginFields, accessToken } = useSelector(({ user }) => user);
 
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));

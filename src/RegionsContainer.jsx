@@ -5,13 +5,10 @@ import {
   loadRestaurants,
 } from './store/actions';
 
-import { get } from './utils';
-
 export default function RegionsContainer() {
   const dispatch = useDispatch();
 
-  const regions = useSelector(get('regions'));
-  const selectedRegion = useSelector(get('selectedRegion'));
+  const { regions, selectedRegion } = useSelector(({ restaurant }) => restaurant);
 
   function handleClick(regionId) {
     dispatch(selectRegion(regionId));
