@@ -14,8 +14,8 @@ import RestaurantPage from './pages/RestaurantPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 import { setAccessToken } from './slice';
-
 import { loadItem } from './services/storage';
+import { AppWrapper, AppHeader } from './App.style';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -26,12 +26,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
+    <AppWrapper>
+      <AppHeader>
         <h1>
           <Link to="/">헤더 영역</Link>
         </h1>
-      </header>
+      </AppHeader>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -40,6 +40,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </AppWrapper>
   );
 }
