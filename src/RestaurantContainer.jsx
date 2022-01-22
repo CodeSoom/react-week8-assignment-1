@@ -29,18 +29,6 @@ const MainContainer = styled.div({
   backgroundColor: 'rgba(66,66,66, 0.5)',
 });
 
-const TopBox = styled.div({
-
-});
-
-const MiddleBox = styled.div({
-
-});
-
-const BottomBox = styled.div({
-
-});
-
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
 
@@ -70,21 +58,15 @@ export default function RestaurantContainer({ restaurantId }) {
 
   return (
     <MainContainer>
-      <TopBox>
-        <RestaurantDetail restaurant={restaurant} />
-      </TopBox>
+      <RestaurantDetail restaurant={restaurant} />
       {accessToken ? (
-        <MiddleBox>
-          <ReviewForm
-            fields={reviewFields}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-          />
-        </MiddleBox>
+        <ReviewForm
+          fields={reviewFields}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+        />
       ) : null}
-      <BottomBox>
-        <Reviews reviews={restaurant.reviews} />
-      </BottomBox>
+      <Reviews reviews={restaurant.reviews} />
     </MainContainer>
   );
 }
