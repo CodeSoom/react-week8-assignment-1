@@ -1,6 +1,9 @@
-import List from './components/List';
+import React from 'react';
 
-export default function MenuItems({ menuItems }) {
+import List from './components/List';
+import { checkDiffByKey } from './utils';
+
+function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
       <p>메뉴가 없어요!</p>
@@ -17,3 +20,13 @@ export default function MenuItems({ menuItems }) {
     </List>
   );
 }
+
+export default React.memo(MenuItems, (prevProps, nextProps) => {
+  if (prevProps.menuItems.length !== nextProps.menuItems.length) {
+    return false;
+  }
+
+  const isEqual = checkDiffByKey(prevProps.menuItems, nextProps.menuItems, 'id');
+
+  return isEqual;
+});

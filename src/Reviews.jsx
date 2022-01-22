@@ -1,7 +1,10 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 import List from './components/List';
 import withShadow from './style/withShadow';
+import { checkDiffByKey } from './utils';
 
 const ReviewItem = styled.li`
   display: flex;
@@ -27,7 +30,7 @@ const ReviewItem = styled.li`
   }
 `;
 
-export default function Reviews({ reviews }) {
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -53,3 +56,13 @@ export default function Reviews({ reviews }) {
     </List>
   );
 }
+
+export default React.memo(Reviews, (prevProps, nextProps) => {
+  if (prevProps.reviews.length !== nextProps.reviews.length) {
+    return false;
+  }
+
+  const isEqual = checkDiffByKey(prevProps.reviews, nextProps.reviews, 'id');
+
+  return isEqual;
+});
