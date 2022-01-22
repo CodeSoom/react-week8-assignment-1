@@ -22,16 +22,7 @@ export async function postLogin() {
   return {};
 }
 
-export const postReview = jest.fn(
-  ({
-    accessToken, restaurantId, score, description,
-  }) => ({
-    accessToken,
-    restaurantId,
-    score,
-    description,
-  }),
-);
+export const postReview = jest.fn(({}) => {});
 
 // export async function postReview({
 //   accessToken,
