@@ -12,19 +12,15 @@ const Title = styled.h2({
 
 const Box = styled.div({
   display: 'flex',
+  justifyContent: 'start',
   flexDirection: 'column',
-  alignItems: 'start',
+  marginBottom: '24px',
 });
 
-const Detail = styled.div({
-  fontSize: '24px',
+const Detail = styled.p({
+  fontSize: '18px',
   fontWeight: '500',
-  marginBottom: '24px',
-  '& p': {
-    fontSize: '18px',
-    fontWeight: '500',
-    marginTop: '12px',
-  },
+  marginBottom: '12px',
 });
 
 function RestaurantDetail({ restaurant }) {
@@ -35,16 +31,15 @@ function RestaurantDetail({ restaurant }) {
       <Title>{name}</Title>
       <Box>
         <Detail>
-          주소/
+          주소:
           {' '}
-          <p>{address}</p>
+          {address}
         </Detail>
         <Detail>
-          메뉴/
-          <p>
-            <MenuItems menuItems={menuItems} />
-          </p>
+          메뉴:
         </Detail>
+        {' '}
+        <MenuItems menuItems={menuItems} />
       </Box>
     </>
   );
