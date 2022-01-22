@@ -35,33 +35,12 @@ const appSlice = createSlice({
     },
   },
   reducers: {
-    setRegions(state, { payload: regions }) {
-      return {
-        ...state,
-        regions,
-      };
-    },
-
-    setCategories(state, { payload: categories }) {
-      return {
-        ...state,
-        categories,
-      };
-    },
-
-    setRestaurants(state, { payload: restaurants }) {
-      return {
-        ...state,
-        restaurants,
-      };
-    },
-
-    setRestaurant(state, { payload: restaurant }) {
-      return {
-        ...state,
-        restaurant,
-      };
-    },
+    setRegions: (state, { payload: regions }) => ({ ...state, regions }),
+    setCategories: (state, { payload: categories }) => ({ ...state, categories }),
+    setRestaurants: (state, { payload: restaurants }) => ({ ...state, restaurants }),
+    setRestaurant: (state, { payload: restaurant }) => ({ ...state, restaurant }),
+    setAccessToken: (state, { payload: accessToken }) => ({ ...state, accessToken }),
+    logout: (state) => ({ ...state, accessToken: '' }),
 
     selectRegion(state, { payload: regionId }) {
       const { regions } = state;
@@ -86,20 +65,6 @@ const appSlice = createSlice({
           ...state.loginFields,
           [name]: value,
         },
-      };
-    },
-
-    setAccessToken(state, { payload: accessToken }) {
-      return {
-        ...state,
-        accessToken,
-      };
-    },
-
-    logout(state) {
-      return {
-        ...state,
-        accessToken: '',
       };
     },
 
