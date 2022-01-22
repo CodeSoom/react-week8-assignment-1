@@ -22,25 +22,6 @@ export async function fetchCategories() {
   });
 }
 
-export async function fetchRegionsAndCategories() {
-  return new Promise((resolve) => {
-    const regionsUrl = 'https://eatgo-customer-api.ahastudio.com/regions';
-    const categoriesUrl = 'https://eatgo-customer-api.ahastudio.com/categories';
-
-    fetch(regionsUrl).then((regionsResponse) => {
-      fetch(categoriesUrl).then((categoriesResponse) => {
-        regionsResponse.json().then((regions) => {
-          categoriesResponse.json().then((categories) => {
-            resolve({ regions, categories });
-          }).catch((error) => {
-            console.error(error);
-          });
-        });
-      });
-    });
-  });
-}
-
 export async function fetchRestaurants({ regionName, categoryId }) {
   const url = 'https://eatgo-customer-api.ahastudio.com/restaurants'
     + `?region=${regionName}&category=${categoryId}`;
