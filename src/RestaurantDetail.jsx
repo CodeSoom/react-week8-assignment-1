@@ -14,13 +14,25 @@ const Box = styled.div({
   display: 'flex',
   justifyContent: 'start',
   flexDirection: 'column',
-  marginBottom: '24px',
+  marginBottom: '48px',
+  padding: '24px 18px',
+  borderBottom: '0.1px solid #ccc',
 });
 
-const Detail = styled.p({
-  fontSize: '18px',
-  fontWeight: '500',
-  marginBottom: '12px',
+const Address = styled.h2({
+  fontSize: '24px',
+  fontWeight: '700',
+  marginBottom: '24px',
+  '& p': {
+    fontSize: '18px',
+    fontWeight: '500',
+    marginTop: '8px',
+  },
+});
+
+const Menu = styled.h2({
+  fontSize: '24px',
+  fontWeight: '700',
 });
 
 function RestaurantDetail({ restaurant }) {
@@ -30,16 +42,18 @@ function RestaurantDetail({ restaurant }) {
     <>
       <Title>{name}</Title>
       <Box>
-        <Detail>
-          주소:
+        <Address>
+          📪 주소
           {' '}
-          {address}
-        </Detail>
-        <Detail>
-          메뉴:
-        </Detail>
+          <p>{address}</p>
+        </Address>
+        <Menu>
+          🍲 메뉴
+        </Menu>
         {' '}
-        <MenuItems menuItems={menuItems} />
+        <p>
+          <MenuItems menuItems={menuItems} />
+        </p>
       </Box>
     </>
   );

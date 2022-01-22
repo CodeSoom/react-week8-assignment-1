@@ -8,6 +8,16 @@ const Nothing = styled.p({
   marginBottom: '12px',
 });
 
+const List = styled.ul({
+  fontSize: '18px',
+  fontWeight: '500',
+  marginTop: '8px',
+  display: 'flex',
+  '& li': {
+    marginRight: '12px',
+  },
+});
+
 function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -16,13 +26,13 @@ function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <List>
       {menuItems.map((menuItem) => (
         <li key={menuItem.id}>
           {menuItem.name}
         </li>
       ))}
-    </ul>
+    </List>
   );
 }
 
