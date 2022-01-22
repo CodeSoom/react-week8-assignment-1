@@ -270,7 +270,7 @@ describe('reducer', () => {
     });
   });
 
-  describe('', () => {
+  describe('setFetchRestaurantsStatus', () => {
     it('change api status', () => {
       const initialState = {
         apiStatus: {
@@ -281,7 +281,7 @@ describe('reducer', () => {
       expect(state.apiStatus.fetchRestaurants).toEqual('SUCCESS');
     });
   });
-  describe('', () => {
+  describe('setPostLoginStatus', () => {
     it('change api status', () => {
       const initialState = {
         apiStatus: {
@@ -292,7 +292,7 @@ describe('reducer', () => {
       expect(state.apiStatus.postLogin).toEqual('SUCCESS');
     });
   });
-  describe('', () => {
+  describe('setFetchRestaurantStatus', () => {
     it('change api status', () => {
       const initialState = {
         apiStatus: {
@@ -303,7 +303,7 @@ describe('reducer', () => {
       expect(state.apiStatus.fetchRestaurant).toEqual('SUCCESS');
     });
   });
-  describe('', () => {
+  describe('setPostReviewStatus', () => {
     it('change api status', () => {
       const initialState = {
         apiStatus: {
