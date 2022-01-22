@@ -3,11 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import { equal } from './utils';
 
 import {
-  fetchRegionsAndCategories,
   fetchRestaurants,
   fetchRestaurant,
   postLogin,
   postReview,
+  fetchRegions,
+  fetchCategories,
 } from './services/api';
 
 import { saveItem } from './services/storage';
@@ -99,7 +100,6 @@ const { actions, reducer } = createSlice({
         reviews,
       },
     }),
-
   },
 });
 
@@ -121,9 +121,14 @@ export const {
 
 export function loadInitialData() {
   return async (dispatch) => {
-    const { regions, categories } = await fetchRegionsAndCategories();
+    await new Promise((resolve) => {
+      const regions = fetchRegions();
+      const categories = fetchCategories();
 
-    dispatch(setRegionsAndCategories({ regions, categories }));
+      resolve({ regions, categories });
+    }).then(async ({ regions, categories }) => {
+      dispatch(setRegionsAndCategories({ regions: await regions, categories: await categories }));
+    });
   };
 }
 
@@ -138,53 +143,73 @@ export function loadRestaurants() {
       return;
     }
 
-    const restaurants = await fetchRestaurants({
-      regionName: region.name,
-      categoryId: category.id,
-    });
-    dispatch(setRestaurants(restaurants));
+    try {
+      const restaurants = await fetchRestaurants({
+        regionName: region.name,
+        categoryId: category.id,
+      });
+
+      dispatch(setRestaurants(restaurants));
+    } catch (error) {
+      dispatch(setRestaurants([]));
+    }
   };
 }
 
 export function loadRestaurant({ restaurantId }) {
   return async (dispatch) => {
     dispatch(setRestaurant(null));
+    try {
+      const restaurant = await fetchRestaurant({ restaurantId });
 
-    const restaurant = await fetchRestaurant({ restaurantId });
-
-    dispatch(setRestaurant(restaurant));
+      dispatch(setRestaurant(restaurant));
+    } catch (error) {
+      dispatch(setRestaurant({}));
+    }
   };
 }
 
 export function requestLogin() {
   return async (dispatch, getState) => {
     const { loginFields: { email, password } } = getState();
+    try {
+      const accessToken = await postLogin({ email, password });
 
-    const accessToken = await postLogin({ email, password });
+      saveItem('accessToken', accessToken);
 
-    saveItem('accessToken', accessToken);
-
-    dispatch(setAccessToken(accessToken));
+      dispatch(setAccessToken(accessToken));
+    } catch (error) {
+      dispatch(setAccessToken(''));
+    }
   };
 }
 
 export function loadReview({ restaurantId }) {
   return async (dispatch) => {
-    const restaurant = await fetchRestaurant({ restaurantId });
-    dispatch(setReviews(restaurant.reviews));
+    try {
+      const restaurant = await fetchRestaurant({ restaurantId });
+
+      dispatch(setReviews(restaurant.reviews));
+    } catch (error) {
+      dispatch(setReviews([]));
+    }
   };
 }
 
 export function sendReview({ restaurantId }) {
   return async (dispatch, getState) => {
     const { accessToken, reviewFields: { score, description } } = getState();
+    try {
+      await postReview({
+        accessToken, restaurantId, score, description,
+      });
 
-    await postReview({
-      accessToken, restaurantId, score, description,
-    });
+      dispatch(loadReview({ restaurantId }));
 
-    dispatch(loadReview({ restaurantId }));
-    dispatch(clearReviewFields());
+      dispatch(clearReviewFields());
+    } catch (error) {
+      dispatch(clearReviewFields());
+    }
   };
 }
 
