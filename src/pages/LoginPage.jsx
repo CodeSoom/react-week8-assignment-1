@@ -1,9 +1,10 @@
 import LoginFormContainer from '../containers/LoginFormContainer';
+import { PageHeader } from '../styles/common';
 
 export default function LoginPage() {
   return (
     <div>
-      <h2>Log In</h2>
+      <PageHeader>Log In</PageHeader>
       <LoginFormContainer />
     </div>
   );
