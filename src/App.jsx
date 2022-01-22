@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
-import { Global, css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import HomePage from './HomePage';
@@ -19,10 +18,13 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
+import withShadow from './style/withShadow';
+
 const Layout = styled.div`
   max-width: 768px;
   margin: 16px auto;
   padding: 16px;
+  ${withShadow}
 `;
 
 const Header = styled.header`
@@ -41,14 +43,7 @@ export default function App() {
   }
 
   return (
-    <Layout className="withShadow">
-      <Global
-        styles={css`
-          .withShadow {
-            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-          }
-        `}
-      />
+    <Layout>
       <Header>
         <h1>
           <Link to="/">헤더 영역</Link>

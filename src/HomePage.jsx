@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div>
       <h2>Home</h2>
-      <List className="withShadow">
+      <List>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/login">Log in</Link></li>
         <li><Link to="/restaurants">Restaurants</Link></li>

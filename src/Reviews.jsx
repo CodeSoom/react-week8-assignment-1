@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
+
 import List from './components/List';
+import withShadow from './style/withShadow';
 
 const ReviewItem = styled.li`
   display: flex;
@@ -7,6 +9,7 @@ const ReviewItem = styled.li`
   justify-content: space-between;
   margin-bottom: 16px;
   padding: 16px;
+  ${withShadow}
 
   .name {
     font-size: 12px;
@@ -34,7 +37,7 @@ export default function Reviews({ reviews }) {
   return (
     <List>
       {sortedReviews.map((review) => (
-        <ReviewItem key={review.id} className="withShadow">
+        <ReviewItem key={review.id}>
           <div className="name">
             {review.name}
           </div>
