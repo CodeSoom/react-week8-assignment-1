@@ -1,27 +1,44 @@
 export async function fetchRegions() {
   const url = 'https://eatgo-customer-api.ahastudio.com/regions';
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
+
+  return new Promise((resolve) => {
+    fetch(url).then((response) => {
+      response.json().then((data) => {
+        resolve(data);
+      });
+    });
+  });
 }
 
 export async function fetchCategories() {
   const url = 'https://eatgo-customer-api.ahastudio.com/categories';
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
+
+  return new Promise((resolve) => {
+    fetch(url).then((response) => {
+      response.json().then((data) => {
+        resolve(data);
+      });
+    });
+  });
 }
 
 export async function fetchRegionsAndCategories() {
-  const regionsUrl = 'https://eatgo-customer-api.ahastudio.com/regions';
-  const regionsResponse = await fetch(regionsUrl);
-  const regions = await regionsResponse.json();
+  return new Promise((resolve) => {
+    const regionsUrl = 'https://eatgo-customer-api.ahastudio.com/regions';
+    const categoriesUrl = 'https://eatgo-customer-api.ahastudio.com/categories';
 
-  const categoriesUrl = 'https://eatgo-customer-api.ahastudio.com/categories';
-  const categoriesResponse = await fetch(categoriesUrl);
-  const categories = await categoriesResponse.json();
-
-  return { regions, categories };
+    fetch(regionsUrl).then((regionsResponse) => {
+      fetch(categoriesUrl).then((categoriesResponse) => {
+        regionsResponse.json().then((regions) => {
+          categoriesResponse.json().then((categories) => {
+            resolve({ regions, categories });
+          }).catch((error) => {
+            console.error(error);
+          });
+        });
+      });
+    });
+  });
 }
 
 export async function fetchRestaurants({ regionName, categoryId }) {
