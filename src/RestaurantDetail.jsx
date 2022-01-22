@@ -15,14 +15,15 @@ const Box = styled.div({
   justifyContent: 'start',
   flexDirection: 'column',
   marginBottom: '48px',
-  padding: '24px 18px',
+  padding: '24px 36px',
   borderBottom: '0.1px solid #ccc',
+  width: '90%',
 });
 
 const Address = styled.h2({
   fontSize: '24px',
   fontWeight: '700',
-  marginBottom: '24px',
+  marginBottom: '36px',
   '& p': {
     fontSize: '18px',
     fontWeight: '500',
