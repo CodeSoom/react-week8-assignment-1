@@ -1,8 +1,10 @@
 import reducer, {
+  initialState as appInitialState,
   setRegions,
   setCategories,
   setRestaurants,
   setRestaurant,
+  setError,
   selectRegion,
   selectCategory,
   changeLoginField,
@@ -15,23 +17,7 @@ import reducer, {
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
-    const initialState = {
-      regions: [],
-      categories: [],
-      restaurants: [],
-      restaurant: null,
-      selectedRegion: null,
-      selectedCategory: null,
-      loginFields: {
-        email: '',
-        password: '',
-      },
-      accessToken: '',
-      reviewFields: {
-        score: '',
-        description: '',
-      },
-    };
+    const initialState = appInitialState;
 
     it('returns initialState', () => {
       const state = reducer(undefined, { type: 'action' });
@@ -255,6 +241,27 @@ describe('reducer', () => {
 
       expect(state.restaurant.reviews).toHaveLength(reviews.length);
       expect(state.restaurant.reviews[0]).toEqual(reviews[0]);
+    });
+  });
+
+  describe('setError', () => {
+    it('에러가 발생하면, 액션 타입과 에러 정보를 저장한다.', () => {
+      const error = {
+        type: 'app/loadRestaurant',
+        description: '정보를 가져오는 데 실패했습니다.',
+      };
+
+      const initialState = {
+        error: {
+          type: '',
+          description: '',
+        },
+      };
+
+      const state = reducer(initialState, setError({ error }));
+
+      expect(state.error.type).toBe(error.type);
+      expect(state.error.description).toBe(error.description);
     });
   });
 });
