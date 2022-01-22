@@ -4,20 +4,12 @@ import styled from '@emotion/styled';
 
 import MenuItems from './MenuItems';
 
+import RestaurantBox from './styles/RestaurantBox';
+
 const Title = styled.h2({
   fontSize: '36px',
   fontWeight: '700',
   marginBottom: '24px',
-});
-
-const Box = styled.div({
-  display: 'flex',
-  justifyContent: 'start',
-  flexDirection: 'column',
-  marginBottom: '48px',
-  padding: '24px 18px',
-  borderBottom: '0.1px solid #ccc',
-  width: '50%',
 });
 
 const Address = styled.h2({
@@ -42,7 +34,7 @@ function RestaurantDetail({ restaurant }) {
   return (
     <>
       <Title>{name}</Title>
-      <Box>
+      <RestaurantBox>
         <Address>
           📪 주소
           {' '}
@@ -55,7 +47,7 @@ function RestaurantDetail({ restaurant }) {
         <p>
           <MenuItems menuItems={menuItems} />
         </p>
-      </Box>
+      </RestaurantBox>
     </>
   );
 }

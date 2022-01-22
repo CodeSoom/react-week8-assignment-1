@@ -1,4 +1,26 @@
+import styled from '@emotion/styled';
+
 import React from 'react';
+
+// ToDo: 평점 1~5점까지 제한, 화살표 숨기기 박스 너비 줄이기
+const Box = styled.div({
+  marginBottom: '12px',
+  '& label': {
+    fontSize: '18px',
+    fontWeight: '700',
+    marginRight: '12px',
+  },
+  '& input': {
+    padding: '8px',
+    width: '70%',
+    height: '24px',
+    borderRadius: '8px',
+    border: 'none',
+    fontSize: '14px',
+    fontWeight: '500',
+    color: 'black',
+  },
+});
 
 function TextField({
   label, type = 'text', name, value, onChange,
@@ -11,7 +33,7 @@ function TextField({
   }
 
   return (
-    <div>
+    <Box>
       <label htmlFor={id}>
         {label}
       </label>
@@ -22,7 +44,7 @@ function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Box>
   );
 }
 
