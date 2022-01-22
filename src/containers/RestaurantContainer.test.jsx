@@ -2,9 +2,24 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
+
+import configureStore from 'redux-mock-store';
+
 import RestaurantContainer from './RestaurantContainer';
 
-import { changeReviewField } from '../slice';
+import {
+  changeReviewField,
+  setRestaurant,
+  sendReview,
+  setReviews,
+  clearReviewFields,
+} from '../slice';
+
+const mockStore = configureStore(getDefaultMiddleware());
+
+jest.mock('react-redux');
+jest.mock('../services/api');
 
 describe('RestaurantContainer', () => {
   const dispatch = jest.fn();
@@ -26,6 +41,27 @@ describe('RestaurantContainer', () => {
       },
       accessToken: given.accessToken,
     }));
+  });
+
+  // thunk 테스트 1 - dispatch.mock 정보를 이용해서 테스트
+  it('load conatiner, dipatch loadRestaurant', async () => {
+    const getState = jest.fn();
+    const thunkDispatch = jest.fn();
+
+    renderRestaurantContainer();
+
+    const action = dispatch.mock.calls[0][0];
+
+    await action(thunkDispatch, getState);
+
+    const actions = thunkDispatch.mock.calls.map((call) => call[0]);
+
+    expect(actions).toEqual([
+      setRestaurant(null),
+      setRestaurant({}),
+    ]);
+
+    expect(dispatch).toBeCalled();
   });
 
   context('with restaurant', () => {
@@ -87,10 +123,27 @@ describe('RestaurantContainer', () => {
         });
       });
 
-      it('renders “리뷰 남기기” button', () => {
+      // thunk 테스트 2 - redux-mock-store 방식 사용
+      it('renders “리뷰 남기기” button', async () => {
+        const store = mockStore(() => ({
+          reviewFields: {
+            score: '5',
+            description: '맛있어요 :)',
+          },
+        }));
         const { getByText } = renderRestaurantContainer();
 
         fireEvent.click(getByText('리뷰 남기기'));
+        await store.dispatch(sendReview({ restaurantId: '1' })); // 버튼 클릭시, dispatch 요청을 redux-mock-store 에서 자동으로 발생하지 않아,
+        // redux-mock-store 에서 관련된 actions 를 발생하기 위해 dispatch 발생
+
+        // thunk test
+        const actions = store.getActions();
+
+        expect(actions).toEqual([
+          setReviews(),
+          clearReviewFields(),
+        ]);
 
         expect(dispatch).toBeCalledTimes(2);
       });

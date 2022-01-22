@@ -221,7 +221,7 @@ export function sendReview({ restaurantId }) {
       accessToken, restaurantId, score, description,
     });
 
-    dispatch(loadReview({ restaurantId }));
+    await dispatch(loadReview({ restaurantId }));
     dispatch(clearReviewFields());
   };
 }
