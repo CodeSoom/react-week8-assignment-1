@@ -1,26 +1,29 @@
-import { useSelector } from 'react-redux';
+import { useCallback } from 'react';
+import { useMemo } from 'react';
 
-import { get } from './utils';
+import { useSelector } from 'react-redux';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(({ restaurant }) => restaurant.restaurants);
 
-  function handleClick(restaurant) {
+  const handleClick = useCallback((restaurant) {
     return (event) => {
       event.preventDefault();
       onClickRestaurant(restaurant);
     };
-  }
+  }, [onClickRestaurant]);
+
+  const restaurantsList = useMemo(() => restaurants.map((restaurant) => (
+    <li key={restaurant.id}>
+      <a href="/restaurants/1" onClick={handleClick(restaurant)}>
+        {restaurant.name}
+      </a>
+    </li>
+  )), [restaurants, handleClick]);
 
   return (
     <ul>
-      {restaurants.map((restaurant) => (
-        <li key={restaurant.id}>
-          <a href="/restaurants/1" onClick={handleClick(restaurant)}>
-            {restaurant.name}
-          </a>
-        </li>
-      ))}
+      {restaurantsList}
     </ul>
   );
 }
