@@ -121,14 +121,8 @@ export const {
 
 export function loadInitialData() {
   return async (dispatch) => {
-    await new Promise((resolve) => {
-      const regions = fetchRegions();
-      const categories = fetchCategories();
-
-      resolve({ regions, categories });
-    }).then(async ({ regions, categories }) => {
-      dispatch(setRegionsAndCategories({ regions: await regions, categories: await categories }));
-    });
+    const [regions, categories] = await Promise.all([fetchRegions(), fetchCategories()]);
+    dispatch(setRegionsAndCategories({ regions, categories }));
   };
 }
 
