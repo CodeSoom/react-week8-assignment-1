@@ -15,9 +15,9 @@ const Box = styled.div({
   justifyContent: 'start',
   flexDirection: 'column',
   marginBottom: '48px',
-  padding: '24px 36px',
+  padding: '24px 18px',
   borderBottom: '0.1px solid #ccc',
-  width: '90%',
+  width: '50%',
 });
 
 const Address = styled.h2({
@@ -27,7 +27,7 @@ const Address = styled.h2({
   '& p': {
     fontSize: '18px',
     fontWeight: '500',
-    marginTop: '8px',
+    marginTop: '12px',
   },
 });
 

@@ -6,12 +6,13 @@ const Nothing = styled.p({
   fontSize: '18px',
   fontWeight: '500',
   marginBottom: '12px',
+  marginTop: '12px',
 });
 
 const List = styled.ul({
   fontSize: '18px',
   fontWeight: '500',
-  marginTop: '8px',
+  marginTop: '12px',
   display: 'flex',
   '& li': {
     marginRight: '12px',
