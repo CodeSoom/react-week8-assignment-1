@@ -1,3 +1,6 @@
+import {
+  Button, ButtonGroup, ListGroup, ListGroupItem,
+} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -16,22 +19,21 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
+    <ButtonGroup>
       {regions.map((region) => (
-        <li key={region.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
-          >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
+        <Button
+          key={region.id}
+          type="button"
+          onClick={() => handleClick(region.id)}
+        >
+          {region.name}
+          {selectedRegion ? (
+            <>
+              {region.id === selectedRegion.id ? '(V)' : null}
+            </>
+          ) : null}
+        </Button>
       ))}
-    </ul>
+    </ButtonGroup>
   );
 }

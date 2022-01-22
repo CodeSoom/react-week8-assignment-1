@@ -1,4 +1,6 @@
+import { css } from '@emotion/css';
 import { memo } from 'react';
+import { Button, Form } from 'react-bootstrap';
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
@@ -9,38 +11,44 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   }
 
   return (
-    <>
-      <div>
-        <label htmlFor="login-email">
+    <Form>
+      <Form.Group>
+        <Form.Label htmlFor="login-email">
           E-mail
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="email"
           id="login-email"
           name="email"
           value={email}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label htmlFor="login-password">
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="login-password">
           Password
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="password"
           id="login-password"
           name="password"
           value={password}
           onChange={handleChange}
         />
-      </div>
-      <button
-        type="button"
-        onClick={onSubmit}
-      >
-        Log In
-      </button>
-    </>
+      </Form.Group>
+      <Form.Group>
+        <Button
+          className={css`
+            width: 100%;
+            margin-top: 20px;
+          `}
+          type="button"
+          onClick={onSubmit}
+        >
+          Log In
+        </Button>
+      </Form.Group>
+    </Form>
   );
 });
 
