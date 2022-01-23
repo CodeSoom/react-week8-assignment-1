@@ -44,7 +44,7 @@ export async function postLogin({ email, password }) {
 
   const { accessToken } = await response.json();
 
-  return { accessToken };
+  return accessToken;
 }
 
 export async function postReview({
