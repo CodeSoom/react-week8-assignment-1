@@ -1,5 +1,32 @@
 import { memo } from 'react';
 
+import styled from '@emotion/styled';
+
+const ReviewsContainer = styled.ul({
+  display: 'flex',
+  flexDirection: 'column',
+  margin: 0,
+  padding: '.4em 0',
+  listStyle: 'none',
+  width: '200px',
+});
+
+const ReviewItem = styled.li({
+  marginBottom: '.5em',
+  border: '1px solid',
+});
+
+const ReviewNama = styled.div({
+  fontWeight: 'bold',
+  borderBottom: '.5px solid',
+});
+
+const ReviewDescription = styled.div({
+  border: '1px solid',
+  padding: '1rem',
+  margin: '1px',
+});
+
 function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -8,22 +35,22 @@ function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <ReviewsContainer>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
-          <div>
+        <ReviewItem key={review.id}>
+          <ReviewNama>
             {review.name}
-          </div>
+          </ReviewNama>
           <div>
             {review.score}
             점
           </div>
-          <div>
+          <ReviewDescription>
             {review.description}
-          </div>
-        </li>
+          </ReviewDescription>
+        </ReviewItem>
       ))}
-    </ul>
+    </ReviewsContainer>
   );
 }
 
