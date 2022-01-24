@@ -15,3 +15,9 @@ node_modules
 
 ## Jest
 coverage
+
+# Local Netlify folder
+.netlify
+
+#deploy
+dist
