@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Icon } from 'react-materialize';
 import TextField from './TextField';
 
 function ReviewForm({ fields, onChange, onSubmit }) {
@@ -19,12 +20,17 @@ function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
-        type="button"
+      <Button
+        node="button"
+        type="submit"
+        className="Header green-text yellow"
+        waves="red"
         onClick={onSubmit}
       >
-        리뷰 남기기
-      </button>
+        <span>리뷰 남기기</span>
+        <Icon right>send</Icon>
+
+      </Button>
     </>
   );
 }
