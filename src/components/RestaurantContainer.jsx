@@ -16,13 +16,6 @@ import {
 
 import { get } from '../utils';
 
-// const SectionContainer = styled.div`
-//   display: flex;
-//   @media screen and (min-width: 412px) {
-//     flex-direction:column;
-//   }
-// `
-
 const SectionContainer = styled.div({
   display: 'flex',
   width: '100%',
@@ -50,6 +43,7 @@ const ReviewSectionHeader = styled.div({
   fontSize: '30px',
   fontWeight: '600',
 });
+
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
 
@@ -82,7 +76,7 @@ export default function RestaurantContainer({ restaurantId }) {
       </DetailSection>
       <ReviewSection>
         <ReviewSectionHeader>
-          리뷰 남기기
+          리뷰
         </ReviewSectionHeader>
         {accessToken ? (
           <ReviewForm
