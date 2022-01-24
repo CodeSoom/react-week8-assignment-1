@@ -1,6 +1,7 @@
 import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import M from 'materialize-css';
 import { changeReviewField } from '../slice';
 
 import RestaurantContainer from './RestaurantContainer';
