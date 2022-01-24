@@ -4,6 +4,7 @@ const MenuItem = styled.li(({ active }) => ({
   marginRight: '1em',
 
   '& button': {
+    fontFamily: 'ImcreSoojin',
     padding: '.4em 1em',
     border: '1px solid #CCC',
     background: active ? '#EEE' : 'transparent',
