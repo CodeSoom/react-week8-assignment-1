@@ -1,5 +1,10 @@
+import Container from './styles/Container';
+import Information from './styles/Information';
+
 export default function NotFoundPage() {
   return (
-    <p>404 Not Found</p>
+    <Container>
+      <Information>404 Not Found</Information>
+    </Container>
   );
 }

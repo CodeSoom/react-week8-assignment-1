@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,9 +12,22 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+import Container from './styles/Container';
+import Information from './styles/Information';
+
+const MainContainer = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  padding: '24px 18px',
+  height: '100vh',
+  width: '100vw',
+  backgroundColor: 'rgba(66,66,66, 0.5)',
+});
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -27,7 +42,9 @@ export default function RestaurantContainer({ restaurantId }) {
 
   if (!restaurant) {
     return (
-      <p>Loading...</p>
+      <Container>
+        <Information>Loading...</Information>
+      </Container>
     );
   }
 
@@ -40,7 +57,7 @@ export default function RestaurantContainer({ restaurantId }) {
   }
 
   return (
-    <>
+    <MainContainer>
       <RestaurantDetail restaurant={restaurant} />
       {accessToken ? (
         <ReviewForm
@@ -50,6 +67,6 @@ export default function RestaurantContainer({ restaurantId }) {
         />
       ) : null}
       <Reviews reviews={restaurant.reviews} />
-    </>
+    </MainContainer>
   );
 }

@@ -1,11 +1,19 @@
+import styled from '@emotion/styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+
+import MenuItems from './styles/MenuItems';
+
+const Menu = styled.ul({
+  display: 'flex',
+});
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -19,10 +27,10 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <Menu>
       {categories.map((category) => (
         <li key={category.id}>
-          <button
+          <MenuItems
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -32,9 +40,9 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </MenuItems>
         </li>
       ))}
-    </ul>
+    </Menu>
   );
 }
