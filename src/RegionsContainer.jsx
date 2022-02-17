@@ -1,17 +1,17 @@
+import {
+  Button, ButtonGroup, ListGroup, ListGroupItem,
+} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectRegion,
   loadRestaurants,
-} from './actions';
-
-import { get } from './utils';
+} from './store/actions';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
 
-  const regions = useSelector(get('regions'));
-  const selectedRegion = useSelector(get('selectedRegion'));
+  const { regions, selectedRegion } = useSelector(({ restaurant }) => restaurant);
 
   function handleClick(regionId) {
     dispatch(selectRegion(regionId));
@@ -19,22 +19,21 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
+    <ButtonGroup>
       {regions.map((region) => (
-        <li key={region.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
-          >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
+        <Button
+          key={region.id}
+          type="button"
+          onClick={() => handleClick(region.id)}
+        >
+          {region.name}
+          {selectedRegion ? (
+            <>
+              {region.id === selectedRegion.id ? '(V)' : null}
+            </>
+          ) : null}
+        </Button>
       ))}
-    </ul>
+    </ButtonGroup>
   );
 }

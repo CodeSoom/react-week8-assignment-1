@@ -1,17 +1,15 @@
+import { Button, ButtonGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectCategory,
   loadRestaurants,
-} from './actions';
-
-import { get } from './utils';
+} from './store/actions';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
-  const categories = useSelector(get('categories'));
-  const selectedCategory = useSelector(get('selectedCategory'));
+  const { categories, selectedCategory } = useSelector(({ restaurant }) => restaurant);
 
   function handleClick(categoryId) {
     dispatch(selectCategory(categoryId));
@@ -19,22 +17,21 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <ButtonGroup>
       {categories.map((category) => (
-        <li key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
-            {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
+        <Button
+          key={category.id}
+          type="button"
+          onClick={() => handleClick(category.id)}
+        >
+          {category.name}
+          {selectedCategory ? (
+            <>
+              {category.id === selectedCategory.id ? '(V)' : null}
+            </>
+          ) : null}
+        </Button>
       ))}
-    </ul>
+    </ButtonGroup>
   );
 }

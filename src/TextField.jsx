@@ -1,3 +1,5 @@
+import { Form } from 'react-bootstrap';
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -9,17 +11,17 @@ export default function TextField({
   }
 
   return (
-    <div>
-      <label htmlFor={id}>
+    <Form.Group>
+      <Form.Label htmlFor={id}>
         {label}
-      </label>
-      <input
+      </Form.Label>
+      <Form.Control
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Form.Group>
   );
 }

@@ -5,6 +5,9 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
+import {
+  Button, Container, Nav, Navbar,
+} from 'react-bootstrap';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
@@ -13,7 +16,7 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './store/actions';
 
 import { loadItem } from './services/storage';
 
@@ -28,18 +31,26 @@ export default function App() {
   return (
     <div>
       <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
+        <Navbar bg="light">
+          <Container>
+            <Navbar.Brand>
+              <h1>
+                <Link to="/">헤더 영역</Link>
+              </h1>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
       </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <main>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </main>
     </div>
   );
 }
