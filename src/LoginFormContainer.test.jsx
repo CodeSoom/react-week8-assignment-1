@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LoginFormContainer from './LoginFormContainer';
+import { changeLoginField, logout } from './slice';
 
 jest.mock('react-redux');
 
@@ -20,6 +21,9 @@ describe('LoginFormContainer', () => {
         password: '1234',
       },
       accessToken: given.accessToken,
+      apiStatus: {
+        postLogin: 'SUCCESS',
+      },
     }));
   });
 
@@ -43,11 +47,7 @@ describe('LoginFormContainer', () => {
       fireEvent.change(getByLabelText('E-mail'), {
         target: { value: 'new email' },
       });
-
-      expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
-        payload: { name: 'email', value: 'new email' },
-      });
+      expect(dispatch).toBeCalledWith(changeLoginField({ name: 'email', value: 'new email' }));
     });
 
     it('renders “Log In” button', () => {
@@ -71,7 +71,7 @@ describe('LoginFormContainer', () => {
 
       fireEvent.click(getByText('Log out'));
 
-      expect(dispatch).toBeCalledWith({ type: 'logout' });
+      expect(dispatch).toBeCalledWith(logout());
     });
   });
 });

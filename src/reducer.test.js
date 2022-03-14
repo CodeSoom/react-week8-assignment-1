@@ -13,7 +13,11 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+  setFetchRestaurantsStatus,
+  setPostLoginStatus,
+  setFetchRestaurantStatus,
+  setPostReviewStatus,
+} from './slice';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
@@ -33,10 +37,16 @@ describe('reducer', () => {
         score: '',
         description: '',
       },
+      apiStatus: {
+        fetchRestaurants: 'IDLE',
+        fetchRestaurant: 'IDLE',
+        postLogin: 'IDLE',
+        postReview: 'IDLE',
+      },
     };
 
     it('returns initialState', () => {
-      const state = reducer(undefined, { type: 'action' });
+      const state = reducer(undefined, { type: 'application/action' });
 
       expect(state).toEqual(initialState);
     });
@@ -257,6 +267,51 @@ describe('reducer', () => {
 
       expect(state.restaurant.reviews).toHaveLength(reviews.length);
       expect(state.restaurant.reviews[0]).toEqual(reviews[0]);
+    });
+  });
+
+  describe('setFetchRestaurantsStatus', () => {
+    it('change api status', () => {
+      const initialState = {
+        apiStatus: {
+          fetchRestaurants: 'IDLE',
+        },
+      };
+      const state = reducer(initialState, setFetchRestaurantsStatus('SUCCESS'));
+      expect(state.apiStatus.fetchRestaurants).toEqual('SUCCESS');
+    });
+  });
+  describe('setPostLoginStatus', () => {
+    it('change api status', () => {
+      const initialState = {
+        apiStatus: {
+          fetchRestaurant: 'IDLE',
+        },
+      };
+      const state = reducer(initialState, setPostLoginStatus('SUCCESS'));
+      expect(state.apiStatus.postLogin).toEqual('SUCCESS');
+    });
+  });
+  describe('setFetchRestaurantStatus', () => {
+    it('change api status', () => {
+      const initialState = {
+        apiStatus: {
+          postLogin: 'IDLE',
+        },
+      };
+      const state = reducer(initialState, setFetchRestaurantStatus('SUCCESS'));
+      expect(state.apiStatus.fetchRestaurant).toEqual('SUCCESS');
+    });
+  });
+  describe('setPostReviewStatus', () => {
+    it('change api status', () => {
+      const initialState = {
+        apiStatus: {
+          postReview: 'IDLE',
+        },
+      };
+      const state = reducer(initialState, setPostReviewStatus('SUCCESS'));
+      expect(state.apiStatus.postReview).toEqual('SUCCESS');
     });
   });
 });

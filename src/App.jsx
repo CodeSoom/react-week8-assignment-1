@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
+import styled from '@emotion/styled';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
@@ -13,9 +14,25 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
+
+import withShadow from './style/withShadow';
+
+const Layout = styled.div`
+  max-width: 768px;
+  margin: 16px auto;
+  padding: 16px;
+  ${withShadow}
+`;
+
+const Header = styled.header`
+  font-size: 24px;
+  h1 {
+    border-bottom: 1px solid #ddd;
+  }
+`;
 
 export default function App() {
   const dispatch = useDispatch();
@@ -26,12 +43,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
+    <Layout>
+      <Header>
         <h1>
           <Link to="/">헤더 영역</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -40,6 +57,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Layout>
   );
 }

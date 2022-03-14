@@ -1,3 +1,4 @@
+import Button from './components/Button';
 import TextField from './TextField';
 
 export default function ReviewForm({ fields, onChange, onSubmit }) {
@@ -18,12 +19,12 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
+      </Button>
     </>
   );
 }
