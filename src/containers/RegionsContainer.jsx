@@ -1,11 +1,13 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectRegion,
   loadRestaurants,
-} from './actions';
+} from '../slice';
 
-import { get } from './utils';
+import { get } from '../utils';
+import { List, ListItem } from './RegionsContainer.style';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -13,15 +15,15 @@ export default function RegionsContainer() {
   const regions = useSelector(get('regions'));
   const selectedRegion = useSelector(get('selectedRegion'));
 
-  function handleClick(regionId) {
+  const handleClick = useCallback((regionId) => {
     dispatch(selectRegion(regionId));
     dispatch(loadRestaurants());
-  }
+  }, []);
 
   return (
-    <ul>
+    <List>
       {regions.map((region) => (
-        <li key={region.id}>
+        <ListItem key={region.id}>
           <button
             type="button"
             onClick={() => handleClick(region.id)}
@@ -33,8 +35,8 @@ export default function RegionsContainer() {
               </>
             ) : null}
           </button>
-        </li>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 }

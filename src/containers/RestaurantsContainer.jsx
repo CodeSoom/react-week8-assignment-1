@@ -1,16 +1,15 @@
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
-import { get } from './utils';
+import { get } from '../utils';
 
-export default function RestaurantsContainer({ onClickRestaurant }) {
+function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get('restaurants'));
 
-  function handleClick(restaurant) {
-    return (event) => {
-      event.preventDefault();
-      onClickRestaurant(restaurant);
-    };
-  }
+  const handleClick = useCallback((restaurant) => (event) => {
+    event.preventDefault();
+    onClickRestaurant(restaurant);
+  }, []);
 
   return (
     <ul>
@@ -24,3 +23,5 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
     </ul>
   );
 }
+
+export default memo(RestaurantsContainer);

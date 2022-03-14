@@ -1,20 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import RestaurantDetail from './RestaurantDetail';
-import ReviewForm from './ReviewForm';
-import Reviews from './Reviews';
+import RestaurantDetail from '../components/RestaurantDetail';
+import ReviewForm from '../components/ReviewForm';
+import Reviews from '../components/Reviews';
 
 import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from '../slice';
 
-import { get } from './utils';
+import { get } from '../utils';
 
-export default function RestaurantContainer({ restaurantId }) {
+function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,13 +31,13 @@ export default function RestaurantContainer({ restaurantId }) {
     );
   }
 
-  function handleChange({ name, value }) {
+  const handleChange = ({ name, value }) => {
     dispatch(changeReviewField({ name, value }));
-  }
+  };
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     dispatch(sendReview({ restaurantId }));
-  }
+  };
 
   return (
     <>
@@ -53,3 +53,5 @@ export default function RestaurantContainer({ restaurantId }) {
     </>
   );
 }
+
+export default memo(RestaurantContainer);
