@@ -1,5 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 
+import M from 'materialize-css';
 import ReviewForm from './ReviewForm';
 
 describe('ReviewForm', () => {

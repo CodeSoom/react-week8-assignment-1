@@ -1,3 +1,5 @@
+import { TextInput } from 'react-materialize';
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -13,12 +15,14 @@ export default function TextField({
       <label htmlFor={id}>
         {label}
       </label>
-      <input
+      <TextInput
+        inputClassName="yellow-text"
         type={type}
         id={id}
         name={name}
         value={value}
         onChange={handleChange}
+        label={label}
       />
     </div>
   );

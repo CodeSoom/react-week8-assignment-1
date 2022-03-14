@@ -6,6 +6,10 @@ export async function fetchCategories() {
   return [];
 }
 
+export async function fetchRegionsAndCategories() {
+  return { regions: [], categories: [] };
+}
+
 export async function fetchRestaurants() {
   return [];
 }

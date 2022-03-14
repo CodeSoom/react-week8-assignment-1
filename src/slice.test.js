@@ -1,6 +1,10 @@
-import reducer from './reducer';
+import thunk from 'redux-thunk';
 
-import {
+import configureStore from 'redux-mock-store';
+
+import given from 'given2';
+
+import reducer, {
   setRegions,
   setCategories,
   setRestaurants,
@@ -13,7 +17,14 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+  sendReview,
+  loadReview,
+  loadRestaurants,
+  requestLogin,
+  loadRestaurant,
+  loadInitialData,
+  setRegionsAndCategories,
+} from './slice';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
@@ -70,6 +81,27 @@ describe('reducer', () => {
 
       const state = reducer(initialState, setCategories(categories));
 
+      expect(state.categories).toHaveLength(1);
+    });
+  });
+
+  describe('setRegionsAndCategories', () => {
+    it('changes restaurants', () => {
+      const initialState = {
+        regions: [],
+        categories: [],
+      };
+
+      const regions = [
+        { id: 1, name: '서울' },
+      ];
+      const categories = [
+        { id: 1, name: '한식' },
+      ];
+
+      const state = reducer(initialState, setRegionsAndCategories({ regions, categories }));
+
+      expect(state.regions).toHaveLength(1);
       expect(state.categories).toHaveLength(1);
     });
   });
@@ -257,6 +289,123 @@ describe('reducer', () => {
 
       expect(state.restaurant.reviews).toHaveLength(reviews.length);
       expect(state.restaurant.reviews[0]).toEqual(reviews[0]);
+    });
+  });
+});
+
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+
+jest.mock('./services/api');
+
+describe('actions', () => {
+  let store;
+
+  beforeEach(() => {
+    store = mockStore(() => ({
+      selectedRegion: given.selectedRegion,
+      selectedCategory: given.selectedCategory,
+      loginFields: given.loginFields,
+      accessToken: given.accessToken,
+      reviewFields: given.reviewFields,
+    }));
+  });
+
+  describe('loadInitialData', () => {
+    it('runs setRegions and setCategories', async () => {
+      await store.dispatch(loadInitialData());
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setRegionsAndCategories({ regions: [], categories: [] }));
+    });
+  });
+
+  describe('loadRestaurants', () => {
+    context('with selectedRegion and selectedCategory', () => {
+      it('runs setRestaurants', async () => {
+        given('selectedRegion', () => ({ id: 1, name: '서울' }));
+        given('selectedCategory', () => ({ id: 1, name: '한식' }));
+
+        await store.dispatch(loadRestaurants());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setRestaurants([]));
+      });
+    });
+
+    context('without selectedRegion', () => {
+      given('selectedCategory', () => ({ id: 1, name: '한식' }));
+
+      it('does\'nt run any actions', async () => {
+        await store.dispatch(loadRestaurants());
+
+        const actions = store.getActions();
+
+        expect(actions).toHaveLength(0);
+      });
+    });
+
+    context('without selectedCategory', () => {
+      given('selectedRegion', () => ({ id: 1, name: '한식' }));
+
+      it('does\'nt run any actions', async () => {
+        await store.dispatch(loadRestaurants());
+
+        const actions = store.getActions();
+
+        expect(actions).toHaveLength(0);
+      });
+    });
+  });
+
+  describe('loadRestaurant', () => {
+    it('dispatchs setRestaurant', async () => {
+      await store.dispatch(loadRestaurant({ restaurantId: 1 }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setRestaurant(null));
+      expect(actions[1]).toEqual(setRestaurant({}));
+    });
+  });
+
+  describe('requestLogin', () => {
+    given('loginFields', () => ({ email: '', password: '' }));
+
+    it('dispatchs setAccessToken', async () => {
+      await store.dispatch(requestLogin());
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setAccessToken({}));
+    });
+  });
+
+  describe('loadReview', () => {
+    given('loginFields', () => ({ email: '', password: '' }));
+
+    it('dispatchs setReviews', async () => {
+      await store.dispatch(loadReview({ restaurantId: 1 }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setReviews());
+    });
+  });
+
+  describe('sendReview', () => {
+    given('accessToken', () => '');
+
+    given('reviewFields', () => ({ score: 1, description: '' }));
+
+    it('dispatchs clearReviewFields', async () => {
+      await store.dispatch(sendReview({ restaurantId: 1 }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(clearReviewFields());
     });
   });
 });
