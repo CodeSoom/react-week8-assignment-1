@@ -3,17 +3,18 @@ import { memo } from 'react';
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
-  function handleChange(event) {
-    const { target: { name, value } } = event;
+  // 어차피 리렌더링 되므로 callback 사용하지 않는다
+  const handleChange = (event) => {
+    const {
+      target: { name, value },
+    } = event;
     onChange({ name, value });
-  }
+  };
 
   return (
     <>
       <div>
-        <label htmlFor="login-email">
-          E-mail
-        </label>
+        <label htmlFor="login-email">E-mail</label>
         <input
           type="email"
           id="login-email"
@@ -23,9 +24,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
         />
       </div>
       <div>
-        <label htmlFor="login-password">
-          Password
-        </label>
+        <label htmlFor="login-password">Password</label>
         <input
           type="password"
           id="login-password"
@@ -34,10 +33,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           onChange={handleChange}
         />
       </div>
-      <button
-        type="button"
-        onClick={onSubmit}
-      >
+      <button type="button" onClick={onSubmit}>
         Log In
       </button>
     </>

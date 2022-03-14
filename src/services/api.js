@@ -21,8 +21,7 @@ export async function fetchRestaurants({ regionName, categoryId }) {
 }
 
 export async function fetchRestaurant({ restaurantId }) {
-  const url = 'https://eatgo-customer-api.ahastudio.com'
-    + `/restaurants/${restaurantId}`;
+  const url = `https://eatgo-customer-api.ahastudio.com/restaurants/${restaurantId}`;
   const response = await fetch(url);
   const data = await response.json();
   return data;
@@ -42,7 +41,10 @@ export async function postLogin({ email, password }) {
 }
 
 export async function postReview({
-  accessToken, restaurantId, score, description,
+  accessToken,
+  restaurantId,
+  score,
+  description,
 }) {
   const url = 'https://eatgo-customer-api.ahastudio.com'
     + `/restaurants/${restaurantId}/reviews`;
@@ -55,5 +57,6 @@ export async function postReview({
     },
     body: JSON.stringify({ score, description }),
   });
+
   await response.json();
 }
