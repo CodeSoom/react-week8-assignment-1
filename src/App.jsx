@@ -6,16 +6,38 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import styled from '@emotion/styled';
 
-import { setAccessToken } from './actions';
+import HomePage from './Pages/HomePage';
+import AboutPage from './Pages/AboutPage';
+import LoginPage from './Pages/LoginPage';
+import RestaurantsPage from './Pages/RestaurantsPage';
+import RestaurantPage from './Pages/RestaurantPage';
+import NotFoundPage from './Pages/NotFoundPage';
+
+import { setAccessToken } from './redux/slice';
 
 import { loadItem } from './services/storage';
+
+const Container = styled.div({
+  margin: '0 auto',
+  width: '90%',
+});
+
+const Header = styled.header({
+  backgroundColor: '#EEE',
+  '& .title': {
+    margin: '0',
+    padding: '1em .5em',
+  },
+  '& .link': {
+    color: '#555',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#000',
+    },
+  },
+});
 
 export default function App() {
   const dispatch = useDispatch();
@@ -26,12 +48,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
+    <Container>
+      <Header>
+        <h1 className="title">
+          <Link className="link" to="/">EatGo</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -40,6 +62,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Container>
   );
 }

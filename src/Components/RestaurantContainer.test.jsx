@@ -2,6 +2,8 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { createAction } from '@reduxjs/toolkit';
+
 import RestaurantContainer from './RestaurantContainer';
 
 describe('RestaurantContainer', () => {
@@ -78,13 +80,12 @@ describe('RestaurantContainer', () => {
           { label: '리뷰 내용', name: 'description', value: '정말 최고 :)' },
         ];
 
+        const changeReviewField = createAction('application/changeReviewField');
+
         controls.forEach(({ label, name, value }) => {
           fireEvent.change(getByLabelText(label), { target: { value } });
 
-          expect(dispatch).toBeCalledWith({
-            type: 'changeReviewField',
-            payload: { name, value },
-          });
+          expect(dispatch).toBeCalledWith(changeReviewField({ name, value }));
         });
       });
 

@@ -6,6 +6,8 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { createAction } from '@reduxjs/toolkit';
+
 import App from './App';
 
 import { loadItem } from './services/storage';
@@ -92,10 +94,9 @@ describe('App', () => {
     it('calls dispatch with “setAccessToken” action', () => {
       renderApp({ path: '/' });
 
-      expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
-      });
+      const setAccessToken = createAction('application/setAccessToken');
+
+      expect(dispatch).toBeCalledWith(setAccessToken(accessToken));
     });
   });
 });

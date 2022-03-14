@@ -7,9 +7,11 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from '../redux/slice';
 
-import { get } from './utils';
+import { get } from '../Utils/utils';
+
+import { removeItem } from '../services/storage';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ export default function LoginFormContainer() {
   };
 
   const handleClickLogout = () => {
+    removeItem('accessToken');
     dispatch(logout());
   };
 

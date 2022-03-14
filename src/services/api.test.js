@@ -17,6 +17,7 @@ describe('api', () => {
   const mockFetch = (data) => {
     global.fetch = jest.fn().mockResolvedValue({
       async json() { return data; },
+      ok: true,
     });
   };
 

@@ -2,6 +2,8 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { createAction } from '@reduxjs/toolkit';
+
 import LoginFormContainer from './LoginFormContainer';
 
 jest.mock('react-redux');
@@ -40,14 +42,13 @@ describe('LoginFormContainer', () => {
         <LoginFormContainer />
       ));
 
+      const changeLoginField = createAction('application/changeLoginField');
+
       fireEvent.change(getByLabelText('E-mail'), {
         target: { value: 'new email' },
       });
 
-      expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
-        payload: { name: 'email', value: 'new email' },
-      });
+      expect(dispatch).toBeCalledWith(changeLoginField({ name: 'email', value: 'new email' }));
     });
 
     it('renders “Log In” button', () => {
@@ -69,9 +70,11 @@ describe('LoginFormContainer', () => {
         <LoginFormContainer />
       ));
 
+      const logout = createAction('application/logout');
+
       fireEvent.click(getByText('Log out'));
 
-      expect(dispatch).toBeCalledWith({ type: 'logout' });
+      expect(dispatch).toBeCalledWith(logout());
     });
   });
 });
