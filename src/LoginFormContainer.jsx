@@ -31,7 +31,7 @@ export default function LoginFormContainer() {
 
   return (
     <>
-      {accessToken ? (
+      {accessToken?.length ? (
         <LogoutForm onClick={handleClickLogout} />
       ) : (
         <LoginForm

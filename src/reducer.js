@@ -1,3 +1,5 @@
+import { saveItem } from './services/storage';
+
 import { equal } from './utils';
 
 const initialReviewFields = {
@@ -85,6 +87,7 @@ const reducers = {
   },
 
   logout(state) {
+    saveItem('accessToken', '');
     return {
       ...state,
       accessToken: '',
