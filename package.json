@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
+    "test:watch": "jest --collectCoverage --watchAll --verbose",
     "test:unit": "jest",
     "coverage": "npm run test:unit -- --coverage",
     "test:e2e": "codeceptjs run --steps",
@@ -41,6 +42,9 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@reduxjs/toolkit": "^1.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
