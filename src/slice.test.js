@@ -1,6 +1,4 @@
-import reducer from './reducer';
-
-import {
+import reducer, {
   setRegions,
   setCategories,
   setRestaurants,
@@ -13,7 +11,7 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+} from './slice';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {
@@ -52,7 +50,7 @@ describe('reducer', () => {
         { id: 1, name: '서울' },
       ];
 
-      const state = reducer(initialState, setRegions(regions));
+      const state = reducer(initialState, setRegions({ regions }));
 
       expect(state.regions).toHaveLength(1);
     });
@@ -68,7 +66,7 @@ describe('reducer', () => {
         { id: 1, name: '한식' },
       ];
 
-      const state = reducer(initialState, setCategories(categories));
+      const state = reducer(initialState, setCategories({ categories }));
 
       expect(state.categories).toHaveLength(1);
     });
@@ -84,7 +82,7 @@ describe('reducer', () => {
         { id: 1, name: '마법사주방' },
       ];
 
-      const state = reducer(initialState, setRestaurants(restaurants));
+      const state = reducer(initialState, setRestaurants({ restaurants }));
 
       expect(state.restaurants).toHaveLength(1);
     });
@@ -98,7 +96,7 @@ describe('reducer', () => {
 
       const restaurant = { id: 1, name: '마법사주방' };
 
-      const state = reducer(initialState, setRestaurant(restaurant));
+      const state = reducer(initialState, setRestaurant({ restaurant }));
 
       expect(state.restaurant.id).toBe(1);
       expect(state.restaurant.name).toBe('마법사주방');
@@ -114,7 +112,7 @@ describe('reducer', () => {
         selectedRegion: null,
       };
 
-      const state = reducer(initialState, selectRegion(1));
+      const state = reducer(initialState, selectRegion({ regionId: 1 }));
 
       expect(state.selectedRegion).toEqual({
         id: 1,
@@ -132,7 +130,7 @@ describe('reducer', () => {
         selectedCategory: null,
       };
 
-      const state = reducer(initialState, selectCategory(1));
+      const state = reducer(initialState, selectCategory({ categoryId: 1 }));
 
       expect(state.selectedCategory).toEqual({
         id: 1,
@@ -187,7 +185,7 @@ describe('reducer', () => {
         accessToken: '',
       };
 
-      const state = reducer(initialState, setAccessToken('TOKEN'));
+      const state = reducer(initialState, setAccessToken({ accessToken: 'TOKEN' }));
 
       expect(state.accessToken).toBe('TOKEN');
     });
@@ -253,7 +251,7 @@ describe('reducer', () => {
         },
       };
 
-      const state = reducer(initialState, setReviews(reviews));
+      const state = reducer(initialState, setReviews({ reviews }));
 
       expect(state.restaurant.reviews).toHaveLength(reviews.length);
       expect(state.restaurant.reviews[0]).toEqual(reviews[0]);

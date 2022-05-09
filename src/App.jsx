@@ -13,7 +13,7 @@ import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
@@ -22,7 +22,7 @@ export default function App() {
 
   const accessToken = loadItem('accessToken');
   if (accessToken) {
-    dispatch(setAccessToken(accessToken));
+    dispatch(setAccessToken({ accessToken }));
   }
 
   return (

@@ -16,7 +16,7 @@ import {
   loadReview,
   sendReview,
   clearReviewFields,
-} from './actions';
+} from './slice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -36,8 +36,8 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setRegions([]));
-      expect(actions[1]).toEqual(setCategories([]));
+      expect(actions[0]).toEqual(setRegions({ regions: [] }));
+      expect(actions[1]).toEqual(setCategories({ categories: [] }));
     });
   });
 
@@ -55,7 +55,7 @@ describe('actions', () => {
 
         const actions = store.getActions();
 
-        expect(actions[0]).toEqual(setRestaurants([]));
+        expect(actions[0]).toEqual(setRestaurants({ restaurants: [] }));
       });
     });
 
@@ -102,8 +102,8 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setRestaurant(null));
-      expect(actions[1]).toEqual(setRestaurant({}));
+      expect(actions[0]).toEqual(setRestaurant({ restaurant: null }));
+      expect(actions[1]).toEqual(setRestaurant({ restaurant: {} }));
     });
   });
 
@@ -119,7 +119,7 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setAccessToken({}));
+      expect(actions[0]).toEqual(setAccessToken({ accessToken: {} }));
     });
   });
 
@@ -135,7 +135,7 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setReviews());
+      expect(actions[0]).toEqual(setReviews({ reviews: undefined }));
     });
   });
 
