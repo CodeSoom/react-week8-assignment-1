@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import styled from '@emotion/styled';
 
 import MenuItems from './MenuItems';
@@ -12,7 +14,7 @@ const SubTitle = styled.h3({
   fontFamily: 'sans-serif',
 });
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -30,3 +32,5 @@ export default function RestaurantDetail({ restaurant }) {
     </div>
   );
 }
+
+export default memo(RestaurantDetail);

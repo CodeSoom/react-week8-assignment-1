@@ -9,7 +9,7 @@ const Container = styled.div({
   display: 'flex',
 });
 
-const LoginForm = memo(({ fields, onChange, onSubmit }) => {
+const LoginForm = (({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
   function handleChange(event) {
@@ -55,4 +55,4 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   );
 });
 
-export default LoginForm;
+export default memo(LoginForm);

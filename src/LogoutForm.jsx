@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import styled from '@emotion/styled';
 
 import Button from './Button';
@@ -6,7 +8,7 @@ const Container = styled.div({
   margin: '1em',
 });
 
-export default function LogoutForm({ onClick }) {
+function LogoutForm({ onClick }) {
   return (
     <Container>
       <Button
@@ -18,3 +20,5 @@ export default function LogoutForm({ onClick }) {
     </Container>
   );
 }
+
+export default memo(LogoutForm);
