@@ -1,17 +1,21 @@
+import Paragraph from './Paragraph';
+import MenuList from './MenuList';
+import MenuItem from './MenuItem';
+
 export default function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
-      <p>메뉴가 없어요!</p>
+      <Paragraph>메뉴가 없어요!</Paragraph>
     );
   }
 
   return (
-    <ul>
+    <MenuList>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
+        <MenuItem key={menuItem.id}>
           {menuItem.name}
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }

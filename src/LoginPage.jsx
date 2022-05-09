@@ -1,9 +1,10 @@
 import LoginFormContainer from './LoginFormContainer';
+import Title from './Title';
 
 export default function LoginPage() {
   return (
     <div>
-      <h2>Log In</h2>
+      <Title>Log In</Title>
       <LoginFormContainer />
     </div>
   );

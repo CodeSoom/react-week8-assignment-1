@@ -1,3 +1,5 @@
+import FormContainer from './FormContainer';
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -9,7 +11,7 @@ export default function TextField({
   }
 
   return (
-    <div>
+    <FormContainer>
       <label htmlFor={id}>
         {label}
       </label>
@@ -20,6 +22,6 @@ export default function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </FormContainer>
   );
 }
