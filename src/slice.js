@@ -18,24 +18,26 @@ const initialReviewFields = {
   description: '',
 };
 
+const initialState = {
+  regions: [],
+  categories: [],
+  restaurants: [],
+  restaurant: null,
+  selectedRegion: null,
+  selectedCategory: null,
+  loginFields: {
+    email: '',
+    password: '',
+  },
+  accessToken: '',
+  reviewFields: {
+    ...initialReviewFields,
+  },
+};
+
 const { actions, reducer } = createSlice({
   name: 'application',
-  initialState: {
-    regions: [],
-    categories: [],
-    restaurants: [],
-    restaurant: null,
-    selectedRegion: null,
-    selectedCategory: null,
-    loginFields: {
-      email: '',
-      password: '',
-    },
-    accessToken: '',
-    reviewFields: {
-      ...initialReviewFields,
-    },
-  },
+  initialState,
   reducers: {
     setRegions(state, { payload: regions }) {
       return {
