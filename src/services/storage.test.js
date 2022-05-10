@@ -1,26 +1,28 @@
-import { saveItem, loadItem } from './storage';
+import { loadItem, saveItem } from './storage';
 
 describe('storage', () => {
-  jest.spyOn(window.localStorage.__proto__, 'setItem');
-
   beforeEach(() => {
-    window.localStorage.__proto__.setItem = jest.fn();
-    window.localStorage.__proto__.getItem = jest.fn();
+    const mockStorage = {};
+    global.Storage.prototype.setItem = jest.fn(({ key, value }) => {
+      mockStorage[key] = value;
+    });
+
+    global.Storage.prototype.getItem = jest.fn((key) => mockStorage[key]);
   });
 
   describe('saveItem', () => {
-    it('calls localStorage setItem', () => {
-      saveItem('key', 'value');
+    it('"localStorage의 setItem 함수를 호출한다.', () => {
+      saveItem('피카츄', '전기 포켓몬');
 
-      expect(localStorage.setItem).toBeCalledWith('key', 'value');
+      expect(global.Storage.prototype.setItem).toHaveBeenCalled();
     });
   });
 
   describe('loadItem', () => {
-    it('calls localStorage getItem', () => {
-      loadItem('key');
+    it('"localStorage의 getItem 함수를 호출한다.', () => {
+      loadItem('피카츄');
 
-      expect(localStorage.getItem).toBeCalledWith('key');
+      expect(global.Storage.prototype.getItem).toHaveBeenCalled();
     });
   });
 });

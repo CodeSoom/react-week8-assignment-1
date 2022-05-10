@@ -3,90 +3,73 @@ import { render, fireEvent } from '@testing-library/react';
 import TextField from './TextField';
 
 describe('TextField', () => {
-  context('without type', () => {
-    function renderTextField() {
-      const handleChange = jest.fn();
+  given('label', () => '');
+  given('fieldName', () => '');
+  given('type', () => '');
 
-      return render((
-        <TextField
-          label="리뷰 설명"
-          name="description"
-          onChange={handleChange}
-        />
-      ));
-    }
+  const handleChange = jest.fn();
 
-    it('renders label and input control', () => {
+  beforeEach(() => {
+    handleChange.mockClear();
+  });
+
+  function renderTextField() {
+    return render(
+      <TextField
+        type={given.type}
+        label={given.label}
+        name={given.fieldName}
+        inputValue=""
+        onChange={handleChange}
+      />,
+    );
+  }
+
+  context('type이 없을 때', () => {
+    given('label', () => '리뷰 설명');
+    given('fieldName', () => 'description');
+    given('type', () => undefined);
+
+    it('라벨과 인풋을 렌더한다.', () => {
       const { queryByLabelText } = renderTextField();
 
       expect(queryByLabelText('리뷰 설명')).not.toBeNull();
     });
 
-    it('renders “text” input control', () => {
+    it('라벨과 text타입 인풋을 렌더한다.', () => {
       const { container } = renderTextField();
 
       expect(container).toContainHTML('type="text"');
     });
   });
 
-  context('with type', () => {
-    function renderTextField() {
-      const handleChange = jest.fn();
+  context('type이 있을 때', () => {
+    given('label', () => '평점');
+    given('fieldName', () => 'score');
+    given('type', () => 'number');
 
-      return render((
-        <TextField
-          label="평점"
-          type="number"
-          name="score"
-          onChange={handleChange}
-        />
-      ));
-    }
-
-    it('renders label and input control', () => {
+    it('라벨과 인풋을 렌더한다.', () => {
       const { queryByLabelText } = renderTextField();
 
       expect(queryByLabelText('평점')).not.toBeNull();
     });
 
-    it('renders “number” input control', () => {
+    it('라벨과 입력한 type의 인풋을 렌더한다.', () => {
       const { container } = renderTextField();
 
       expect(container).toContainHTML('type="number"');
     });
   });
 
-  it('renders value', () => {
+  it('"TextField"의 input 입력 이벤트를 감지한다.', () => {
+    given('label', () => '평점');
+    given('fieldName', () => 'score');
+    given('type', () => 'number');
+
     const name = 'score';
     const value = '5';
 
-    const handleChange = jest.fn();
-
-    const { getByLabelText } = render((
-      <TextField
-        label="평점"
-        name={name}
-        value={value}
-        onChange={handleChange}
-      />
-    ));
-
-    expect(getByLabelText('평점').value).toBe(value);
-  });
-
-  it('listens change events', () => {
-    const name = 'score';
-    const value = '5';
-
-    const handleChange = jest.fn();
-
-    const { getByLabelText } = render((
-      <TextField
-        label="평점"
-        name={name}
-        onChange={handleChange}
-      />
-    ));
+    const { getByLabelText } = renderTextField();
 
     fireEvent.change(getByLabelText('평점'), { target: { value } });
 

@@ -1,17 +1,20 @@
 {
-  "name": "demo",
+  "name": "react-week8-assignment-1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
     "test:unit": "jest",
+    "test:watch": "jest --collectCoverage --watchAll --verbose",
     "coverage": "npm run test:unit -- --coverage",
     "test:e2e": "codeceptjs run --steps",
     "test": "npm run coverage && start-server-and-test start http://localhost:8080 test:e2e",
-    "lint": "eslint --ext js,jsx ."
+    "lint": "eslint --ext js,jsx .",
+    "predeploy": "webpack build && mv ./dist/main.js ./public/main.js",
+    "deploy": "gh-pages -d public && rm ./public/main.js"
   },
-  "keywords": [],
+  "homepage": "https://0407chan.github.io/react-week8-assignment-1",
   "author": "",
   "license": "ISC",
   "devDependencies": {

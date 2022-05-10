@@ -8,13 +8,12 @@ import { useDispatch } from 'react-redux';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
 import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
+import LoginPage from './LoginPage';
 
 import { setAccessToken } from './actions';
-
 import { loadItem } from './services/storage';
 
 export default function App() {
@@ -29,7 +28,7 @@ export default function App() {
     <div>
       <header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">헤더</Link>
         </h1>
       </header>
       <Switch>

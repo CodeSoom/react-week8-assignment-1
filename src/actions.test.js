@@ -10,12 +10,9 @@ import {
   loadRestaurant,
   setRestaurants,
   setRestaurant,
-  setReviews,
-  setAccessToken,
   requestLogin,
-  loadReview,
+  setAccessToken,
   sendReview,
-  clearReviewFields,
 } from './actions';
 
 const middlewares = [thunk];
@@ -102,60 +99,131 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setRestaurant(null));
-      expect(actions[1]).toEqual(setRestaurant({}));
+      expect(actions[0]).toEqual(setRestaurant({}));
     });
   });
 
   describe('requestLogin', () => {
-    beforeEach(() => {
-      store = mockStore({
-        loginFields: { email: '', password: '' },
+    context('email, password 입력 했을 때', () => {
+      beforeEach(() => {
+        store = mockStore({
+          loginFields: {
+            email: 'test@test.com',
+            password: 'test',
+          },
+        });
+      });
+
+      it('runs setAccessToken', async () => {
+        await store.dispatch(requestLogin());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setAccessToken({
+          email: 'test@test.com',
+          password: 'test',
+        }));
       });
     });
 
-    it('dispatchs setAccessToken', async () => {
-      await store.dispatch(requestLogin());
+    context('email만 입력 했을 때', () => {
+      beforeEach(() => {
+        store = mockStore({
+          loginFields: {
+            email: 'test@test.com',
+            password: '',
+          },
+        });
+      });
 
-      const actions = store.getActions();
+      it('아무 액션도 일어나지 않는다.', async () => {
+        await store.dispatch(requestLogin());
 
-      expect(actions[0]).toEqual(setAccessToken({}));
-    });
-  });
+        const actions = store.getActions();
 
-  describe('loadReview', () => {
-    beforeEach(() => {
-      store = mockStore({
-        loginFields: { email: '', password: '' },
+        expect(actions).toHaveLength(0);
       });
     });
 
-    it('dispatchs setReviews', async () => {
-      await store.dispatch(loadReview({ restaurantId: 1 }));
+    context('password만 입력 했을 때', () => {
+      beforeEach(() => {
+        store = mockStore({
+          loginFields: {
+            email: '',
+            password: 'test',
+          },
+        });
+      });
 
-      const actions = store.getActions();
+      it('아무 액션도 일어나지 않는다.', async () => {
+        await store.dispatch(requestLogin());
 
-      expect(actions[0]).toEqual(setReviews());
+        const actions = store.getActions();
+
+        expect(actions).toHaveLength(0);
+      });
     });
   });
 
   describe('sendReview', () => {
-    beforeEach(() => {
-      store = mockStore({
-        accessToken: '',
-        reviewFields: {
-          score: 1,
-          description: '',
-        },
+    context('score, description 입력 했을 때', () => {
+      beforeEach(() => {
+        store = mockStore({
+          accessToken: 'ACCESS_TOKEN',
+          reviewFields: {
+            score: '5',
+            description: '반갑다 친구들아',
+          },
+        });
+      });
+
+      it('runs setRestaurant', async () => {
+        await store.dispatch(sendReview({ restaurantId: '1' }));
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setRestaurant({}));
       });
     });
 
-    it('dispatchs clearReviewFields', async () => {
-      await store.dispatch(sendReview({ restaurantId: 1 }));
+    context('score만 입력 했을 때', () => {
+      beforeEach(() => {
+        store = mockStore({
+          accessToken: 'ACCESS_TOKEN',
+          reviewFields: {
+            score: '5',
+            description: '',
+          },
+        });
+      });
 
-      const actions = store.getActions();
+      it('아무 액션도 일어나지 않는다.', async () => {
+        await store.dispatch(sendReview({ restaurantId: '1' }));
 
-      expect(actions[0]).toEqual(clearReviewFields());
+        const actions = store.getActions();
+
+        expect(actions).toHaveLength(0);
+      });
+    });
+
+    context('description만 입력 했을 때', () => {
+      beforeEach(() => {
+        store = mockStore({
+          accessToken: 'ACCESS_TOKEN',
+          reviewFields: {
+            score: '',
+            description: '반갑다 친구들아',
+          },
+        });
+      });
+
+      it('아무 액션도 일어나지 않는다.', async () => {
+        await store.dispatch(sendReview({ restaurantId: '1' }));
+
+        const actions = store.getActions();
+
+        expect(actions).toHaveLength(0);
+      });
     });
   });
 });

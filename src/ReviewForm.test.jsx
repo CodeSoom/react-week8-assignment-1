@@ -11,49 +11,41 @@ describe('ReviewForm', () => {
     handleSubmit.mockClear();
   });
 
-  function renderReviewForm({ score, description } = {}) {
-    return render((
+  function renderReviewForm() {
+    return render(
       <ReviewForm
-        fields={{ score, description }}
+        reviewFields={{ score: '', description: '' }}
         onChange={handleChange}
         onSubmit={handleSubmit}
-      />
-    ));
+      />,
+    );
   }
 
-  it('renders review write fields', () => {
+  it('리뷰 폼을 렌더한다.', () => {
     const { queryByLabelText } = renderReviewForm();
 
     expect(queryByLabelText('평점')).not.toBeNull();
     expect(queryByLabelText('리뷰 내용')).not.toBeNull();
   });
 
-  it('renders values of fields', () => {
-    const { queryByLabelText } = renderReviewForm({
-      score: '3',
-      description: '맛있어요',
-    });
-
-    expect(queryByLabelText('평점').value).toBe('3');
-    expect(queryByLabelText('리뷰 내용').value).toBe('맛있어요');
-  });
-
-  it('listens change events', () => {
+  it('리뷰 폼에 입력 이벤트가 동작한다.', () => {
     const { getByLabelText } = renderReviewForm();
 
     const controls = [
       { label: '평점', name: 'score', value: '5' },
-      { label: '리뷰 내용', name: 'description', value: '정말 최고 :)' },
+      { label: '리뷰 내용', name: 'description', value: '정말 최고!' },
     ];
 
-    controls.forEach(({ label, name, value }) => {
+    controls.forEach(({
+      label, name, value,
+    }) => {
       fireEvent.change(getByLabelText(label), { target: { value } });
 
       expect(handleChange).toBeCalledWith({ name, value });
     });
   });
 
-  it('renders “Send” button', () => {
+  it('"리뷰 남기기"버튼을 렌더한다.', () => {
     const { getByText } = renderReviewForm();
 
     fireEvent.click(getByText('리뷰 남기기'));
