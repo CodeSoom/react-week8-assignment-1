@@ -98,6 +98,7 @@ const reducers = {
   },
 
   logout(state) {
+    saveItem('accessToken', '');
     return {
       ...state,
       accessToken: '',
