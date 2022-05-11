@@ -8,13 +8,16 @@ import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
 
-import { css, Global } from '@emotion/react';
+import { Global } from '@emotion/react';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
 import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
+
+import globalStyles from './styles';
 
 import { setAccessToken } from './slice';
 
@@ -45,12 +48,7 @@ export default function App() {
 
   return (
     <div>
-      <Global styles={css`
-        html {
-          font-size:16px;
-        }
-      `}
-      />
+      <Global styles={globalStyles} />
       <Header>
         <h1>
           <Link to="/">헤더 영역</Link>
