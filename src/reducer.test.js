@@ -1,6 +1,4 @@
-import reducer from './reducer';
-
-import {
+import reducer, {
   setRegions,
   setCategories,
   setRestaurants,
