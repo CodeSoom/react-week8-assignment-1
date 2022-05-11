@@ -1,13 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { equal } from './utils';
-
 import { saveItem } from './services/storage';
 
 import {
-  fetchRegions,
-  fetchCategories,
-  fetchRestaurants,
   fetchRestaurant,
   postLogin,
   postReview,
@@ -19,12 +14,7 @@ const initialReviewFields = {
 };
 
 const initialState = {
-  regions: [],
-  categories: [],
-  restaurants: [],
   restaurant: null,
-  selectedRegion: null,
-  selectedCategory: null,
   loginFields: {
     email: '',
     password: '',
@@ -36,47 +26,10 @@ const initialState = {
 };
 
 const reducers = {
-  setRegions(state, { payload: { regions } }) {
-    return {
-      ...state,
-      regions,
-    };
-  },
-
-  setCategories(state, { payload: { categories } }) {
-    return {
-      ...state,
-      categories,
-    };
-  },
-
-  setRestaurants(state, { payload: { restaurants } }) {
-    return {
-      ...state,
-      restaurants,
-    };
-  },
-
   setRestaurant(state, { payload: { restaurant } }) {
     return {
       ...state,
       restaurant,
-    };
-  },
-
-  selectRegion(state, { payload: { regionId } }) {
-    const { regions } = state;
-    return {
-      ...state,
-      selectedRegion: regions.find(equal('id', regionId)),
-    };
-  },
-
-  selectCategory(state, { payload: { categoryId } }) {
-    const { categories } = state;
-    return {
-      ...state,
-      selectedCategory: categories.find(equal('id', categoryId)),
     };
   },
 
@@ -143,12 +96,7 @@ const { actions, reducer } = createSlice({
 });
 
 export const {
-  setRegions,
-  setCategories,
-  setRestaurants,
   setRestaurant,
-  selectRegion,
-  selectCategory,
   changeLoginField,
   setAccessToken,
   logout,
@@ -156,36 +104,6 @@ export const {
   clearReviewFields,
   setReviews,
 } = actions;
-
-export function loadInitialData() {
-  return async (dispatch) => {
-    const regions = await fetchRegions();
-    dispatch(setRegions({ regions }));
-
-    const categories = await fetchCategories();
-    dispatch(setCategories({ categories }));
-  };
-}
-
-export function loadRestaurants() {
-  return async (dispatch, getState) => {
-    const {
-      selectedRegion: region,
-      selectedCategory: category,
-    } = getState();
-
-    if (!region || !category) {
-      return;
-    }
-
-    const restaurants = await fetchRestaurants({
-      regionName: region.name,
-      categoryId: category.id,
-    });
-
-    dispatch(setRestaurants({ restaurants }));
-  };
-}
 
 export function loadRestaurant({ restaurantId }) {
   return async (dispatch) => {

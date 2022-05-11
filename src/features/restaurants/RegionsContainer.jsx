@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectRegion,
   loadRestaurants,
-} from './slice';
-
-import { get } from './utils';
+  getRegions,
+  getSelectedRegions,
+} from './restaurantsSlice';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
 
-  const regions = useSelector(get('regions'));
-  const selectedRegion = useSelector(get('selectedRegion'));
+  const regions = useSelector(getRegions);
+  const selectedRegion = useSelector(getSelectedRegions);
 
   function handleClick(regionId) {
     dispatch(selectRegion({ regionId }));

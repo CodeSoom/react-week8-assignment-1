@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 
-import { get } from './utils';
+import { getRestaurants } from './restaurantsSlice';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
-  const restaurants = useSelector(get('restaurants'));
+  const restaurants = useSelector(getRestaurants);
 
   function handleClick(restaurant) {
     return (event) => {

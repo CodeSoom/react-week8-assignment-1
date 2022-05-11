@@ -13,7 +13,7 @@ import { Global } from '@emotion/react';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
+import RestaurantsPage from './features/restaurants/RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
