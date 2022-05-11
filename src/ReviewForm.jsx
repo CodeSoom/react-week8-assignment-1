@@ -4,8 +4,6 @@ import styled from '@emotion/styled/';
 
 import TextField from './TextField';
 
-import Button from './Button';
-
 const Container = styled.div({
   display: 'flex',
 });
@@ -30,12 +28,12 @@ function ReviewForm({ fields, onChange, onSubmit }) {
           onChange={onChange}
         />
       </div>
-      <Button
+      <button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </Button>
+      </button>
     </Container>
   );
 }

@@ -3,15 +3,9 @@ import { memo } from 'react';
 import styled from '@emotion/styled';
 
 import MenuItems from './MenuItems';
-import Title from './Title';
-import Paragraph from './Paragraph';
 
 const Container = styled.div({
   margin: '1em',
-});
-
-const SubTitle = styled.h3({
-  fontFamily: 'sans-serif',
 });
 
 function RestaurantDetail({ restaurant }) {
@@ -19,14 +13,14 @@ function RestaurantDetail({ restaurant }) {
 
   return (
     <div>
-      <Title>{name}</Title>
+      <h2>{name}</h2>
       <Container>
-        <Paragraph>
+        <p>
           주소:
           {' '}
           {address}
-        </Paragraph>
-        <SubTitle>메뉴</SubTitle>
+        </p>
+        <h3>메뉴</h3>
         <MenuItems menuItems={menuItems} />
       </Container>
     </div>

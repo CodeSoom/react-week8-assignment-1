@@ -9,7 +9,6 @@ import { get } from './utils';
 
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
-import Button from './Button';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ export default function RegionsContainer() {
     <MenuList>
       {regions.map((region) => (
         <MenuItem key={region.id}>
-          <Button
+          <button
             type="button"
             onClick={() => handleClick(region.id)}
           >
@@ -36,7 +35,7 @@ export default function RegionsContainer() {
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
-          </Button>
+          </button>
         </MenuItem>
       ))}
     </MenuList>

@@ -9,7 +9,6 @@ const List = styled.ul({
 });
 
 const Item = styled.li({
-  fontFamily: 'sans-serif',
   margin: '0.5em',
   display: 'flex',
 });

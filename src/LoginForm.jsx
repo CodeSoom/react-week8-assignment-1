@@ -2,7 +2,6 @@ import { memo } from 'react';
 
 import styled from '@emotion/styled';
 
-import Button from './Button';
 import FormContainer from './FormContainer';
 
 const Container = styled.div({
@@ -45,12 +44,12 @@ const LoginForm = (({ fields, onChange, onSubmit }) => {
           />
         </FormContainer>
       </div>
-      <Button
+      <button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </Button>
+      </button>
     </Container>
   );
 });

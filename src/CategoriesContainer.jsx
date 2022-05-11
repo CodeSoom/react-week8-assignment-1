@@ -9,7 +9,6 @@ import { get } from './utils';
 
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
-import Button from './Button';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ export default function CategoriesContainer() {
     <MenuList>
       {categories.map((category) => (
         <MenuItem key={category.id}>
-          <Button
+          <button
             type="button"
             onClick={() => handleClick(category.id)}
           >
@@ -36,7 +35,7 @@ export default function CategoriesContainer() {
                 {category.id === selectedCategory.id ? '(V)' : null}
               </>
             ) : null}
-          </Button>
+          </button>
         </MenuItem>
       ))}
     </MenuList>
