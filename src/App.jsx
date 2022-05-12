@@ -32,7 +32,7 @@ const Header = styled.header({
       textDecoration: 'none',
       color: 'black',
       '&:hover': {
-        color: '#500',
+        color: '#550000',
       },
     },
   },
