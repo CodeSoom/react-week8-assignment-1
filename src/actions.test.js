@@ -3,15 +3,9 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import {
-  loadRestaurant,
-  setRestaurant,
-  setReviews,
   setAccessToken,
   requestLogin,
-  loadReview,
-  sendReview,
-  clearReviewFields,
-} from './slice';
+} from './features/auth/authSlice';
 
 import {
   loadInitialData,
@@ -20,6 +14,15 @@ import {
   loadRestaurants,
   setRestaurants,
 } from './features/restaurants/restaurantsSlice';
+
+import {
+  loadRestaurant,
+  setRestaurant,
+  setReviews,
+  loadReview,
+  sendReview,
+  clearReviewFields,
+} from './features/restaurant/restaurantSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -48,8 +51,10 @@ describe('actions', () => {
     context('with selectedRegion and selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
-          selectedCategory: { id: 1, name: '한식' },
+          restaurants: {
+            selectedRegion: { id: 1, name: '서울' },
+            selectedCategory: { id: 1, name: '한식' },
+          },
         });
       });
 
@@ -65,7 +70,9 @@ describe('actions', () => {
     context('without selectedRegion', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedCategory: { id: 1, name: '한식' },
+          restaurants: {
+            selectedCategory: { id: 1, name: '한식' },
+          },
         });
       });
 
@@ -81,7 +88,9 @@ describe('actions', () => {
     context('without selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
+          restaurants: {
+            selectedRegion: { id: 1, name: '서울' },
+          },
         });
       });
 
@@ -113,7 +122,9 @@ describe('actions', () => {
   describe('requestLogin', () => {
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        auth: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
@@ -129,7 +140,9 @@ describe('actions', () => {
   describe('loadReview', () => {
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        auth: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
@@ -145,10 +158,14 @@ describe('actions', () => {
   describe('sendReview', () => {
     beforeEach(() => {
       store = mockStore({
-        accessToken: '',
-        reviewFields: {
-          score: 1,
-          description: '',
+        auth: {
+          accessToken: '',
+        },
+        restaurant: {
+          reviewFields: {
+            score: 1,
+            description: '',
+          },
         },
       });
     });

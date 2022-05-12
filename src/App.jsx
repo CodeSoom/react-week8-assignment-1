@@ -13,13 +13,13 @@ import { Global } from '@emotion/react';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
-import RestaurantsPage from './features/restaurants/RestaurantsPage';
+import RestaurantsPage from './RestaurantsPage';
 import RestaurantPage from './RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
 import globalStyles from './styles';
 
-import { setAccessToken } from './slice';
+import { setAccessToken } from './features/auth/authSlice';
 
 import { loadItem } from './services/storage';
 

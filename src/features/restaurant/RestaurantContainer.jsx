@@ -10,9 +10,10 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './slice';
-
-import { get } from './utils';
+  getAccessToken,
+  getRestaurant,
+  getReviewFields,
+} from './restaurantSlice';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -21,9 +22,9 @@ export default function RestaurantContainer({ restaurantId }) {
     dispatch(loadRestaurant({ restaurantId }));
   }, []);
 
-  const accessToken = useSelector(get('accessToken'));
-  const restaurant = useSelector(get('restaurant'));
-  const reviewFields = useSelector(get('reviewFields'));
+  const accessToken = useSelector(getAccessToken);
+  const restaurant = useSelector(getRestaurant);
+  const reviewFields = useSelector(getReviewFields);
 
   const handleChange = useCallback(({ name, value }) => {
     dispatch(changeReviewField({ name, value }));
