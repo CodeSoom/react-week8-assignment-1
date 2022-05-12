@@ -1,4 +1,4 @@
-import MenuList from './MenuList';
+import Menu from './Menu';
 import MenuItem from './MenuItem';
 
 export default function MenuItems({ menuItems }) {
@@ -9,12 +9,12 @@ export default function MenuItems({ menuItems }) {
   }
 
   return (
-    <MenuList>
+    <Menu>
       {menuItems.map((menuItem) => (
         <MenuItem key={menuItem.id}>
           {menuItem.name}
         </MenuItem>
       ))}
-    </MenuList>
+    </Menu>
   );
 }

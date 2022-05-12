@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
-const MenuList = styled.ul({
+const Menu = styled.ul({
   listStyle: 'none',
   padding: '0',
   display: 'flex',
 });
 
-export default MenuList;
+export default Menu;

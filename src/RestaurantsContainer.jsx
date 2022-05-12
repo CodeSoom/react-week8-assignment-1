@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { get } from './utils';
 
-import MenuList from './MenuList';
+import Menu from './Menu';
 import MenuItem from './MenuItem';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
@@ -16,7 +16,7 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <MenuList>
+    <Menu>
       {restaurants.map((restaurant) => (
         <MenuItem key={restaurant.id}>
           <a href="/restaurants/1" onClick={handleClick(restaurant)}>
@@ -24,6 +24,6 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
           </a>
         </MenuItem>
       ))}
-    </MenuList>
+    </Menu>
   );
 }

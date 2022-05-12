@@ -7,7 +7,7 @@ import {
 
 import { get } from './utils';
 
-import MenuList from './MenuList';
+import Menu from './Menu';
 import MenuItem from './MenuItem';
 
 export default function CategoriesContainer() {
@@ -22,7 +22,7 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <MenuList>
+    <Menu>
       {categories.map((category) => (
         <MenuItem key={category.id}>
           <button
@@ -38,6 +38,6 @@ export default function CategoriesContainer() {
           </button>
         </MenuItem>
       ))}
-    </MenuList>
+    </Menu>
   );
 }
