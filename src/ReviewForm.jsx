@@ -1,4 +1,5 @@
 import TextField from './TextField';
+import Button from './Button';
 
 export default function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
@@ -18,12 +19,12 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
+      </Button>
     </>
   );
 }

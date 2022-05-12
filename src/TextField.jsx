@@ -1,3 +1,5 @@
+import Form from './Form';
+
 export default function TextField({
   label, type = 'text', name, value, onChange,
 }) {
@@ -9,7 +11,7 @@ export default function TextField({
   }
 
   return (
-    <div>
+    <Form>
       <label htmlFor={id}>
         {label}
       </label>
@@ -20,6 +22,6 @@ export default function TextField({
         value={value}
         onChange={handleChange}
       />
-    </div>
+    </Form>
   );
 }

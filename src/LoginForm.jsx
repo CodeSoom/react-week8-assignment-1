@@ -1,26 +1,7 @@
 import { memo } from 'react';
 
-import styled from '@emotion/styled';
-
-const Form = styled.div({
-  background: '#947EC3',
-  width: '30%',
-  height: '2em',
-  fontSize: '1em',
-  margin: 0,
-  padding: '1em .5em',
-  color: '#EEF3D2',
-  display: 'block',
-});
-
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.5em 1em;
-`;
+import Form from './Form';
+import Button from './Button';
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
