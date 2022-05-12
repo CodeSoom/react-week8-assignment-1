@@ -4,7 +4,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './slice';
 
 import LoginForm from './LoginForm';
 import LogoutForm from './LogoutForm';

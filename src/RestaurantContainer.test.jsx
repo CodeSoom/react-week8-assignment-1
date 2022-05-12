@@ -109,7 +109,7 @@ describe('RestaurantContainer', () => {
         fireEvent.change(getByLabelText(label), { target: { value } });
 
         expect(dispatch).toBeCalledWith({
-          type: 'changeReviewField',
+          type: 'application/changeReviewField',
           payload: { name, value },
         });
       });
@@ -143,11 +143,11 @@ describe('RestaurantContainer', () => {
       fireEvent.click(getByText('리뷰 남기기'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'changeReviewField',
+        type: 'application/changeReviewField',
         payload: { name: 'score', value: '' },
       });
       expect(dispatch).toBeCalledWith({
-        type: 'changeReviewField',
+        type: 'application/changeReviewField',
         payload: { name: 'description', value: '' },
       });
     });

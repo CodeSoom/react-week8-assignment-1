@@ -1,6 +1,4 @@
-import reducer from './reducer';
-
-import {
+import reducer, {
   setRegions,
   setCategories,
   setRestaurants,
@@ -11,7 +9,7 @@ import {
   setAccessToken,
   changeReviewField,
   logout,
-} from './actions';
+} from './slice';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {

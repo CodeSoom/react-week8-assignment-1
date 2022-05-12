@@ -7,11 +7,11 @@ import ReviewForm from './ReviewForm';
 import ReviewList from './ReviewList';
 
 import {
-  loadRestaurant,
   changeReviewField,
-  sendReview,
   setRestaurant,
-} from './actions';
+  loadRestaurant,
+  sendReview,
+} from './slice';
 
 import { get } from './utils';
 

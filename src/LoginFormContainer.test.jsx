@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from './actions';
+import { logout } from './slice';
 
 import LoginFormContainer from './LoginFormContainer';
 
@@ -40,7 +40,7 @@ describe('LoginFormContainer', () => {
       });
 
       expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
+        type: 'application/changeLoginField',
         payload: { name: 'email', value: 'new email' },
       });
     });

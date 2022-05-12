@@ -9,13 +9,15 @@ export default function ReviewList({ reviews }) {
     <>
       <h2>리뷰</h2>
       <ul>
-        {reviews.sort((a, b) => b.id - a.id).map((review) => (
-          <li key={review.id}>
-            <div>{review.name}</div>
-            <div>{review.score}</div>
-            <div>{review.description}</div>
-          </li>
-        ))}
+        {Array.from(reviews)
+          .sort((a, b) => b.id - a.id)
+          .map((review) => (
+            <li key={review.id}>
+              <div>{review.name}</div>
+              <div>{review.score}</div>
+              <div>{review.description}</div>
+            </li>
+          ))}
       </ul>
     </>
   );
