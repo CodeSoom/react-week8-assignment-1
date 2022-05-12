@@ -1,5 +1,27 @@
 import { memo } from 'react';
 
+import styled from '@emotion/styled';
+
+const Form = styled.div({
+  background: '#947EC3',
+  width: '30%',
+  height: '2em',
+  fontSize: '1em',
+  margin: 0,
+  padding: '1em .5em',
+  color: '#EEF3D2',
+  display: 'block',
+});
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+`;
+
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
@@ -10,7 +32,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
 
   return (
     <>
-      <div>
+      <Form>
         <label htmlFor="login-email">
           E-mail
         </label>
@@ -21,8 +43,8 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           value={email}
           onChange={handleChange}
         />
-      </div>
-      <div>
+      </Form>
+      <Form>
         <label htmlFor="login-password">
           Password
         </label>
@@ -33,13 +55,13 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           value={password}
           onChange={handleChange}
         />
-      </div>
-      <button
+      </Form>
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
+      </Button>
     </>
   );
 });
