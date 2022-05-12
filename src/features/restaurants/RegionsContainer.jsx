@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import RegionItem from './RegionItem';
 
 import {
   selectRegion,
@@ -21,19 +22,12 @@ export default function RegionsContainer() {
   return (
     <ul>
       {regions.map((region) => (
-        <li key={region.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(region.id)}
-          >
-            {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
-        </li>
+        <RegionItem
+          key={region.id}
+          region={region}
+          onClick={handleClick}
+          isSelected={selectedRegion?.id === region.id}
+        />
       ))}
     </ul>
   );
