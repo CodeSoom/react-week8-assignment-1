@@ -23,7 +23,7 @@ export default function CategoriesContainer() {
 
   return (
     <Menu>
-      {categories.map((category) => (
+      {categories?.map((category) => (
         <MenuItem key={category.id}>
           <button
             type="button"

@@ -93,7 +93,7 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'application/setAccessToken',
+        type: 'login/setAccessToken',
         payload: accessToken,
       });
     });

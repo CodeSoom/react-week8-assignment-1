@@ -12,21 +12,12 @@ import reducer, {
   loadRestaurant,
   setRestaurants,
   setRestaurant,
-  setReviews,
-  setAccessToken,
-  changeLoginField,
-  requestLogin,
-  logout,
-  changeReviewField,
-  loadReview,
-  sendReview,
-  clearReviewFields,
-} from './slice';
+} from './restaurantSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-jest.mock('./services/api');
+jest.mock('../services/api');
 
 describe('slice', () => {
   describe('actions', () => {
@@ -110,58 +101,6 @@ describe('slice', () => {
 
         expect(actions[0]).toEqual(setRestaurant(null));
         expect(actions[1]).toEqual(setRestaurant({}));
-      });
-    });
-
-    describe('requestLogin', () => {
-      beforeEach(() => {
-        store = mockStore({
-          loginFields: { email: '', password: '' },
-        });
-      });
-
-      it('dispatchs setAccessToken', async () => {
-        await store.dispatch(requestLogin());
-
-        const actions = store.getActions();
-
-        expect(actions[0]).toEqual(setAccessToken({}));
-      });
-    });
-
-    describe('loadReview', () => {
-      beforeEach(() => {
-        store = mockStore({
-          loginFields: { email: '', password: '' },
-        });
-      });
-
-      it('dispatchs setReviews', async () => {
-        await store.dispatch(loadReview({ restaurantId: 1 }));
-
-        const actions = store.getActions();
-
-        expect(actions[0]).toEqual(setReviews());
-      });
-    });
-
-    describe('sendReview', () => {
-      beforeEach(() => {
-        store = mockStore({
-          accessToken: '',
-          reviewFields: {
-            score: 1,
-            description: '',
-          },
-        });
-      });
-
-      it('dispatchs clearReviewFields', async () => {
-        await store.dispatch(sendReview({ restaurantId: 1 }));
-
-        const actions = store.getActions();
-
-        expect(actions[0]).toEqual(clearReviewFields());
       });
     });
   });
@@ -289,125 +228,6 @@ describe('slice', () => {
           id: 1,
           name: '한식',
         });
-      });
-    });
-
-    describe('changeLoginField', () => {
-      context('when email is changed', () => {
-        it('changes only email field', () => {
-          const initialState = {
-            loginFields: {
-              email: 'email',
-              password: 'password',
-            },
-          };
-
-          const state = reducer(
-            initialState,
-            changeLoginField({ name: 'email', value: 'test' }),
-          );
-
-          expect(state.loginFields.email).toBe('test');
-          expect(state.loginFields.password).toBe('password');
-        });
-      });
-
-      context('when password is changed', () => {
-        it('changes only password field', () => {
-          const initialState = {
-            loginFields: {
-              email: 'email',
-              password: 'password',
-            },
-          };
-
-          const state = reducer(
-            initialState,
-            changeLoginField({ name: 'password', value: 'test' }),
-          );
-
-          expect(state.loginFields.email).toBe('email');
-          expect(state.loginFields.password).toBe('test');
-        });
-      });
-    });
-
-    describe('setAccessToken', () => {
-      it('changes access token', () => {
-        const initialState = {
-          accessToken: '',
-        };
-
-        const state = reducer(initialState, setAccessToken('TOKEN'));
-
-        expect(state.accessToken).toBe('TOKEN');
-      });
-    });
-
-    describe('logout', () => {
-      it('clears access token', () => {
-        const initialState = {
-          accessToken: 'ACCESS_TOKEN',
-        };
-
-        const state = reducer(initialState, logout());
-
-        expect(state.accessToken).toBe('');
-      });
-    });
-
-    describe('changeReviewField', () => {
-      it('changes a field of review', () => {
-        const initialState = {
-          reviewFields: {
-            score: '',
-            description: '',
-          },
-        };
-
-        const state = reducer(
-          initialState,
-          changeReviewField({ name: 'score', value: '5' }),
-        );
-
-        expect(state.reviewFields.score).toBe('5');
-      });
-    });
-
-    describe('clearReviewFields', () => {
-      it('clears fields of review', () => {
-        const initialState = {
-          reviewFields: {
-            score: 'SCORE',
-            description: 'DESCRIPTION',
-          },
-        };
-
-        const state = reducer(initialState, clearReviewFields());
-
-        expect(state.reviewFields.score).toBe('');
-        expect(state.reviewFields.description).toBe('');
-      });
-    });
-
-    describe('setReviews', () => {
-      it('changes reviews of the current restaurant', () => {
-        const reviews = [
-          {
-            id: 1, name: '테스터', description: '맛있어요', score: 1,
-          },
-        ];
-
-        const initialState = {
-          restaurant: {
-            reviews: [],
-          },
-        };
-
-        const state = reducer(initialState, setReviews(reviews));
-
-        expect(state.restaurant.reviews).toHaveLength(reviews.length);
-        expect(state.restaurant.reviews[0]).toEqual(reviews[0]);
       });
     });
   });

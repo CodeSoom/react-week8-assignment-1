@@ -23,7 +23,7 @@ export default function RegionsContainer() {
 
   return (
     <Menu>
-      {regions.map((region) => (
+      {regions?.map((region) => (
         <MenuItem key={region.id}>
           <button
             type="button"
