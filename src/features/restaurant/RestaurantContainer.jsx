@@ -2,9 +2,9 @@ import { useCallback, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import RestaurantDetail from './RestaurantDetail';
-import ReviewForm from './ReviewForm';
-import Reviews from './Reviews';
+import RestaurantDetail from '../../RestaurantDetail';
+import ReviewForm from '../../ReviewForm';
+import Reviews from '../../Reviews';
 
 import {
   loadRestaurant,

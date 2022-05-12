@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import RegionItem from './RegionItem';
+import RegionItem from '../../RegionItem';
 
 import {
   selectRegion,
