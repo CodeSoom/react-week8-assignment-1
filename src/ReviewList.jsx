@@ -1,4 +1,6 @@
-export default function ReviewList({ reviews }) {
+import React from 'react';
+
+function ReviewList({ reviews }) {
   if (!(reviews || []).length) {
     return (
       <p>리뷰가 없어요!</p>
@@ -22,3 +24,5 @@ export default function ReviewList({ reviews }) {
     </>
   );
 }
+
+export default React.memo(ReviewList);
