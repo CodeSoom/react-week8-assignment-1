@@ -27,11 +27,11 @@ const Container = styled.div({
 const Header = styled.header({
   background: '#947EC3',
   '& h1': {
-    fontSize: '30px',
     margin: 0,
     padding: '1em .5em',
   },
   '& a': {
+    fontSize: '1.5em',
     color: '#EEF3D2',
     textDecoration: 'none',
     '&:hover': {

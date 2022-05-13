@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
-import MenuList from './MenuList';
+import Menu from './Menu';
 import MenuItem from './MenuItem';
 
 const Title = styled.h2({
@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <div>
       <Title>Home</Title>
-      <MenuList>
+      <Menu>
         <MenuItem>
           <Link to="/about">About</Link>
         </MenuItem>
@@ -27,7 +27,7 @@ export default function HomePage() {
         <MenuItem>
           <Link to="/xxx">멸망의 길</Link>
         </MenuItem>
-      </MenuList>
+      </Menu>
     </div>
   );
 }
