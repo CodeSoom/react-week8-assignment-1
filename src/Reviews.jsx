@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { memo } from 'react';
+
 const List = styled.ul({
   listStyle: 'none',
   padding: '0',
@@ -15,7 +17,7 @@ const Container = styled.div({
   margin: '0 1em',
 });
 
-export default function Reviews({ reviews }) {
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -41,3 +43,5 @@ export default function Reviews({ reviews }) {
     </List>
   );
 }
+
+export default memo(Reviews);
