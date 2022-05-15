@@ -47,4 +47,4 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   );
 });
 
-export default LoginForm;
+export default memo(LoginForm);

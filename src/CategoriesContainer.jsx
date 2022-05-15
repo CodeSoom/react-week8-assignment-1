@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useCallback } from 'react';
+
 import {
   selectCategory,
   loadRestaurants,
@@ -16,10 +18,10 @@ export default function CategoriesContainer() {
   const categories = useSelector(get('categories'));
   const selectedCategory = useSelector(get('selectedCategory'));
 
-  function handleClick(categoryId) {
+  const handleClick = (categoryId) => useCallback(() => {
     dispatch(selectCategory(categoryId));
     dispatch(loadRestaurants());
-  }
+  }, [dispatch]);
 
   return (
     <Menu>
@@ -30,7 +32,7 @@ export default function CategoriesContainer() {
         >
           <button
             type="button"
-            onClick={() => handleClick(category.id)}
+            onClick={handleClick(category.id)}
           >
             {category.name}
             {selectedCategory ? (
