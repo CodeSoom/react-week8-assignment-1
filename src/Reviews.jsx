@@ -13,7 +13,7 @@ const Item = styled.li({
   display: 'flex',
 });
 
-const Container = styled.div({
+const ReviewProperty = styled.div({
   margin: '0 1em',
 });
 
@@ -28,16 +28,16 @@ function Reviews({ reviews }) {
     <List>
       {sortedReviews.map((review) => (
         <Item key={review.id}>
-          <Container>
+          <ReviewProperty>
             {review.name}
-          </Container>
-          <Container>
+          </ReviewProperty>
+          <ReviewProperty>
             {review.score}
             점
-          </Container>
-          <Container>
+          </ReviewProperty>
+          <ReviewProperty>
             {review.description}
-          </Container>
+          </ReviewProperty>
         </Item>
       ))}
     </List>
