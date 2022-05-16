@@ -27,15 +27,16 @@ describe('App', () => {
       ],
       categories: [],
       restaurants: [],
+      restaurant: { id: 1, name: '마녀주방' },
     }));
   });
 
   function renderApp({ path }) {
-    return render((
+    return render(
       <MemoryRouter initialEntries={[path]}>
         <App />
-      </MemoryRouter>
-    ));
+      </MemoryRouter>,
+    );
   }
 
   context('with path /', () => {
@@ -50,7 +51,7 @@ describe('App', () => {
     it('renders the about page', () => {
       const { container } = renderApp({ path: '/about' });
 
-      expect(container).toHaveTextContent('20명에게 추천');
+      expect(container).toHaveTextContent('About 페이지');
     });
   });
 
@@ -62,6 +63,14 @@ describe('App', () => {
     });
   });
 
+  context('with path /restaurants/:id', () => {
+    it('renders the restaurant page', () => {
+      const { container } = renderApp({ path: '/restaurants/1' });
+
+      expect(container).toHaveTextContent('마녀주방');
+    });
+  });
+
   context('with invalid path', () => {
     it('renders the not found page', () => {
       const { container } = renderApp({ path: '/xxx' });
@@ -70,31 +79,31 @@ describe('App', () => {
     });
   });
 
-  context('when logged out', () => {
+  // 스토리지 테스트
+  context('로그아웃일 때', () => {
     beforeEach(() => {
       loadItem.mockImplementation(() => null);
     });
 
-    it("doesn't call dispatch", () => {
+    it('dispatch를 호출하지 않는다.', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).not.toBeCalled();
     });
   });
 
-  context('when logged in', () => {
+  context('로그인일 때', () => {
     const accessToken = 'ACCESS_TOKEN';
-
     beforeEach(() => {
       loadItem.mockImplementation(() => accessToken);
     });
 
-    it('calls dispatch with “setAccessToken” action', () => {
+    it('setAccessToken 액션으로 dispatch가 호출된다.', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'application/setAccessToken',
+        payload: accessToken,
       });
     });
   });

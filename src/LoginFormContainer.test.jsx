@@ -1,6 +1,7 @@
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { logout } from './slice';
 
 import LoginFormContainer from './LoginFormContainer';
 
@@ -23,37 +24,31 @@ describe('LoginFormContainer', () => {
     }));
   });
 
-  context('when logged out', () => {
+  context('로그아웃 상태일 때', () => {
     given('accessToken', () => '');
 
-    it('renders input controls', () => {
-      const { getByLabelText } = render((
-        <LoginFormContainer />
-      ));
+    it('로그인 폼을 렌더한다.', () => {
+      const { getByLabelText } = render(
+        <LoginFormContainer />,
+      );
 
       expect(getByLabelText('E-mail').value).toBe('test@test');
       expect(getByLabelText('Password').value).toBe('1234');
-    });
-
-    it('listens change events', () => {
-      const { getByLabelText } = render((
-        <LoginFormContainer />
-      ));
 
       fireEvent.change(getByLabelText('E-mail'), {
         target: { value: 'new email' },
       });
 
       expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
+        type: 'application/changeLoginField',
         payload: { name: 'email', value: 'new email' },
       });
     });
 
-    it('renders “Log In” button', () => {
-      const { getByText } = render((
-        <LoginFormContainer />
-      ));
+    it('"Log In" 버튼을 렌더한다.', () => {
+      const { getByText } = render(
+        <LoginFormContainer />,
+      );
 
       fireEvent.click(getByText('Log In'));
 
@@ -61,17 +56,17 @@ describe('LoginFormContainer', () => {
     });
   });
 
-  context('when logged in', () => {
+  context('로그인 상태일 때', () => {
     given('accessToken', () => 'ACCESS_TOKEN');
 
-    it('renders “Log out” button', () => {
-      const { getByText } = render((
-        <LoginFormContainer />
-      ));
+    it('"Log out" 버튼을 렌더한다.', () => {
+      const { getByText } = render(
+        <LoginFormContainer />,
+      );
 
       fireEvent.click(getByText('Log out'));
 
-      expect(dispatch).toBeCalledWith({ type: 'logout' });
+      expect(dispatch).toBeCalledWith(logout());
     });
   });
 });

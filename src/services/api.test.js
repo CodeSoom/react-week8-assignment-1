@@ -11,7 +11,6 @@ import REGIONS from '../../fixtures/regions';
 import CATEGORIES from '../../fixtures/categories';
 import RESTAURANTS from '../../fixtures/restaurants';
 import RESTAURANT from '../../fixtures/restaurant';
-import ACCESS_TOKEN from '../../fixtures/access-token';
 
 describe('api', () => {
   const mockFetch = (data) => {
@@ -73,33 +72,33 @@ describe('api', () => {
 
   describe('postLogin', () => {
     beforeEach(() => {
-      mockFetch({ accessToken: ACCESS_TOKEN });
+      mockFetch({ accessToken: 'ACCESS_TOKEN' });
     });
 
-    it('returns accessToken', async () => {
+    it('returns restaurants', async () => {
       const accessToken = await postLogin({
         email: 'tester@example.com',
-        password: '1234',
+        password: 'test',
       });
 
-      expect(accessToken).toEqual(ACCESS_TOKEN);
+      expect(accessToken).toEqual('ACCESS_TOKEN');
     });
   });
 
   describe('postReview', () => {
     beforeEach(() => {
-      mockFetch();
+      mockFetch({});
     });
 
-    it('returns nothing', async () => {
-      const result = await postReview({
-        accessToken: ACCESS_TOKEN,
+    it('returns restaurants', async () => {
+      const accessToken = await postReview({
+        accessToken: 'ACCESS_TOKEN',
         restaurantId: 1,
-        score: 5,
-        description: '맛있어요!',
+        score: '5',
+        description: '피카츄 좋아',
       });
 
-      expect(result).toBeUndefined();
+      expect(accessToken).toEqual({});
     });
   });
 });

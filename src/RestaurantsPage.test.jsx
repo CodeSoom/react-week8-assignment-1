@@ -1,8 +1,8 @@
 import { MemoryRouter } from 'react-router-dom';
 
-import { render, fireEvent } from '@testing-library/react';
-
 import { useDispatch, useSelector } from 'react-redux';
+
+import { render, fireEvent } from '@testing-library/react';
 
 import RestaurantsPage from './RestaurantsPage';
 
@@ -51,12 +51,6 @@ describe('RestaurantsPage', () => {
 
     expect(queryByText('서울')).not.toBeNull();
     expect(queryByText('한식')).not.toBeNull();
-  });
-
-  it('renders links of restaurants', () => {
-    const { container } = renderRestaurantsPage();
-
-    expect(container.innerHTML).toContain('<a href="');
   });
 
   context('when click restaurant', () => {

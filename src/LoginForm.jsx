@@ -1,39 +1,22 @@
-import { memo } from 'react';
+import TextField from './TextField';
 
-const LoginForm = memo(({ fields, onChange, onSubmit }) => {
+export default function LoginForm({ fields, onChange, onSubmit }) {
   const { email, password } = fields;
-
-  function handleChange(event) {
-    const { target: { name, value } } = event;
-    onChange({ name, value });
-  }
 
   return (
     <>
-      <div>
-        <label htmlFor="login-email">
-          E-mail
-        </label>
-        <input
-          type="email"
-          id="login-email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="login-password">
-          Password
-        </label>
-        <input
-          type="password"
-          id="login-password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-      </div>
+      <TextField
+        label="E-mail"
+        name="email"
+        inputValue={email}
+        onChange={onChange}
+      />
+      <TextField
+        label="Password"
+        name="password"
+        inputValue={password}
+        onChange={onChange}
+      />
       <button
         type="button"
         onClick={onSubmit}
@@ -42,6 +25,4 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
       </button>
     </>
   );
-});
-
-export default LoginForm;
+}
