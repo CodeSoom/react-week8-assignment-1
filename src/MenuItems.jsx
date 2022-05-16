@@ -1,3 +1,5 @@
+import MenuItem from './MenuItem';
+
 export default function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -8,9 +10,10 @@ export default function MenuItems({ menuItems }) {
   return (
     <ul>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
-          {menuItem.name}
-        </li>
+        <MenuItem
+          key={menuItem.id}
+          name={menuItem.name}
+        />
       ))}
     </ul>
   );

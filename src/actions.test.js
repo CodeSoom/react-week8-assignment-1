@@ -3,20 +3,26 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import {
+  setAccessToken,
+  requestLogin,
+} from './features/auth/authSlice';
+
+import {
   loadInitialData,
   setRegions,
   setCategories,
   loadRestaurants,
-  loadRestaurant,
   setRestaurants,
+} from './features/restaurants/restaurantsSlice';
+
+import {
+  loadRestaurant,
   setRestaurant,
   setReviews,
-  setAccessToken,
-  requestLogin,
   loadReview,
   sendReview,
   clearReviewFields,
-} from './actions';
+} from './features/restaurant/restaurantSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -36,8 +42,8 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setRegions([]));
-      expect(actions[1]).toEqual(setCategories([]));
+      expect(actions[0]).toEqual(setRegions({ regions: [] }));
+      expect(actions[1]).toEqual(setCategories({ categories: [] }));
     });
   });
 
@@ -45,8 +51,10 @@ describe('actions', () => {
     context('with selectedRegion and selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
-          selectedCategory: { id: 1, name: '한식' },
+          restaurants: {
+            selectedRegion: { id: 1, name: '서울' },
+            selectedCategory: { id: 1, name: '한식' },
+          },
         });
       });
 
@@ -55,14 +63,16 @@ describe('actions', () => {
 
         const actions = store.getActions();
 
-        expect(actions[0]).toEqual(setRestaurants([]));
+        expect(actions[0]).toEqual(setRestaurants({ restaurants: [] }));
       });
     });
 
     context('without selectedRegion', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedCategory: { id: 1, name: '한식' },
+          restaurants: {
+            selectedCategory: { id: 1, name: '한식' },
+          },
         });
       });
 
@@ -78,7 +88,9 @@ describe('actions', () => {
     context('without selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
+          restaurants: {
+            selectedRegion: { id: 1, name: '서울' },
+          },
         });
       });
 
@@ -102,15 +114,17 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setRestaurant(null));
-      expect(actions[1]).toEqual(setRestaurant({}));
+      expect(actions[0]).toEqual(setRestaurant({ restaurant: null }));
+      expect(actions[1]).toEqual(setRestaurant({ restaurant: {} }));
     });
   });
 
   describe('requestLogin', () => {
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        auth: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
@@ -119,14 +133,16 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setAccessToken({}));
+      expect(actions[0]).toEqual(setAccessToken({ accessToken: {} }));
     });
   });
 
   describe('loadReview', () => {
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        auth: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
@@ -135,17 +151,21 @@ describe('actions', () => {
 
       const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setReviews());
+      expect(actions[0]).toEqual(setReviews({ reviews: undefined }));
     });
   });
 
   describe('sendReview', () => {
     beforeEach(() => {
       store = mockStore({
-        accessToken: '',
-        reviewFields: {
-          score: 1,
-          description: '',
+        auth: {
+          accessToken: '',
+        },
+        restaurant: {
+          reviewFields: {
+            score: 1,
+            description: '',
+          },
         },
       });
     });

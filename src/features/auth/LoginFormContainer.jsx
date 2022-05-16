@@ -1,21 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import LoginForm from './LoginForm';
-import LogoutForm from './LogoutForm';
+import LoginForm from '../../LoginForm';
+import LogoutForm from '../../LogoutForm';
 
 import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
-
-import { get } from './utils';
+  getLoginFields,
+  getAccessToken,
+} from './authSlice';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
-  const loginFields = useSelector(get('loginFields'));
-  const accessToken = useSelector(get('accessToken'));
+  const loginFields = useSelector(getLoginFields);
+  const accessToken = useSelector(getAccessToken);
 
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
