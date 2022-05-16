@@ -7,7 +7,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
@@ -31,7 +31,7 @@ export default function LoginFormContainer() {
 
   return (
     <>
-      {accessToken ? (
+      {accessToken?.length ? (
         <LogoutForm onClick={handleClickLogout} />
       ) : (
         <LoginForm

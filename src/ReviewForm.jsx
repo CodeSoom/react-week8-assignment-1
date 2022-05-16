@@ -1,29 +1,41 @@
+import { memo } from 'react';
+
+import styled from '@emotion/styled/';
+
 import TextField from './TextField';
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+const Container = styled.div({
+  display: 'flex',
+});
+
+function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
-    <>
-      <TextField
-        label="평점"
-        name="score"
-        type="number"
-        value={score}
-        onChange={onChange}
-      />
-      <TextField
-        label="리뷰 내용"
-        name="description"
-        value={description}
-        onChange={onChange}
-      />
+    <Container>
+      <div>
+        <TextField
+          label="평점"
+          name="score"
+          type="number"
+          value={score}
+          onChange={onChange}
+        />
+        <TextField
+          label="리뷰 내용"
+          name="description"
+          value={description}
+          onChange={onChange}
+        />
+      </div>
       <button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
       </button>
-    </>
+    </Container>
   );
 }
+
+export default memo(ReviewForm);
