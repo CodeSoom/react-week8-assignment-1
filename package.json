@@ -45,6 +45,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "react": "^17.0.2",
