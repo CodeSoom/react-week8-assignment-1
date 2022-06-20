@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+/* eslint-disable no-param-reassign */
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
   fetchRegions,
@@ -18,24 +19,95 @@ const initialReviewFields = {
   description: '',
 };
 
+const initialState = {
+  regions: [],
+  categories: [],
+  restaurants: [],
+  restaurant: null,
+  selectedRegion: null,
+  selectedCategory: null,
+  loginFields: {
+    email: '',
+    password: '',
+  },
+  accessToken: '',
+  reviewFields: {
+    ...initialReviewFields,
+  },
+};
+
+export const loadInitialData = createAsyncThunk(
+  'application/loadInitialData',
+  async () => {
+    const regions = await fetchRegions();
+    const categories = await fetchCategories();
+    return { regions, categories };
+  },
+);
+
+export const loadRestaurants = createAsyncThunk(
+  'application/loadRestaurants',
+  async (_, { getState }) => {
+    const {
+      selectedRegion: region,
+      selectedCategory: category,
+    } = getState();
+
+    if (!region || !category) {
+      return initialState.restaurants;
+    }
+
+    const restaurants = await fetchRestaurants({
+      regionName: region.name,
+      categoryId: category.id,
+    });
+
+    return restaurants;
+  },
+);
+
+export const loadRestaurant = createAsyncThunk(
+  'application/loadRestaurant',
+  async ({ restaurantId }) => {
+    const restaurant = await fetchRestaurant({ restaurantId });
+    return restaurant;
+  },
+);
+
+export const requestLogin = createAsyncThunk(
+  'application/requestLogin',
+  async (_, { getState }) => {
+    const { loginFields: { email, password } } = getState();
+
+    const accessToken = await postLogin({ email, password });
+    return accessToken;
+  },
+);
+
+export const loadReview = createAsyncThunk(
+  'application/loadReview',
+  async ({ restaurantId }) => {
+    const restaurant = await fetchRestaurant({ restaurantId });
+    return restaurant;
+  },
+);
+
+export const sendReview = createAsyncThunk(
+  'application/sendReview',
+  async ({ restaurantId }, { dispatch, getState }) => {
+    const { accessToken, reviewFields: { score, description } } = getState();
+
+    await postReview({
+      accessToken, restaurantId, score, description,
+    });
+
+    dispatch(loadReview({ restaurantId }));
+  },
+);
+
 const { actions, reducer } = createSlice({
   name: 'application',
-  initialState: {
-    regions: [],
-    categories: [],
-    restaurants: [],
-    restaurant: null,
-    selectedRegion: null,
-    selectedCategory: null,
-    loginFields: {
-      email: '',
-      password: '',
-    },
-    accessToken: '',
-    reviewFields: {
-      ...initialReviewFields,
-    },
-  },
+  initialState,
   reducers: {
     setRegions(state, { payload: regions }) {
       return {
@@ -136,6 +208,32 @@ const { actions, reducer } = createSlice({
       };
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loadInitialData.fulfilled, (state, { payload: { regions, categories } }) => {
+        state.regions = regions;
+        state.categories = categories;
+      })
+      .addCase(loadRestaurants.fulfilled, (state, { payload }) => {
+        state.restaurants = payload;
+      })
+      .addCase(loadRestaurant.fulfilled, (state, { payload }) => {
+        state.restaurant = payload;
+      })
+      .addCase(requestLogin.fulfilled, (state, { payload }) => {
+        saveItem('accessToken', payload);
+        state.accessToken = payload;
+      })
+      .addCase(loadReview.fulfilled, (state, { payload }) => {
+        state.restaurant = {
+          ...state.restaurant,
+          payload,
+        };
+      })
+      .addCase(sendReview.fulfilled, (state) => {
+        state.reviewFields = initialReviewFields;
+      });
+  },
 });
 
 export const {
@@ -152,77 +250,5 @@ export const {
   changeReviewField,
   logout,
 } = actions;
-
-export function loadInitialData() {
-  return async (dispatch) => {
-    const regions = await fetchRegions();
-    dispatch(setRegions(regions));
-
-    const categories = await fetchCategories();
-    dispatch(setCategories(categories));
-  };
-}
-
-export function loadRestaurants() {
-  return async (dispatch, getState) => {
-    const {
-      selectedRegion: region,
-      selectedCategory: category,
-    } = getState();
-
-    if (!region || !category) {
-      return;
-    }
-
-    const restaurants = await fetchRestaurants({
-      regionName: region.name,
-      categoryId: category.id,
-    });
-    dispatch(setRestaurants(restaurants));
-  };
-}
-
-export function loadRestaurant({ restaurantId }) {
-  return async (dispatch) => {
-    dispatch(setRestaurant(null));
-
-    const restaurant = await fetchRestaurant({ restaurantId });
-
-    dispatch(setRestaurant(restaurant));
-  };
-}
-
-export function requestLogin() {
-  return async (dispatch, getState) => {
-    const { loginFields: { email, password } } = getState();
-
-    const accessToken = await postLogin({ email, password });
-
-    saveItem('accessToken', accessToken);
-
-    dispatch(setAccessToken(accessToken));
-  };
-}
-
-export function loadReview({ restaurantId }) {
-  return async (dispatch) => {
-    const restaurant = await fetchRestaurant({ restaurantId });
-
-    dispatch(setReviews(restaurant.reviews));
-  };
-}
-
-export function sendReview({ restaurantId }) {
-  return async (dispatch, getState) => {
-    const { accessToken, reviewFields: { score, description } } = getState();
-
-    await postReview({
-      accessToken, restaurantId, score, description,
-    });
-
-    dispatch(loadReview({ restaurantId }));
-    dispatch(clearReviewFields());
-  };
-}
 
 export default reducer;
