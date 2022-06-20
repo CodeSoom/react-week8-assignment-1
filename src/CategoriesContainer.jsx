@@ -5,6 +5,9 @@ import {
   loadRestaurants,
 } from './actions';
 
+import MenuList from './MenuList';
+import MenuItem from './MenuItem';
+
 import { get } from './utils';
 
 export default function CategoriesContainer() {
@@ -19,22 +22,20 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <MenuList>
       {categories.map((category) => (
-        <li key={category.id}>
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
+        <MenuItem
+          key={category.id}
+          active={selectedCategory && category.id === selectedCategory.id}
+        >
+          <button type="button" onClick={() => handleClick(category.id)}>
             {category.name}
             {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
+              <>{category.id === selectedCategory.id ? '(V)' : null}</>
             ) : null}
           </button>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }
