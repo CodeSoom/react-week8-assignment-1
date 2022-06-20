@@ -1,4 +1,4 @@
-import LoginFormContainer from './LoginFormContainer';
+import LoginFormContainer from '../../containers/LoginForm/LoginFormContainer';
 
 export default function LoginPage() {
   return (

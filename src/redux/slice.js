@@ -7,10 +7,10 @@ import {
   fetchRestaurant,
   postLogin,
   postReview,
-} from './services/api';
-import { saveItem } from './services/storage';
+} from '../services/api';
+import { saveItem } from '../services/storage';
 
-import { equal } from './utils';
+import { equal } from '../utils/utils';
 
 const { actions, reducer } = createSlice({
   name: 'application',

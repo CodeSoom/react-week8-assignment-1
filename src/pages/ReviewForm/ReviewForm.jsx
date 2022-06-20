@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TextField from './TextField';
+import TextField from '../common/TextField/TextField';
 
 function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
