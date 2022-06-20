@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import MenuList from './MenuList';
 import MenuItem from './MenuItem';
 
-import { selectCategory, loadRestaurants } from './actions';
+import { selectCategory, loadRestaurants } from './slice';
 
 import { get } from './utils';
 
