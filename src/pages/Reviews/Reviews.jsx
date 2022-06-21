@@ -1,6 +1,4 @@
-import React from 'react';
-
-function Reviews({ reviews }) {
+export default function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -22,5 +20,3 @@ function Reviews({ reviews }) {
     </ul>
   );
 }
-
-export default React.memo(Reviews);
