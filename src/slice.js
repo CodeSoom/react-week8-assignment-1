@@ -208,31 +208,30 @@ const { actions, reducer } = createSlice({
       };
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(loadInitialData.fulfilled, (state, { payload: { regions, categories } }) => {
-        state.regions = regions;
-        state.categories = categories;
-      })
-      .addCase(loadRestaurants.fulfilled, (state, { payload }) => {
-        state.restaurants = payload;
-      })
-      .addCase(loadRestaurant.fulfilled, (state, { payload }) => {
-        state.restaurant = payload;
-      })
-      .addCase(requestLogin.fulfilled, (state, { payload }) => {
-        saveItem('accessToken', payload);
-        state.accessToken = payload;
-      })
-      .addCase(loadReview.fulfilled, (state, { payload }) => {
-        state.restaurant = {
-          ...state.restaurant,
-          payload,
-        };
-      })
-      .addCase(sendReview.fulfilled, (state) => {
-        state.reviewFields = initialReviewFields;
-      });
+  extraReducers: {
+    [loadInitialData.fulfilled]: (state, { payload: { regions, categories } }) => {
+      state.regions = regions;
+      state.categories = categories;
+    },
+    [loadRestaurants.fulfilled]: (state, { payload }) => {
+      state.restaurants = payload;
+    },
+    [loadRestaurant.fulfilled]: (state, { payload }) => {
+      state.restaurant = payload;
+    },
+    [requestLogin.fulfilled]: (state, { payload }) => {
+      saveItem('accessToken', payload);
+      state.accessToken = payload;
+    },
+    [loadReview.fulfilled]: (state, { payload }) => {
+      state.restaurant = {
+        ...state.restaurant,
+        payload,
+      };
+    },
+    [sendReview.fulfilled]: (state) => {
+      state.reviewFields = initialReviewFields;
+    },
   },
 });
 
