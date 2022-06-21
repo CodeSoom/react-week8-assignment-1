@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 
-const MenuItem = styled.li({
+const MenuItem = styled.li(({ active }) => ({
   marginRight: '1rem',
   '& button': {
-    border: 0,
-    background: 'transparent',
+    padding: '.4em 1em',
+    border: '1px solid #CCC',
+    background: active ? '#EEE' : 'transparent',
     textDecoration: 'none',
     color: '#333',
     cursor: 'pointer',
@@ -13,6 +14,6 @@ const MenuItem = styled.li({
       color: '#000',
     },
   },
-});
+}));
 
 export default MenuItem;
