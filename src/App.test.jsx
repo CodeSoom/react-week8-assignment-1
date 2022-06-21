@@ -1,6 +1,6 @@
-import React from 'react';
-
-import { MemoryRouter } from 'react-router-dom';
+import {
+  MemoryRouter,
+} from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
@@ -8,32 +8,26 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import App from './App';
 
-describe('App', () => {
-  beforeEach(() => {
-    const dispatch = jest.fn();
+import { loadItem } from './services/storage';
 
-    useSelector.mockImplementation((selector) => selector({
-      regions: {
-        isLoading: false,
-        isError: false,
-        errorMessage: '',
-        data: [{ name: '서울', id: 1 }],
-      },
-      categories: {
-        isLoading: false,
-        isError: false,
-        errorMessage: '',
-        data: [],
-      },
-      restaurants: {
-        isLoading: false,
-        isError: false,
-        errorMessage: '',
-        data: [],
-      },
-    }));
+jest.mock('react-redux');
+jest.mock('./services/storage');
+
+describe('App', () => {
+  const dispatch = jest.fn();
+
+  beforeEach(() => {
+    dispatch.mockClear();
 
     useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selector) => selector({
+      regions: [
+        { id: 1, name: '서울' },
+      ],
+      categories: [],
+      restaurants: [],
+    }));
   });
 
   function renderApp({ path }) {
@@ -45,7 +39,7 @@ describe('App', () => {
   }
 
   context('with path /', () => {
-    it('renders HomePage', () => {
+    it('renders the home page', () => {
       const { container } = renderApp({ path: '/' });
 
       expect(container).toHaveTextContent('Home');
@@ -53,7 +47,7 @@ describe('App', () => {
   });
 
   context('with path /about', () => {
-    it('renders AboutPage', () => {
+    it('renders the about page', () => {
       const { container } = renderApp({ path: '/about' });
 
       expect(container).toHaveTextContent('20명에게 추천');
@@ -61,7 +55,7 @@ describe('App', () => {
   });
 
   context('with path /restaurants', () => {
-    it('renders RestaurantsPage', () => {
+    it('renders the restaurants page', () => {
       const { container } = renderApp({ path: '/restaurants' });
 
       expect(container).toHaveTextContent('서울');
@@ -73,6 +67,35 @@ describe('App', () => {
       const { container } = renderApp({ path: '/xxx' });
 
       expect(container).toHaveTextContent('Not Found');
+    });
+  });
+
+  context('when logged out', () => {
+    beforeEach(() => {
+      loadItem.mockImplementation(() => null);
+    });
+
+    it("doesn't call dispatch", () => {
+      renderApp({ path: '/' });
+
+      expect(dispatch).not.toBeCalled();
+    });
+  });
+
+  context('when logged in', () => {
+    const accessToken = 'ACCESS_TOKEN';
+
+    beforeEach(() => {
+      loadItem.mockImplementation(() => accessToken);
+    });
+
+    it('calls dispatch with “setAccessToken” action', () => {
+      renderApp({ path: '/' });
+
+      expect(dispatch).toBeCalledWith({
+        type: 'setAccessToken',
+        payload: { accessToken },
+      });
     });
   });
 });
