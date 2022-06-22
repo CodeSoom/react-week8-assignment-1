@@ -1,21 +1,26 @@
+import regions from '../../../fixtures/regions';
+import categories from '../../../fixtures/categories';
+import restaurant from '../../../fixtures/restaurant';
+import restaurants from '../../../fixtures/restaurants';
+
 export async function fetchRegions() {
-  return [];
+  return regions;
 }
 
 export async function fetchCategories() {
-  return [];
+  return categories;
 }
 
 export async function fetchRestaurants() {
-  return [];
+  return restaurants;
 }
 
 export async function fetchRestaurant() {
-  return {};
+  return restaurant;
 }
 
 export async function postLogin() {
-  return {};
+  return 'TOKEN';
 }
 
 export async function postReview({

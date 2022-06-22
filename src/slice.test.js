@@ -3,18 +3,12 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import reducer, {
-  setRegions,
-  setCategories,
-  setRestaurants,
-  setRestaurant,
   selectRegion,
   selectCategory,
   changeLoginField,
   setAccessToken,
   logout,
   changeReviewField,
-  clearReviewFields,
-  setReviews,
   loadInitialData,
   sendReview,
   loadReview,
@@ -22,6 +16,10 @@ import reducer, {
   loadRestaurant,
   loadRestaurants,
 } from './slice';
+
+import mockRestaurant from '../fixtures/restaurant';
+import mockRegions from '../fixtures/regions';
+import mockCategories from '../fixtures/categories';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -54,69 +52,6 @@ describe('slice', () => {
       const state = reducer(undefined, { type: 'action' });
 
       expect(state).toEqual(initialState);
-    });
-  });
-
-  describe('setRegions', () => {
-    it('changes regions', () => {
-      const initialState = {
-        regions: [],
-      };
-
-      const regions = [
-        { id: 1, name: '서울' },
-      ];
-
-      const state = reducer(initialState, setRegions(regions));
-
-      expect(state.regions).toHaveLength(1);
-    });
-  });
-
-  describe('setCategories', () => {
-    it('changes categories', () => {
-      const initialState = {
-        categories: [],
-      };
-
-      const categories = [
-        { id: 1, name: '한식' },
-      ];
-
-      const state = reducer(initialState, setCategories(categories));
-
-      expect(state.categories).toHaveLength(1);
-    });
-  });
-
-  describe('setRestaurants', () => {
-    it('changes restaurants', () => {
-      const initialState = {
-        restaurants: [],
-      };
-
-      const restaurants = [
-        { id: 1, name: '마법사주방' },
-      ];
-
-      const state = reducer(initialState, setRestaurants(restaurants));
-
-      expect(state.restaurants).toHaveLength(1);
-    });
-  });
-
-  describe('setRestaurant', () => {
-    it('changes restaurant', () => {
-      const initialState = {
-        restaurant: null,
-      };
-
-      const restaurant = { id: 1, name: '마법사주방' };
-
-      const state = reducer(initialState, setRestaurant(restaurant));
-
-      expect(state.restaurant.id).toBe(1);
-      expect(state.restaurant.name).toBe('마법사주방');
     });
   });
 
@@ -238,73 +173,46 @@ describe('slice', () => {
     });
   });
 
-  describe('clearReviewFields', () => {
-    it('clears fields of review', () => {
-      const initialState = {
-        reviewFields: {
-          score: 'SCORE',
-          description: 'DESCRIPTION',
-        },
-      };
-
-      const state = reducer(initialState, clearReviewFields());
-
-      expect(state.reviewFields.score).toBe('');
-      expect(state.reviewFields.description).toBe('');
-    });
-  });
-
-  describe('setReviews', () => {
-    it('changes reviews of the current restaurant', () => {
-      const reviews = [
-        {
-          id: 1, name: '테스터', description: '맛있어요', score: 1,
-        },
-      ];
-
-      const initialState = {
-        restaurant: {
-          reviews: [],
-        },
-      };
-
-      const state = reducer(initialState, setReviews(reviews));
-
-      expect(state.restaurant.reviews).toHaveLength(reviews.length);
-      expect(state.restaurant.reviews[0]).toEqual(reviews[0]);
-    });
-  });
-
   describe('loadInitialData', () => {
     beforeEach(() => {
       store = mockStore({});
     });
 
-    it('runs setRegions and setCategories', async () => {
-      await store.dispatch(loadInitialData());
+    it('changes regions and categories', async () => {
+      const initialState = {
+        regions: [],
+        categories: [],
+      };
 
-      const actions = store.getActions();
+      const action = await store.dispatch(loadInitialData());
+      const state = reducer(initialState, action);
 
-      expect(actions[0]).toEqual(setRegions([]));
-      expect(actions[1]).toEqual(setCategories([]));
+      expect(state.regions).toHaveLength(mockRegions.length);
+      expect(state.categories).toHaveLength(mockCategories.length);
     });
   });
 
   describe('loadRestaurants', () => {
+    const initialState = {
+      selectedRegion: { id: 1, name: '서울' },
+      selectedCategory: { id: 1, name: '분식' },
+      restaurants: [],
+    };
+
     context('with selectedRegion and selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
           selectedRegion: { id: 1, name: '서울' },
-          selectedCategory: { id: 1, name: '한식' },
+          selectedCategory: { id: 1, name: '분식' },
+          restaurants: [],
         });
       });
 
-      it('runs setRestaurants', async () => {
-        await store.dispatch(loadRestaurants());
+      it('changes restaurants', async () => {
+        const action = await store.dispatch(loadRestaurants());
+        const state = reducer(initialState, action);
 
-        const actions = store.getActions();
-
-        expect(actions[0]).toEqual(setRestaurants([]));
+        expect(state.restaurants).toHaveLength(1);
       });
     });
 
@@ -312,15 +220,15 @@ describe('slice', () => {
       beforeEach(() => {
         store = mockStore({
           selectedCategory: { id: 1, name: '한식' },
+          restaurants: [],
         });
       });
 
-      it('does\'nt run any actions', async () => {
-        await store.dispatch(loadRestaurants());
+      it('did not change restaurants', async () => {
+        const action = await store.dispatch(loadRestaurants());
+        const state = reducer(initialState, action);
 
-        const actions = store.getActions();
-
-        expect(actions).toHaveLength(0);
+        expect(state.restaurants).toHaveLength(0);
       });
     });
 
@@ -328,15 +236,15 @@ describe('slice', () => {
       beforeEach(() => {
         store = mockStore({
           selectedRegion: { id: 1, name: '서울' },
+          restaurants: [],
         });
       });
 
-      it('does\'nt run any actions', async () => {
-        await store.dispatch(loadRestaurants());
+      it('did not change restaurants', async () => {
+        const action = await store.dispatch(loadRestaurants());
+        const state = reducer(initialState, action);
 
-        const actions = store.getActions();
-
-        expect(actions).toHaveLength(0);
+        expect(state.restaurants).toHaveLength(0);
       });
     });
   });
@@ -346,13 +254,16 @@ describe('slice', () => {
       store = mockStore({});
     });
 
-    it('dispatchs setRestaurant', async () => {
-      await store.dispatch(loadRestaurant({ restaurantId: 1 }));
+    it('changes restaurant', async () => {
+      const initialState = {
+        restaurant: null,
+      };
 
-      const actions = store.getActions();
+      const action = await store.dispatch(loadRestaurant({ restaurantId: 1 }));
+      const state = reducer(initialState, action);
 
-      expect(actions[0]).toEqual(setRestaurant(null));
-      expect(actions[1]).toEqual(setRestaurant({}));
+      expect(state.restaurant.id).toBe(mockRestaurant.id);
+      expect(state.restaurant.name).toBe(mockRestaurant.name);
     });
   });
 
@@ -363,48 +274,62 @@ describe('slice', () => {
       });
     });
 
-    it('dispatchs setAccessToken', async () => {
-      await store.dispatch(requestLogin());
+    it('changes access token', async () => {
+      const initialState = {
+        accessToken: '',
+        loginFields: { email: '', password: '' },
+      };
 
-      const actions = store.getActions();
+      const action = await store.dispatch(requestLogin());
+      const state = reducer(initialState, action);
 
-      expect(actions[0]).toEqual(setAccessToken({}));
+      expect(state.accessToken).toBe('TOKEN');
     });
   });
 
   describe('loadReview', () => {
     beforeEach(() => {
-      store = mockStore({
-        loginFields: { email: '', password: '' },
-      });
+      store = mockStore({});
     });
 
-    it('dispatchs setReviews', async () => {
-      await store.dispatch(loadReview({ restaurantId: 1 }));
+    it('changes reviews of the current restaurant', async () => {
+      const initialState = {
+        restaurant: {
+          reviews: [],
+        },
+      };
 
-      const actions = store.getActions();
+      const action = await store.dispatch(loadReview({ restaurantId: 1 }));
+      const state = reducer(initialState, action);
 
-      expect(actions[0]).toEqual(setReviews());
+      expect(state.restaurant.reviews).toHaveLength(mockRestaurant.reviews.length);
+      expect(state.restaurant.reviews[0]).toEqual(mockRestaurant.reviews[0]);
     });
   });
 
   describe('sendReview', () => {
     beforeEach(() => {
       store = mockStore({
-        accessToken: '',
         reviewFields: {
-          score: 1,
-          description: '',
+          score: 'SCORE',
+          description: 'DESCRIPTION',
         },
       });
     });
 
-    it('dispatchs clearReviewFields', async () => {
-      await store.dispatch(sendReview({ restaurantId: 1 }));
+    it('clears fields of review', async () => {
+      const initialState = {
+        reviewFields: {
+          score: 'SCORE',
+          description: 'DESCRIPTION',
+        },
+      };
 
-      const actions = store.getActions();
+      const action = await store.dispatch(sendReview({ restaurantId: 1 }));
+      const state = reducer(initialState, action);
 
-      expect(actions[0]).toEqual(clearReviewFields());
+      expect(state.reviewFields.score).toBe('');
+      expect(state.reviewFields.description).toBe('');
     });
   });
 });

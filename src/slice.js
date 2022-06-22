@@ -88,7 +88,7 @@ export const loadReview = createAsyncThunk(
   'application/loadReview',
   async ({ restaurantId }) => {
     const restaurant = await fetchRestaurant({ restaurantId });
-    return restaurant;
+    return restaurant.reviews;
   },
 );
 
@@ -109,34 +109,6 @@ const { actions, reducer } = createSlice({
   name: 'application',
   initialState,
   reducers: {
-    setRegions(state, { payload: regions }) {
-      return {
-        ...state,
-        regions,
-      };
-    },
-
-    setCategories(state, { payload: categories }) {
-      return {
-        ...state,
-        categories,
-      };
-    },
-
-    setRestaurants(state, { payload: restaurants }) {
-      return {
-        ...state,
-        restaurants,
-      };
-    },
-
-    setRestaurant(state, { payload: restaurant }) {
-      return {
-        ...state,
-        restaurant,
-      };
-    },
-
     selectRegion(state, { payload: regionId }) {
       const { regions } = state;
       return {
@@ -186,27 +158,6 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-
-    clearReviewFields(state) {
-      return {
-        ...state,
-        reviewFields: {
-          ...initialReviewFields,
-        },
-      };
-    },
-
-    setReviews(state, { payload: reviews }) {
-      const { restaurant } = state;
-
-      return {
-        ...state,
-        restaurant: {
-          ...restaurant,
-          reviews,
-        },
-      };
-    },
   },
   extraReducers: {
     [loadInitialData.fulfilled]: (state, { payload: { regions, categories } }) => {
@@ -223,10 +174,10 @@ const { actions, reducer } = createSlice({
       saveItem('accessToken', payload);
       state.accessToken = payload;
     },
-    [loadReview.fulfilled]: (state, { payload }) => {
+    [loadReview.fulfilled]: (state, { payload: reviews }) => {
       state.restaurant = {
         ...state.restaurant,
-        payload,
+        reviews,
       };
     },
     [sendReview.fulfilled]: (state) => {
@@ -236,13 +187,7 @@ const { actions, reducer } = createSlice({
 });
 
 export const {
-  setRegions,
-  setCategories,
-  setRestaurants,
-  setRestaurant,
   setAccessToken,
-  clearReviewFields,
-  setReviews,
   selectRegion,
   selectCategory,
   changeLoginField,
