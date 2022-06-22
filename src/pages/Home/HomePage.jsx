@@ -27,23 +27,39 @@ const Item = styled.li({
   },
 });
 
+const links = [
+  {
+    id: 1,
+    path: '/about',
+    name: 'About',
+  },
+  {
+    id: 2,
+    path: '/login',
+    name: 'Log in',
+  },
+  {
+    id: 3,
+    path: '/restaurants',
+    name: 'Restaurants',
+  },
+  {
+    id: 4,
+    path: '/xxx',
+    name: '멸망의 길',
+  },
+];
+
 export default function HomePage() {
   return (
     <div>
       <Title>Home</Title>
       <List>
-        <Item>
-          <Link to="/about">About</Link>
-        </Item>
-        <Item>
-          <Link to="/login">Log in</Link>
-        </Item>
-        <Item>
-          <Link to="/restaurants">Restaurants</Link>
-        </Item>
-        <Item>
-          <Link to="/xxx">멸망의 길</Link>
-        </Item>
+        {links.map(({ id, path, name }) => (
+          <Item key={id}>
+            <Link to={path}>{name}</Link>
+          </Item>
+        ))}
       </List>
     </div>
   );
