@@ -33,7 +33,7 @@ Scenario('로그인을 했으면 리뷰를 남길 수 있다.', ({ I }) => {
 
   I.amOnPage('/restaurants/1');
 
-  I.fillField('score', '1');
+  I.fillField('평점', '1');
   I.fillField('description', '리뷰 내용');
   I.see('리뷰 남기기', 'button');
 });
