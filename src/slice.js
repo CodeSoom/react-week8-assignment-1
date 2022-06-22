@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { equal } from './utils';
 
@@ -17,6 +17,22 @@ const initialReviewFields = {
   score: '',
   description: '',
 };
+
+export const loadInitialData = createAsyncThunk(
+  'application/loadInitialData',
+  async (result, thunkAPI) => {
+    try {
+      const regions = await fetchRegions();
+      const categories = await fetchCategories();
+      return {
+        regions,
+        categories,
+      };
+    } catch (error) {
+      return thunkAPI.rejectWithValue();
+    }
+  }
+);
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -136,6 +152,12 @@ const { actions, reducer } = createSlice({
       };
     },
   },
+  extraReducers: {
+    [loadInitialData.fulfilled]: (state, action) => {
+      state.regions = action.payload.regions;
+      state.categories = action.payload.categories;
+    },
+  },
 });
 
 export const {
@@ -152,16 +174,6 @@ export const {
   clearReviewFields,
   setReviews,
 } = actions;
-
-export function loadInitialData() {
-  return async (dispatch) => {
-    const regions = await fetchRegions();
-    dispatch(setRegions(regions));
-
-    const categories = await fetchCategories();
-    dispatch(setCategories(categories));
-  };
-}
 
 export function loadRestaurants() {
   return async (dispatch, getState) => {
