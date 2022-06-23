@@ -10,9 +10,9 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './slice';
+} from '../slice';
 
-import { get } from './utils';
+import { get } from '../shared/utils';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();

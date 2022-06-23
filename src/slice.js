@@ -11,7 +11,7 @@ import {
 
 import { saveItem } from './services/storage';
 
-import { equal } from './utils';
+import { equal } from './shared/utils';
 
 const initialReviewFields = {
   score: '',

@@ -1,4 +1,4 @@
-import TextField from './TextField';
+import TextField from '../shared/components/TextField';
 
 export default function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;

@@ -6,12 +6,12 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from './home';
+import AboutPage from './about';
+import LoginPage from './sign/LoginPage';
+import RestaurantsPage from './restaurant/RestaurantsPage';
+import RestaurantPage from './restaurant/RestaurantPage';
+import NotFoundPage from './not-found/NotFoundPage';
 
 import { setAccessToken } from './slice';
 
