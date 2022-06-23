@@ -26,20 +26,10 @@ export default React.memo(Header);
 const Wrapper = styled.header`
     position: sticky;
     top: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
     margin: 0;
     padding: 1.2rem 1rem;
     background: #fff;
     box-shadow: 0 0 12px 4px rgba(0,0,0,0.05);
-
-    a {
-        text-decoration: none;
-        color: #333;
-        transition: color 0.2s;
-
-        &:hover,
-        &:active {
-            color: tomato;
-        }
-    }
 `;

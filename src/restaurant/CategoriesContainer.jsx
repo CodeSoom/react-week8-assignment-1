@@ -6,6 +6,7 @@ import {
 } from '../slice';
 
 import { get } from '../shared/utils';
+import Button from '../shared/components/Button';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
@@ -22,17 +23,12 @@ export default function CategoriesContainer() {
     <ul>
       {categories.map((category) => (
         <li key={category.id}>
-          <button
-            type="button"
+          <Button
+            active={category.id === selectedCategory?.id}
             onClick={() => handleClick(category.id)}
           >
             {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

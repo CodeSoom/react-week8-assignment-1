@@ -6,6 +6,7 @@ import {
 } from '../slice';
 
 import { get } from '../shared/utils';
+import Button from '../shared/components/Button';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -22,17 +23,12 @@ export default function RegionsContainer() {
     <ul>
       {regions.map((region) => (
         <li key={region.id}>
-          <button
-            type="button"
+          <Button
+            active={region.id === selectedRegion?.id}
             onClick={() => handleClick(region.id)}
           >
             {region.name}
-            {selectedRegion ? (
-              <>
-                {region.id === selectedRegion.id ? '(V)' : null}
-              </>
-            ) : null}
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

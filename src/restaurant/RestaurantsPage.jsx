@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
+
+import styled from '@emotion/styled';
 
 import RegionsContainer from './RegionsContainer';
 import CategoriesContainer from './CategoriesContainer';
@@ -19,18 +21,34 @@ export default function RestaurantsPage() {
 
   useEffect(() => {
     dispatch(loadInitialData());
-  });
+  }, []);
 
-  function handleClickRestaurant(restaurant) {
+  const handleClickRestaurant = useCallback((restaurant) => {
     const url = `/restaurants/${restaurant.id}`;
     navigate(url);
-  }
+  }, []);
 
   return (
-    <div>
+    <Wrapper>
       <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer onClickRestaurant={handleClickRestaurant} />
-    </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+
+    + ul {
+      margin-top: 2rem;
+    }
+  }
+
+  button {
+    min-width: 4.2rem;
+  }
+`;
