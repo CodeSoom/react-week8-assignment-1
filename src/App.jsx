@@ -5,6 +5,9 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import GolbalStyle from './shared/lib/globalStyle';
+
+import Header from './shared/components/Header';
 import HomePage from './home';
 import AboutPage from './about';
 import LoginPage from './sign/LoginPage';
@@ -15,7 +18,6 @@ import NotFoundPage from './not-found/NotFoundPage';
 import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
-import Header from './shared/components/Header';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -27,6 +29,7 @@ export default function App() {
 
   return (
     <div>
+      <GolbalStyle />
       <Header>헤더</Header>
       <Routes>
         <Route path="/" element={<HomePage />} />
