@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import RestaurantsPage from './RestaurantsPage';
 
-const mockPush = jest.fn();
+const mockNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useHistory() {
-    return { push: mockPush };
+  useNavigate() {
+    return mockNavigate;
   },
 }));
 
@@ -65,7 +65,7 @@ describe('RestaurantsPage', () => {
 
       fireEvent.click(getByText('마법사주방'));
 
-      expect(mockPush).toBeCalledWith('/restaurants/1');
+      expect(mockNavigate).toBeCalledWith('/restaurants/1');
     });
   });
 });

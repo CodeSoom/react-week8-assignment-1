@@ -1,7 +1,6 @@
 import {
-  Switch,
   Route,
-  Link,
+  Routes,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
@@ -16,6 +15,7 @@ import NotFoundPage from './not-found/NotFoundPage';
 import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
+import Header from './shared/components/Header';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -27,19 +27,15 @@ export default function App() {
 
   return (
     <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Header>헤더</Header>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/restaurants" element={<RestaurantsPage />} />
+        <Route path="/restaurants/:id" element={<RestaurantPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </div>
   );
 }
