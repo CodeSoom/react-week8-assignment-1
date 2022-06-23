@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import Button from './Button';
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
@@ -34,12 +35,12 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           onChange={handleChange}
         />
       </div>
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
+      </Button>
     </>
   );
 });
