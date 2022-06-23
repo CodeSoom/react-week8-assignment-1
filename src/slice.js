@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
@@ -160,29 +159,38 @@ const { actions, reducer } = createSlice({
     },
   },
   extraReducers: {
-    [loadInitialData.fulfilled]: (state, { payload: { regions, categories } }) => {
-      state.regions = regions;
-      state.categories = categories;
-    },
-    [loadRestaurants.fulfilled]: (state, { payload }) => {
-      state.restaurants = payload;
-    },
-    [loadRestaurant.fulfilled]: (state, { payload }) => {
-      state.restaurant = payload;
-    },
-    [requestLogin.fulfilled]: (state, { payload }) => {
-      saveItem('accessToken', payload);
-      state.accessToken = payload;
-    },
-    [loadReview.fulfilled]: (state, { payload: reviews }) => {
-      state.restaurant = {
-        ...state.restaurant,
-        reviews,
+    [loadInitialData.fulfilled]: (state, { payload: { regions, categories } }) => ({
+      ...state,
+      regions,
+      categories,
+    }),
+    [loadRestaurants.fulfilled]: (state, { payload: restaurants }) => ({
+      ...state,
+      restaurants,
+    }),
+    [loadRestaurant.fulfilled]: (state, { payload: restaurant }) => ({
+      ...state,
+      restaurant,
+    }),
+    [requestLogin.fulfilled]: (state, { payload: accessToken }) => {
+      saveItem('accessToken', accessToken);
+
+      return {
+        ...state,
+        accessToken,
       };
     },
-    [sendReview.fulfilled]: (state) => {
-      state.reviewFields = initialReviewFields;
-    },
+    [loadReview.fulfilled]: (state, { payload: reviews }) => ({
+      ...state,
+      restaurant: {
+        ...state.restaurant,
+        reviews,
+      },
+    }),
+    [sendReview.fulfilled]: (state) => ({
+      ...state,
+      reviewFields: initialReviewFields,
+    }),
   },
 });
 
