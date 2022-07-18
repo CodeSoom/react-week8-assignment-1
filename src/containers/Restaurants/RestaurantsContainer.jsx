@@ -1,8 +1,10 @@
+import React from 'react';
+
 import { useSelector } from 'react-redux';
 
-import { get } from './utils';
+import { get } from '../../utils/utils';
 
-export default function RestaurantsContainer({ onClickRestaurant }) {
+function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get('restaurants'));
 
   function handleClick(restaurant) {
@@ -24,3 +26,5 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
     </ul>
   );
 }
+
+export default React.memo(RestaurantsContainer);
