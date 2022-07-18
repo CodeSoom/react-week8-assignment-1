@@ -1,19 +1,23 @@
 import {
-  Switch,
   Route,
-  Link,
+  Routes,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import styled from '@emotion/styled';
 
-import { setAccessToken } from './actions';
+import GolbalStyle from './shared/lib/globalStyle';
+
+import Header from './shared/components/Header';
+import HomePage from './home';
+import AboutPage from './about';
+import LoginPage from './sign/LoginPage';
+import RestaurantsPage from './restaurant/RestaurantsPage';
+import RestaurantPage from './restaurant/RestaurantPage';
+import NotFoundPage from './not-found/NotFoundPage';
+
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
@@ -26,20 +30,23 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <>
+      <GolbalStyle />
+      <Header>헤더</Header>
+      <Main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/restaurants" element={<RestaurantsPage />} />
+          <Route path="/restaurants/:id" element={<RestaurantPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Main>
+    </>
   );
 }
+
+const Main = styled.main`
+  padding: 1.2rem 1rem;
+`;
