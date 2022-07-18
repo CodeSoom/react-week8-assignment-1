@@ -6,11 +6,7 @@ import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
 
-import {
-  loadRestaurant,
-  changeReviewField,
-  sendReview,
-} from './actions';
+import { loadRestaurant, changeReviewField, sendReview } from './slice';
 
 import { get } from './utils';
 
@@ -26,9 +22,7 @@ export default function RestaurantContainer({ restaurantId }) {
   const reviewFields = useSelector(get('reviewFields'));
 
   if (!restaurant) {
-    return (
-      <p>Loading...</p>
-    );
+    return <p>Loading...</p>;
   }
 
   function handleChange({ name, value }) {
