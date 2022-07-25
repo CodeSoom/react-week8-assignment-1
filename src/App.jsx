@@ -36,7 +36,7 @@ const Header = styled.header({
     textDecoration: 'none',
 
     '&:hover': {
-      color: 'green',
+      color: 'violet',
     },
   },
 });
