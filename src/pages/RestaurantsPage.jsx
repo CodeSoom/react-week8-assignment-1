@@ -11,7 +11,7 @@ import RestaurantsContainer from '../container/RestaurantsContainer';
 
 import {
   loadInitialData,
-} from '../actions/actions';
+} from '../slice/slice';
 
 export default function RestaurantsPage() {
   const history = useHistory();
