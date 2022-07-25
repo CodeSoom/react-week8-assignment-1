@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 
-const MenuItem = styled.li({
+const MenuItem = styled.li(({ active }) => ({
   marginRight: '1em',
   '& button': {
+    padding: '1em',
     cursor: 'pointer',
     border: '0',
-    background: 'transparent',
+    background: active ? 'pink' : 'transparent',
     color: 'skyblue',
     textDecoration: 'none',
 
@@ -13,6 +14,6 @@ const MenuItem = styled.li({
       color: 'violet',
     },
   },
-});
+}));
 
 export default MenuItem;
