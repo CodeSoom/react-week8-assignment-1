@@ -4,6 +4,7 @@ import {
   selectCategory,
   loadRestaurants,
 } from '../slice/slice';
+
 import MenuItem from '../styles/MenuItem';
 import MenuList from '../styles/MenuList';
 
