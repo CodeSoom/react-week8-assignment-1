@@ -1,11 +1,22 @@
+import styled from '@emotion/styled';
+
 import NavBar from './components/home/NavBar';
+
+const Container = styled.section({
+  padding: '3rem',
+});
+
+const Title = styled.h2({
+  margin: '0 0 3rem 0',
+  color: '#495C83',
+});
 
 export default function HomePage() {
   return (
-    <div>
-      <h2>Home</h2>
+    <Container>
+      <Title>Home</Title>
 
       <NavBar />
-    </div>
+    </Container>
   );
 }
