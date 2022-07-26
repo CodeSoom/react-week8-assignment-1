@@ -6,7 +6,7 @@ const MenuItem = styled.li(({ active }) => ({
     marginBottom: '1em',
     padding: '.4em 1em',
     border: '1px solid #CCC',
-    color: '#333',
+    color: '#333333',
     background: active ? '#EEE' : 'transparent',
     cursor: 'pointer',
     '&:hover': {
