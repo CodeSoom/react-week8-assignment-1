@@ -2,12 +2,12 @@ import { render } from '@testing-library/react';
 
 import { MemoryRouter } from 'react-router-dom';
 
-import Header from './Header';
+import AppHeader from './AppHeader';
 
-describe('<Header />', () => {
+describe('<AppHeader />', () => {
   const renderHeader = () => render((
     <MemoryRouter>
-      <Header />
+      <AppHeader />
     </MemoryRouter>
   ));
 

@@ -16,7 +16,8 @@ import { setAccessToken } from './actions';
 
 import { loadItem } from './services/storage';
 
-import Header from './components/Header';
+import AppHeader from './components/AppHeader';
+
 import Container from './components/Container';
 
 export default function App() {
@@ -29,7 +30,7 @@ export default function App() {
 
   return (
     <Container>
-      <Header />
+      <AppHeader />
 
       <Switch>
         <Route exact path="/" component={HomePage} />
