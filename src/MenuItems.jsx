@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 export default function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -6,12 +8,22 @@ export default function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <MenuList>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
+        <MenuItem key={menuItem.id}>
           {menuItem.name}
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }
+
+const MenuList = styled.div({
+  width: '100%',
+  backgroundColor: 'skyblue',
+});
+
+const MenuItem = styled.div({
+  color: 'white',
+  padding: '10px',
+});
