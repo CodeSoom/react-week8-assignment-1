@@ -7,7 +7,7 @@ import {
 
 import { get } from '../utils';
 
-import MenuList from '../styles/MenuList';
+import Menu from '../styles/Menu';
 import MenuItem from '../styles/MenuItem';
 
 export default function RegionsContainer() {
@@ -22,7 +22,7 @@ export default function RegionsContainer() {
   }
 
   return (
-    <MenuList>
+    <Menu>
       {regions.map((region) => (
         <MenuItem
           key={region.id}
@@ -41,6 +41,6 @@ export default function RegionsContainer() {
           </button>
         </MenuItem>
       ))}
-    </MenuList>
+    </Menu>
   );
 }

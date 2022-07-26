@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-import MenuList from '../styles/MenuList';
+import Menu from '../styles/Menu';
 
 const Title = styled.h2({
   fontSize: '2em',
@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <div>
       <Title>Home</Title>
-      <MenuList>
+      <Menu>
         <Item>
           <Link to="/about">About</Link>
         </Item>
@@ -38,7 +38,7 @@ export default function HomePage() {
         <Item>
           <Link to="/xxx">멸망의 길</Link>
         </Item>
-      </MenuList>
+      </Menu>
     </div>
   );
 }
