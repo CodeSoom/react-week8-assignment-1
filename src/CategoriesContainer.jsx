@@ -45,6 +45,7 @@ export default function CategoriesContainer() {
 
 const MenuList = styled.ul({
   display: 'flex',
+  justifyContent: 'space-around',
   margin: '0',
   padding: '.4em 0',
   listStyle: 'none',
@@ -53,15 +54,16 @@ const MenuList = styled.ul({
 const MenuItem = styled.li(({ active }) => ({
   marginRight: '1em',
   '& button': {
+    borderRadius: '10px',
     padding: '1em',
     cursor: 'pointer',
     border: '0',
     background: active ? 'pink' : 'transparent',
-    color: 'skyblue',
+    color: active ? 'white' : 'skyblue',
     textDecoration: 'none',
 
     '&:hover': {
-      color: 'violet',
+      color: active ? 'white' : 'pink',
     },
   },
 }));
