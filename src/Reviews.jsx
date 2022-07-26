@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 export default function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
@@ -6,21 +8,50 @@ export default function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <MenuList>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
-          <div>
-            {review.name}
-          </div>
-          <div>
-            {review.score}
-            점
-          </div>
-          <div>
+        <MenuItem key={review.id}>
+          <section className="top">
+            <h1>
+              {review.name}
+            </h1>
+            <p>
+              {review.score}
+              점
+            </p>
+          </section>
+          <section className="bottom">
             {review.description}
-          </div>
-        </li>
+          </section>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }
+const MenuList = styled.div({
+  width: '100%',
+
+});
+
+const MenuItem = styled.div({
+  backgroundColor: 'skyblue',
+  display: 'flex',
+  flexDirection: 'column',
+  color: 'white',
+  marginBottom: '5px',
+  padding: '10px',
+  borderRadius: '10px',
+  '.top': {
+    display: 'flex',
+    marginBottom: '10px',
+    '& p': {
+      color: 'yellow',
+      marginLeft: '10px',
+      display: 'flex',
+      alignItems: 'center',
+    },
+
+  },
+  '.bottom': {
+  },
+});
