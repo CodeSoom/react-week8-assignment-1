@@ -11,7 +11,7 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from '../slice/slice';
+} from '../slice';
 
 import { get } from '../utils';
 

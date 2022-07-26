@@ -16,7 +16,7 @@ import {
   loadReview,
   sendReview,
   clearReviewFields,
-} from './slice';
+} from '.';
 
 const mockStore = configureStore(getDefaultMiddleware());
 

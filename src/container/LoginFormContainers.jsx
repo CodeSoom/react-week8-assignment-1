@@ -7,7 +7,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from '../slice/slice';
+} from '../slice';
 
 import { get } from '../utils';
 
