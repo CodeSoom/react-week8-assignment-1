@@ -1,12 +1,10 @@
+import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectRegion,
   loadRestaurants,
 } from './slice';
-
-import MenuItem from './MenuItem';
-import MenuList from './MenuList';
 
 import { get } from './utils';
 
@@ -41,3 +39,26 @@ export default function RegionsContainer() {
     </MenuList>
   );
 }
+
+const MenuList = styled.ul({
+  display: 'flex',
+  margin: '0',
+  padding: '.4em 0',
+  listStyle: 'none',
+});
+
+const MenuItem = styled.li(({ active }) => ({
+  marginRight: '1em',
+  '& button': {
+    padding: '1em',
+    cursor: 'pointer',
+    border: '0',
+    background: active ? 'pink' : 'transparent',
+    color: 'skyblue',
+    textDecoration: 'none',
+
+    '&:hover': {
+      color: 'violet',
+    },
+  },
+}));
