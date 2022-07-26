@@ -18,29 +18,6 @@ import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
 
-const Container = styled.header({
-  margin: '0 auto',
-  width: '90%',
-});
-
-const Header = styled.header({
-  backgroundColor: 'skyblue',
-  '& h1': {
-    margin: '0',
-    fontSize: '1.5em',
-    padding: '1em .5em',
-  },
-
-  '& a': {
-    color: 'blue',
-    textDecoration: 'none',
-
-    '&:hover': {
-      color: 'violet',
-    },
-  },
-});
-
 export default function App() {
   const dispatch = useDispatch();
 
@@ -53,7 +30,7 @@ export default function App() {
     <Container>
       <Header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">맛집찾자</Link>
         </h1>
       </Header>
       <Switch>
@@ -67,3 +44,29 @@ export default function App() {
     </Container>
   );
 }
+
+const Container = styled.header({
+  margin: '0 auto',
+  width: '90%',
+});
+
+const Header = styled.header({
+  backgroundColor: 'skyblue',
+  borderRadius: '10px',
+  '& h1': {
+    margin: '0',
+    fontSize: '1.5em',
+    padding: '1em .5em',
+  },
+
+  '& a': {
+    display: 'flex',
+    justifyContent: 'center',
+    color: 'white',
+    textDecoration: 'none',
+
+    '&:hover': {
+      color: 'pink',
+    },
+  },
+});
