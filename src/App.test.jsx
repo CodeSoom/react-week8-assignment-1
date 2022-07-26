@@ -6,9 +6,11 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import App from './App';
-
 import { loadItem } from './services/storage';
+
+import { setAccessToken } from './slice';
+
+import App from './App';
 
 jest.mock('react-redux');
 jest.mock('./services/storage');
@@ -92,10 +94,7 @@ describe('App', () => {
     it('calls dispatch with “setAccessToken” action', () => {
       renderApp({ path: '/' });
 
-      expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
-      });
+      expect(dispatch).toBeCalledWith(setAccessToken(accessToken));
     });
   });
 });
