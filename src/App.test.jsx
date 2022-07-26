@@ -38,6 +38,14 @@ describe('App', () => {
     ));
   }
 
+  it('renders header', () => {
+    const { getByText } = renderApp({ path: '/' });
+
+    const title = getByText('마이 레스토랑');
+
+    expect(title).toBeInTheDocument();
+  });
+
   context('with path /', () => {
     it('renders the home page', () => {
       const { container } = renderApp({ path: '/' });
