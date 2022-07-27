@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { postReview } from '@/services/api';
 
-import { loadReview } from '../restaurantSlice/restaurantSlice';
+import { loadReview } from '../restaurantSlice';
 
 const initialReviewFields = {
   score: '',
