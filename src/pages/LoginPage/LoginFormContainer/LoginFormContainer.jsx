@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   changeLoginField,
-  requestLogin,
   logout,
-} from '@/store/slice';
-
-import { get } from '@/utils';
+  requestLogin,
+  selectAccessToken,
+  selectLoginFields,
+} from '@/store/authSlice';
 
 import LoginForm from '../LoginForm';
 import LogoutForm from '../LogoutForm';
@@ -14,8 +14,8 @@ import LogoutForm from '../LogoutForm';
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
-  const loginFields = useSelector(get('loginFields'));
-  const accessToken = useSelector(get('accessToken'));
+  const loginFields = useSelector(selectLoginFields);
+  const accessToken = useSelector(selectAccessToken);
 
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));

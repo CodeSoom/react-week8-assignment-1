@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeLoginField, logout } from '@/store/slice';
+import { changeLoginField, logout } from '@/store/authSlice';
 
 import LoginFormContainer from './LoginFormContainer';
 
@@ -17,11 +17,13 @@ describe('LoginFormContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      loginFields: {
-        email: 'test@test',
-        password: '1234',
+      auth: {
+        loginFields: {
+          email: 'test@test',
+          password: '1234',
+        },
+        accessToken: given.accessToken,
       },
-      accessToken: given.accessToken,
     }));
   });
 
