@@ -14,11 +14,24 @@ const { reducer, actions } = createSlice({
         restaurant,
       };
     },
+
+    setReviews(state, { payload: reviews }) {
+      const { restaurant } = state;
+
+      return {
+        ...state,
+        restaurant: {
+          ...restaurant,
+          reviews,
+        },
+      };
+    },
   },
 });
 
 export const {
   setRestaurant,
+  setReviews,
 } = actions;
 
 export function loadRestaurant({ restaurantId }) {
@@ -28,6 +41,14 @@ export function loadRestaurant({ restaurantId }) {
     const restaurant = await fetchRestaurant({ restaurantId });
 
     dispatch(setRestaurant(restaurant));
+  };
+}
+
+export function loadReview({ restaurantId }) {
+  return async (dispatch) => {
+    const restaurant = await fetchRestaurant({ restaurantId });
+
+    dispatch(setReviews(restaurant.reviews));
   };
 }
 

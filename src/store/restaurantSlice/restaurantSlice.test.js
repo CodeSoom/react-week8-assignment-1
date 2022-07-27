@@ -4,7 +4,9 @@ import configureStore from 'redux-mock-store';
 
 import reducer, {
   loadRestaurant,
+  loadReview,
   setRestaurant,
+  setReviews,
 } from './restaurantSlice';
 
 const middlewares = [thunk];
@@ -39,6 +41,28 @@ describe('restaurantSlice', () => {
       expect(state.restaurant.name).toBe('마법사주방');
     });
   });
+
+  describe('setReviews', () => {
+    it('changes reviews of the current restaurant', () => {
+      const reviews = [
+        {
+          id: 1, name: '테스터', description: '맛있어요', score: 1,
+        },
+      ];
+
+      const initialState = {
+        restaurant: {
+          reviews: [],
+        },
+      };
+
+      const state = reducer(initialState, setReviews(reviews));
+
+      expect(state.restaurant.reviews).toHaveLength(reviews.length);
+      expect(state.restaurant.reviews[0]).toEqual(reviews[0]);
+    });
+  });
+
   describe('loadRestaurant', () => {
     let store;
 
@@ -53,6 +77,24 @@ describe('restaurantSlice', () => {
 
       expect(actions[0]).toEqual(setRestaurant(null));
       expect(actions[1]).toEqual(setRestaurant({}));
+    });
+  });
+
+  describe('loadReview', () => {
+    let store;
+
+    beforeEach(() => {
+      store = mockStore({
+        loginFields: { email: '', password: '' },
+      });
+    });
+
+    it('dispatchs setReviews', async () => {
+      await store.dispatch(loadReview({ restaurantId: 1 }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setReviews());
     });
   });
 });

@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { postReview } from '@/services/api';
 
+import { loadReview } from '../restaurantSlice/restaurantSlice';
+
 const initialReviewFields = {
   score: '',
   description: '',
@@ -33,18 +35,6 @@ const { reducer, actions } = createSlice({
         },
       };
     },
-
-    setReviews(state, { payload: reviews }) {
-      const { restaurant } = state;
-
-      return {
-        ...state,
-        restaurant: {
-          ...restaurant,
-          reviews,
-        },
-      };
-    },
   },
 });
 
@@ -62,13 +52,11 @@ export function sendReview({ restaurantId }) {
       accessToken, restaurantId, score, description,
     });
 
-    // dispatch(loadReview({ restaurantId }));
+    dispatch(loadReview({ restaurantId }));
     dispatch(clearReviewFields());
   };
 }
 
-export const selectLoginFields = (state) => state.auth.loginFields;
-
-export const selectAccessToken = (state) => state.auth.accessToken;
+export const selectReviewFields = (state) => state.review.reviewFields;
 
 export default reducer;
