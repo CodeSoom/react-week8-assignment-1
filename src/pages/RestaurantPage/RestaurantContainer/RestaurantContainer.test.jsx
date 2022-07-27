@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeReviewField } from './slice';
+import { changeReviewField } from '@/store/slice';
 
 import RestaurantContainer from './RestaurantContainer';
 

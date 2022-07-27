@@ -1,3 +1,9 @@
+import REGIONS from '@fixtures/regions';
+import CATEGORIES from '@fixtures/categories';
+import RESTAURANTS from '@fixtures/restaurants';
+import RESTAURANT from '@fixtures/restaurant';
+import ACCESS_TOKEN from '@fixtures/access-token';
+
 import {
   fetchRegions,
   fetchCategories,
@@ -6,12 +12,6 @@ import {
   postLogin,
   postReview,
 } from './api';
-
-import REGIONS from '../../fixtures/regions';
-import CATEGORIES from '../../fixtures/categories';
-import RESTAURANTS from '../../fixtures/restaurants';
-import RESTAURANT from '../../fixtures/restaurant';
-import ACCESS_TOKEN from '../../fixtures/access-token';
 
 describe('api', () => {
   const mockFetch = (data) => {

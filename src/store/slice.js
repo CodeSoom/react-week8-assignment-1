@@ -7,11 +7,11 @@ import {
   fetchRestaurant,
   postLogin,
   postReview,
-} from './services/api';
+} from '@/services/api';
 
-import { saveItem } from './services/storage';
+import { saveItem } from '@/services/storage';
 
-import { equal } from './utils';
+import { equal } from '@/utils';
 
 const initialReviewFields = {
   score: '',
