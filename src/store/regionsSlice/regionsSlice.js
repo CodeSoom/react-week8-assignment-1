@@ -2,10 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchRegions } from '@/services/api';
 
+import { equal } from '@/utils';
+
 const { reducer, actions } = createSlice({
   name: 'regions',
   initialState: {
     regions: [],
+    selectedRegion: null,
   },
   reducers: {
     setRegions(state, { payload: regions }) {
@@ -14,11 +17,20 @@ const { reducer, actions } = createSlice({
         regions,
       };
     },
+
+    selectRegion(state, { payload: regionId }) {
+      const { regions } = state;
+      return {
+        ...state,
+        selectedRegion: regions.find(equal('id', regionId)),
+      };
+    },
   },
 });
 
 export const {
   setRegions,
+  selectRegion,
 } = actions;
 
 export function loadRegions() {
@@ -29,5 +41,7 @@ export function loadRegions() {
 }
 
 export const selectRegions = (state) => state.regions.regions;
+
+export const selectSelectedRegion = (state) => state.regions.selectedRegion;
 
 export default reducer;

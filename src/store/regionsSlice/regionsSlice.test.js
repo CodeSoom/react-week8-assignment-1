@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store';
 
 import reducer, {
   loadRegions,
+  selectRegion,
   setRegions,
 } from './regionsSlice';
 
@@ -16,6 +17,7 @@ describe('regionsSlice', () => {
   context('when previous state is undefined', () => {
     const initialState = {
       regions: [],
+      selectedRegion: null,
     };
 
     it('returns initialState', () => {
@@ -38,6 +40,24 @@ describe('regionsSlice', () => {
       const state = reducer(initialState, setRegions(regions));
 
       expect(state.regions).toHaveLength(1);
+    });
+  });
+
+  describe('selectRegion', () => {
+    it('changes selected region', () => {
+      const initialState = {
+        regions: [
+          { id: 1, name: '서울' },
+        ],
+        selectedRegion: null,
+      };
+
+      const state = reducer(initialState, selectRegion(1));
+
+      expect(state.selectedRegion).toEqual({
+        id: 1,
+        name: '서울',
+      });
     });
   });
 
