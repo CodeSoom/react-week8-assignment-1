@@ -21,13 +21,13 @@ const MenuItem = styled.li(({ active }) => ({
   '& button': {
     marginBottom: '1em',
     padding: '.4em 1em',
-    border: '1px solid #CCC',
+    border: '1px solid #CCCCCC',
     color: '#333333',
-    background: active ? '#EEE' : 'transparent',
+    background: active ? '#EEEEEE' : 'transparent',
     cursor: 'pointer',
     '&:hover': {
       fontWeight: 'bold',
-      color: '#000',
+      color: '#000000',
     },
   },
 }));
