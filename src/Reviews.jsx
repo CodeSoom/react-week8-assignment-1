@@ -33,24 +33,31 @@ const StyledReviews = styled.div({
 });
 
 const StyledReview = styled.div({
-  backgroundColor: 'skyblue',
   display: 'flex',
   flexDirection: 'column',
-  color: 'white',
+
   marginBottom: '5px',
   padding: '10px',
   borderRadius: '10px',
+
+  backgroundColor: 'skyblue',
+
+  color: 'white',
   '.top': {
     display: 'flex',
+
     marginBottom: '10px',
     '& p': {
-      color: 'yellow',
-      marginLeft: '10px',
       display: 'flex',
       alignItems: 'center',
+
+      marginLeft: '10px',
+
+      color: 'yellow',
     },
 
   },
+
   '.bottom': {
   },
 });

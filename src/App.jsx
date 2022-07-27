@@ -46,25 +46,29 @@ export default function App() {
 }
 
 const Container = styled.header({
-  margin: '0 auto',
   width: '90%',
+
+  margin: '0 auto',
 });
 
 const Header = styled.header({
-  backgroundColor: 'skyblue',
   borderRadius: '10px',
+
+  backgroundColor: 'skyblue',
   '& h1': {
     margin: '0',
-    fontSize: '1.5em',
     padding: '1em .5em',
+
+    fontSize: '1.5em',
   },
 
   '& a': {
     display: 'flex',
     justifyContent: 'center',
-    color: 'white',
-    textDecoration: 'none',
 
+    color: 'white',
+
+    textDecoration: 'none',
     '&:hover': {
       color: 'pink',
     },

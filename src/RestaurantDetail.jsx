@@ -28,25 +28,30 @@ const Container = styled.div({
 });
 
 const Wrap = styled.h2({
-  borderRadius: '10px',
   width: '90%',
-  backgroundColor: 'pink',
+
   padding: '10px',
-  textAlign: 'center',
+  borderRadius: '10px',
+
+  backgroundColor: 'pink',
+
   color: 'white',
 
+  textAlign: 'center',
   '.adress': {
+    margin: '0 0 10px 0',
+
     fontSize: '15px',
     textAlign: 'right',
-    margin: '0',
-    marginBottom: '10px',
   },
 
   '.menu': {
-    background: 'white',
-    color: 'skyblue',
-    textAlign: 'left',
     margin: '0',
     padding: '10px',
+
+    backgroundColor: 'white',
+
+    color: 'skyblue',
+    textAlign: 'left',
   },
 });

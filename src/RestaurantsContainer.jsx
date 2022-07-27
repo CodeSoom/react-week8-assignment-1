@@ -29,19 +29,22 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
 const StyledRestaurants = styled.ul({
   display: 'flex',
   flexDirection: 'column',
-  borderTop: '1px solid skyblue',
-  padding: '30px 0',
+
   margin: '0',
+  padding: '30px 0',
+  borderTop: '1px solid skyblue',
+
   listStyle: 'none',
 });
 
 const StyledRestaurant = styled.li(() => ({
-  borderRadius: '10px',
-  background: 'skyblue',
   marginBottom: '10px',
   padding: '10px',
+  borderRadius: '10px',
+
+  background: 'skyblue',
   '& a': {
-    textDecoration: 'none',
     color: 'white',
+    textDecoration: 'none',
   },
 }));

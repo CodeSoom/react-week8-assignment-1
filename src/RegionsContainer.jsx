@@ -43,22 +43,26 @@ export default function RegionsContainer() {
 const StyledRegions = styled.ul({
   display: 'flex',
   justifyContent: 'space-around',
+
   margin: '0',
   padding: '.4em 0',
+
   listStyle: 'none',
 });
 
 const StyledRegion = styled.li(({ active }) => ({
   marginRight: '1em',
   '& button': {
-    borderRadius: '10px',
     padding: '1em',
-    cursor: 'pointer',
     border: '0',
+    borderRadius: '10px',
+
     background: active ? 'pink' : 'transparent',
     color: active ? 'white' : 'skyblue',
+
     textDecoration: 'none',
 
+    cursor: 'pointer',
     '&:hover': {
       color: active ? 'white' : 'pink',
     },

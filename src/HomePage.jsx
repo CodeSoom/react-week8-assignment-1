@@ -3,8 +3,10 @@ import styled from '@emotion/styled';
 
 const List = styled.ul({
   display: 'flex',
+
   margin: '0',
   padding: '0',
+
   listStyle: 'none',
 });
 
@@ -12,8 +14,8 @@ const Item = styled.li({
   marginRight: '1em',
   '& a': {
     color: 'skyblue',
-    textDecoration: 'none',
 
+    textDecoration: 'none',
     '&:hover': {
       color: 'violet',
     },

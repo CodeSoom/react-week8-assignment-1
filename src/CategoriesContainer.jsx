@@ -46,22 +46,26 @@ export default function CategoriesContainer() {
 const StyledCategories = styled.ul({
   display: 'flex',
   justifyContent: 'space-around',
+
   margin: '0',
   padding: '.4em 0',
+
   listStyle: 'none',
 });
 
 const StyledCategory = styled.li(({ active }) => ({
   marginRight: '1em',
   '& button': {
-    borderRadius: '10px',
     padding: '1em',
-    cursor: 'pointer',
+    borderRadius: '10px',
     border: '0',
+
     background: active ? 'pink' : 'transparent',
     color: active ? 'white' : 'skyblue',
+
     textDecoration: 'none',
 
+    cursor: 'pointer',
     '&:hover': {
       color: active ? 'white' : 'pink',
     },
