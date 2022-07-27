@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loadItem } from './services/storage';
 
-import { setAccessToken } from './store/slice';
+import { setAccessToken } from './store/authSlice';
 
 import App from './App';
 

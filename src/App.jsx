@@ -13,7 +13,7 @@ import RestaurantsPage from './pages/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage';
 import NotFoundPage from './pages/NotFoundPage';
 
-import { setAccessToken } from './store/slice';
+import { setAccessToken } from './store/authSlice';
 
 import { loadItem } from './services/storage';
 
