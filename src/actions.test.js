@@ -16,7 +16,7 @@ import {
   loadReview,
   sendReview,
   clearReviewFields,
-} from './actions';
+} from './store/slice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
