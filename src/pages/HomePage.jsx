@@ -2,7 +2,12 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-import Menu from '../styles/Menu';
+const Menu = styled.ul({
+  display: 'flex',
+  margin: 0,
+  padding: 0,
+  listStyle: 'none',
+});
 
 const Title = styled.h2({
   fontSize: '2em',
@@ -12,11 +17,11 @@ const Title = styled.h2({
 const Item = styled.li({
   marginRight: '1em',
   '& a': {
-    color: '#333',
+    color: '#333333',
     textDecoration: 'none',
     '&:hover': {
       fontWeight: 'bold',
-      color: '#000',
+      color: '#000000',
     },
   },
 });
