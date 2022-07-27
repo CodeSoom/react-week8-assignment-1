@@ -68,10 +68,12 @@ describe('authSlice', () => {
 
     beforeEach(() => {
       store = mockStore({
-        accessToken: '',
-        reviewFields: {
-          score: 1,
-          description: '',
+        auth: { accessToken: '' },
+        review: {
+          reviewFields: {
+            score: 1,
+            description: '',
+          },
         },
       });
     });

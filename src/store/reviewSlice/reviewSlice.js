@@ -46,7 +46,10 @@ export const {
 
 export function sendReview({ restaurantId }) {
   return async (dispatch, getState) => {
-    const { accessToken, reviewFields: { score, description } } = getState();
+    const {
+      auth: { accessToken },
+      review: { reviewFields: { score, description } },
+    } = getState();
 
     await postReview({
       accessToken, restaurantId, score, description,

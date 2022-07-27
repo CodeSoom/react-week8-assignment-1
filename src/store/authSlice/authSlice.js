@@ -48,7 +48,9 @@ export const {
 
 export function requestLogin() {
   return async (dispatch, getState) => {
-    const { loginFields: { email, password } } = getState();
+    const {
+      auth: { loginFields: { email, password } },
+    } = getState();
 
     const accessToken = await postLogin({ email, password });
 

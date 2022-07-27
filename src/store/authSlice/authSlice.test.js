@@ -100,7 +100,9 @@ describe('authSlice', () => {
 
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        auth: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
