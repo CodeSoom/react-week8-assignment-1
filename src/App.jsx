@@ -22,7 +22,7 @@ import AppHeader from './components/AppHeader';
 
 const Container = styled.div({
   fontSize: '1.6rem',
-  backgroundColor: '#fff',
+  backgroundColor: '#ffffff',
 });
 
 export default function App() {
@@ -36,7 +36,6 @@ export default function App() {
   return (
     <Container>
       <AppHeader />
-
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
