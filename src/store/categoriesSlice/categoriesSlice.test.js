@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store';
 
 import reducer, {
   loadCategories,
+  selectCategory,
   setCategories,
 } from './categoriesSlice';
 
@@ -16,6 +17,7 @@ describe('categoriesSlice', () => {
   context('when previous state is undefined', () => {
     const initialState = {
       categories: [],
+      selectedCategory: null,
     };
 
     it('returns initialState', () => {
@@ -38,6 +40,24 @@ describe('categoriesSlice', () => {
       const state = reducer(initialState, setCategories(categories));
 
       expect(state.categories).toHaveLength(1);
+    });
+  });
+
+  describe('selectCategory', () => {
+    it('changes selected category', () => {
+      const initialState = {
+        categories: [
+          { id: 1, name: '한식' },
+        ],
+        selectedCategory: null,
+      };
+
+      const state = reducer(initialState, selectCategory(1));
+
+      expect(state.selectedCategory).toEqual({
+        id: 1,
+        name: '한식',
+      });
     });
   });
 
