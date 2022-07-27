@@ -48,7 +48,7 @@ describe('regionsSlice', () => {
       store = mockStore({});
     });
 
-    it('runs setRegions and setCategories', async () => {
+    it('runs setRegions', async () => {
       await store.dispatch(loadRegions());
 
       const actions = store.getActions();
