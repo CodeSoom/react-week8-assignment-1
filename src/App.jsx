@@ -5,6 +5,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -18,7 +20,10 @@ import { loadItem } from './services/storage';
 
 import AppHeader from './components/AppHeader';
 
-import Container from './components/Container';
+const Container = styled.div({
+  fontSize: '1.6rem',
+  backgroundColor: '#fff',
+});
 
 export default function App() {
   const dispatch = useDispatch();
