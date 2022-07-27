@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeReviewField } from '@/store/slice';
+import { changeReviewField } from '@/store/reviewSlice';
 
 import RestaurantContainer from './RestaurantContainer';
 
@@ -19,12 +19,18 @@ describe('RestaurantContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      restaurant: given.restaurant,
-      reviewFields: {
-        score: '',
-        description: '',
+      auth: {
+        accessToken: given.accessToken,
       },
-      accessToken: given.accessToken,
+      restaurant: {
+        restaurant: given.restaurant,
+      },
+      review: {
+        reviewFields: {
+          score: '',
+          description: '',
+        },
+      },
     }));
   });
 
