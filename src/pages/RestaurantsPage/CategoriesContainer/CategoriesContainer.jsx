@@ -2,16 +2,16 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectCategory,
-  loadRestaurants,
-} from '@/store/slice';
-
-import { get } from '@/utils';
+  selectCategories,
+  selectSelectedCategory,
+} from '@/store/categoriesSlice';
+import { loadRestaurants } from '@/store/restaurantsSlice';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
-  const categories = useSelector(get('categories'));
-  const selectedCategory = useSelector(get('selectedCategory'));
+  const categories = useSelector(selectCategories);
+  const selectedCategory = useSelector(selectSelectedCategory);
 
   function handleClick(categoryId) {
     dispatch(selectCategory(categoryId));

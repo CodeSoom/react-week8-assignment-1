@@ -4,9 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
-import {
-  loadInitialData,
-} from '@/store/slice';
+import { loadRegions } from '@/store/regionsSlice';
+import { loadCategories } from '@/store/categoriesSlice';
 
 import RegionsContainer from './RegionsContainer';
 import CategoriesContainer from './CategoriesContainer';
@@ -18,7 +17,8 @@ export default function RestaurantsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadInitialData());
+    dispatch(loadRegions());
+    dispatch(loadCategories());
   });
 
   function handleClickRestaurant(restaurant) {
