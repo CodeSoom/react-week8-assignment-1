@@ -20,9 +20,9 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <MenuList>
+    <StyledCategories>
       {categories.map((category) => (
-        <MenuItem
+        <StyledCategory
           active={selectedCategory && selectedCategory.id === category.id}
           key={category.id}
         >
@@ -37,13 +37,13 @@ export default function CategoriesContainer() {
               </>
             ) : null}
           </button>
-        </MenuItem>
+        </StyledCategory>
       ))}
-    </MenuList>
+    </StyledCategories>
   );
 }
 
-const MenuList = styled.ul({
+const StyledCategories = styled.ul({
   display: 'flex',
   justifyContent: 'space-around',
   margin: '0',
@@ -51,7 +51,7 @@ const MenuList = styled.ul({
   listStyle: 'none',
 });
 
-const MenuItem = styled.li(({ active }) => ({
+const StyledCategory = styled.li(({ active }) => ({
   marginRight: '1em',
   '& button': {
     borderRadius: '10px',

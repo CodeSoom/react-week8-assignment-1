@@ -8,9 +8,9 @@ export default function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <MenuList>
+    <StyledReviews>
       {sortedReviews.map((review) => (
-        <MenuItem key={review.id}>
+        <StyledReview key={review.id}>
           <section className="top">
             <h1>
               {review.name}
@@ -23,17 +23,16 @@ export default function Reviews({ reviews }) {
           <section className="bottom">
             {review.description}
           </section>
-        </MenuItem>
+        </StyledReview>
       ))}
-    </MenuList>
+    </StyledReviews>
   );
 }
-const MenuList = styled.div({
+const StyledReviews = styled.div({
   width: '100%',
-
 });
 
-const MenuItem = styled.div({
+const StyledReview = styled.div({
   backgroundColor: 'skyblue',
   display: 'flex',
   flexDirection: 'column',
