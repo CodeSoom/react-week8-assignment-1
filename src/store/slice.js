@@ -145,8 +145,13 @@ export const {
   setCategories,
   setRestaurants,
   setRestaurant,
+  selectRegion,
+  selectCategory,
+  changeLoginField,
   setReviews,
   setAccessToken,
+  logout,
+  changeReviewField,
   clearReviewFields,
 } = actions;
 
@@ -219,12 +224,6 @@ export function sendReview({ restaurantId }) {
 
     dispatch(loadReview({ restaurantId }));
     dispatch(clearReviewFields());
-  };
-}
-
-export function logout() {
-  return {
-    type: 'logout',
   };
 }
 
