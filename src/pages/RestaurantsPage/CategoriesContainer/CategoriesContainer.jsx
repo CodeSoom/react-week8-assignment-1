@@ -7,6 +7,9 @@ import {
 } from '@/store/categoriesSlice';
 import { loadRestaurants } from '@/store/restaurantsSlice';
 
+import MenuList from '@/components/MenuList';
+import MenuItem from '@/components/MenuItem';
+
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
@@ -19,22 +22,23 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <ul>
+    <MenuList>
       {categories.map((category) => (
-        <li key={category.id}>
+        <MenuItem
+          key={category.id}
+          active={selectedCategory && category.id === selectedCategory.id}
+        >
           <button
             type="button"
             onClick={() => handleClick(category.id)}
           >
             {category.name}
-            {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
-            ) : null}
+            {selectedCategory
+             && category.id === selectedCategory.id
+             && '(V)'}
           </button>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 }
