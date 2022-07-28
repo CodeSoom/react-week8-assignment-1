@@ -27,4 +27,6 @@ const loginSlice = createSlice({
 
 export const { changeFields } = loginSlice.actions;
 
+export const loginFieldsSelector = (state) => state.login.fields;
+
 export default loginSlice.reducer;

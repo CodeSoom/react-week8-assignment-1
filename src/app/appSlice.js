@@ -19,4 +19,6 @@ const appSlice = createSlice({
 
 export const { setAccessToken } = appSlice.actions;
 
+export const accessTokenSelector = (state) => state.app.accessToken;
+
 export default appSlice.reducer;
