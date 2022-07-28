@@ -7,18 +7,18 @@ import { useDispatch } from 'react-redux';
 
 import styled from '@emotion/styled';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from '../HomePage';
+import AboutPage from '../AboutPage';
+import LoginPage from '../LoginPage';
+import RestaurantsPage from '../RestaurantsPage';
+import RestaurantPage from '../RestaurantPage';
+import NotFoundPage from '../NotFoundPage';
 
-import { setAccessToken } from './store/slice';
+import { setAccessToken } from '../store/slice';
 
-import { loadItem } from './services/storage';
+import { loadItem } from '../services/storage';
 
-import AppHeader from './components/AppHeader';
+import AppHeader from '../components/AppHeader';
 
 const Container = styled.div({
   fontSize: '1.6rem',
