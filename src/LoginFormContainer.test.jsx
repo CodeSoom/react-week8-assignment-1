@@ -2,6 +2,8 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { changeFields } from './features/login/loginSlice';
+
 import LoginFormContainer from './LoginFormContainer';
 
 jest.mock('react-redux');
@@ -15,11 +17,15 @@ describe('LoginFormContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      loginFields: {
-        email: 'test@test',
-        password: '1234',
+      login: {
+        fields: {
+          email: 'test@test',
+          password: '1234',
+        },
       },
-      accessToken: given.accessToken,
+      app: {
+        accessToken: given.accessToken,
+      },
     }));
   });
 
@@ -44,10 +50,7 @@ describe('LoginFormContainer', () => {
         target: { value: 'new email' },
       });
 
-      expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
-        payload: { name: 'email', value: 'new email' },
-      });
+      expect(dispatch).toBeCalledWith(changeFields({ name: 'email', value: 'new email' }));
     });
 
     it('renders “Log In” button', () => {
