@@ -1,3 +1,24 @@
+import styled from '@emotion/styled';
+
+const List = styled.ul({
+  display: 'flex',
+  margin: 0,
+  padding: 0,
+  listStyle: 'none',
+});
+
+const Item = styled.li({
+  marginRight: '1rem',
+  '& a': {
+    color: '#333333',
+    textDecoration: 'none',
+    '&:hover': {
+      fontWeight: 'bold',
+      color: '#000000',
+    },
+  },
+});
+
 export default function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
@@ -6,12 +27,12 @@ export default function MenuItems({ menuItems }) {
   }
 
   return (
-    <ul>
+    <List>
       {menuItems.map((menuItem) => (
-        <li key={menuItem.id}>
+        <Item key={menuItem.id}>
           {menuItem.name}
-        </li>
+        </Item>
       ))}
-    </ul>
+    </List>
   );
 }
