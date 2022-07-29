@@ -38,10 +38,8 @@ export default function CategoriesContainer() {
 const Categories = styled.ul({
   display: 'flex',
   justifyContent: 'space-around',
-
   margin: '0',
   padding: '.4em 0',
-
   listStyle: 'none',
 });
 

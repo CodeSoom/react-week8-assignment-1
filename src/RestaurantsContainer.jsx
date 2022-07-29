@@ -41,7 +41,6 @@ const Restaurant = styled.li(() => ({
   marginBottom: '10px',
   padding: '10px',
   borderRadius: '10px',
-
   background: '#B2EBF4',
   '& a': {
     color: '#FFFFFF',

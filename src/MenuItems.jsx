@@ -20,12 +20,10 @@ export default function MenuItems({ menuItems }) {
 
 const MenuList = styled.div({
   width: '100%',
-
   backgroundColor: '#B2EBF4',
 });
 
 const MenuItem = styled.div({
   padding: '10px',
-
   color: '#FFFFFF',
 });

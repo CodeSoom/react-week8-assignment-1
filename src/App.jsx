@@ -47,7 +47,6 @@ export default function App() {
 
 const Container = styled.header({
   width: '90%',
-
   margin: '0 auto',
 });
 
@@ -58,16 +57,13 @@ const Header = styled.header({
   '& h1': {
     margin: '0',
     padding: '1em .5em',
-
     fontSize: '1.5em',
   },
 
   '& a': {
     display: 'flex',
     justifyContent: 'center',
-
     color: '#FFFFFF',
-
     textDecoration: 'none',
     '&:hover': {
       color: '#FFB2D9',

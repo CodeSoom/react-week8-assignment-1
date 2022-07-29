@@ -42,14 +42,11 @@ const Review = styled.li({
   color: '#FFFFFF',
   '.top': {
     display: 'flex',
-
     marginBottom: '10px',
     '& p': {
       display: 'flex',
       alignItems: 'center',
-
       marginLeft: '10px',
-
       color: '#FFFF36',
     },
 

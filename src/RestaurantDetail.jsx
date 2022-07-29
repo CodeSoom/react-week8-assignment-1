@@ -40,7 +40,6 @@ const Wrap = styled.h2({
   textAlign: 'center',
   '.adress': {
     margin: '0 0 10px 0',
-
     fontSize: '15px',
     textAlign: 'right',
   },
@@ -48,9 +47,7 @@ const Wrap = styled.h2({
   '.menu': {
     margin: '0',
     padding: '10px',
-
     backgroundColor: 'white',
-
     color: '#B2EBF4',
     textAlign: 'left',
   },
