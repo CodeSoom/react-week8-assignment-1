@@ -1,45 +1,36 @@
+import Button from '@/components/Button';
+import TextField from '@/components/TextField';
 import { memo } from 'react';
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
-  function handleChange(event) {
-    const { target: { name, value } } = event;
-    onChange({ name, value });
-  }
-
   return (
     <>
       <div>
-        <label htmlFor="login-email">
-          E-mail
-        </label>
-        <input
+        <TextField
+          label="E-mail"
           type="email"
-          id="login-email"
           name="email"
           value={email}
-          onChange={handleChange}
+          onChange={onChange}
         />
       </div>
       <div>
-        <label htmlFor="login-password">
-          Password
-        </label>
-        <input
+        <TextField
+          label="Password"
           type="password"
-          id="login-password"
           name="password"
           value={password}
-          onChange={handleChange}
+          onChange={onChange}
         />
       </div>
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         Log In
-      </button>
+      </Button>
     </>
   );
 });
