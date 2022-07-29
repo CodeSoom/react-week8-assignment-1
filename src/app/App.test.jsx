@@ -24,9 +24,11 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      regions: [
-        { id: 1, name: '서울' },
-      ],
+      regions: {
+        regions: [
+          { id: 1, name: '서울' },
+        ],
+      },
       categories: [],
       restaurants: [],
     }));
