@@ -8,11 +8,8 @@ import {
   loginFieldsSelector,
   changeFields,
   requestLogin,
+  requestLogout,
 } from './features/login/loginSlice';
-
-import {
-  logout,
-} from './actions';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -30,7 +27,7 @@ export default function LoginFormContainer() {
   };
 
   const handleClickLogout = () => {
-    dispatch(logout());
+    dispatch(requestLogout());
   };
 
   return (

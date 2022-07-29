@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { postLogin } from '../../services/api';
 
-import { saveItem } from '../../services/storage';
+import { removeItem, saveItem } from '../../services/storage';
 
 const initialState = {
   accessToken: '',
@@ -34,12 +34,20 @@ const loginSlice = createSlice({
         accessToken: payload,
       };
     },
+
+    logout(state) {
+      return {
+        ...state,
+        accessToken: '',
+      };
+    },
   },
 });
 
 export const {
   changeFields,
   setAccessToken,
+  logout,
 } = loginSlice.actions;
 
 export function requestLogin() {
@@ -51,6 +59,14 @@ export function requestLogin() {
     saveItem('accessToken', accessToken);
 
     dispatch(setAccessToken(accessToken));
+  };
+}
+
+export function requestLogout() {
+  return async (dispatch) => {
+    removeItem('accessToken');
+
+    dispatch(logout());
   };
 }
 

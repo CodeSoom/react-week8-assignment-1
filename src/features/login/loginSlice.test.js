@@ -5,7 +5,9 @@ import configureStore from 'redux-mock-store';
 import reducer, {
   changeFields,
   setAccessToken,
+  logout,
   requestLogin,
+  requestLogout,
 } from './loginSlice';
 
 const middlewares = [thunk];
@@ -56,6 +58,36 @@ describe('loginSlice', () => {
       const state = reducer(prevState, setAccessToken('ACCESS_TOKEN'));
 
       expect(state.accessToken).toBe('ACCESS_TOKEN');
+    });
+  });
+
+  describe('logout', () => {
+    it('clears accessToken', () => {
+      const prevState = {
+        accessToken: 'ACCESS_TOKEN',
+      };
+
+      const state = reducer(prevState, logout());
+
+      expect(state.accessToken).toBe('');
+    });
+  });
+
+  describe('requestLogout', () => {
+    beforeEach(() => {
+      store = mockStore({
+        login: {
+          accessToken: 'ACCESS_TOKEN',
+        },
+      });
+    });
+
+    it('dispatches logout', () => {
+      store.dispatch(requestLogout());
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(logout());
     });
   });
 
