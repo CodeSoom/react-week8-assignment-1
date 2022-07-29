@@ -35,7 +35,7 @@ const Wrap = styled.h2({
 
   backgroundColor: 'pink',
 
-  color: 'white',
+  color: '#FFFFFF',
 
   textAlign: 'center',
   '.adress': {
@@ -51,7 +51,7 @@ const Wrap = styled.h2({
 
     backgroundColor: 'white',
 
-    color: 'skyblue',
+    color: '#B2EBF4',
     textAlign: 'left',
   },
 });

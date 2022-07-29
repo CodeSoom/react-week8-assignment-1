@@ -57,14 +57,14 @@ const Region = styled.li(({ active }) => ({
     border: '0',
     borderRadius: '10px',
 
-    background: active ? 'pink' : 'transparent',
-    color: active ? 'white' : 'skyblue',
+    background: active ? '#FFB2D9' : 'transparent',
+    color: active ? '#FFFFFF' : '#B2EBF4',
 
     textDecoration: 'none',
 
     cursor: 'pointer',
     '&:hover': {
-      color: active ? 'white' : 'pink',
+      color: active ? '#FFFFFF' : '#FFB2D9',
     },
   },
 }));

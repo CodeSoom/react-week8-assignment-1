@@ -54,7 +54,7 @@ const Container = styled.header({
 const Header = styled.header({
   borderRadius: '10px',
 
-  backgroundColor: 'skyblue',
+  backgroundColor: '#B2EBF4',
   '& h1': {
     margin: '0',
     padding: '1em .5em',
@@ -66,11 +66,11 @@ const Header = styled.header({
     display: 'flex',
     justifyContent: 'center',
 
-    color: 'white',
+    color: '#FFFFFF',
 
     textDecoration: 'none',
     '&:hover': {
-      color: 'pink',
+      color: '#FFB2D9',
     },
   },
 });

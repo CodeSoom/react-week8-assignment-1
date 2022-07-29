@@ -32,7 +32,7 @@ const Restaurants = styled.ul({
 
   margin: '0',
   padding: '30px 0',
-  borderTop: '1px solid skyblue',
+  borderTop: '1px solid #B2EBF4',
 
   listStyle: 'none',
 });
@@ -42,9 +42,9 @@ const Restaurant = styled.li(() => ({
   padding: '10px',
   borderRadius: '10px',
 
-  background: 'skyblue',
+  background: '#B2EBF4',
   '& a': {
-    color: 'white',
+    color: '#FFFFFF',
     textDecoration: 'none',
   },
 }));

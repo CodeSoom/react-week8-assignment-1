@@ -37,9 +37,9 @@ const Review = styled.li({
   padding: '10px',
   borderRadius: '10px',
 
-  backgroundColor: 'skyblue',
+  backgroundColor: '#B2EBF4',
 
-  color: 'white',
+  color: '#FFFFFF',
   '.top': {
     display: 'flex',
 
@@ -50,7 +50,7 @@ const Review = styled.li({
 
       marginLeft: '10px',
 
-      color: 'yellow',
+      color: '#FFFF36',
     },
 
   },

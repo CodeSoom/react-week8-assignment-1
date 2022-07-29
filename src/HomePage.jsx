@@ -13,11 +13,11 @@ const List = styled.ul({
 const Item = styled.li({
   marginRight: '1em',
   '& a': {
-    color: 'skyblue',
+    color: '#B2EBF4',
 
     textDecoration: 'none',
     '&:hover': {
-      color: 'violet',
+      color: '#D1B2FF',
     },
   },
 });
