@@ -17,14 +17,12 @@ describe('LoginFormContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
+      accessToken: given.accessToken,
       login: {
         fields: {
           email: 'test@test',
           password: '1234',
         },
-      },
-      app: {
-        accessToken: given.accessToken,
       },
     }));
   });
