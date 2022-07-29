@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeReviewField } from '@/store/reviewSlice';
+import { changeReviewField } from '@/store/restaurantSlice';
 
 import RestaurantContainer from './RestaurantContainer';
 
@@ -24,8 +24,6 @@ describe('RestaurantContainer', () => {
       },
       restaurant: {
         restaurant: given.restaurant,
-      },
-      review: {
         reviewFields: {
           score: '',
           description: '',

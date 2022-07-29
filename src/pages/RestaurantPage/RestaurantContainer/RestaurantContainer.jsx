@@ -6,12 +6,10 @@ import { selectAccessToken } from '@/store/authSlice';
 import {
   loadRestaurant,
   selectRestaurant,
-} from '@/store/restaurantSlice';
-import {
   changeReviewField,
   selectReviewFields,
   sendReview,
-} from '@/store/reviewSlice';
+} from '@/store/restaurantSlice';
 
 import RestaurantDetail from '../RestaurantDetail';
 import ReviewForm from '../ReviewForm';

@@ -5,7 +5,6 @@ import categoriesReducer from './categoriesSlice';
 import regionsReducer from './regionsSlice';
 import restaurantReducer from './restaurantSlice';
 import restaurantsReducer from './restaurantsSlice';
-import reviewReducer from './reviewSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,7 +13,6 @@ const store = configureStore({
     regions: regionsReducer,
     restaurant: restaurantReducer,
     restaurants: restaurantsReducer,
-    review: reviewReducer,
   },
 });
 

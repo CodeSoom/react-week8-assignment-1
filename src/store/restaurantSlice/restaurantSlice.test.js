@@ -3,8 +3,11 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
 import reducer, {
+  changeReviewField,
+  clearReviewFields,
   loadRestaurant,
   loadReview,
+  sendReview,
   setRestaurant,
   setReviews,
 } from './restaurantSlice';
@@ -18,6 +21,10 @@ describe('restaurantSlice', () => {
   context('when previous state is undefined', () => {
     const initialState = {
       restaurant: null,
+      reviewFields: {
+        score: '',
+        description: '',
+      },
     };
 
     it('returns initialState', () => {
@@ -63,6 +70,40 @@ describe('restaurantSlice', () => {
     });
   });
 
+  describe('changeReviewField', () => {
+    it('changes a field of review', () => {
+      const initialState = {
+        reviewFields: {
+          score: '',
+          description: '',
+        },
+      };
+
+      const state = reducer(
+        initialState,
+        changeReviewField({ name: 'score', value: '5' }),
+      );
+
+      expect(state.reviewFields.score).toBe('5');
+    });
+  });
+
+  describe('clearReviewFields', () => {
+    it('clears fields of review', () => {
+      const initialState = {
+        reviewFields: {
+          score: 'SCORE',
+          description: 'DESCRIPTION',
+        },
+      };
+
+      const state = reducer(initialState, clearReviewFields());
+
+      expect(state.reviewFields.score).toBe('');
+      expect(state.reviewFields.description).toBe('');
+    });
+  });
+
   describe('loadRestaurant', () => {
     let store;
 
@@ -95,6 +136,30 @@ describe('restaurantSlice', () => {
       const actions = store.getActions();
 
       expect(actions[0]).toEqual(setReviews());
+    });
+  });
+
+  describe('sendReview', () => {
+    let store;
+
+    beforeEach(() => {
+      store = mockStore({
+        auth: { accessToken: '' },
+        review: {
+          reviewFields: {
+            score: 1,
+            description: '',
+          },
+        },
+      });
+    });
+
+    it('dispatchs clearReviewFields', async () => {
+      await store.dispatch(sendReview({ restaurantId: 1 }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(clearReviewFields());
     });
   });
 });

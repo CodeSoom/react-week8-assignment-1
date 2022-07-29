@@ -1,11 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchRestaurant } from '@/services/api';
+import { fetchRestaurant, postReview } from '@/services/api';
+
+const initialReviewFields = {
+  score: '',
+  description: '',
+};
 
 const { reducer, actions } = createSlice({
   name: 'restaurant',
   initialState: {
     restaurant: null,
+    reviewFields: {
+      ...initialReviewFields,
+    },
   },
   reducers: {
     setRestaurant(state, { payload: restaurant }) {
@@ -26,12 +34,33 @@ const { reducer, actions } = createSlice({
         },
       };
     },
+
+    changeReviewField(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        reviewFields: {
+          ...state.reviewFields,
+          [name]: value,
+        },
+      };
+    },
+
+    clearReviewFields(state) {
+      return {
+        ...state,
+        reviewFields: {
+          ...initialReviewFields,
+        },
+      };
+    },
   },
 });
 
 export const {
   setRestaurant,
   setReviews,
+  changeReviewField,
+  clearReviewFields,
 } = actions;
 
 export function loadRestaurant({ restaurantId }) {
@@ -52,6 +81,24 @@ export function loadReview({ restaurantId }) {
   };
 }
 
+export function sendReview({ restaurantId }) {
+  return async (dispatch, getState) => {
+    const {
+      auth: { accessToken },
+      review: { reviewFields: { score, description } },
+    } = getState();
+
+    await postReview({
+      accessToken, restaurantId, score, description,
+    });
+
+    dispatch(loadReview({ restaurantId }));
+    dispatch(clearReviewFields());
+  };
+}
+
 export const selectRestaurant = (state) => state.restaurant.restaurant;
+
+export const selectReviewFields = (state) => state.restaurant.reviewFields;
 
 export default reducer;
