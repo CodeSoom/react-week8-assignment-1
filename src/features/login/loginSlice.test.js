@@ -1,14 +1,20 @@
-// import thunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 
-// import configureStore from 'redux-mock-store';
+import configureStore from 'redux-mock-store';
 
-import reducer, { changeFields, setAccessToken } from './loginSlice';
+import reducer, {
+  changeFields,
+  setAccessToken,
+  requestLogin,
+} from './loginSlice';
 
-// const middlewares = [thunk];
-// const mockStore = configureStore(middlewares);
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+
+jest.mock('../../services/api');
 
 describe('loginSlice', () => {
-  // let store;
+  let store;
 
   it('has initial state', () => {
     expect(reducer(undefined, { type: 'login/action' })).toEqual({
@@ -53,21 +59,21 @@ describe('loginSlice', () => {
     });
   });
 
-  // describe('requestLogin', () => {
-  //   beforeEach(() => {
-  //     store = mockStore({
-  //       login: {
-  //         fields: { email: '', password: '' },
-  //       },
-  //     });
-  //   });
+  describe('requestLogin', () => {
+    beforeEach(() => {
+      store = mockStore({
+        login: {
+          fields: { email: '', password: '' },
+        },
+      });
+    });
 
-  //   it('dispatches setAccessToken', async () => {
-  //     await store.dispatch(requestLogin());
+    it('dispatches setAccessToken', async () => {
+      await store.dispatch(requestLogin());
 
-  //     const actions = store.getActions();
+      const actions = store.getActions();
 
-  //     expect(actions[0]).toEqual();
-  //   });
-  // });
+      expect(actions[0]).toEqual(setAccessToken({}));
+    });
+  });
 });

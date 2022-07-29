@@ -7,10 +7,10 @@ import {
   accessTokenSelector,
   loginFieldsSelector,
   changeFields,
+  requestLogin,
 } from './features/login/loginSlice';
 
 import {
-  requestLogin,
   logout,
 } from './actions';
 

@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { postLogin } from '../../services/api';
+
+import { saveItem } from '../../services/storage';
+
 const initialState = {
   accessToken: '',
   fields: {
@@ -38,7 +42,19 @@ export const {
   setAccessToken,
 } = loginSlice.actions;
 
+export function requestLogin() {
+  return async (dispatch, getState) => {
+    const { login: { fields } } = getState();
+
+    const accessToken = await postLogin(fields);
+
+    saveItem('accessToken', accessToken);
+
+    dispatch(setAccessToken(accessToken));
+  };
+}
+
 export const loginFieldsSelector = (state) => state.login.fields;
-export const accessTokenSelector = (state) => state.accessToken;
+export const accessTokenSelector = (state) => state.login.accessToken;
 
 export default loginSlice.reducer;

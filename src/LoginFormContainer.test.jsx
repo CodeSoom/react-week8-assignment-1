@@ -17,8 +17,8 @@ describe('LoginFormContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      accessToken: given.accessToken,
       login: {
+        accessToken: given.accessToken,
         fields: {
           email: 'test@test',
           password: '1234',
