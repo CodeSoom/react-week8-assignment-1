@@ -1,10 +1,7 @@
 import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  selectCategory,
-  loadRestaurants,
-} from './slice';
+import { selectCategory, loadRestaurants } from './slice';
 
 import { get } from './utils';
 
@@ -20,30 +17,25 @@ export default function CategoriesContainer() {
   }
 
   return (
-    <StyledCategories>
+    <Categories>
       {categories.map((category) => (
-        <StyledCategory
+        <Category
           active={selectedCategory && selectedCategory.id === category.id}
           key={category.id}
         >
-          <button
-            type="button"
-            onClick={() => handleClick(category.id)}
-          >
+          <button type="button" onClick={() => handleClick(category.id)}>
             {category.name}
             {selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? '(V)' : null}
-              </>
+              <>{category.id === selectedCategory.id ? '(V)' : null}</>
             ) : null}
           </button>
-        </StyledCategory>
+        </Category>
       ))}
-    </StyledCategories>
+    </Categories>
   );
 }
 
-const StyledCategories = styled.ul({
+const Categories = styled.ul({
   display: 'flex',
   justifyContent: 'space-around',
 
@@ -53,7 +45,7 @@ const StyledCategories = styled.ul({
   listStyle: 'none',
 });
 
-const StyledCategory = styled.li(({ active }) => ({
+const Category = styled.li(({ active }) => ({
   marginRight: '1em',
   '& button': {
     padding: '1em',

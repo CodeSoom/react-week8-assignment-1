@@ -14,19 +14,19 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }
 
   return (
-    <StyledRestaurants>
+    <Restaurants>
       {restaurants.map((restaurant) => (
-        <StyledRestaurant key={restaurant.id}>
+        <Restaurant key={restaurant.id}>
           <a href="/restaurants/1" onClick={handleClick(restaurant)}>
             {restaurant.name}
           </a>
-        </StyledRestaurant>
+        </Restaurant>
       ))}
-    </StyledRestaurants>
+    </Restaurants>
   );
 }
 
-const StyledRestaurants = styled.ul({
+const Restaurants = styled.ul({
   display: 'flex',
   flexDirection: 'column',
 
@@ -37,7 +37,7 @@ const StyledRestaurants = styled.ul({
   listStyle: 'none',
 });
 
-const StyledRestaurant = styled.li(() => ({
+const Restaurant = styled.li(() => ({
   marginBottom: '10px',
   padding: '10px',
   borderRadius: '10px',

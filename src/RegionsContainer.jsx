@@ -20,9 +20,9 @@ export default function RegionsContainer() {
   }
 
   return (
-    <StyledRegions>
+    <Regions>
       {regions.map((region) => (
-        <StyledRegion active={selectedRegion && region.id === selectedRegion.id} key={region.id}>
+        <Region active={selectedRegion && region.id === selectedRegion.id} key={region.id}>
           <button
             type="button"
             onClick={() => handleClick(region.id)}
@@ -34,13 +34,13 @@ export default function RegionsContainer() {
               </>
             ) : null}
           </button>
-        </StyledRegion>
+        </Region>
       ))}
-    </StyledRegions>
+    </Regions>
   );
 }
 
-const StyledRegions = styled.ul({
+const Regions = styled.ul({
   display: 'flex',
   justifyContent: 'space-around',
 
@@ -50,7 +50,7 @@ const StyledRegions = styled.ul({
   listStyle: 'none',
 });
 
-const StyledRegion = styled.li(({ active }) => ({
+const Region = styled.li(({ active }) => ({
   marginRight: '1em',
   '& button': {
     padding: '1em',
