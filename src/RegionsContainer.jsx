@@ -5,17 +5,28 @@ import {
   loadRestaurants,
 } from './actions';
 
-import { get } from './utils';
+import {
+  regionsSelector,
+  selectedRegionSelector,
+} from './features/regions/regionsSlice';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
 
-  const regions = useSelector(get('regions'));
-  const selectedRegion = useSelector(get('selectedRegion'));
+  const regions = useSelector(regionsSelector);
+  const selectedRegion = useSelector(selectedRegionSelector);
 
   function handleClick(regionId) {
     dispatch(selectRegion(regionId));
     dispatch(loadRestaurants());
+  }
+
+  if (!regions?.length) {
+    return (
+      <p>
+        지역 목록을 조회하지 못했습니다.
+      </p>
+    );
   }
 
   return (
