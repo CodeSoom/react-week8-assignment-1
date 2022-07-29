@@ -1,8 +1,8 @@
-import loginReducer, { changeFields } from './loginSlice';
+import reducer, { changeFields } from './loginSlice';
 
-describe('loginReducer', () => {
+describe('loginSlice', () => {
   it('has initial state', () => {
-    expect(loginReducer(undefined, { type: 'login/action' })).toEqual({
+    expect(reducer(undefined, { type: 'login/action' })).toEqual({
       fields: {
         email: '',
         password: '',
@@ -19,7 +19,7 @@ describe('loginReducer', () => {
         },
       };
 
-      const state = loginReducer(prevState, changeFields({
+      const state = reducer(prevState, changeFields({
         name: 'email',
         value: 'tester@example.com',
       }));
