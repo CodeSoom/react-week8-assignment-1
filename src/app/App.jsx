@@ -14,7 +14,7 @@ import RestaurantsPage from '../RestaurantsPage';
 import RestaurantPage from '../RestaurantPage';
 import NotFoundPage from '../NotFoundPage';
 
-import { setAccessToken } from '../store/slice';
+import { setAccessToken } from '../features/login/loginSlice';
 
 import { loadItem } from '../services/storage';
 
@@ -29,8 +29,9 @@ export default function App() {
   const dispatch = useDispatch();
 
   const accessToken = loadItem('accessToken');
+
   if (accessToken) {
-    dispatch(setAccessToken({ accessToken }));
+    dispatch(setAccessToken(accessToken));
   }
 
   return (
