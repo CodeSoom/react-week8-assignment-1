@@ -145,7 +145,7 @@ describe('restaurantSlice', () => {
     beforeEach(() => {
       store = mockStore({
         auth: { accessToken: '' },
-        review: {
+        restaurant: {
           reviewFields: {
             score: 1,
             description: '',
