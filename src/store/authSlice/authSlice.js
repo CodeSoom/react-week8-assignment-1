@@ -12,6 +12,7 @@ const { reducer, actions } = createSlice({
       password: '',
     },
     accessToken: '',
+    loginError: '',
   },
   reducers: {
     changeLoginField(state, { payload: { name, value } }) {
@@ -37,6 +38,13 @@ const { reducer, actions } = createSlice({
         accessToken: '',
       };
     },
+
+    setLoginError(state, { payload: loginError }) {
+      return {
+        ...state,
+        loginError,
+      };
+    },
   },
 });
 
@@ -44,24 +52,32 @@ export const {
   changeLoginField,
   setAccessToken,
   logout,
+  setLoginError,
 } = actions;
 
 export function requestLogin() {
   return async (dispatch, getState) => {
-    const {
-      auth: { loginFields: { email, password } },
-    } = getState();
+    try {
+      const {
+        auth: { loginFields: { email, password } },
+      } = getState();
 
-    const accessToken = await postLogin({ email, password });
+      const accessToken = await postLogin({ email, password });
 
-    saveItem('accessToken', accessToken);
+      saveItem('accessToken', accessToken);
 
-    dispatch(setAccessToken(accessToken));
+      dispatch(setAccessToken(accessToken));
+      dispatch(setLoginError(''));
+    } catch (e) {
+      dispatch(setLoginError(e.message));
+    }
   };
 }
 
 export const selectLoginFields = (state) => state.auth.loginFields;
 
 export const selectAccessToken = (state) => state.auth.accessToken;
+
+export const selectLoginError = (state) => state.auth.loginError;
 
 export default reducer;

@@ -2,11 +2,14 @@ import thunk from 'redux-thunk';
 
 import configureStore from 'redux-mock-store';
 
+import { postLogin } from '@/services/api';
+
 import reducer, {
   changeLoginField,
   logout,
   requestLogin,
   setAccessToken,
+  setLoginError,
 } from './authSlice';
 
 const middlewares = [thunk];
@@ -15,6 +18,10 @@ const mockStore = configureStore(middlewares);
 jest.mock('@/services/api');
 
 describe('authSlice', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   context('when previous state is undefined', () => {
     const initialState = {
       loginFields: {
@@ -22,6 +29,7 @@ describe('authSlice', () => {
         password: '',
       },
       accessToken: '',
+      loginError: '',
     };
 
     it('returns initialState', () => {
@@ -98,20 +106,53 @@ describe('authSlice', () => {
   describe('requestLogin', () => {
     let store;
 
-    beforeEach(() => {
-      store = mockStore({
-        auth: {
-          loginFields: { email: '', password: '' },
-        },
+    context('with correct login fields', () => {
+      beforeEach(() => {
+        postLogin.mockResolvedValue('');
+
+        store = mockStore({
+          auth: {
+            loginFields: {
+              email: 'abc@test.com',
+              password: 'password123',
+            },
+          },
+        });
+      });
+
+      it('dispatchs setAccessToken', async () => {
+        await store.dispatch(requestLogin());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setAccessToken(''));
+        expect(actions[1]).toEqual(setLoginError(''));
       });
     });
 
-    it('dispatchs setAccessToken', async () => {
-      await store.dispatch(requestLogin());
+    context('with invalid login fields', () => {
+      const errorMessage = '잘못된 요청입니다.';
 
-      const actions = store.getActions();
+      beforeEach(() => {
+        postLogin.mockRejectedValue(new Error(errorMessage));
 
-      expect(actions[0]).toEqual(setAccessToken({}));
+        store = mockStore({
+          auth: {
+            loginFields: {
+              email: 'invalid@invalid.com',
+              password: 'password123',
+            },
+          },
+        });
+      });
+
+      it('dispatches setLoginError', async () => {
+        await store.dispatch(requestLogin());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setLoginError(errorMessage));
+      });
     });
   });
 });

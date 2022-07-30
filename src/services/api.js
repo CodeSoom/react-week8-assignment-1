@@ -37,6 +37,11 @@ export async function postLogin({ email, password }) {
     },
     body: JSON.stringify({ email, password }),
   });
+
+  if (!response.ok) {
+    throw new Error('잘못된 요청입니다.');
+  }
+
   const { accessToken } = await response.json();
   return accessToken;
 }

@@ -5,6 +5,7 @@ import {
   logout,
   requestLogin,
   selectAccessToken,
+  selectLoginError,
   selectLoginFields,
 } from '@/store/authSlice';
 
@@ -16,6 +17,7 @@ export default function LoginFormContainer() {
 
   const loginFields = useSelector(selectLoginFields);
   const accessToken = useSelector(selectAccessToken);
+  const loginError = useSelector(selectLoginError);
 
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
@@ -40,6 +42,7 @@ export default function LoginFormContainer() {
           onSubmit={handleSubmit}
         />
       )}
+      {loginError && <p>{loginError}</p>}
     </>
   );
 }

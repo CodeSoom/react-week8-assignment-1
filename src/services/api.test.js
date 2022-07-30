@@ -16,7 +16,14 @@ import {
 describe('api', () => {
   const mockFetch = (data) => {
     global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
       async json() { return data; },
+    });
+  };
+
+  const mockFetchError = () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
     });
   };
 
@@ -72,17 +79,34 @@ describe('api', () => {
   });
 
   describe('postLogin', () => {
-    beforeEach(() => {
-      mockFetch({ accessToken: ACCESS_TOKEN });
-    });
-
-    it('returns accessToken', async () => {
-      const accessToken = await postLogin({
-        email: 'tester@example.com',
-        password: '1234',
+    context('when succeeded', () => {
+      beforeEach(() => {
+        mockFetch({ accessToken: ACCESS_TOKEN });
       });
 
-      expect(accessToken).toEqual(ACCESS_TOKEN);
+      it('returns accessToken', async () => {
+        const accessToken = await postLogin({
+          email: 'tester@example.com',
+          password: '1234',
+        });
+
+        expect(accessToken).toEqual(ACCESS_TOKEN);
+      });
+    });
+
+    context('when failed', () => {
+      beforeEach(() => {
+        mockFetchError();
+      });
+
+      it('throws error', async () => {
+        await expect(async () => {
+          await postLogin({
+            email: 'tester@example.com',
+            password: '1234',
+          });
+        }).rejects.toThrow(new Error('잘못된 요청입니다.'));
+      });
     });
   });
 
