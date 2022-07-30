@@ -2,7 +2,11 @@ import thunk from 'redux-thunk';
 
 import configureStore from 'redux-mock-store';
 
-import reducer, { setRestaurant, loadRestaurant } from './restaurantSlice';
+import reducer, {
+  setRestaurant,
+  loadRestaurant,
+  setReviews,
+} from './restaurantSlice';
 
 import RESTAURANT from '../../../fixtures/restaurant';
 
@@ -48,6 +52,20 @@ describe('restaurantSlice', () => {
 
         expect(actions[0]).toEqual(setRestaurant(null));
         expect(actions[1]).toEqual(setRestaurant({}));
+      });
+    });
+
+    describe('setReviews', () => {
+      it('changes restaurant\'s reviews', () => {
+        const { reviews } = RESTAURANT;
+
+        const prevState = {
+          restaurant: {},
+        };
+
+        const state = reducer(prevState, setReviews(reviews));
+
+        expect(state.restaurant.reviews).toEqual(reviews);
       });
     });
   });

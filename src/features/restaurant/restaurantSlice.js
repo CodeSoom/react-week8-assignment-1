@@ -14,10 +14,22 @@ const slice = createSlice({
         restaurant: payload,
       };
     },
+
+    setReviews(state, { payload }) {
+      const { restaurant } = state;
+
+      return {
+        ...state,
+        restaurant: {
+          ...restaurant,
+          reviews: payload,
+        },
+      };
+    },
   },
 });
 
-export const { setRestaurant } = slice.actions;
+export const { setRestaurant, setReviews } = slice.actions;
 
 export function loadRestaurant({ restaurantId }) {
   return async (dispatch) => {
