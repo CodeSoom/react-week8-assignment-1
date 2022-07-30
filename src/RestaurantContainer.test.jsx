@@ -2,6 +2,8 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import RESTAURANT from '../fixtures/restaurant';
+
 import RestaurantContainer from './RestaurantContainer';
 
 describe('RestaurantContainer', () => {
@@ -11,38 +13,33 @@ describe('RestaurantContainer', () => {
     return render(<RestaurantContainer restaurantId="1" />);
   }
 
+  useDispatch.mockImplementation(() => dispatch);
+
+  useSelector.mockImplementation((selector) => selector({
+    restaurant: {
+      restaurant: given.restaurant,
+    },
+
+    reviewFields: {
+      score: '',
+      description: '',
+    },
+
+    accessToken: given.accessToken,
+  }));
+
   beforeEach(() => {
     dispatch.mockClear();
-
-    useDispatch.mockImplementation(() => dispatch);
-
-    useSelector.mockImplementation((selector) => selector({
-      restaurant: given.restaurant,
-      reviewFields: {
-        score: '',
-        description: '',
-      },
-      accessToken: given.accessToken,
-    }));
   });
 
   context('with restaurant', () => {
-    given('restaurant', () => ({
-      id: 1,
-      name: '마법사주방',
-      address: '서울시 강남구',
-      reviews: [
-        {
-          id: 1, name: '테스터', description: '맛있어요', score: 1,
-        },
-      ],
-    }));
+    given('restaurant', () => RESTAURANT);
 
     it('renders name and address', () => {
       const { container } = renderRestaurantContainer();
 
-      expect(container).toHaveTextContent('마법사주방');
-      expect(container).toHaveTextContent('서울시');
+      expect(container).toHaveTextContent('마녀주방');
+      expect(container).toHaveTextContent('서울시 강남구');
     });
 
     it('renders reviews', () => {

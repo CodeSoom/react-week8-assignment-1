@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { restaurantSelector } from './features/restaurant/restaurantSlice';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -22,7 +24,7 @@ export default function RestaurantContainer({ restaurantId }) {
   }, []);
 
   const accessToken = useSelector(get('accessToken'));
-  const restaurant = useSelector(get('restaurant'));
+  const restaurant = useSelector(restaurantSelector);
   const reviewFields = useSelector(get('reviewFields'));
 
   if (!restaurant) {
