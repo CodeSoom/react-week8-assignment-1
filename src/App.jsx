@@ -19,8 +19,8 @@ import { setAccessToken } from './store/authSlice';
 import { loadItem } from './services/storage';
 
 const Container = styled.div({
-  width: '90%',
   margin: '0 auto',
+  width: '90%',
 });
 
 const Header = styled.header({
@@ -30,8 +30,8 @@ const Header = styled.header({
     padding: '1rem 2rem',
   },
   '& a': {
-    color: '#555555',
     textDecoration: 'none',
+    color: '#555555',
     '&:hover': {
       color: '#000000',
     },

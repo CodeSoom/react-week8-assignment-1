@@ -14,8 +14,8 @@ const List = styled.ul({
 const Item = styled.li({
   marginRight: '1rem',
   '& a': {
-    color: '#333333',
     textDecoration: 'none',
+    color: '#333333',
     '&:hover': {
       fontWeight: 'bold',
       color: '#000000',

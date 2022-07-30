@@ -8,8 +8,8 @@ const List = styled.ul({
 
 const Review = styled.li({
   marginBottom: '1rem',
-  padding: '.5rem',
   border: '1px solid #000000',
+  padding: '.5rem',
 });
 
 const Name = styled.span({

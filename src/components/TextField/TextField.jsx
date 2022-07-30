@@ -7,12 +7,12 @@ const Label = styled.label({
 });
 
 const Input = styled.input({
-  padding: '.4rem',
   border: '.5px solid #AAAAAA',
   borderRadius: '.375rem',
+  padding: '.4rem',
   '&:focus': {
-    outline: 'none',
     boxShadow: '0 0 0 1px #B2EBF4',
+    outline: 'none',
   },
 });
 
