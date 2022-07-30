@@ -8,14 +8,13 @@ import {
   accessTokenSelector,
 } from './features/login/loginSlice';
 
-import { reviewFieldsSelector } from './features/review/reviewSlice';
+import { reviewFieldsSelector, changeField } from './features/review/reviewSlice';
 
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
 
 import {
-  changeReviewField,
   sendReview,
 } from './actions';
 
@@ -37,7 +36,7 @@ export default function RestaurantContainer({ restaurantId }) {
   }
 
   function handleChange({ name, value }) {
-    dispatch(changeReviewField({ name, value }));
+    dispatch(changeField({ name, value }));
   }
 
   function handleSubmit() {
