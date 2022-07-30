@@ -8,6 +8,8 @@ import {
   accessTokenSelector,
 } from './features/login/loginSlice';
 
+import { reviewFieldsSelector } from './features/review/reviewSlice';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -16,8 +18,6 @@ import {
   changeReviewField,
   sendReview,
 } from './actions';
-
-import { get } from './utils';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function RestaurantContainer({ restaurantId }) {
 
   const accessToken = useSelector(accessTokenSelector);
   const restaurant = useSelector(restaurantSelector);
-  const reviewFields = useSelector(get('reviewFields'));
+  const reviewFields = useSelector(reviewFieldsSelector);
 
   if (!restaurant) {
     return (

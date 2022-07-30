@@ -20,9 +20,11 @@ describe('RestaurantContainer', () => {
       restaurant: given.restaurant,
     },
 
-    reviewFields: {
-      score: '',
-      description: '',
+    review: {
+      fields: {
+        score: '',
+        description: '',
+      },
     },
 
     login: {
