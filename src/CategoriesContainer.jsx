@@ -5,17 +5,25 @@ import {
   loadRestaurants,
 } from './actions';
 
-import { get } from './utils';
+import { selectedCategorySelector, categoriesSelector } from './features/categories/categoriesSlice';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
-  const categories = useSelector(get('categories'));
-  const selectedCategory = useSelector(get('selectedCategory'));
+  const categories = useSelector(categoriesSelector);
+  const selectedCategory = useSelector(selectedCategorySelector);
 
   function handleClick(categoryId) {
     dispatch(selectCategory(categoryId));
     dispatch(loadRestaurants());
+  }
+
+  if (!categories?.length) {
+    return (
+      <p>
+        카테고리 목록을 조회하지 못했습니다.
+      </p>
+    );
   }
 
   return (

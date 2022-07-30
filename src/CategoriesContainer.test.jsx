@@ -2,34 +2,53 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import given from 'given2';
+
+import CATEGORIES from '../fixtures/categories';
+
 import CategoriesContainer from './CategoriesContainer';
 
 describe('CategoriesContainer', () => {
   const dispatch = jest.fn();
 
+  useSelector.mockImplementation((selector) => selector({
+    categories: {
+      categories: given.categories,
+      selectedCategory: { id: 1, name: '한식' },
+    },
+  }));
+
   beforeEach(() => {
     dispatch.mockClear();
     useDispatch.mockImplementation(() => dispatch);
-
-    useSelector.mockImplementation((selector) => selector({
-      categories: [
-        { id: 1, name: '한식' },
-        { id: 2, name: '양식' },
-      ],
-      selectedCategory: { id: 1, name: '한식' },
-    }));
   });
 
-  it('renders regions and checked symbol', () => {
-    const { container, getByText } = render((
-      <CategoriesContainer />
-    ));
+  const renderCategoriesContainer = () => render((
+    <CategoriesContainer />
+  ));
 
-    expect(container).toHaveTextContent('한식(V)');
-    expect(container).toHaveTextContent('양식');
+  context('with categories', () => {
+    given('categories', () => CATEGORIES);
 
-    fireEvent.click(getByText('양식'));
+    it('renders checked categories and checked symbol', () => {
+      const { container, getByText } = renderCategoriesContainer();
 
-    expect(dispatch).toBeCalled();
+      expect(container).toHaveTextContent('한식(V)');
+      expect(container).toHaveTextContent('양식');
+
+      fireEvent.click(getByText('양식'));
+
+      expect(dispatch).toBeCalled();
+    });
+  });
+
+  context('without categories', () => {
+    it('renders "카테고리 목록을 조회하지 못했습니다." message', () => {
+      given('categories', () => []);
+
+      const { container } = renderCategoriesContainer();
+
+      expect(container).toHaveTextContent('카테고리 목록을 조회하지 못했습니다.');
+    });
   });
 });
