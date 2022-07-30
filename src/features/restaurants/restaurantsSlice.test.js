@@ -28,7 +28,7 @@ describe('restaurantsSlice', () => {
 
         const state = reducer(prevState, setRestaurants(RESTAURANTS));
 
-        expect(state).toHaveLength(1);
+        expect(state).toHaveLength(RESTAURANTS.length);
       });
     });
 
