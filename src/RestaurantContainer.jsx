@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { restaurantSelector } from './features/restaurant/restaurantSlice';
+import { restaurantSelector, loadRestaurant } from './features/restaurant/restaurantSlice';
 
 import {
   accessTokenSelector,
@@ -13,7 +13,6 @@ import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
 
 import {
-  loadRestaurant,
   changeReviewField,
   sendReview,
 } from './actions';
