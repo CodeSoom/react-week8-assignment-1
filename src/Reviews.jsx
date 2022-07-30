@@ -1,6 +1,7 @@
+import React from 'react';
 import styled from '@emotion/styled';
 
-export default function Reviews({ reviews }) {
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -55,3 +56,5 @@ const Review = styled.li({
   '.bottom': {
   },
 });
+
+export default React.memo(Reviews);

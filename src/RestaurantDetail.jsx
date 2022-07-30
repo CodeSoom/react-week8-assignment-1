@@ -1,7 +1,9 @@
+import React from 'react';
 import styled from '@emotion/styled';
+
 import MenuItems from './MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -52,3 +54,5 @@ const Wrap = styled.h2({
     textAlign: 'left',
   },
 });
+
+export default React.memo(RestaurantDetail);
