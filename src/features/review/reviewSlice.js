@@ -17,7 +17,7 @@ const slice = createSlice({
       return {
         ...state,
         fields: {
-          ...state.reviewFields,
+          ...state.fields,
           [name]: value,
         },
       };
