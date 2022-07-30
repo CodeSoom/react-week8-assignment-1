@@ -8,6 +8,8 @@ import CATEGORIES from '../fixtures/categories';
 
 import CategoriesContainer from './CategoriesContainer';
 
+jest.mock('./services/api');
+
 describe('CategoriesContainer', () => {
   const dispatch = jest.fn();
 
@@ -26,6 +28,12 @@ describe('CategoriesContainer', () => {
   const renderCategoriesContainer = () => render((
     <CategoriesContainer />
   ));
+
+  it('load categories data', () => {
+    renderCategoriesContainer();
+
+    expect(dispatch).toBeCalled();
+  });
 
   context('with categories', () => {
     given('categories', () => CATEGORIES);
