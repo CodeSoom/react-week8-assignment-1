@@ -3,15 +3,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  loadRestaurants,
-} from './actions';
-
-import {
   regionsSelector,
   selectedRegionSelector,
   selectRegion,
   loadRegions,
 } from './features/regions/regionsSlice';
+
+import { loadRestaurants } from './features/restaurants/restaurantsSlice';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();

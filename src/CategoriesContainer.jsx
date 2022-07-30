@@ -3,15 +3,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  loadRestaurants,
-} from './actions';
-
-import {
   selectedCategorySelector,
   categoriesSelector,
   selectCategory,
   loadCategories,
 } from './features/categories/categoriesSlice';
+
+import { loadRestaurants } from './features/restaurants/restaurantsSlice';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
