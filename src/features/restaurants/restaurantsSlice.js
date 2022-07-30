@@ -31,4 +31,6 @@ export function loadRestaurants() {
   };
 }
 
+export const restaurantsSelector = (state) => state.restaurants;
+
 export default slice.reducer;
