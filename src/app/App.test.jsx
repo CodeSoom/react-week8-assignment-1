@@ -29,7 +29,9 @@ describe('App', () => {
           { id: 1, name: '서울' },
         ],
       },
-      categories: [],
+      categories: {
+        categories: [],
+      },
       restaurants: [],
     }));
   });
