@@ -18,6 +18,10 @@ describe('RestaurantPage', () => {
       restaurant: {
         restaurant: RESTAURANT,
       },
+
+      login: {
+        accessToken: '',
+      },
     }));
   });
 
