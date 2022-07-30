@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { black, color3 } from '@/styles/colors';
+
 const List = styled.ul({
   display: 'flex',
   margin: 0,
@@ -11,10 +13,10 @@ const Item = styled.li({
   marginRight: '1rem',
   '& a': {
     textDecoration: 'none',
-    color: '#333333',
+    color: color3,
     '&:hover': {
       fontWeight: 'bold',
-      color: '#000000',
+      color: black,
     },
   },
 });

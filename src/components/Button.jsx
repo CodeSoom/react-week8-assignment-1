@@ -1,14 +1,16 @@
 import styled from '@emotion/styled';
 
+import { color6, white } from '@/styles/colors';
+
 const Button = styled.button({
   opacity: 0.9,
   borderColor: 'transparent',
   borderRadius: '.375rem',
   padding: '.5rem 1rem',
-  backgroundColor: '#4F46E5',
+  backgroundColor: color6,
   cursor: 'pointer',
   fontWeight: 500,
-  color: '#FFFFFF',
+  color: white,
   '&:hover': {
     opacity: 1.0,
   },

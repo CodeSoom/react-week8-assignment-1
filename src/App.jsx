@@ -18,22 +18,24 @@ import { setAccessToken } from './store/authSlice';
 
 import { loadItem } from './services/storage';
 
+import { black, color4, color5 } from './styles/colors';
+
 const Container = styled.div({
   margin: '0 auto',
   width: '90%',
 });
 
 const Header = styled.header({
-  backgroundColor: '#EEEEEE',
+  backgroundColor: color4,
   '& h1': {
     margin: 0,
     padding: '1rem 2rem',
   },
   '& a': {
     textDecoration: 'none',
-    color: '#555555',
+    color: color5,
     '&:hover': {
-      color: '#000000',
+      color: black,
     },
   },
 });

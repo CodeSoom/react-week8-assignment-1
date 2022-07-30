@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { black } from '@/styles/colors';
+
 const List = styled.ul({
   margin: 0,
   padding: '1rem',
@@ -8,7 +10,7 @@ const List = styled.ul({
 
 const Review = styled.li({
   marginBottom: '1rem',
-  border: '1px solid #000000',
+  border: `1px solid ${black}`,
   padding: '.5rem',
 });
 
@@ -16,7 +18,7 @@ const Name = styled.span({
   fontWeight: 'bold',
 });
 
-const Description = styled.div({
+const Description = styled.p({
   marginTop: '.7rem',
 });
 

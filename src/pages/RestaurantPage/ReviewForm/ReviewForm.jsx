@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import TextField from '@/components/TextField';
 import Button from '@/components/Button';
 
-const Form = styled.div({
+const Container = styled.div({
   display: 'flex',
   flexWrap: 'wrap',
   gap: '1rem',
@@ -14,7 +14,7 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
-    <Form>
+    <Container>
       <TextField
         label="평점"
         name="score"
@@ -34,6 +34,6 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
       >
         리뷰 남기기
       </Button>
-    </Form>
+    </Container>
   );
 }
