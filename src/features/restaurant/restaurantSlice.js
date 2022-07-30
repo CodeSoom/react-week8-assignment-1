@@ -41,6 +41,14 @@ export function loadRestaurant({ restaurantId }) {
   };
 }
 
+export function loadReviews({ restaurantId }) {
+  return async (dispatch) => {
+    const restaurant = await fetchRestaurant({ restaurantId });
+
+    dispatch(setReviews(restaurant.reviews));
+  };
+}
+
 export const restaurantSelector = (state) => state.restaurant.restaurant;
 
 export default slice.reducer;

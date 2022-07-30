@@ -6,6 +6,7 @@ import reducer, {
   setRestaurant,
   loadRestaurant,
   setReviews,
+  loadReviews,
 } from './restaurantSlice';
 
 import RESTAURANT from '../../../fixtures/restaurant';
@@ -66,6 +67,23 @@ describe('restaurantSlice', () => {
         const state = reducer(prevState, setReviews(reviews));
 
         expect(state.restaurant.reviews).toEqual(reviews);
+      });
+    });
+
+    describe('loadReviews', () => {
+      const store = mockStore({
+        loginFields: { email: '', password: '' },
+      });
+      beforeEach(() => {
+        store.clearActions();
+      });
+
+      it('dispatchs setReviews', async () => {
+        await store.dispatch(loadReviews({ restaurantId: 1 }));
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setReviews());
       });
     });
   });
