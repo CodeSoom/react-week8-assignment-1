@@ -103,6 +103,18 @@ describe('authSlice', () => {
     });
   });
 
+  describe('setLoginError', () => {
+    it('changes login error', () => {
+      const initialState = {
+        loginError: '',
+      };
+
+      const state = reducer(initialState, setLoginError('잘못된 접근입니다.'));
+
+      expect(state.loginError).toBe('잘못된 접근입니다.');
+    });
+  });
+
   describe('requestLogin', () => {
     let store;
 
