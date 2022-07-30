@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
 
+import RESTAURANT from '../fixtures/restaurant';
+
 import RestaurantPage from './RestaurantPage';
 
 describe('RestaurantPage', () => {
@@ -14,9 +16,7 @@ describe('RestaurantPage', () => {
 
     useSelector.mockImplementation((state) => state({
       restaurant: {
-        id: 1,
-        name: '마법사주방',
-        address: '서울시 강남구',
+        restaurant: RESTAURANT,
       },
     }));
   });
@@ -29,7 +29,7 @@ describe('RestaurantPage', () => {
         <RestaurantPage params={params} />,
       );
 
-      expect(container).toHaveTextContent('마법사주방');
+      expect(container).toHaveTextContent('마녀주방');
     });
   });
 
@@ -41,7 +41,7 @@ describe('RestaurantPage', () => {
         </MemoryRouter>,
       );
 
-      expect(container).toHaveTextContent('마법사주방');
+      expect(container).toHaveTextContent('마녀주방');
     });
   });
 });
