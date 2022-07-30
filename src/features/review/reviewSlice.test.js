@@ -5,8 +5,11 @@ import configureStore from 'redux-mock-store';
 import reducer, {
   changeField,
   clearFields,
+  sendReview,
   reviewFieldsSelector,
 } from './reviewSlice';
+
+import { setReviews } from '../restaurant/restaurantSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -14,8 +17,6 @@ const mockStore = configureStore(middlewares);
 jest.mock('../../services/api');
 
 describe('reviewSlice', () => {
-  let store;
-
   describe('reducer', () => {
     it('has initial state', () => {
       expect(reducer(undefined, { type: 'review/action' })).toEqual({
@@ -52,6 +53,28 @@ describe('reviewSlice', () => {
           score: '',
           description: '',
         });
+      });
+    });
+
+    describe('sendReview', () => {
+      const store = mockStore({
+        login: { accessToken: 'ACCESS_TOKEN' },
+        review: {
+          fields: { score: '', description: '' },
+        },
+      });
+
+      beforeEach(() => {
+        store.clearActions();
+      });
+
+      it('dispatches setReviews and clearFields', async () => {
+        await store.dispatch(sendReview({ restaurantId: 1 }));
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setReviews());
+        expect(actions[1]).toEqual(clearFields());
       });
     });
   });
