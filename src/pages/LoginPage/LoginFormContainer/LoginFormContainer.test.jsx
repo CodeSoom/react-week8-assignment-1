@@ -23,6 +23,7 @@ describe('LoginFormContainer', () => {
           password: '1234',
         },
         accessToken: given.accessToken,
+        loginError: given.loginError,
       },
     }));
   });
@@ -75,6 +76,20 @@ describe('LoginFormContainer', () => {
       fireEvent.click(getByText('Log out'));
 
       expect(dispatch).toBeCalledWith(logout());
+    });
+  });
+
+  context('when login is failed', () => {
+    const error = '잘못된 요청입니다.';
+
+    given('loginError', () => error);
+
+    it('renders the error', () => {
+      const { container } = render((
+        <LoginFormContainer />
+      ));
+
+      expect(container).toHaveTextContent(error);
     });
   });
 });

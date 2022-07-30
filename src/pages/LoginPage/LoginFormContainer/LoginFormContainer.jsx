@@ -38,11 +38,11 @@ export default function LoginFormContainer() {
       ) : (
         <LoginForm
           fields={loginFields}
+          error={loginError}
           onChange={handleChange}
           onSubmit={handleSubmit}
         />
       )}
-      {loginError && <p>{loginError}</p>}
     </>
   );
 }

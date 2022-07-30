@@ -2,7 +2,12 @@ import Button from '@/components/Button';
 import TextField from '@/components/TextField';
 import { memo } from 'react';
 
-const LoginForm = memo(({ fields, onChange, onSubmit }) => {
+const LoginForm = memo(({
+  fields,
+  error,
+  onChange,
+  onSubmit,
+}) => {
   const { email, password } = fields;
 
   return (
@@ -31,6 +36,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
       >
         Log In
       </Button>
+      {error && <p>{error}</p>}
     </>
   );
 });
