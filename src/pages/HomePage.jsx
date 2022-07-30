@@ -2,12 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-const Menu = styled.ul({
-  display: 'flex',
-  margin: 0,
-  padding: 0,
-  listStyle: 'none',
-});
+import Menu from '../styles/Menu';
 
 const Title = styled.h2({
   fontSize: '2em',
