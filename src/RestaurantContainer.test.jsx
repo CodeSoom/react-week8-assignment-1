@@ -25,11 +25,19 @@ describe('RestaurantContainer', () => {
       description: '',
     },
 
-    accessToken: given.accessToken,
+    login: {
+      accessToken: given.accessToken,
+    },
   }));
 
   beforeEach(() => {
     dispatch.mockClear();
+  });
+
+  it('load restaurant', () => {
+    renderRestaurantContainer();
+
+    expect(dispatch).toBeCalled();
   });
 
   context('with restaurant', () => {

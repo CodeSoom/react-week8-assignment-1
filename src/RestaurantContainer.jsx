@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { restaurantSelector } from './features/restaurant/restaurantSlice';
 
+import {
+  accessTokenSelector,
+} from './features/login/loginSlice';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -23,7 +27,7 @@ export default function RestaurantContainer({ restaurantId }) {
     dispatch(loadRestaurant({ restaurantId }));
   }, []);
 
-  const accessToken = useSelector(get('accessToken'));
+  const accessToken = useSelector(accessTokenSelector);
   const restaurant = useSelector(restaurantSelector);
   const reviewFields = useSelector(get('reviewFields'));
 
