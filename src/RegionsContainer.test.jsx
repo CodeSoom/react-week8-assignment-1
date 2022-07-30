@@ -6,6 +6,8 @@ import given from 'given2';
 
 import RegionsContainer from './RegionsContainer';
 
+jest.mock('./services/api');
+
 describe('RegionsContainer', () => {
   const dispatch = jest.fn();
 
@@ -25,6 +27,12 @@ describe('RegionsContainer', () => {
   const renderRegionsContainer = () => render((
     <RegionsContainer />
   ));
+
+  it('load regions data', () => {
+    renderRegionsContainer();
+
+    expect(dispatch).toBeCalled();
+  });
 
   context('with regions', () => {
     given('regions', () => [
