@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 
-import { get } from './utils';
+import { restaurantsSelector } from './features/restaurants/restaurantsSlice';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
-  const restaurants = useSelector(get('restaurants'));
+  const restaurants = useSelector(restaurantsSelector);
 
   function handleClick(restaurant) {
     return (event) => {
@@ -12,11 +12,19 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
     };
   }
 
+  if (!restaurants?.length) {
+    return (
+      <p>
+        레스토랑 목록을 조회하지 못했습니다.
+      </p>
+    );
+  }
+
   return (
     <ul>
       {restaurants.map((restaurant) => (
         <li key={restaurant.id}>
-          <a href="/restaurants/1" onClick={handleClick(restaurant)}>
+          <a href={`/restaurants/${restaurant.id}`} onClick={handleClick(restaurant)}>
             {restaurant.name}
           </a>
         </li>
