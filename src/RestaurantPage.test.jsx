@@ -19,6 +19,13 @@ describe('RestaurantPage', () => {
         restaurant: RESTAURANT,
       },
 
+      review: {
+        fields: {
+          score: '',
+          description: '',
+        },
+      },
+
       login: {
         accessToken: '',
       },
