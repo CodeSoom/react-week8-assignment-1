@@ -18,7 +18,7 @@ import { setAccessToken } from './store/authSlice';
 
 import { loadItem } from './services/storage';
 
-import { black, color4, color5 } from './styles/colors';
+import { black, whiteSmoke, mortar } from './styles/colors';
 
 const Container = styled.div({
   margin: '0 auto',
@@ -26,14 +26,14 @@ const Container = styled.div({
 });
 
 const Header = styled.header({
-  backgroundColor: color4,
+  backgroundColor: whiteSmoke,
   '& h1': {
     margin: 0,
     padding: '1rem 2rem',
   },
   '& a': {
     textDecoration: 'none',
-    color: color5,
+    color: mortar,
     '&:hover': {
       color: black,
     },

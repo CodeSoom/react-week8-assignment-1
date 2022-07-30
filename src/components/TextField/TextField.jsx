@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { color7, color8 } from '@/styles/colors';
+import { darkGrey, blizzardBlue } from '@/styles/colors';
 
 const Label = styled.label({
   display: 'block',
@@ -9,11 +9,11 @@ const Label = styled.label({
 });
 
 const Input = styled.input({
-  border: `.5px solid ${color7}`,
+  border: `.5px solid ${darkGrey}`,
   borderRadius: '.375rem',
   padding: '.4rem',
   '&:focus': {
-    boxShadow: `0 0 0 1px ${color8}`,
+    boxShadow: `0 0 0 1px ${blizzardBlue}`,
     outline: 'none',
   },
 });

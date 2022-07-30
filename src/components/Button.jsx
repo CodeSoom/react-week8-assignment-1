@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
-import { color6, white } from '@/styles/colors';
+import { royalBlue, white } from '@/styles/colors';
 
 const Button = styled.button({
   opacity: 0.9,
   borderColor: 'transparent',
   borderRadius: '.375rem',
   padding: '.5rem 1rem',
-  backgroundColor: color6,
+  backgroundColor: royalBlue,
   cursor: 'pointer',
   fontWeight: 500,
   color: white,

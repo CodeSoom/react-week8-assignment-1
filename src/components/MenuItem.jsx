@@ -2,20 +2,20 @@ import styled from '@emotion/styled';
 
 import {
   black,
-  color1,
-  color2,
-  color3,
+  veryLightGrey,
+  lavender,
+  nightRider,
 } from '@/styles/colors';
 
 const MenuItem = styled.li(({ active }) => ({
   marginRight: '1rem',
   '& button': {
-    border: `1px solid ${color1}`,
+    border: `1px solid ${veryLightGrey}`,
     padding: '.4rem 1rem',
-    backgroundColor: active ? color2 : 'transparent',
+    backgroundColor: active ? lavender : 'transparent',
     cursor: 'pointer',
     fontWeight: active ? 'bold' : 'normal',
-    color: color3,
+    color: nightRider,
     '&:hover': {
       fontWeight: 'bold',
       color: black,

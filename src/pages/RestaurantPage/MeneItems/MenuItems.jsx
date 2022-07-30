@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { black, color3 } from '@/styles/colors';
+import { black, nightRider } from '@/styles/colors';
 
 const List = styled.ul({
   display: 'flex',
@@ -13,7 +13,7 @@ const Item = styled.li({
   marginRight: '1rem',
   '& a': {
     textDecoration: 'none',
-    color: color3,
+    color: nightRider,
     '&:hover': {
       fontWeight: 'bold',
       color: black,
