@@ -1,15 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { fetchRegions } from '@/services/api';
 
 import { equal } from '@/utils';
 
+export const loadRegions = createAsyncThunk(
+  'regions/loadRegions', async () => {
+    const regions = await fetchRegions();
+    return regions;
+  },
+);
+
 const { reducer, actions } = createSlice({
   name: 'regions',
   initialState: {
-    regions: [],
+    regions: {
+      data: [],
+      status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
+      error: '',
+    },
     selectedRegion: null,
-    regionsError: '',
   },
   reducers: {
     setRegions(state, { payload: regions }) {
@@ -26,38 +36,51 @@ const { reducer, actions } = createSlice({
         selectedRegion: regions.find(equal('id', regionId)),
       };
     },
-
-    setRegionsError(state, { payload: regionsError }) {
-      return {
-        ...state,
-        regionsError,
-      };
-    },
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(loadRegions.pending, (state) => {
+        const { regions } = state;
+        return {
+          ...state,
+          regions: {
+            ...regions,
+            status: 'loading',
+          },
+        };
+      })
+      .addCase(loadRegions.fulfilled, (state, { payload: data }) => {
+        const { regions } = state;
+        return {
+          ...state,
+          regions: {
+            ...regions,
+            data,
+            status: 'succeeded',
+          },
+        };
+      })
+      .addCase(loadRegions.rejected, (state, { error: { message } }) => {
+        const { regions } = state;
+        return {
+          ...state,
+          regions: {
+            ...regions,
+            status: 'failed',
+            error: message,
+          },
+        };
+      });
   },
 });
 
 export const {
   setRegions,
   selectRegion,
-  setRegionsError,
 } = actions;
-
-export function loadRegions() {
-  return async (dispatch) => {
-    try {
-      const regions = await fetchRegions();
-      dispatch(setRegions(regions));
-      dispatch(setRegionsError(''));
-    } catch (e) {
-      dispatch(setRegionsError(e.message));
-    }
-  };
-}
 
 export const selectRegions = (state) => state.regions.regions;
 
 export const selectSelectedRegion = (state) => state.regions.selectedRegion;
-
-export const selectRegionsError = (state) => state.regions.regionsError;
 
 export default reducer;
