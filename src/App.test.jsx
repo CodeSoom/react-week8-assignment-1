@@ -25,9 +25,13 @@ describe('App', () => {
 
     useSelector.mockImplementation((selector) => selector({
       regions: {
-        regions: [
-          { id: 1, name: '서울' },
-        ],
+        regions: {
+          data: [
+            { id: 1, name: '서울' },
+          ],
+          status: 'succeeded',
+          error: '지역 목록을 불러오지 못했습니다.',
+        },
         selectedRegion: null,
       },
       categories: {

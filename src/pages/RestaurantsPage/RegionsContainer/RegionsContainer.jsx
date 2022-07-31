@@ -13,12 +13,20 @@ import MenuItem from '@/components/MenuItem';
 export default function RegionsContainer() {
   const dispatch = useDispatch();
 
-  const regions = useSelector(selectRegions);
+  const { data: regions, status, error } = useSelector(selectRegions);
   const selectedRegion = useSelector(selectSelectedRegion);
 
   function handleClick(regionId) {
     dispatch(selectRegion(regionId));
     dispatch(loadRestaurants());
+  }
+
+  if (status === 'loading') {
+    return <p>지역 목록 불러오는 중</p>;
+  }
+
+  if (status === 'failed') {
+    return <p>{error}</p>;
   }
 
   return (
