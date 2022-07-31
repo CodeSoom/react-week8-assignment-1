@@ -9,6 +9,7 @@ const { reducer, actions } = createSlice({
   initialState: {
     regions: [],
     selectedRegion: null,
+    regionsError: '',
   },
   reducers: {
     setRegions(state, { payload: regions }) {
@@ -25,23 +26,38 @@ const { reducer, actions } = createSlice({
         selectedRegion: regions.find(equal('id', regionId)),
       };
     },
+
+    setRegionsError(state, { payload: regionsError }) {
+      return {
+        ...state,
+        regionsError,
+      };
+    },
   },
 });
 
 export const {
   setRegions,
   selectRegion,
+  setRegionsError,
 } = actions;
 
 export function loadRegions() {
   return async (dispatch) => {
-    const regions = await fetchRegions();
-    dispatch(setRegions(regions));
+    try {
+      const regions = await fetchRegions();
+      dispatch(setRegions(regions));
+      dispatch(setRegionsError(''));
+    } catch (e) {
+      dispatch(setRegionsError(e.message));
+    }
   };
 }
 
 export const selectRegions = (state) => state.regions.regions;
 
 export const selectSelectedRegion = (state) => state.regions.selectedRegion;
+
+export const selectRegionsError = (state) => state.regions.regionsError;
 
 export default reducer;

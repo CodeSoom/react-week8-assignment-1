@@ -2,10 +2,13 @@ import thunk from 'redux-thunk';
 
 import configureStore from 'redux-mock-store';
 
+import { fetchRegions } from '@/services/api';
+
 import reducer, {
   loadRegions,
   selectRegion,
   setRegions,
+  setRegionsError,
 } from './regionsSlice';
 
 const middlewares = [thunk];
@@ -14,10 +17,15 @@ const mockStore = configureStore(middlewares);
 jest.mock('@/services/api');
 
 describe('regionsSlice', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   context('when previous state is undefined', () => {
     const initialState = {
       regions: [],
       selectedRegion: null,
+      regionsError: '',
     };
 
     it('returns initialState', () => {
@@ -64,16 +72,39 @@ describe('regionsSlice', () => {
   describe('loadRegions', () => {
     let store;
 
-    beforeEach(() => {
-      store = mockStore({});
+    context('when succeeded', () => {
+      beforeEach(() => {
+        fetchRegions.mockResolvedValue([]);
+
+        store = mockStore({});
+      });
+
+      it('runs setRegions', async () => {
+        await store.dispatch(loadRegions());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setRegions([]));
+        expect(actions[1]).toEqual(setRegionsError(''));
+      });
     });
 
-    it('runs setRegions', async () => {
-      await store.dispatch(loadRegions());
+    context('when failed', () => {
+      const errorMessage = '지역 목록을 불러오지 못했습니다.';
 
-      const actions = store.getActions();
+      beforeEach(() => {
+        fetchRegions.mockRejectedValue(new Error(errorMessage));
 
-      expect(actions[0]).toEqual(setRegions([]));
+        store = mockStore({});
+      });
+
+      it('runs setRegionsError', async () => {
+        await store.dispatch(loadRegions());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(setRegionsError(errorMessage));
+      });
     });
   });
 });
