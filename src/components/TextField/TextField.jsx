@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 import { darkGrey, blizzardBlue } from '@/styles/colors';
@@ -18,7 +20,7 @@ const Input = styled.input({
   },
 });
 
-export default function TextField({
+function TextField({
   label, type = 'text', name, value, onChange,
 }) {
   const id = `input-${name}`;
@@ -43,3 +45,5 @@ export default function TextField({
     </div>
   );
 }
+
+export default React.memo(TextField);

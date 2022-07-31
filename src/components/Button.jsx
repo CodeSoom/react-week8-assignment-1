@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 import { royalBlue, white } from '@/styles/colors';
@@ -16,4 +18,4 @@ const Button = styled.button({
   },
 });
 
-export default Button;
+export default React.memo(Button);
