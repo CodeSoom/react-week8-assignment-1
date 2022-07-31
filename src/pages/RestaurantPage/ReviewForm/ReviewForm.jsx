@@ -1,7 +1,9 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
-import TextField from '@/components/TextField';
 import Button from '@/components/Button';
+import TextField from '@/components/TextField';
 
 const Container = styled.div({
   display: 'flex',
@@ -10,7 +12,7 @@ const Container = styled.div({
   padding: '2rem .5rem',
 });
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
 
   return (
@@ -37,3 +39,5 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
     </Container>
   );
 }
+
+export default ReviewForm;

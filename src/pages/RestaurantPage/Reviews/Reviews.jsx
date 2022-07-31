@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 import { black } from '@/styles/colors';
@@ -22,7 +24,7 @@ const Description = styled.p({
   marginTop: '.7rem',
 });
 
-export default function Reviews({ reviews }) {
+function Reviews({ reviews }) {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -49,3 +51,5 @@ export default function Reviews({ reviews }) {
     </List>
   );
 }
+
+export default React.memo(Reviews);

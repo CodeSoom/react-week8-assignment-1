@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styled from '@emotion/styled';
 
 import { black, nightRider } from '@/styles/colors';
@@ -21,7 +23,7 @@ const Item = styled.li({
   },
 });
 
-export default function MenuItems({ menuItems }) {
+function MenuItems({ menuItems }) {
   if (!(menuItems || []).length) {
     return (
       <p>메뉴가 없어요!</p>
@@ -38,3 +40,7 @@ export default function MenuItems({ menuItems }) {
     </List>
   );
 }
+
+export default React.memo(MenuItems);
+
+// export default MenuItems;
