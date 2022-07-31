@@ -10,7 +10,7 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   const handleClick = useCallback((restaurant) => (event) => {
     event.preventDefault();
     onClickRestaurant(restaurant);
-  }, [restaurants]);
+  }, [onClickRestaurant, restaurants]);
 
   return (
     <Restaurants>
