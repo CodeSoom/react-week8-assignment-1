@@ -22,13 +22,6 @@ const { reducer, actions } = createSlice({
     selectedRegion: null,
   },
   reducers: {
-    setRegions(state, { payload: regions }) {
-      return {
-        ...state,
-        regions,
-      };
-    },
-
     selectRegion(state, { payload: regionId }) {
       const { regions: { data } } = state;
       return {
@@ -75,7 +68,6 @@ const { reducer, actions } = createSlice({
 });
 
 export const {
-  setRegions,
   selectRegion,
 } = actions;
 

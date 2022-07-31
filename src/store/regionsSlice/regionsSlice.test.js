@@ -7,7 +7,6 @@ import { fetchRegions } from '@/services/api';
 import reducer, {
   loadRegions,
   selectRegion,
-  setRegions,
 } from './regionsSlice';
 
 const middlewares = [thunk];
@@ -37,28 +36,14 @@ describe('regionsSlice', () => {
     });
   });
 
-  describe('setRegions', () => {
-    it('changes regions', () => {
-      const initialState = {
-        regions: [],
-      };
-
-      const regions = [
-        { id: 1, name: '서울' },
-      ];
-
-      const state = reducer(initialState, setRegions(regions));
-
-      expect(state.regions).toHaveLength(1);
-    });
-  });
-
   describe('selectRegion', () => {
     it('changes selected region', () => {
       const initialState = {
-        regions: [
-          { id: 1, name: '서울' },
-        ],
+        regions: {
+          data: [
+            { id: 1, name: '서울' },
+          ],
+        },
         selectedRegion: null,
       };
 
