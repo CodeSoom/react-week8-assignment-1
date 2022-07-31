@@ -30,10 +30,10 @@ const { reducer, actions } = createSlice({
     },
 
     selectRegion(state, { payload: regionId }) {
-      const { regions } = state;
+      const { regions: { data } } = state;
       return {
         ...state,
-        selectedRegion: regions.find(equal('id', regionId)),
+        selectedRegion: data.find(equal('id', regionId)),
       };
     },
   },
