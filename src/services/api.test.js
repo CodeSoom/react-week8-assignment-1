@@ -28,14 +28,28 @@ describe('api', () => {
   };
 
   describe('fetchRegions', () => {
-    beforeEach(() => {
-      mockFetch(REGIONS);
+    context('when succeeded', () => {
+      beforeEach(() => {
+        mockFetch(REGIONS);
+      });
+
+      it('returns regions', async () => {
+        const regions = await fetchRegions();
+
+        expect(regions).toEqual(REGIONS);
+      });
     });
 
-    it('returns regions', async () => {
-      const regions = await fetchRegions();
+    context('when failed', () => {
+      beforeEach(() => {
+        mockFetchError();
+      });
 
-      expect(regions).toEqual(REGIONS);
+      it('throws error', async () => {
+        await expect(async () => {
+          await fetchRegions();
+        }).rejects.toThrow(new Error('지역 목록을 불러오지 못했습니다.'));
+      });
     });
   });
 

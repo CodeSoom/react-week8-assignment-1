@@ -1,6 +1,11 @@
 export async function fetchRegions() {
   const url = 'https://eatgo-customer-api.ahastudio.com/regions';
   const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error('지역 목록을 불러오지 못했습니다.');
+  }
+
   const data = await response.json();
   return data;
 }
