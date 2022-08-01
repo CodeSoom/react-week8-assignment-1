@@ -13,6 +13,10 @@ import {
 
 import { loadRestaurants } from '../restaurants/restaurantsSlice';
 
+const Container = styled.div({
+  marginBottom: '1rem',
+});
+
 const Title = styled.h3({
   margin: '0 0 1rem 0',
   fontSize: '2rem',
@@ -40,6 +44,13 @@ const MenuButton = styled.button(({ selected }) => ({
   backgroundColor: selected ? '#495057' : '#ffffff',
 }));
 
+const Message = styled.p({
+  lineHeight: 1.5,
+  fontSize: '2rem',
+  fontWeight: 'bold',
+  textAlign: 'center',
+});
+
 export default function RegionsContainer() {
   const dispatch = useDispatch();
 
@@ -65,14 +76,14 @@ export default function RegionsContainer() {
 
   if (!regions?.length) {
     return (
-      <p>
+      <Message>
         지역 목록을 조회하지 못했습니다.
-      </p>
+      </Message>
     );
   }
 
   return (
-    <>
+    <Container>
       <Title>지역 목록</Title>
       <List>
         {regions.map((region) => (
@@ -92,6 +103,6 @@ export default function RegionsContainer() {
           </Item>
         ))}
       </List>
-    </>
+    </Container>
   );
 }
