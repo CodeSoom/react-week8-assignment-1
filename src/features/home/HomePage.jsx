@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import NavBar from './components/home/NavBar';
+import NavBar from '../../components/home/NavBar';
 
 const Container = styled.section({
   padding: '3rem',
