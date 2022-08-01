@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import NavBar from './NavBar';
 
-import ROUTES from '../../constants/routes';
+import ROUTES from '../constants/routes';
 
 describe('<NavBar />', () => {
   const renderNavBar = () => render((

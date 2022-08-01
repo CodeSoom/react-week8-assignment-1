@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-import ROUTES from '../../constants/routes';
+import ROUTES from '../constants/routes';
 
 const Navigations = styled.ul({
   display: 'flex',
