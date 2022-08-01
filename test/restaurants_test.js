@@ -21,7 +21,7 @@ Scenario('레스토랑 상세 페이지로 이동합니다.', async ({ I }) => {
   I.click('서울');
   I.click('한식');
 
-  I.see('양천주가');
+  I.see('한국식 초밥');
 
   I.click('한국식 초밥');
 
