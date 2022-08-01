@@ -47,7 +47,7 @@ describe('App', () => {
   it('renders header', () => {
     const { getByText } = renderApp({ path: '/' });
 
-    const title = getByText('마이 레스토랑');
+    const title = getByText('Eat Go');
 
     expect(title).toBeInTheDocument();
   });

@@ -14,7 +14,7 @@ describe('<AppHeader />', () => {
   it('renders title link', () => {
     const { getByText } = renderHeader();
 
-    const title = getByText('마이 레스토랑');
+    const title = getByText('Eat Go');
 
     expect(title).toBeInTheDocument();
     expect(title).toHaveAttribute('href', '/');

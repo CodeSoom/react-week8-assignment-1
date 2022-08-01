@@ -15,7 +15,7 @@ export default function AppHeader() {
   return (
     <Header>
       <Logo>
-        <Link to="/">마이 레스토랑</Link>
+        <Link to="/">Eat Go</Link>
       </Logo>
     </Header>
   );
