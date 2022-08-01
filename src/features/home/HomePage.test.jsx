@@ -2,7 +2,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
-import { ROUTES } from './components/home/NavBar';
+import ROUTES from '../../constants/routes';
 
 import HomePage from './HomePage';
 

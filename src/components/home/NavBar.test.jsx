@@ -2,7 +2,9 @@ import { render } from '@testing-library/react';
 
 import { MemoryRouter } from 'react-router-dom';
 
-import NavBar, { ROUTES } from './NavBar';
+import NavBar from './NavBar';
+
+import ROUTES from '../../constants/routes';
 
 describe('<NavBar />', () => {
   const renderNavBar = () => render((
