@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +20,13 @@ import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from '../review/ReviewForm';
 import Reviews from './Reviews';
 
+const Message = styled.p({
+  lineHeight: 1.5,
+  fontSize: '2rem',
+  fontWeight: 'bold',
+  textAlign: 'center',
+});
+
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
 
@@ -31,7 +40,7 @@ export default function RestaurantContainer({ restaurantId }) {
 
   if (!restaurant) {
     return (
-      <p>Loading...</p>
+      <Message>Loading...</Message>
     );
   }
 
