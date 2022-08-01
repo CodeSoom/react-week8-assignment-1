@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 
 import HomePage from '../features/home/HomePage';
-import AboutPage from '../AboutPage';
+import AboutPage from '../features/about/AboutPage';
 import LoginPage from '../features/login/LoginPage';
 import RestaurantsPage from '../features/restaurants/RestaurantsPage';
 import RestaurantPage from '../RestaurantPage';
