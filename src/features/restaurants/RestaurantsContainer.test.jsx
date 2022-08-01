@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import given from 'given2';
 
-import RESTAURANTS from '../fixtures/restaurants';
+import RESTAURANTS from '../../../fixtures/restaurants';
 
 import RestaurantsContainer from './RestaurantsContainer';
 

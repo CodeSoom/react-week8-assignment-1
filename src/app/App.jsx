@@ -9,8 +9,8 @@ import styled from '@emotion/styled';
 
 import HomePage from '../features/home/HomePage';
 import AboutPage from '../AboutPage';
-import LoginPage from '../LoginPage';
-import RestaurantsPage from '../RestaurantsPage';
+import LoginPage from '../features/login/LoginPage';
+import RestaurantsPage from '../features/restaurants/RestaurantsPage';
 import RestaurantPage from '../RestaurantPage';
 import NotFoundPage from '../NotFoundPage';
 

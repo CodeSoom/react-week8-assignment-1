@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { restaurantsSelector } from './features/restaurants/restaurantsSlice';
+import { restaurantsSelector } from './restaurantsSlice';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(restaurantsSelector);
