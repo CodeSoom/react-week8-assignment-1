@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const Container = styled.section({
-  padding: '10rem 3rem',
+  padding: '10rem 0',
 });
 
 const Title = styled.h2({

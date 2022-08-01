@@ -21,8 +21,16 @@ import { loadItem } from '../services/storage';
 import AppHeader from '../components/AppHeader';
 
 const Container = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh',
   fontSize: '1.6rem',
   backgroundColor: '#ffffff',
+});
+
+const Wrapper = styled.div({
+  flex: '1',
+  padding: '3rem',
 });
 
 export default function App() {
@@ -37,14 +45,17 @@ export default function App() {
   return (
     <Container>
       <AppHeader />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route exact path="/restaurants" component={RestaurantsPage} />
-        <Route path="/restaurants/:id" component={RestaurantPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+
+      <Wrapper>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/restaurants" component={RestaurantsPage} />
+          <Route path="/restaurants/:id" component={RestaurantPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Wrapper>
     </Container>
   );
 }
