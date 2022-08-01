@@ -2,9 +2,15 @@ import styled from '@emotion/styled';
 
 import { Link } from 'react-router-dom';
 
+import NavBar from './NavBar';
+
 const Header = styled.header({
-  backgroundColor: '#898AA6',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  backgroundColor: '#ffffff',
   padding: '1rem 3rem',
+  borderBottom: '2px solid #dddddd',
 });
 
 const Logo = styled.h1({
@@ -17,6 +23,8 @@ export default function AppHeader() {
       <Logo>
         <Link to="/">Eat Go</Link>
       </Logo>
+
+      <NavBar />
     </Header>
   );
 }

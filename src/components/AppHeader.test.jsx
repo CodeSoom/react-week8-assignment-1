@@ -2,6 +2,8 @@ import { render } from '@testing-library/react';
 
 import { MemoryRouter } from 'react-router-dom';
 
+import ROUTES from '../constants/routes';
+
 import AppHeader from './AppHeader';
 
 describe('<AppHeader />', () => {
@@ -18,5 +20,13 @@ describe('<AppHeader />', () => {
 
     expect(title).toBeInTheDocument();
     expect(title).toHaveAttribute('href', '/');
+  });
+
+  it('renders navigations', () => {
+    const { getByText } = renderHeader();
+
+    ROUTES.forEach(({ name }) => {
+      expect(getByText(name)).toBeInTheDocument();
+    });
   });
 });
