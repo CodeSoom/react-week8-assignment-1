@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import NavBar from '../../components/home/NavBar';
-
 const Container = styled.section({
   padding: '3rem',
 });
@@ -15,8 +13,6 @@ export default function HomePage() {
   return (
     <Container>
       <Title>Home</Title>
-
-      <NavBar />
     </Container>
   );
 }

@@ -2,8 +2,6 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
-import ROUTES from '../../constants/routes';
-
 import HomePage from './HomePage';
 
 describe('<HomePage />', () => {
@@ -17,15 +15,5 @@ describe('<HomePage />', () => {
     const { container } = renderHomePage();
 
     expect(container).toHaveTextContent('Home');
-  });
-
-  it('renders navigations', () => {
-    const { getByText } = renderHomePage();
-
-    ROUTES.forEach(({ name }) => {
-      const navigation = getByText(name);
-
-      expect(navigation).toBeInTheDocument();
-    });
   });
 });
