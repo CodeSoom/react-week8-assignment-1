@@ -1,19 +1,19 @@
 const ROUTES = [
   {
-    name: 'About',
-    path: '/about',
+    name: 'Home',
+    path: '/home',
   },
   {
-    name: 'Log in',
-    path: '/login',
+    name: 'About',
+    path: '/about',
   },
   {
     name: 'Restaurants',
     path: '/restaurants',
   },
   {
-    name: '멸망의 길',
-    path: '/xxx',
+    name: 'Log in',
+    path: '/login',
   },
 ];
 
