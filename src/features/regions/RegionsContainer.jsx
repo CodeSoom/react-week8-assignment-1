@@ -7,9 +7,9 @@ import {
   selectedRegionSelector,
   selectRegion,
   loadRegions,
-} from './features/regions/regionsSlice';
+} from './regionsSlice';
 
-import { loadRestaurants } from './features/restaurants/restaurantsSlice';
+import { loadRestaurants } from '../restaurants/restaurantsSlice';
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();

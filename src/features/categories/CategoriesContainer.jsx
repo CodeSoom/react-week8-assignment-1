@@ -7,9 +7,9 @@ import {
   categoriesSelector,
   selectCategory,
   loadCategories,
-} from './features/categories/categoriesSlice';
+} from './categoriesSlice';
 
-import { loadRestaurants } from './features/restaurants/restaurantsSlice';
+import { loadRestaurants } from '../restaurants/restaurantsSlice';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
