@@ -6,7 +6,7 @@ import given from 'given2';
 
 import RegionsContainer from './RegionsContainer';
 
-jest.mock('./services/api');
+jest.mock('../../services/api');
 
 describe('RegionsContainer', () => {
   const dispatch = jest.fn();

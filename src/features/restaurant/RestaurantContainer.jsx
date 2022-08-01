@@ -2,20 +2,20 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { restaurantSelector, loadRestaurant } from './features/restaurant/restaurantSlice';
+import { restaurantSelector, loadRestaurant } from './restaurantSlice';
 
 import {
   accessTokenSelector,
-} from './features/login/loginSlice';
+} from '../login/loginSlice';
 
 import {
   reviewFieldsSelector,
   changeField,
   sendReview,
-} from './features/review/reviewSlice';
+} from '../review/reviewSlice';
 
 import RestaurantDetail from './RestaurantDetail';
-import ReviewForm from './ReviewForm';
+import ReviewForm from '../review/ReviewForm';
 import Reviews from './Reviews';
 
 export default function RestaurantContainer({ restaurantId }) {

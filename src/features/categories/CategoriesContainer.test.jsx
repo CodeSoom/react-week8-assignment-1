@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import given from 'given2';
 
-import CATEGORIES from '../fixtures/categories';
+import CATEGORIES from '../../../fixtures/categories';
 
 import CategoriesContainer from './CategoriesContainer';
 
-jest.mock('./services/api');
+jest.mock('../../services/api');
 
 describe('CategoriesContainer', () => {
   const dispatch = jest.fn();

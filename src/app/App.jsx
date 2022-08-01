@@ -11,7 +11,7 @@ import HomePage from '../features/home/HomePage';
 import AboutPage from '../features/about/AboutPage';
 import LoginPage from '../features/login/LoginPage';
 import RestaurantsPage from '../features/restaurants/RestaurantsPage';
-import RestaurantPage from '../RestaurantPage';
+import RestaurantPage from '../features/restaurant/RestaurantPage';
 import NotFoundPage from '../features/not-found/NotFoundPage';
 
 import { setAccessToken } from '../features/login/loginSlice';

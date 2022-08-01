@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';
 
-import RESTAURANT from '../fixtures/restaurant';
+import RESTAURANT from '../../../fixtures/restaurant';
 
 import RestaurantPage from './RestaurantPage';
 

@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeFields } from './features/login/loginSlice';
+import { changeFields } from './loginSlice';
 
 import LoginFormContainer from './LoginFormContainer';
 
