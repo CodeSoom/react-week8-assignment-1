@@ -2,11 +2,11 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import LoginFormContainer from './LoginFormContainer';
+import LoginFormContainers from './LoginFormContainers';
 
 jest.mock('react-redux');
 
-describe('LoginFormContainer', () => {
+describe('LoginFormContainers', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -28,7 +28,7 @@ describe('LoginFormContainer', () => {
 
     it('renders input controls', () => {
       const { getByLabelText } = render((
-        <LoginFormContainer />
+        <LoginFormContainers />
       ));
 
       expect(getByLabelText('E-mail').value).toBe('test@test');
@@ -37,7 +37,7 @@ describe('LoginFormContainer', () => {
 
     it('listens change events', () => {
       const { getByLabelText } = render((
-        <LoginFormContainer />
+        <LoginFormContainers />
       ));
 
       fireEvent.change(getByLabelText('E-mail'), {
@@ -45,14 +45,14 @@ describe('LoginFormContainer', () => {
       });
 
       expect(dispatch).toBeCalledWith({
-        type: 'changeLoginField',
+        type: 'eatgo/changeLoginField',
         payload: { name: 'email', value: 'new email' },
       });
     });
 
     it('renders “Log In” button', () => {
       const { getByText } = render((
-        <LoginFormContainer />
+        <LoginFormContainers />
       ));
 
       fireEvent.click(getByText('Log In'));
@@ -66,12 +66,12 @@ describe('LoginFormContainer', () => {
 
     it('renders “Log out” button', () => {
       const { getByText } = render((
-        <LoginFormContainer />
+        <LoginFormContainers />
       ));
 
       fireEvent.click(getByText('Log out'));
 
-      expect(dispatch).toBeCalledWith({ type: 'logout' });
+      expect(dispatch).toBeCalledWith({ type: 'eatgo/logout' });
     });
   });
 });

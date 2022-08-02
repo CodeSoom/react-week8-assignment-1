@@ -1,16 +1,17 @@
+/* eslint-disable react/jsx-no-bind */
 import { useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
-import RegionsContainer from './RegionsContainer';
-import CategoriesContainer from './CategoriesContainer';
-import RestaurantsContainer from './RestaurantsContainer';
+import RegionsContainer from '../container/RegionsContainer';
+import CategoriesContainer from '../container/CategoriesContainer';
+import RestaurantsContainer from '../container/RestaurantsContainer';
 
 import {
   loadInitialData,
-} from './actions';
+} from '../slice';
 
 export default function RestaurantsPage() {
   const history = useHistory();
