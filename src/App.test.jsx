@@ -6,9 +6,11 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import App from './App';
-
 import { loadItem } from './services/storage';
+
+import { setAccessToken } from './store/authSlice';
+
+import App from './App';
 
 jest.mock('react-redux');
 jest.mock('./services/storage');
@@ -22,11 +24,23 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      regions: [
-        { id: 1, name: '서울' },
-      ],
-      categories: [],
-      restaurants: [],
+      regions: {
+        regions: {
+          data: [
+            { id: 1, name: '서울' },
+          ],
+          status: 'succeeded',
+          error: '지역 목록을 불러오지 못했습니다.',
+        },
+        selectedRegion: null,
+      },
+      categories: {
+        categories: [],
+        selectedCategory: null,
+      },
+      restaurants: {
+        restaurants: [],
+      },
     }));
   });
 
@@ -92,10 +106,7 @@ describe('App', () => {
     it('calls dispatch with “setAccessToken” action', () => {
       renderApp({ path: '/' });
 
-      expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
-      });
+      expect(dispatch).toBeCalledWith(setAccessToken(accessToken));
     });
   });
 });

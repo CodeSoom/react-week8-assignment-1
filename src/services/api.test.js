@@ -1,3 +1,9 @@
+import REGIONS from '@fixtures/regions';
+import CATEGORIES from '@fixtures/categories';
+import RESTAURANTS from '@fixtures/restaurants';
+import RESTAURANT from '@fixtures/restaurant';
+import ACCESS_TOKEN from '@fixtures/access-token';
+
 import {
   fetchRegions,
   fetchCategories,
@@ -7,28 +13,43 @@ import {
   postReview,
 } from './api';
 
-import REGIONS from '../../fixtures/regions';
-import CATEGORIES from '../../fixtures/categories';
-import RESTAURANTS from '../../fixtures/restaurants';
-import RESTAURANT from '../../fixtures/restaurant';
-import ACCESS_TOKEN from '../../fixtures/access-token';
-
 describe('api', () => {
   const mockFetch = (data) => {
     global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
       async json() { return data; },
     });
   };
 
+  const mockFetchError = () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+    });
+  };
+
   describe('fetchRegions', () => {
-    beforeEach(() => {
-      mockFetch(REGIONS);
+    context('when succeeded', () => {
+      beforeEach(() => {
+        mockFetch(REGIONS);
+      });
+
+      it('returns regions', async () => {
+        const regions = await fetchRegions();
+
+        expect(regions).toEqual(REGIONS);
+      });
     });
 
-    it('returns regions', async () => {
-      const regions = await fetchRegions();
+    context('when failed', () => {
+      beforeEach(() => {
+        mockFetchError();
+      });
 
-      expect(regions).toEqual(REGIONS);
+      it('throws error', async () => {
+        await expect(async () => {
+          await fetchRegions();
+        }).rejects.toThrow(new Error('지역 목록을 불러오지 못했습니다.'));
+      });
     });
   });
 
@@ -72,17 +93,34 @@ describe('api', () => {
   });
 
   describe('postLogin', () => {
-    beforeEach(() => {
-      mockFetch({ accessToken: ACCESS_TOKEN });
-    });
-
-    it('returns accessToken', async () => {
-      const accessToken = await postLogin({
-        email: 'tester@example.com',
-        password: '1234',
+    context('when succeeded', () => {
+      beforeEach(() => {
+        mockFetch({ accessToken: ACCESS_TOKEN });
       });
 
-      expect(accessToken).toEqual(ACCESS_TOKEN);
+      it('returns accessToken', async () => {
+        const accessToken = await postLogin({
+          email: 'tester@example.com',
+          password: '1234',
+        });
+
+        expect(accessToken).toEqual(ACCESS_TOKEN);
+      });
+    });
+
+    context('when failed', () => {
+      beforeEach(() => {
+        mockFetchError();
+      });
+
+      it('throws error', async () => {
+        await expect(async () => {
+          await postLogin({
+            email: 'tester@example.com',
+            password: '1234',
+          });
+        }).rejects.toThrow(new Error('잘못된 요청입니다.'));
+      });
     });
   });
 

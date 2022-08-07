@@ -1,6 +1,4 @@
-export async function fetchRegions() {
-  return [];
-}
+export const fetchRegions = jest.fn();
 
 export async function fetchCategories() {
   return [];
@@ -14,9 +12,7 @@ export async function fetchRestaurant() {
   return {};
 }
 
-export async function postLogin() {
-  return {};
-}
+export const postLogin = jest.fn();
 
 export async function postReview({
   accessToken, restaurantId, score, description,

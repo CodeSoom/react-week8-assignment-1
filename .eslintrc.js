@@ -15,6 +15,17 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
+  settings: {
+    'import/resolver': {
+      alias: {
+        extensions: ['.js', '.jsx'],
+        map: [
+          ['@', './src'],
+          ['@fixtures', './fixtures'],
+        ],
+      },
+    },
+  },
   plugins: [
     'react',
   ],
