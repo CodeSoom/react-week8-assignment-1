@@ -15,7 +15,7 @@ import NotFoundPage from './pages/NotFoundPage';
 
 import { loadItem } from './services/storage';
 
-import { setAccessToken } from './redux/actions';
+import { setAccessToken } from './redux/slice';
 
 export default function App() {
   const dispatch = useDispatch();
