@@ -1,4 +1,12 @@
+import styled from '@emotion/styled';
+
 import TextField from './TextField';
+
+const Button = styled.button({
+  height: '30px',
+  width: '220px',
+  marginBottom: '20px',
+});
 
 export default function ReviewForm({ fields, onChange, onSubmit }) {
   const { score, description } = fields;
@@ -18,12 +26,12 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
+      </Button>
     </>
   );
 }
