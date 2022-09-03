@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import styled from '@emotion/styled';
 
 import MenuItems from './MenuItems';
@@ -18,7 +20,7 @@ const Header = styled.h3({
   marginBottom: '10px',
 });
 
-export default function RestaurantDetail({ restaurant }) {
+const RestaurantDetail = memo(({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -33,4 +35,6 @@ export default function RestaurantDetail({ restaurant }) {
       <MenuItems menuItems={menuItems} />
     </div>
   );
-}
+});
+
+export default RestaurantDetail;

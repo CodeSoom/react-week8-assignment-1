@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import styled from '@emotion/styled';
 
 import TextField from './TextField';
@@ -8,7 +10,7 @@ const Button = styled.button({
   marginBottom: '20px',
 });
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+const ReviewForm = memo(({ fields, onChange, onSubmit }) => {
   const { score, description } = fields;
 
   return (
@@ -34,4 +36,6 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
       </Button>
     </>
   );
-}
+});
+
+export default ReviewForm;
