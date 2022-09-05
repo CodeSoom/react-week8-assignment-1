@@ -7,9 +7,10 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
+import { removeItem } from './services/storage';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default function LoginFormContainer() {
   };
 
   const handleClickLogout = () => {
+    removeItem('accessToken');
     dispatch(logout());
   };
 

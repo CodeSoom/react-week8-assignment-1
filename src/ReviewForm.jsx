@@ -1,6 +1,16 @@
+import { memo } from 'react';
+
+import styled from '@emotion/styled';
+
 import TextField from './TextField';
 
-export default function ReviewForm({ fields, onChange, onSubmit }) {
+const Button = styled.button({
+  height: '30px',
+  width: '220px',
+  marginBottom: '20px',
+});
+
+const ReviewForm = memo(({ fields, onChange, onSubmit }) => {
   const { score, description } = fields;
 
   return (
@@ -18,12 +28,14 @@ export default function ReviewForm({ fields, onChange, onSubmit }) {
         value={description}
         onChange={onChange}
       />
-      <button
+      <Button
         type="button"
         onClick={onSubmit}
       >
         리뷰 남기기
-      </button>
+      </Button>
     </>
   );
-}
+});
+
+export default ReviewForm;

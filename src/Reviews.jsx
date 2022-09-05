@@ -1,4 +1,24 @@
-export default function Reviews({ reviews }) {
+import { memo } from 'react';
+
+import styled from '@emotion/styled';
+
+const List = styled.ul({
+  width: '500px',
+});
+
+const Item = styled.li({
+  padding: '10px 0 10px 0',
+  wordWrap: 'normal',
+  '&:not(:last-child)': {
+    borderBottom: '1px solid #CCC',
+  },
+});
+
+const DescriptionItem = styled.div({
+  marginTop: '10px',
+});
+
+const Reviews = memo(({ reviews }) => {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -6,9 +26,9 @@ export default function Reviews({ reviews }) {
   const sortedReviews = [...reviews].sort((a, b) => b.id - a.id);
 
   return (
-    <ul>
+    <List>
       {sortedReviews.map((review) => (
-        <li key={review.id}>
+        <Item key={review.id}>
           <div>
             {review.name}
           </div>
@@ -16,11 +36,13 @@ export default function Reviews({ reviews }) {
             {review.score}
             점
           </div>
-          <div>
+          <DescriptionItem>
             {review.description}
-          </div>
-        </li>
+          </DescriptionItem>
+        </Item>
       ))}
-    </ul>
+    </List>
   );
-}
+});
+
+export default Reviews;
