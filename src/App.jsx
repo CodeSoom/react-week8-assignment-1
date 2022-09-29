@@ -23,7 +23,7 @@ const styles = {
   // Move long class sets out of jsx to keep it scannable
   container: ({ hasBackground }) => [
     tw`flex flex-col items-center justify-center h-screen`,
-    hasBackground && tw`bg-gradient-to-b from-indigo-100 to-pink-100`,
+    hasBackground && tw`bg-gradient-to-b`,
   ],
 };
 
