@@ -7,9 +7,9 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './slice';
+} from '../../store/slice';
 
-import { get } from './utils';
+import { get } from '../../utils/utils';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import MenuItems from './MenuItems';
+import MenuItems from '../../components/MenuItems';
 
 function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
