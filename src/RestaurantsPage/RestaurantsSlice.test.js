@@ -142,8 +142,10 @@ describe('RestaurantsSlice', () => {
       context('with selectedRegion and selectedCategory', () => {
         beforeEach(() => {
           store = mockStore({
-            selectedRegion: { id: 1, name: '서울' },
-            selectedCategory: { id: 1, name: '한식' },
+            Restaurants: {
+              selectedRegion: { id: 1, name: '서울' },
+              selectedCategory: { id: 1, name: '한식' },
+            },
           });
         });
 
@@ -159,7 +161,9 @@ describe('RestaurantsSlice', () => {
       context('without selectedRegion', () => {
         beforeEach(() => {
           store = mockStore({
-            selectedCategory: { id: 1, name: '한식' },
+            Restaurants: {
+              selectedCategory: { id: 1, name: '한식' },
+            },
           });
         });
 
@@ -175,7 +179,9 @@ describe('RestaurantsSlice', () => {
       context('without selectedCategory', () => {
         beforeEach(() => {
           store = mockStore({
-            selectedRegion: { id: 1, name: '서울' },
+            Restaurants: {
+              selectedRegion: { id: 1, name: '서울' },
+            },
           });
         });
 

@@ -22,7 +22,7 @@ export default function RestaurantContainer({ restaurantId }) {
   }, []);
 
   const accessToken = useSelector(get({
-    page: 'Restaurant',
+    page: 'Login',
     key: 'accessToken',
   }));
 

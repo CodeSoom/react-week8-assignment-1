@@ -23,8 +23,8 @@ describe('RestaurantContainer', () => {
           score: '',
           description: '',
         },
-        accessToken: given.accessToken,
       },
+      Login: { accessToken: given.accessToken },
     }));
   });
 

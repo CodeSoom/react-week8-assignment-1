@@ -80,8 +80,10 @@ export function loadInitialData() {
 export function loadRestaurants() {
   return async (dispatch, getState) => {
     const {
-      selectedRegion: region,
-      selectedCategory: category,
+      Restaurants: {
+        selectedRegion: region,
+        selectedCategory: category,
+      },
     } = getState();
 
     if (!region || !category) {

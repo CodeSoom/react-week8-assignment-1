@@ -20,6 +20,7 @@ describe('RestaurantPage', () => {
           address: '서울시 강남구',
         },
       },
+      Login: { accessToken: '' },
     }));
   });
 

@@ -127,7 +127,9 @@ describe('RestaurantSlice', () => {
     describe('loadReview', () => {
       beforeEach(() => {
         store = mockStore({
-          loginFields: { email: '', password: '' },
+          Restaurant: {
+            loginFields: { email: '', password: '' },
+          },
         });
       });
 
@@ -143,11 +145,13 @@ describe('RestaurantSlice', () => {
     describe('sendReview', () => {
       beforeEach(() => {
         store = mockStore({
-          accessToken: '',
-          reviewFields: {
-            score: 1,
-            description: '',
+          Restaurant: {
+            reviewFields: {
+              score: 1,
+              description: '',
+            },
           },
+          Login: { accessToken: '' },
         });
       });
 
