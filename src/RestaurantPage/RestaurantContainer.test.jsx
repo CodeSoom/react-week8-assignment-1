@@ -17,12 +17,14 @@ describe('RestaurantContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      restaurant: given.restaurant,
-      reviewFields: {
-        score: '',
-        description: '',
+      Restaurant: {
+        restaurant: given.restaurant,
+        reviewFields: {
+          score: '',
+          description: '',
+        },
+        accessToken: given.accessToken,
       },
-      accessToken: given.accessToken,
     }));
   });
 
@@ -82,7 +84,7 @@ describe('RestaurantContainer', () => {
           fireEvent.change(getByLabelText(label), { target: { value } });
 
           expect(dispatch).toBeCalledWith({
-            type: 'restaurantsApp/changeReviewField',
+            type: 'restaurant/changeReviewField',
             payload: { name, value },
           });
         });

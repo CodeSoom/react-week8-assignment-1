@@ -104,7 +104,9 @@ describe('LoginSlice', () => {
     describe('requestLogin', () => {
       beforeEach(() => {
         store = mockStore({
-          loginFields: { email: '', password: '' },
+          Login: {
+            loginFields: { email: '', password: '' },
+          },
         });
       });
 
