@@ -1,4 +1,6 @@
-export default function Reviews({ reviews }) {
+import { memo } from 'react';
+
+const Reviews = memo(({ reviews }) => {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -23,4 +25,6 @@ export default function Reviews({ reviews }) {
       ))}
     </ul>
   );
-}
+});
+
+export default Reviews;
