@@ -8,9 +8,9 @@ import { useDispatch } from 'react-redux';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
+import LoginPage from './LoginPage/LoginPage';
+import RestaurantsPage from './RestaurantsPage/RestaurantsPage';
+import RestaurantPage from './RestaurantPage/RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
 import { setAccessToken } from './slice';
