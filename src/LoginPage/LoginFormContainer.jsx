@@ -6,7 +6,7 @@ import LogoutForm from './LogoutForm';
 import {
   changeLoginField,
   requestLogin,
-  logout,
+  deleteAccessToken,
 } from './LoginSlice';
 
 import { get } from '../utils';
@@ -24,7 +24,6 @@ export default function LoginFormContainer() {
     key: 'accessToken',
   }));
 
-  console.log(loginFields);
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
   };
@@ -34,7 +33,7 @@ export default function LoginFormContainer() {
   };
 
   const handleClickLogout = () => {
-    dispatch(logout());
+    dispatch(deleteAccessToken());
   };
 
   return (

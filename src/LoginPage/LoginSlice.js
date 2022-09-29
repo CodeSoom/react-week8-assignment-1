@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { postLogin } from '../services/api';
 
-import { saveItem } from '../services/storage';
+import { saveItem, deleteItem } from '../services/storage';
 
 const { actions, reducer } = createSlice({
   name: 'Login',
@@ -57,6 +57,14 @@ export function requestLogin() {
     saveItem('accessToken', accessToken);
 
     dispatch(setAccessToken(accessToken));
+  };
+}
+
+export function deleteAccessToken() {
+  return (dispatch) => {
+    deleteItem('accessToken');
+
+    dispatch(logout());
   };
 }
 

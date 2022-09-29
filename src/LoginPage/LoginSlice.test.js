@@ -7,6 +7,7 @@ import reducer, {
   setAccessToken,
   logout,
   requestLogin,
+  deleteAccessToken,
 } from './LoginSlice';
 
 const middlewares = [thunk];
@@ -113,6 +114,20 @@ describe('LoginSlice', () => {
         const actions = store.getActions();
 
         expect(actions[0]).toEqual(setAccessToken({}));
+      });
+    });
+
+    describe('deleteAccessToken', () => {
+      beforeEach(() => {
+        store = mockStore({});
+      });
+
+      it('dispatchs logout', () => {
+        store.dispatch(deleteAccessToken());
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual(logout());
       });
     });
   });
