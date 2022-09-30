@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const Reviews = memo(({ reviews }) => {
+export default memo(({ reviews }) => {
   if (!reviews || !reviews.length) {
     return null;
   }
@@ -26,5 +26,3 @@ const Reviews = memo(({ reviews }) => {
     </ul>
   );
 });
-
-export default Reviews;

@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import TextField from '../components/TextField';
 
-const ReviewForm = memo(({ fields, onChange, onSubmit }) => {
+export default memo(({ fields, onChange, onSubmit }) => {
   const { score, description } = fields;
 
   return (
@@ -29,5 +29,3 @@ const ReviewForm = memo(({ fields, onChange, onSubmit }) => {
     </>
   );
 });
-
-export default ReviewForm;

@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import TextField from '../components/TextField';
 
-const LoginForm = memo(({ fields, onChange, onSubmit }) => {
+export default memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
 
   return (
@@ -30,5 +30,3 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
     </>
   );
 });
-
-export default LoginForm;

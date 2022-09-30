@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const LogoutForm = memo(({ onClick }) => (
+export default memo(({ onClick }) => (
   <>
     <button
       type="button"
@@ -10,5 +10,3 @@ const LogoutForm = memo(({ onClick }) => (
     </button>
   </>
 ));
-
-export default LogoutForm;

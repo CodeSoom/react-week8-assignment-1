@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const Restaurants = memo(({ restaurants, onClick }) => {
+export default memo(({ restaurants, onClick }) => {
   function handleClick(restaurant) {
     return (event) => {
       event.preventDefault();
@@ -24,5 +24,3 @@ const Restaurants = memo(({ restaurants, onClick }) => {
     </ul>
   );
 });
-
-export default Restaurants;

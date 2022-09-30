@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const Categories = memo(({ categories, selectedCategory, onClick }) => {
+export default memo(({ categories, selectedCategory, onClick }) => {
   function handleClick(categoryId) {
     return () => onClick(categoryId);
   }
@@ -25,5 +25,3 @@ const Categories = memo(({ categories, selectedCategory, onClick }) => {
     </ul>
   );
 });
-
-export default Categories;

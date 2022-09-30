@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import MenuItems from './MenuItems';
 
-const RestaurantDetail = memo(({ restaurant }) => {
+export default memo(({ restaurant }) => {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -18,5 +18,3 @@ const RestaurantDetail = memo(({ restaurant }) => {
     </div>
   );
 });
-
-export default RestaurantDetail;

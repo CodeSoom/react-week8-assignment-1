@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const Regions = memo(({ regions, selectedRegion, onClick }) => {
+export default memo(({ regions, selectedRegion, onClick }) => {
   function handleClick(categoryId) {
     return () => onClick(categoryId);
   }
@@ -25,5 +25,3 @@ const Regions = memo(({ regions, selectedRegion, onClick }) => {
     </ul>
   );
 });
-
-export default Regions;
