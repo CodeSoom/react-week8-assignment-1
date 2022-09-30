@@ -10,7 +10,7 @@ import reducer, {
   loadRestaurant,
   loadReview,
   sendReview,
-} from './RestaurantSlice';
+} from './restaurantSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -127,7 +127,7 @@ describe('RestaurantSlice', () => {
     describe('loadReview', () => {
       beforeEach(() => {
         store = mockStore({
-          Restaurant: {
+          restaurant: {
             loginFields: { email: '', password: '' },
           },
         });
@@ -145,13 +145,13 @@ describe('RestaurantSlice', () => {
     describe('sendReview', () => {
       beforeEach(() => {
         store = mockStore({
-          Restaurant: {
+          restaurant: {
             reviewFields: {
               score: 1,
               description: '',
             },
           },
-          Login: { accessToken: '' },
+          login: { accessToken: '' },
         });
       });
 

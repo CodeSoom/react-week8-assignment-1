@@ -24,7 +24,7 @@ describe('RestaurantsPage', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      Restaurants: {
+      restaurants: {
         regions: [
           { id: 1, name: '서울' },
         ],

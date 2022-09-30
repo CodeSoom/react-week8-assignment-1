@@ -80,7 +80,7 @@ export function loadInitialData() {
 export function loadRestaurants() {
   return async (dispatch, getState) => {
     const {
-      Restaurants: {
+      restaurants: {
         selectedRegion: region,
         selectedCategory: category,
       },

@@ -15,7 +15,7 @@ describe('LoginFormContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      Login: {
+      login: {
         loginFields: {
           email: 'test@test',
           password: '1234',
@@ -47,7 +47,7 @@ describe('LoginFormContainer', () => {
       });
 
       expect(dispatch).toBeCalledWith({
-        type: 'Login/changeLoginField',
+        type: 'login/changeLoginField',
         payload: { name: 'email', value: 'new email' },
       });
     });

@@ -10,7 +10,7 @@ import reducer, {
   selectCategory,
   loadInitialData,
   loadRestaurants,
-} from './RestaurantsSlice';
+} from './restaurantsSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -142,7 +142,7 @@ describe('RestaurantsSlice', () => {
       context('with selectedRegion and selectedCategory', () => {
         beforeEach(() => {
           store = mockStore({
-            Restaurants: {
+            restaurants: {
               selectedRegion: { id: 1, name: '서울' },
               selectedCategory: { id: 1, name: '한식' },
             },
@@ -161,7 +161,7 @@ describe('RestaurantsSlice', () => {
       context('without selectedRegion', () => {
         beforeEach(() => {
           store = mockStore({
-            Restaurants: {
+            restaurants: {
               selectedCategory: { id: 1, name: '한식' },
             },
           });
@@ -179,7 +179,7 @@ describe('RestaurantsSlice', () => {
       context('without selectedCategory', () => {
         beforeEach(() => {
           store = mockStore({
-            Restaurants: {
+            restaurants: {
               selectedRegion: { id: 1, name: '서울' },
             },
           });

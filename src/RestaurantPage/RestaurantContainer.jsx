@@ -10,7 +10,7 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './RestaurantSlice';
+} from './restaurantSlice';
 
 import { get } from '../utils';
 
@@ -22,17 +22,17 @@ export default function RestaurantContainer({ restaurantId }) {
   }, []);
 
   const accessToken = useSelector(get({
-    page: 'Login',
+    page: 'login',
     key: 'accessToken',
   }));
 
   const restaurant = useSelector(get({
-    page: 'Restaurant',
+    page: 'restaurant',
     key: 'restaurant',
   }));
 
   const reviewFields = useSelector(get({
-    page: 'Restaurant',
+    page: 'restaurant',
     key: 'reviewFields',
   }));
 

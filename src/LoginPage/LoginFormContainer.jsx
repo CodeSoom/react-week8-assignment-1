@@ -9,7 +9,7 @@ import {
   changeLoginField,
   requestLogin,
   deleteAccessToken,
-} from './LoginSlice';
+} from './loginSlice';
 
 import { get } from '../utils';
 
@@ -17,12 +17,12 @@ export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
   const loginFields = useSelector(get({
-    page: 'Login',
+    page: 'login',
     key: 'loginFields',
   }));
 
   const accessToken = useSelector(get({
-    page: 'Login',
+    page: 'login',
     key: 'accessToken',
   }));
 

@@ -6,7 +6,7 @@ import { get } from '../utils';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
   const restaurants = useSelector(get({
-    page: 'Restaurants',
+    page: 'restaurants',
     key: 'restaurants',
   }));
 

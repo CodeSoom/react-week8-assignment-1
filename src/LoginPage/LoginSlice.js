@@ -5,7 +5,7 @@ import { postLogin } from '../services/api';
 import { saveItem, deleteItem } from '../services/storage';
 
 const { actions, reducer } = createSlice({
-  name: 'Login',
+  name: 'login',
 
   initialState: {
     loginFields: {
@@ -50,7 +50,7 @@ export const {
 
 export function requestLogin() {
   return async (dispatch, getState) => {
-    const { Login: { loginFields: { email, password } } } = getState();
+    const { login: { loginFields: { email, password } } } = getState();
 
     const accessToken = await postLogin({ email, password });
 

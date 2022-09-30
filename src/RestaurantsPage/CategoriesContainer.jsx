@@ -6,7 +6,7 @@ import Categories from './Categories';
 import {
   selectCategory,
   loadRestaurants,
-} from './RestaurantsSlice';
+} from './restaurantsSlice';
 
 import { get } from '../utils';
 
@@ -14,12 +14,12 @@ export default function CategoriesContainer() {
   const dispatch = useDispatch();
 
   const categories = useSelector(get({
-    page: 'Restaurants',
+    page: 'restaurants',
     key: 'categories',
   }));
 
   const selectedCategory = useSelector(get({
-    page: 'Restaurants',
+    page: 'restaurants',
     key: 'selectedCategory',
   }));
 

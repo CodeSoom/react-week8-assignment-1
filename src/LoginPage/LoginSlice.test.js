@@ -8,7 +8,7 @@ import reducer, {
   logout,
   requestLogin,
   deleteAccessToken,
-} from './LoginSlice';
+} from './loginSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -105,7 +105,7 @@ describe('LoginSlice', () => {
     describe('requestLogin', () => {
       beforeEach(() => {
         store = mockStore({
-          Login: {
+          login: {
             loginFields: { email: '', password: '' },
           },
         });

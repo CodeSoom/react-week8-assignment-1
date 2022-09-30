@@ -13,14 +13,14 @@ describe('RestaurantPage', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((state) => state({
-      Restaurant: {
+      restaurant: {
         restaurant: {
           id: 1,
           name: '마법사주방',
           address: '서울시 강남구',
         },
       },
-      Login: { accessToken: '' },
+      login: { accessToken: '' },
     }));
   });
 

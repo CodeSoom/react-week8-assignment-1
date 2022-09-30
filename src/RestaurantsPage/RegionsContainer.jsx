@@ -6,7 +6,7 @@ import Regions from './Regions';
 import {
   selectRegion,
   loadRestaurants,
-} from './RestaurantsSlice';
+} from './restaurantsSlice';
 
 import { get } from '../utils';
 
@@ -14,12 +14,12 @@ export default function RegionsContainer() {
   const dispatch = useDispatch();
 
   const regions = useSelector(get({
-    page: 'Restaurants',
+    page: 'restaurants',
     key: 'regions',
   }));
 
   const selectedRegion = useSelector(get({
-    page: 'Restaurants',
+    page: 'restaurants',
     key: 'selectedRegion',
   }));
 

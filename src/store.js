@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import LoginReducer from './LoginPage/LoginSlice';
-import RestaurantReducer from './RestaurantPage/RestaurantSlice';
-import RestaurantsReducer from './RestaurantsPage/RestaurantsSlice';
+import loginReducer from './LoginPage/loginSlice';
+import restaurantReducer from './RestaurantPage/restaurantSlice';
+import restaurantsReducer from './RestaurantsPage/restaurantsSlice';
 
 const store = configureStore({
   reducer: {
-    Login: LoginReducer,
-    Restaurant: RestaurantReducer,
-    Restaurants: RestaurantsReducer,
+    login: loginReducer,
+    restaurant: restaurantReducer,
+    restaurants: restaurantsReducer,
   },
 });
 
