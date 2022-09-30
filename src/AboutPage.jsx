@@ -19,7 +19,7 @@ const BannerTitle = styled.h2({
       fontSize: '1.5em',
     },
 
-    '&:not(:first-child)': {
+    '&:not(:first-of-type)': {
       marginTop: '.2em',
       maxWidth: '9em',
       fontSize: '3em',
