@@ -21,7 +21,9 @@ import { loadItem } from './services/storage';
 
 const Container = styled.div({
   margin: '0 auto',
+  paddingTop: '5.5em',
   width: '90%',
+  maxWidth: '1200px',
 });
 
 export default function App() {
