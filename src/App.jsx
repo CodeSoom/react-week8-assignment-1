@@ -1,11 +1,13 @@
 import {
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
+import Header from './Header';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage/LoginPage';
@@ -17,6 +19,11 @@ import { setAccessToken } from './LoginPage/loginSlice';
 
 import { loadItem } from './services/storage';
 
+const Container = styled.div({
+  margin: '0 auto',
+  width: '90%',
+});
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -26,12 +33,8 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
+    <Container>
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -40,6 +43,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </Container>
   );
 }
