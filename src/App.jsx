@@ -5,8 +5,6 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import styled from '@emotion/styled';
-
 import Header from './Header';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
@@ -15,16 +13,11 @@ import RestaurantsPage from './RestaurantsPage/RestaurantsPage';
 import RestaurantPage from './RestaurantPage/RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
+import MakeCenter from './styles/MakeCenter';
+
 import { setAccessToken } from './LoginPage/loginSlice';
 
 import { loadItem } from './services/storage';
-
-const Container = styled.div({
-  margin: '0 auto',
-  paddingTop: '5.5em',
-  width: '90%',
-  maxWidth: '1200px',
-});
 
 export default function App() {
   const dispatch = useDispatch();
@@ -35,7 +28,7 @@ export default function App() {
   }
 
   return (
-    <Container>
+    <MakeCenter>
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
@@ -45,6 +38,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </Container>
+    </MakeCenter>
   );
 }
