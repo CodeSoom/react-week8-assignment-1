@@ -30,7 +30,7 @@ const { actions, reducer } = createSlice({
     setCategories(state, { payload: categories }) {
       return {
         ...state,
-        categories,
+        categories: categories.filter((category) => !['과자', '테스트', '음료', '사탕', 'qq'].includes(category.name)),
       };
     },
 

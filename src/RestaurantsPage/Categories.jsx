@@ -1,14 +1,17 @@
 import { memo } from 'react';
 
+import MenuList from '../styles/MenuList';
+import MenuItem from '../styles/MenuItem';
+
 export default memo(({ categories, selectedCategory, onClick }) => {
   function handleClick(categoryId) {
     return () => onClick(categoryId);
   }
 
   return (
-    <ul>
+    <MenuList>
       {categories.map((category) => (
-        <li key={category.id}>
+        <MenuItem key={category.id}>
           <button
             type="button"
             onClick={handleClick(category.id)}
@@ -20,8 +23,8 @@ export default memo(({ categories, selectedCategory, onClick }) => {
               </>
             ) : null}
           </button>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 });

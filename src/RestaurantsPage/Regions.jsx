@@ -1,14 +1,17 @@
 import { memo } from 'react';
 
+import MenuList from '../styles/MenuList';
+import MenuItem from '../styles/MenuItem';
+
 export default memo(({ regions, selectedRegion, onClick }) => {
   function handleClick(categoryId) {
     return () => onClick(categoryId);
   }
 
   return (
-    <ul>
+    <MenuList>
       {regions.map((region) => (
-        <li key={region.id}>
+        <MenuItem key={region.id}>
           <button
             type="button"
             onClick={handleClick(region.id)}
@@ -20,8 +23,8 @@ export default memo(({ regions, selectedRegion, onClick }) => {
               </>
             ) : null}
           </button>
-        </li>
+        </MenuItem>
       ))}
-    </ul>
+    </MenuList>
   );
 });
