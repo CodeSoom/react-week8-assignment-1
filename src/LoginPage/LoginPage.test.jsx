@@ -62,6 +62,6 @@ describe('LoginPage', () => {
     fireEvent.click(loginButton);
 
     expect(dispatch).toBeCalled();
-    expect(mockPush).toBeCalled();
+    expect(mockPush).toBeCalledWith('/');
   });
 });

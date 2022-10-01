@@ -1,23 +1,11 @@
-import { useCallback } from 'react';
-
-import { Link } from 'react-router-dom';
-
-import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-import LogoutForm from './LogoutForm';
-
-import MenuList from '../styles/MenuList';
-
-import {
-  deleteAccessToken,
-} from '../LoginPage/loginSlice';
-
-import { get } from '../utils';
+import Nav from './Nav';
 
 const Container = styled.header({
   position: 'fixed',
@@ -56,25 +44,12 @@ const Wrapper = styled.div({
   maxWidth: '1200px',
 });
 
-const NavItem = styled.li({
-  fontSize: '1.2rem',
-
-  '&:not(:first-of-type)': {
-    marginLeft: '1em',
-  },
-});
-
 export default function Header() {
-  const dispatch = useDispatch();
+  const history = useHistory();
 
-  const accessToken = useSelector(get({
-    page: 'login',
-    key: 'accessToken',
-  }));
-
-  const handleClickLogout = useCallback(() => {
-    dispatch(deleteAccessToken());
-  }, [dispatch]);
+  function handleClick(path) {
+    history.push(path);
+  }
 
   return (
     <Container>
@@ -86,20 +61,7 @@ export default function Header() {
             EatGo
           </Link>
         </h1>
-        <nav>
-          <MenuList>
-            <NavItem>
-              <Link to="/about">About</Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/restaurants">Restaurants</Link>
-            </NavItem>
-            <NavItem>
-              {accessToken ? (<LogoutForm onClick={handleClickLogout} />)
-                : (<Link to="/login">Log in</Link>)}
-            </NavItem>
-          </MenuList>
-        </nav>
+        <Nav onClick={handleClick} />
       </Wrapper>
     </Container>
   );

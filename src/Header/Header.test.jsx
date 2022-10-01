@@ -2,22 +2,30 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { MemoryRouter } from 'react-router-dom';
+import { useHistory, MemoryRouter } from 'react-router-dom';
 
 import Header from './Header';
 
 jest.mock('react-redux');
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory: jest.fn(),
+}));
+
 describe('Header', () => {
   const dispatch = jest.fn();
+  const mockPush = jest.fn();
 
   useDispatch.mockImplementation(() => dispatch);
 
   useSelector.mockImplementation((selector) => selector({
     login: {
-      accessToken: given.accessToken,
+      accessToken: '',
     },
   }));
+
+  useHistory.mockImplementation(() => ({ push: mockPush }));
 
   function renderHeader() {
     return render(
@@ -33,27 +41,14 @@ describe('Header', () => {
     expect(getByText('EatGo')).toContainHTML('<a href="');
     expect(getByText('About')).toContainHTML('<a href="');
     expect(getByText('Restaurants')).toContainHTML('<a href="');
+    expect(getByText('Log in')).toContainHTML('<a href="');
   });
 
-  context('when logged out', () => {
-    given('accessToken', () => '');
+  it('listens click event', () => {
+    const { getByText } = renderHeader();
 
-    it('renders \'Log in\'', () => {
-      const { getByText } = renderHeader();
+    fireEvent.click(getByText('About'));
 
-      expect(getByText('Log in')).toContainHTML('<a href="');
-    });
-  });
-
-  context('when logged in', () => {
-    given('accessToken', () => 'ACCESS_TOKEN');
-
-    it('renders “Log out” button', () => {
-      const { getByText } = renderHeader();
-
-      fireEvent.click(getByText('Log out'));
-
-      expect(dispatch).toBeCalled();
-    });
+    expect(mockPush).toBeCalledWith('/about');
   });
 });
