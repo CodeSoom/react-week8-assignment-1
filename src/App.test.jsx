@@ -22,6 +22,9 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
+      login: {
+        accessToken: '',
+      },
       restaurants: {
         regions: [
           { id: 1, name: '서울' },

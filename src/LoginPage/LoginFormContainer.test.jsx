@@ -8,6 +8,7 @@ jest.mock('react-redux');
 
 describe('LoginFormContainer', () => {
   const dispatch = jest.fn();
+  const goHomePage = jest.fn();
 
   beforeEach(() => {
     dispatch.mockClear();
@@ -20,60 +21,43 @@ describe('LoginFormContainer', () => {
           email: 'test@test',
           password: '1234',
         },
-        accessToken: given.accessToken,
+        accessToken: '',
       },
     }));
   });
 
-  context('when logged out', () => {
-    given('accessToken', () => '');
+  function renderLoginFormContainer() {
+    return render((
+      <LoginFormContainer goHomePage={goHomePage} />
+    ));
+  }
 
-    it('renders input controls', () => {
-      const { getByLabelText } = render((
-        <LoginFormContainer />
-      ));
+  it('renders input controls', () => {
+    const { getByLabelText } = renderLoginFormContainer();
 
-      expect(getByLabelText('E-mail').value).toBe('test@test');
-      expect(getByLabelText('Password').value).toBe('1234');
+    expect(getByLabelText('E-mail').value).toBe('test@test');
+    expect(getByLabelText('Password').value).toBe('1234');
+  });
+
+  it('listens change events', () => {
+    const { getByLabelText } = renderLoginFormContainer();
+
+    fireEvent.change(getByLabelText('E-mail'), {
+      target: { value: 'new email' },
     });
 
-    it('listens change events', () => {
-      const { getByLabelText } = render((
-        <LoginFormContainer />
-      ));
-
-      fireEvent.change(getByLabelText('E-mail'), {
-        target: { value: 'new email' },
-      });
-
-      expect(dispatch).toBeCalledWith({
-        type: 'login/changeLoginField',
-        payload: { name: 'email', value: 'new email' },
-      });
-    });
-
-    it('renders “Log In” button', () => {
-      const { getByText } = render((
-        <LoginFormContainer />
-      ));
-
-      fireEvent.click(getByText('Log In'));
-
-      expect(dispatch).toBeCalled();
+    expect(dispatch).toBeCalledWith({
+      type: 'login/changeLoginField',
+      payload: { name: 'email', value: 'new email' },
     });
   });
 
-  context('when logged in', () => {
-    given('accessToken', () => 'ACCESS_TOKEN');
+  it('renders “Log In” button', () => {
+    const { getByText } = renderLoginFormContainer();
 
-    it('renders “Log out” button', () => {
-      const { getByText } = render((
-        <LoginFormContainer />
-      ));
+    fireEvent.click(getByText('Log In'));
 
-      fireEvent.click(getByText('Log out'));
-
-      expect(dispatch).toBeCalled();
-    });
+    expect(dispatch).toBeCalled();
+    expect(goHomePage).toBeCalled();
   });
 });

@@ -1,3 +1,7 @@
+import { useCallback } from 'react';
+
+import { useHistory } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,6 +45,12 @@ const Logo = styled.div({
 });
 
 export default function LoginPage() {
+  const history = useHistory();
+
+  const goHomePage = useCallback(() => {
+    history.push('/');
+  }, [history]);
+
   return (
     <Container>
       <LoginHeader>
@@ -51,7 +61,7 @@ export default function LoginPage() {
         <h2>Log In</h2>
         <span>to continue to EatGo</span>
       </LoginHeader>
-      <LoginFormContainer />
+      <LoginFormContainer goHomePage={goHomePage} />
     </Container>
   );
 }

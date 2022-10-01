@@ -5,7 +5,7 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import Header from './Header';
+import Header from './Header/Header';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage/LoginPage';

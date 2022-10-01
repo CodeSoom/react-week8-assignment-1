@@ -1,11 +1,23 @@
+import { useCallback } from 'react';
+
 import { Link } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-import MenuList from './styles/MenuList';
+import LogoutForm from './LogoutForm';
+
+import MenuList from '../styles/MenuList';
+
+import {
+  deleteAccessToken,
+} from '../LoginPage/loginSlice';
+
+import { get } from '../utils';
 
 const Container = styled.header({
   position: 'fixed',
@@ -53,6 +65,17 @@ const NavItem = styled.li({
 });
 
 export default function Header() {
+  const dispatch = useDispatch();
+
+  const accessToken = useSelector(get({
+    page: 'login',
+    key: 'accessToken',
+  }));
+
+  const handleClickLogout = useCallback(() => {
+    dispatch(deleteAccessToken());
+  }, [dispatch]);
+
   return (
     <Container>
       <Wrapper>
@@ -72,7 +95,8 @@ export default function Header() {
               <Link to="/restaurants">Restaurants</Link>
             </NavItem>
             <NavItem>
-              <Link to="/login">Log in</Link>
+              {accessToken ? (<LogoutForm onClick={handleClickLogout} />)
+                : (<Link to="/login">Log in</Link>)}
             </NavItem>
           </MenuList>
         </nav>
