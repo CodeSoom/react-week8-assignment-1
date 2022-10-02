@@ -2,6 +2,8 @@ import { useCallback, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
@@ -13,6 +15,10 @@ import {
 } from './restaurantSlice';
 
 import { get } from '../utils';
+
+const Container = styled.div({
+  marginTop: '50px',
+});
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -51,7 +57,7 @@ export default function RestaurantContainer({ restaurantId }) {
   }
 
   return (
-    <>
+    <Container>
       <RestaurantDetail restaurant={restaurant} />
       {accessToken ? (
         <ReviewForm
@@ -61,6 +67,6 @@ export default function RestaurantContainer({ restaurantId }) {
         />
       ) : null}
       <Reviews reviews={restaurant.reviews} />
-    </>
+    </Container>
   );
 }
