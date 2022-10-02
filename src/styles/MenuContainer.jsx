@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const FilterContainer = styled.div({
+const MenuContainer = styled.div({
   padding: '20px 0 30px',
   borderTop: '1px solid #dbdbdb',
   color: '#555',
@@ -11,4 +11,4 @@ const FilterContainer = styled.div({
   },
 });
 
-export default FilterContainer;
+export default MenuContainer;

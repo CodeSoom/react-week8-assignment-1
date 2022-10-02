@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 
 import Restaurants from './Restaurants';
 
+import MenuContainer from '../styles/MenuContainer';
+
 import { get } from '../utils';
 
 export default function RestaurantsContainer({ onClickRestaurant }) {
@@ -11,9 +13,12 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
   }));
 
   return (
-    <Restaurants
-      restaurants={restaurants}
-      onClick={onClickRestaurant}
-    />
+    <MenuContainer>
+      <h3>맛집</h3>
+      <Restaurants
+        restaurants={restaurants}
+        onClick={onClickRestaurant}
+      />
+    </MenuContainer>
   );
 }

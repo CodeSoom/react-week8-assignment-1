@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Regions from './Regions';
 
-import FilterContainer from '../styles/FilterContainer';
+import MenuContainer from '../styles/MenuContainer';
 
 import {
   selectRegion,
@@ -32,13 +32,13 @@ export default function RegionsContainer() {
   }, [dispatch]);
 
   return (
-    <FilterContainer>
+    <MenuContainer>
       <h3>지역</h3>
       <Regions
         regions={regions}
         selectedRegion={selectedRegion}
         onClick={handleClick}
       />
-    </FilterContainer>
+    </MenuContainer>
   );
 }

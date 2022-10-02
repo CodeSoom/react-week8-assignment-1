@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Categories from './Categories';
 
-import FilterContainer from '../styles/FilterContainer';
+import MenuContainer from '../styles/MenuContainer';
 
 import {
   selectCategory,
@@ -32,13 +32,13 @@ export default function CategoriesContainer() {
   }, [dispatch]);
 
   return (
-    <FilterContainer>
+    <MenuContainer>
       <h3>음식종류</h3>
       <Categories
         categories={categories}
         selectedCategory={selectedCategory}
         onClick={handleClick}
       />
-    </FilterContainer>
+    </MenuContainer>
   );
 }
