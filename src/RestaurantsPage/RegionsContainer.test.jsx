@@ -22,7 +22,7 @@ describe('RegionsContainer', () => {
     }));
   });
 
-  it('renders checked regions', () => {
+  it('renders regions', () => {
     const { getByText } = render((
       <RegionsContainer />
     ));

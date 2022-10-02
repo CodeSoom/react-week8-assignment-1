@@ -43,22 +43,24 @@ describe('Categories', () => {
 
   context('with selected category', () => {
     categories.forEach((category, index) => {
-      it("renders 'V' button with equal category id", () => {
+      it('renders changed style button', () => {
         const { getAllByRole } = renderCategories(category);
 
-        expect(getAllByRole('button')[index].textContent).toContain('V');
+        expect(getAllByRole('button')[index].firstChild).toHaveStyle('border: 2px solid #555');
+        expect(getAllByRole('button')[index]).toHaveStyle('color: #000');
       });
     });
   });
 
   context('without selectedcategory', () => {
-    it('doesn\'t render \'V\' button', () => {
+    it('renders default style button', () => {
       const { getAllByRole } = renderCategories();
 
       const categoriesButtons = getAllByRole('button');
 
       categoriesButtons.forEach((button) => {
-        expect(button).not.toContain('V');
+        expect(button.firstChild).toHaveStyle('border: 2px solid #cbcbcb');
+        expect(button).toHaveStyle('color: #555');
       });
     });
   });

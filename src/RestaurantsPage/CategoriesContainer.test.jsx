@@ -22,13 +22,15 @@ describe('CategoriesContainer', () => {
     }));
   });
 
-  it('renders regions and checked symbol', () => {
-    const { container, getByText } = render((
+  it('renders caegories', () => {
+    const { getByText } = render((
       <CategoriesContainer />
     ));
 
-    expect(container).toHaveTextContent('한식(V)');
-    expect(container).toHaveTextContent('양식');
+    expect(getByText('한식').parentElement.firstChild).toHaveStyle('border: 2px solid #555');
+    expect(getByText('한식').parentElement).toHaveStyle('color: #000');
+    expect(getByText('양식').parentElement.firstChild).toHaveStyle('border: 2px solid #cbcbcb');
+    expect(getByText('양식').parentElement).toHaveStyle('color: #555');
 
     fireEvent.click(getByText('양식'));
 

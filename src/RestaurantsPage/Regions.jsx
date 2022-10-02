@@ -11,7 +11,7 @@ const MenuList = styled.ul({
 
 const MenuItem = styled.li(({ active }) => ({
   padding: '22px 29px 0 0',
-  width: '25%',
+  width: 'calc(100% / 6)',
   minHeight: '50px',
 
   '& button': {
