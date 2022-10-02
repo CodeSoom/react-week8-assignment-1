@@ -43,22 +43,24 @@ describe('Regions', () => {
 
   context('with selected region', () => {
     regions.forEach((region, index) => {
-      it("renders 'V' button with equal category id", () => {
+      it('renders changed style button', () => {
         const { getAllByRole } = renderRegions(region);
 
-        expect(getAllByRole('button')[index].textContent).toContain('V');
+        expect(getAllByRole('button')[index]).toHaveStyle('border: 2px solid #555');
+        expect(getAllByRole('button')[index]).toHaveStyle('color: #000');
       });
     });
   });
 
   context('without selected region', () => {
-    it('doesn\'t render \'V\' button', () => {
+    it('renders default style button', () => {
       const { getAllByRole } = renderRegions();
 
       const regionsButtons = getAllByRole('button');
 
       regionsButtons.forEach((button) => {
-        expect(button).not.toContain('V');
+        expect(button).toHaveStyle('border: 2px solid #cbcbcb');
+        expect(button).toHaveStyle('color: #555');
       });
     });
   });

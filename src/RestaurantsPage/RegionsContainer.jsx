@@ -1,7 +1,10 @@
+import { useCallback } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useCallback } from 'react';
 import Regions from './Regions';
+
+import FilterContainer from '../styles/FilterContainer';
 
 import {
   selectRegion,
@@ -29,10 +32,13 @@ export default function RegionsContainer() {
   }, [dispatch]);
 
   return (
-    <Regions
-      regions={regions}
-      selectedRegion={selectedRegion}
-      onClick={handleClick}
-    />
+    <FilterContainer>
+      <h3>지역</h3>
+      <Regions
+        regions={regions}
+        selectedRegion={selectedRegion}
+        onClick={handleClick}
+      />
+    </FilterContainer>
   );
 }

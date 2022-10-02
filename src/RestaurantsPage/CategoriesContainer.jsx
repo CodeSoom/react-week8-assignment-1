@@ -1,7 +1,10 @@
+import { useCallback } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useCallback } from 'react';
 import Categories from './Categories';
+
+import FilterContainer from '../styles/FilterContainer';
 
 import {
   selectCategory,
@@ -29,10 +32,13 @@ export default function CategoriesContainer() {
   }, [dispatch]);
 
   return (
-    <Categories
-      categories={categories}
-      selectedCategory={selectedCategory}
-      onClick={handleClick}
-    />
+    <FilterContainer>
+      <h3>음식종류</h3>
+      <Categories
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onClick={handleClick}
+      />
+    </FilterContainer>
   );
 }
