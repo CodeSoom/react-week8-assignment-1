@@ -1,6 +1,7 @@
-import MenuItems from './MenuItems';
+import { memo } from 'react';
+import MenuItems from '../../components/MenuItems';
 
-export default function RestaurantDetail({ restaurant }) {
+function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
 
   return (
@@ -16,3 +17,5 @@ export default function RestaurantDetail({ restaurant }) {
     </div>
   );
 }
+
+export default memo(RestaurantDetail);
