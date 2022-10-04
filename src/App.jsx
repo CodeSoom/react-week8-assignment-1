@@ -1,19 +1,21 @@
 import {
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import Header from './Header/Header';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
+import LoginPage from './LoginPage/LoginPage';
+import RestaurantsPage from './RestaurantsPage/RestaurantsPage';
+import RestaurantPage from './RestaurantPage/RestaurantPage';
 import NotFoundPage from './NotFoundPage';
 
-import { setAccessToken } from './actions';
+import MakeCenter from './styles/MakeCenter';
+
+import { setAccessToken } from './LoginPage/loginSlice';
 
 import { loadItem } from './services/storage';
 
@@ -26,12 +28,8 @@ export default function App() {
   }
 
   return (
-    <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
+    <MakeCenter>
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -40,6 +38,6 @@ export default function App() {
         <Route path="/restaurants/:id" component={RestaurantPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </MakeCenter>
   );
 }

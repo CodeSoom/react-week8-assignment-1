@@ -13,6 +13,6 @@ Scenario('카테고리를 선택하면 선택됨을 표시합니다.', ({ I }) =
 
   categories.forEach((category) => {
     I.click(`${category}`);
-    I.see(`${category}(V)`);
+    I.see(`${category}`);
   });
 });

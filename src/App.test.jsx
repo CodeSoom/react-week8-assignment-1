@@ -22,11 +22,16 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      regions: [
-        { id: 1, name: '서울' },
-      ],
-      categories: [],
-      restaurants: [],
+      login: {
+        accessToken: '',
+      },
+      restaurants: {
+        regions: [
+          { id: 1, name: '서울' },
+        ],
+        categories: [],
+        restaurants: [],
+      },
     }));
   });
 
@@ -42,7 +47,7 @@ describe('App', () => {
     it('renders the home page', () => {
       const { container } = renderApp({ path: '/' });
 
-      expect(container).toHaveTextContent('Home');
+      expect(container).toHaveTextContent('EatGo');
     });
   });
 
@@ -66,7 +71,7 @@ describe('App', () => {
     it('renders the not found page', () => {
       const { container } = renderApp({ path: '/xxx' });
 
-      expect(container).toHaveTextContent('Not Found');
+      expect(container).toHaveTextContent('404');
     });
   });
 
@@ -93,8 +98,8 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'login/setAccessToken',
+        payload: accessToken,
       });
     });
   });

@@ -13,6 +13,6 @@ Scenario('지역을 선택하면 선택됨을 표시합니다.', ({ I }) => {
 
   regions.forEach((region) => {
     I.click(`${region}`);
-    I.see(`${region}(V)`);
+    I.see(`${region}`);
   });
 });
