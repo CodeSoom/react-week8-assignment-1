@@ -2,6 +2,20 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
+export default function HomePage() {
+  return (
+    <div>
+      <Title>Home</Title>
+      <List>
+        <Item><Link to="/about">About</Link></Item>
+        <Item><Link to="/login">Log in</Link></Item>
+        <Item><Link to="/restaurants">Restaurants</Link></Item>
+        <Item><Link to="/xxx">멸망의 길</Link></Item>
+      </List>
+    </div>
+  );
+}
+
 const Title = styled.h2({
   margin: 0,
   paddingTop: '1.5em',
@@ -25,17 +39,3 @@ const Item = styled.li({
     },
   },
 });
-
-export default function HomePage() {
-  return (
-    <div>
-      <Title>Home</Title>
-      <List>
-        <Item><Link to="/about">About</Link></Item>
-        <Item><Link to="/login">Log in</Link></Item>
-        <Item><Link to="/restaurants">Restaurants</Link></Item>
-        <Item><Link to="/xxx">멸망의 길</Link></Item>
-      </List>
-    </div>
-  );
-}

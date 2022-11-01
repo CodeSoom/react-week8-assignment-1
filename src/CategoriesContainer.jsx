@@ -7,8 +7,8 @@ import {
 
 import { get } from './utils';
 
-import MenuList from './MenuList';
-import MenuItem from './MenuItem';
+import MenuList from './style/MenuList';
+import MenuItem from './style/MenuItem';
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
