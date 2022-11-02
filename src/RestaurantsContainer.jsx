@@ -15,26 +15,29 @@ export default function RestaurantsContainer({ onClickRestaurant }) {
 
   return (
     <ResultList>
-      {restaurants.map((restaurant) => (
-        <ResultItem key={restaurant.id}>
-          <a href="/restaurants/1" onClick={handleClick(restaurant)}>
-            {restaurant.name}
-          </a>
-        </ResultItem>
-      ))}
+      <ol>
+        {restaurants.map((restaurant) => (
+          <ResultItem key={restaurant.id}>
+            <a href="/restaurants/1" onClick={handleClick(restaurant)}>
+              {restaurant.name}
+            </a>
+          </ResultItem>
+        ))}
+      </ol>
     </ResultList>
   );
 }
 
-const ResultList = styled.ol({
-  padding: 0,
-  marginRight: 0,
-  marginLeft: '3em',
-});
+const ResultList = styled.div`
+  padding: 32px 0 0;
+  > ol {
+    margin: 0;
+  }
+`;
 
-const ResultItem = styled.li({
-  padding: '0.2em 0',
-  '> a': {
-    textDecoration: 'none',
-  },
-});
+const ResultItem = styled.li`
+  padding: 0.2em 0;
+  > a {
+    text-decoration: none;
+  }
+`;

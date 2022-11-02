@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
 const MenuItem = styled.li(({ active }) => ({
+  marginBottom: '16px',
   '& button': {
     minWidth: '90px',
-    padding: '0.4em 1em',
-    margin: '0.4em 0',
+    padding: '8px 16px',
     border: '1px solid #ccc',
     background: active ? '#eee' : 'transparent',
     color: '#333',

@@ -1,4 +1,4 @@
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
@@ -6,6 +6,7 @@ import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import ResetStyle from './style/ResetStyle';
 
+import Header from './component/Header';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
@@ -29,34 +30,34 @@ export default function App() {
     <>
       <Global styles={ResetStyle} />
       <Container>
-        <Header>
-          <h1>
-            <Link to="/">Eat Go</Link>
-          </h1>
-        </Header>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/login" component={LoginPage} />
-          <Route exact path="/restaurants" component={RestaurantsPage} />
-          <Route path="/restaurants/:id" component={RestaurantPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
+        <Header />
+        <Body>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route exact path="/restaurants" component={RestaurantsPage} />
+            <Route path="/restaurants/:id" component={RestaurantPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Body>
       </Container>
     </>
   );
 }
 
-const Container = styled.div({
-  width: '90%',
-  margin: '0 auto',
-});
+const Container = styled.div`
+  width: 100%;
+`;
 
-const Header = styled.header({
-  backgroundColor: '#eee',
-  '& h1': {
-    margin: 0,
-    padding: '1em .5em',
-    fontSize: '1.5em',
-  },
-});
+const Body = styled.main`
+  > div {
+    width: 80%;
+    margin: 0 auto;
+    h1 {
+      margin: 0;
+      padding: 16px 8px;
+      font-size: 28px;
+    }
+  }
+`;
