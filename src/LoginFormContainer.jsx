@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import LoginForm from './LoginForm';
 import LogoutForm from './LogoutForm';
 
@@ -7,7 +9,7 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from './slice';
 
 import { get } from './utils';
 
@@ -30,7 +32,7 @@ export default function LoginFormContainer() {
   };
 
   return (
-    <>
+    <LoginSet>
       {accessToken ? (
         <LogoutForm onClick={handleClickLogout} />
       ) : (
@@ -40,6 +42,14 @@ export default function LoginFormContainer() {
           onSubmit={handleSubmit}
         />
       )}
-    </>
+    </LoginSet>
   );
 }
+
+const LoginSet = styled.div`
+  display: inline-block;
+  padding: 16px 32px;
+  margin-top: 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
