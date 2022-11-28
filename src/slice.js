@@ -10,7 +10,7 @@ import {
 } from './services/api';
 
 import { equal } from './utils';
-import { saveItem } from './services/storage';
+import { saveItem, deleteItem } from './services/storage';
 
 const initialReviewFields = {
   score: '',
@@ -199,6 +199,14 @@ export function requestLogin() {
     saveItem('accessToken', accessToken);
 
     dispatch(setAccessToken(accessToken));
+  };
+}
+
+export function requestLogout() {
+  return async (dispatch) => {
+    deleteItem('accessToken');
+
+    dispatch(logout());
   };
 }
 
