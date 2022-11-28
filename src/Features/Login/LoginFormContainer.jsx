@@ -6,10 +6,10 @@ import LogoutForm from './LogoutForm';
 import {
   changeLoginField,
   requestLogin,
-  logout,
-} from './slice';
+  requestLogout,
+} from '../../slice';
 
-import { get } from './utils';
+import { get } from '../../utils';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export default function LoginFormContainer() {
   };
 
   const handleClickLogout = () => {
-    dispatch(logout());
+    dispatch(requestLogout());
   };
 
   return (
