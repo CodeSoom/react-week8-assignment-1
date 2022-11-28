@@ -1,4 +1,4 @@
-import { saveItem, loadItem } from './storage';
+import { saveItem, loadItem, deleteItem } from './storage';
 
 describe('storage', () => {
   jest.spyOn(window.localStorage.__proto__, 'setItem');
@@ -6,6 +6,7 @@ describe('storage', () => {
   beforeEach(() => {
     window.localStorage.__proto__.setItem = jest.fn();
     window.localStorage.__proto__.getItem = jest.fn();
+    window.localStorage.__proto__.removeItem = jest.fn();
   });
 
   describe('saveItem', () => {
@@ -21,6 +22,14 @@ describe('storage', () => {
       loadItem('key');
 
       expect(localStorage.getItem).toBeCalledWith('key');
+    });
+  });
+
+  describe('deleteItem', () => {
+    it('calls localStorage removeItem', () => {
+      deleteItem('key');
+
+      expect(localStorage.removeItem).toBeCalledWith('key');
     });
   });
 });
