@@ -13,7 +13,7 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+} from './slice/slice';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {

@@ -1,4 +1,4 @@
-import MenuItems from './MenuItems';
+import MenuItems from '../../components/MenuItems/MenuItems';
 
 export default function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;

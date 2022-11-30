@@ -6,14 +6,14 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from './pages/HomePage/HomePage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RestaurantsPage from './pages/RestaurantsPage/RestaurantsPage';
+import RestaurantPage from './pages/RestaurantPage/RestaurantPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-import { setAccessToken } from './slice';
+import { setAccessToken } from './slice/slice';
 
 import { loadItem } from './services/storage';
 
