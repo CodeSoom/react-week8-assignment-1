@@ -6,11 +6,11 @@ import { useDispatch } from 'react-redux';
 
 import RegionsContainer from '../../components/Regions/RegionsContainer';
 import CategoriesContainer from '../../components/Categories/CategoriesContainer';
-import RestaurantsContainer from './RestaurantsContainer';
+import RestaurantsContainer from '../../components/Restaurants/RestaurantsContainer';
 
 import {
   loadInitialData,
-} from '../../slice/slice';
+} from '../../slice/restaurantSlice';
 
 export default function RestaurantsPage() {
   const history = useHistory();

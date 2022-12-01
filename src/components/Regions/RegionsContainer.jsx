@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectRegion,
   loadRestaurants,
-} from '../../slice/slice';
+} from '../../slice/restaurantSlice';
 
 import { get } from '../../utils';
 

@@ -2,15 +2,16 @@ import { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import RestaurantDetail from './RestaurantDetail';
-import ReviewForm from '../../components/ReviewForm/ReviewForm';
-import Reviews from '../../components/Reviews/Reviews';
+import RestaurantDetail from '../RestaurantDetail/RestaurantDetail';
+import ReviewForm from '../ReviewForm/ReviewForm';
+import Reviews from '../Reviews/Reviews';
 
 import {
-  loadRestaurant,
   changeReviewField,
   sendReview,
-} from '../../slice/slice';
+} from '../../slice/reviewSlice';
+
+import { loadRestaurant } from '../../slice/restaurantSlice';
 
 import { get } from '../../utils';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MenuItems from '../../components/MenuItems/MenuItems';
+import MenuItems from '../MenuItems/MenuItems';
 
 function RestaurantDetail({ restaurant }) {
   const { name, address, menuItems } = restaurant;
