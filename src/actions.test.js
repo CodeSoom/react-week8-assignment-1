@@ -10,13 +10,19 @@ import {
   loadRestaurant,
   setRestaurants,
   setRestaurant,
-  setReviews,
+} from './slice/restaurantSlice';
+
+import {
   setAccessToken,
   requestLogin,
+} from './slice/loginSlice';
+
+import {
+  setReviews,
   loadReview,
   sendReview,
   clearReviewFields,
-} from './actions';
+} from './slice/reviewSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
