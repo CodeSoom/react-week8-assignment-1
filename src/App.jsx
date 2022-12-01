@@ -13,7 +13,7 @@ import RestaurantsPage from './pages/RestaurantsPage/RestaurantsPage';
 import RestaurantPage from './pages/RestaurantPage/RestaurantPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-import { setAccessToken } from './slice/slice';
+import { setAccessToken } from './slice/loginSlice';
 
 import { loadItem } from './services/storage';
 
@@ -29,7 +29,7 @@ export default function App() {
     <div>
       <header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">Eat Ate</Link>
         </h1>
       </header>
       <Switch>
