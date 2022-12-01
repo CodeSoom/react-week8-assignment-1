@@ -8,7 +8,13 @@ import { saveItem } from '../services/storage';
 
 const { actions, reducer } = createSlice({
   name: 'loginSlice',
-  initialState: {},
+  initialState: {
+    loginFields: {
+      email: '',
+      password: '',
+    },
+    accessToken: '',
+  },
   reducers: {
     changeLoginField(state, { payload: { name, value } }) {
       return {
