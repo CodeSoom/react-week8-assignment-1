@@ -10,8 +10,8 @@ import { get } from '../../utils';
 export default function RegionsContainer() {
   const dispatch = useDispatch();
 
-  const regions = useSelector(get('regions'));
-  const selectedRegion = useSelector(get('selectedRegion'));
+  const regions = useSelector(get({ sliceName: 'restaurantSlice', key: 'regions' }));
+  const selectedRegion = useSelector(get({ sliceName: 'restaurantSlice', key: 'selectedRegion' }));
 
   function handleClick(regionId) {
     dispatch(selectRegion(regionId));

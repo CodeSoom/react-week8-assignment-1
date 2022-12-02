@@ -22,9 +22,9 @@ export default function RestaurantContainer({ restaurantId }) {
     dispatch(loadRestaurant({ restaurantId }));
   }, []);
 
-  const accessToken = useSelector(get('accessToken'));
-  const restaurant = useSelector(get('restaurant'));
-  const reviewFields = useSelector(get('reviewFields'));
+  const accessToken = useSelector(get({ sliceName: 'loginSlice', key: 'accessToken' }));
+  const restaurant = useSelector(get({ sliceName: 'restaurantSlice', key: 'restaurant' }));
+  const reviewFields = useSelector(get({ sliceName: 'reviewSlice', key: 'reviewFields' }));
 
   const handleChange = useCallback(
     ({ name, value }) => {
@@ -34,7 +34,7 @@ export default function RestaurantContainer({ restaurantId }) {
 
   const handleSubmit = useCallback(() => {
     dispatch(sendReview({ restaurantId }));
-  }, [dispatch, restaurantId]);
+  }, [dispatch]);
 
   if (!restaurant) {
     return (
