@@ -2,11 +2,13 @@ import { get, equal } from './utils';
 
 test('get', () => {
   const state = {
-    name: '홍길동',
+    nameSlice: {
+      name: '홍길동',
+    },
   };
 
-  const f = get('name');
-  const g = get('age');
+  const f = get({ sliceName: 'nameSlice', key: 'name' });
+  const g = get({ sliceName: 'nameSlice', key: 'age' });
 
   expect(f(state)).toBe('홍길동');
   expect(g(state)).toBeUndefined();
