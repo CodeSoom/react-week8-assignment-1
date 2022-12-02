@@ -6,9 +6,11 @@ import RestaurantsContainer from './RestaurantsContainer';
 
 test('RestaurantsContainer', () => {
   useSelector.mockImplementation((selector) => selector({
-    restaurants: [
-      { id: 1, name: '마법사주방' },
-    ],
+    restaurantSlice: {
+      restaurants: [
+        { id: 1, name: '마법사주방' },
+      ],
+    },
   }));
 
   const handleClick = jest.fn();
