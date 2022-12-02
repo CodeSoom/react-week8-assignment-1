@@ -67,7 +67,12 @@ export function loadReview({ restaurantId }) {
 
 export function sendReview({ restaurantId }) {
   return async (dispatch, getState) => {
-    const { accessToken, reviewFields: { score, description } } = getState();
+    const {
+      loginSlice: { accessToken },
+      reviewSlice: {
+        reviewFields: { score, description },
+      },
+    } = getState();
 
     await postReview({
       accessToken, restaurantId, score, description,
