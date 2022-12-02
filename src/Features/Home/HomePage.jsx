@@ -1,15 +1,68 @@
+import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import SlideContainer from './SlideContainer';
+
+const Home = styled.div({
+  background: 'url(../../../img/main-bg.png)',
+  width: '100%',
+  height: '89vh',
+  backgroundSize: 'cover',
+});
+
+const Container = styled.div({
+  width: '90%',
+  height: '89vh',
+  margin: '0 auto',
+  display: 'flex',
+  justifyContent: 'space-between',
+});
+
+const Main = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'start',
+  marginBottom: '15rem',
+
+  '& h2': {
+    fontSize: '3.5rem',
+    fontWeight: '400',
+    padding: '1rem 0',
+  },
+
+  '& h1': {
+    fontSize: '7rem',
+    padding: '2rem 0 5rem',
+  },
+});
+
+const Button = styled.button({
+  width: '235px',
+  height: '70px',
+  backgroundColor: '#DB0816',
+  borderRadius: '50px',
+  color: '#ffffff',
+  fontSize: '2rem',
+  fontWeight: 'bold',
+});
 
 export default function HomePage() {
   return (
-    <div>
-      <h2>Home</h2>
-      <ul>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/login">Log in</Link></li>
-        <li><Link to="/restaurants">Restaurants</Link></li>
-        <li><Link to="/xxx">멸망의 길</Link></li>
-      </ul>
-    </div>
+    <Home>
+      <Container>
+        <Main>
+          <h2>솔직한 리뷰, 믿을 수 있는 평점</h2>
+          <h1>Eat-go</h1>
+          <Button
+            type="button"
+          >
+            <Link to="/restaurants">
+              Start
+            </Link>
+          </Button>
+        </Main>
+        <SlideContainer />
+      </Container>
+    </Home>
   );
 }
