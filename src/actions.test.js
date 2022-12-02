@@ -51,8 +51,10 @@ describe('actions', () => {
     context('with selectedRegion and selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
-          selectedCategory: { id: 1, name: '한식' },
+          restaurantSlice: {
+            selectedRegion: { id: 1, name: '서울' },
+            selectedCategory: { id: 1, name: '한식' },
+          },
         });
       });
 
@@ -68,7 +70,9 @@ describe('actions', () => {
     context('without selectedRegion', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedCategory: { id: 1, name: '한식' },
+          restaurantSlice: {
+            selectedCategory: { id: 1, name: '한식' },
+          },
         });
       });
 
@@ -84,7 +88,9 @@ describe('actions', () => {
     context('without selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
+          restaurantSlice: {
+            selectedRegion: { id: 1, name: '서울' },
+          },
         });
       });
 
@@ -116,7 +122,9 @@ describe('actions', () => {
   describe('requestLogin', () => {
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        loginSlice: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
@@ -132,7 +140,9 @@ describe('actions', () => {
   describe('loadReview', () => {
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        loginSlice: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
@@ -148,10 +158,14 @@ describe('actions', () => {
   describe('sendReview', () => {
     beforeEach(() => {
       store = mockStore({
-        accessToken: '',
-        reviewFields: {
-          score: 1,
-          description: '',
+        loginSlice: {
+          accessToken: '',
+        },
+        reviewSlice: {
+          reviewFields: {
+            score: 1,
+            description: '',
+          },
         },
       });
     });
