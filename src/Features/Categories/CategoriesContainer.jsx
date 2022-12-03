@@ -12,31 +12,19 @@ import {
   faDrumstickBite,
   faCandyCane,
 } from '@fortawesome/free-solid-svg-icons';
+
 import {
   selectCategory,
   loadRestaurants,
 } from '../../slice';
 
 import { get } from '../../utils';
+import MenuItem from '../../styles/MenuItem';
+import MenuList from '../../styles/MenuList';
+import MenuTitle from '../../styles/MenuTitle';
 
-const List = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
-`;
-
-const Item = styled.li`
-  width: 180px;
-  height: 65px;
-  border: 1px solid #000;
-  text-align: center;
-  line-height: 65px;
-
-  & button {
-    width: 180px;
-    height: 65px;
-    text-align: center;
-  }
+const CategoryItem = styled.div`
+  margin-left: 1.5rem;
 `;
 
 export default function CategoriesContainer() {
@@ -59,27 +47,34 @@ export default function CategoriesContainer() {
     과자: faCandyCane,
     치킨: faDrumstickBite,
   };
+
+  const newCategories = [...categories].splice(0, 7);
   return (
     <>
-      <p>카테고리</p>
-      <List>
-        {categories.map((category) => (
-          <Item key={category.id}>
+      <MenuTitle>카테고리</MenuTitle>
+      <MenuList>
+        {newCategories.map((category) => (
+          <MenuItem
+            key={category.id}
+            active={selectedCategory && category.id === selectedCategory.id}
+          >
             <button
               type="button"
               onClick={() => handleClick(category.id)}
             >
               <FontAwesomeIcon icon={categoryLogo[category.name]} />
-              {category.name}
-              {selectedCategory ? (
-                <>
-                  {category.id === selectedCategory.id ? '(V)' : null}
-                </>
-              ) : null}
+              <CategoryItem>
+                {category.name}
+                {selectedCategory ? (
+                  <>
+                    {category.id === selectedCategory.id ? '(V)' : null}
+                  </>
+                ) : null}
+              </CategoryItem>
             </button>
-          </Item>
+          </MenuItem>
         ))}
-      </List>
+      </MenuList>
     </>
   );
 }
