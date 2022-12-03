@@ -1,5 +1,24 @@
+import styled from '@emotion/styled';
+
+const InputBox = styled.div`
+  display: grid; 
+  grid-template-columns: 1fr 10fr; 
+  align-items: center; 
+
+`;
+
+const Input = styled.input`
+  width: 98%;
+  height: 35px;
+  border: none; 
+  background: transparent;
+  border: 1px solid #000;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+`;
+
 export default function TextField({
-  label, type = 'text', name, value, onChange,
+  label, type = 'text', name, value, onChange, placeholder = '',
 }) {
   const id = `input-${name}`;
 
@@ -9,17 +28,18 @@ export default function TextField({
   }
 
   return (
-    <div>
+    <InputBox>
       <label htmlFor={id}>
         {label}
       </label>
-      <input
+      <Input
         type={type}
         id={id}
         name={name}
         value={value}
+        placeholder={placeholder}
         onChange={handleChange}
       />
-    </div>
+    </InputBox>
   );
 }
