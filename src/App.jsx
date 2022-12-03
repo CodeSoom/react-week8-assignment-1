@@ -29,7 +29,7 @@ export default function App() {
     <div>
       <header>
         <h1>
-          <Link to="/">헤더 영역</Link>
+          <Link to="/">EatGo</Link>
         </h1>
       </header>
       <Switch>
