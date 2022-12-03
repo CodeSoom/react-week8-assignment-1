@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
-import { useState, useEffect, useRef } from 'react';
+
 import SlideItems from './SlideItems';
+import slideList from '../../data/slideList';
+import useSlide from '../../services/useSlide';
 
 const Container = styled.div`
   height: 89vh;
@@ -39,68 +41,15 @@ const SlideElements = styled.div`
 
 export default function SlideContainer() {
   const elementLength = 5;
-  const [count, setCount] = useState(0);
-  const boolean = useRef(false);
 
-  useEffect(() => {
-    const timer = setInterval(
-      () => {
-        if (count < elementLength - 1) {
-          boolean.current = false;
-          setCount((prev) => prev + 1);
-        } else {
-          boolean.current = true;
-          setCount(0);
-        }
-      },
-      boolean.current ? 0 : 2500,
-    );
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, [count]);
-
-  const slideList = [
-    {
-      id: 1,
-      list: [
-        { id: 1, src: 'slide-food-1' },
-        { id: 2, src: 'slide-food-2' },
-        { id: 3, src: 'slide-food-3' },
-        { id: 4, src: 'slide-food-4' },
-        { id: 5, src: 'slide-food-1' },
-      ],
-    },
-
-    {
-      id: 2,
-      list: [
-        { id: 1, src: 'slide-food-3' },
-        { id: 2, src: 'slide-food-4' },
-        { id: 3, src: 'slide-food-5' },
-        { id: 4, src: 'slide-food-6' },
-        { id: 5, src: 'slide-food-3' },
-      ],
-    },
-    {
-      id: 3,
-      list: [
-        { id: 1, src: 'slide-food-6' },
-        { id: 2, src: 'slide-food-7' },
-        { id: 3, src: 'slide-food-8' },
-        { id: 4, src: 'slide-food-9' },
-        { id: 5, src: 'slide-food-6' },
-      ],
-    },
-  ];
+  const [count, boolean] = useSlide(elementLength);
 
   return (
     <Container>
       {
         slideList.map((slide) => (
           <SlideBox key={slide.id}>
-            <SlideElements count={count} boolean={boolean.current}>
+            <SlideElements count={count} boolean={boolean}>
               <SlideItems list={slide.list} />
             </SlideElements>
           </SlideBox>
