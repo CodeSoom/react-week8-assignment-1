@@ -1,11 +1,11 @@
 import {
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import AppHeader from '../Components/AppHeader';
 import HomePage from '../Features/Home/HomePage';
 import AboutPage from '../Features/About/AboutPage';
 import LoginPage from '../Features/Login/LoginPage';
@@ -27,11 +27,8 @@ export default function App() {
 
   return (
     <div>
-      <header>
-        <h1>
-          <Link to="/">EatGo</Link>
-        </h1>
-      </header>
+      <AppHeader />
+
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
