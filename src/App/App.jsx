@@ -6,16 +6,16 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import HomePage from '../Features/Home/HomePage';
+import AboutPage from '../Features/About/AboutPage';
+import LoginPage from '../Features/Login/LoginPage';
+import RestaurantsPage from '../Features/Restaurants/RestaurantsPage';
+import RestaurantPage from '../Features/Restaurant/RestaurantPage';
+import NotFoundPage from '../Features/NotFound/NotFoundPage';
 
-import { setAccessToken } from './slice';
+import { setAccessToken } from '../slice';
 
-import { loadItem } from './services/storage';
+import { loadItem } from '../services/storage';
 
 export default function App() {
   const dispatch = useDispatch();
