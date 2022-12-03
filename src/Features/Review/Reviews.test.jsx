@@ -36,4 +36,22 @@ describe('Reviews', () => {
       });
     });
   });
+
+  it('평점에 따라 별의 개수가 랜더링된다', () => {
+    const reviews = [
+      {
+        id: 1, name: '박웅앵', description: '맛있어요', score: -1,
+      },
+      {
+        id: 2, name: '김웅앵', description: '우욱', score: 100,
+      },
+    ];
+
+    const { queryByText } = render((
+      <Reviews reviews={reviews} />
+    ));
+
+    expect(queryByText('⭐️')).not.toBeNull();
+    expect(queryByText('⭐️'.repeat(5))).not.toBeNull();
+  });
 });
