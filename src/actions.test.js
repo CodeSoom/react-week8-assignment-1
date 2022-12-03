@@ -16,7 +16,7 @@ import {
   loadReview,
   sendReview,
   clearReviewFields,
-} from './actions';
+} from './slice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -97,7 +97,7 @@ describe('actions', () => {
       store = mockStore({});
     });
 
-    it('dispatchs setRestaurant', async () => {
+    it('dispatches setRestaurant', async () => {
       await store.dispatch(loadRestaurant({ restaurantId: 1 }));
 
       const actions = store.getActions();
@@ -114,7 +114,7 @@ describe('actions', () => {
       });
     });
 
-    it('dispatchs setAccessToken', async () => {
+    it('dispatches setAccessToken', async () => {
       await store.dispatch(requestLogin());
 
       const actions = store.getActions();
@@ -130,7 +130,7 @@ describe('actions', () => {
       });
     });
 
-    it('dispatchs setReviews', async () => {
+    it('dispatches setReviews', async () => {
       await store.dispatch(loadReview({ restaurantId: 1 }));
 
       const actions = store.getActions();
@@ -150,7 +150,7 @@ describe('actions', () => {
       });
     });
 
-    it('dispatchs clearReviewFields', async () => {
+    it('dispatches clearReviewFields', async () => {
       await store.dispatch(sendReview({ restaurantId: 1 }));
 
       const actions = store.getActions();
