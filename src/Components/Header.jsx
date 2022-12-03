@@ -25,6 +25,10 @@ const NavItem = styled.li({
   padding: '0 5rem',
   fontSize: '1.5rem',
   fontWeight: '500',
+
+  '&:hover': {
+    color: '#DB0816',
+  },
 });
 
 export default function Header() {
