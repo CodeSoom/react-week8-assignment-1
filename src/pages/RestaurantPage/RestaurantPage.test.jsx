@@ -20,6 +20,15 @@ describe('RestaurantPage', () => {
           address: '서울시 강남구',
         },
       },
+      loginSlice: {
+        accessToken: 'TOKEN',
+      },
+      reviewSlice: {
+        reviewFields: {
+          score: '5',
+          description: '맛있어요',
+        },
+      },
     }));
   });
 
