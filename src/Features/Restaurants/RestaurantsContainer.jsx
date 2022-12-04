@@ -17,6 +17,9 @@ const Restaurant = styled.li`
   color: #283c50;
   margin: 5px;
   font-weight: 700;
+  &:hover{
+    opacity:.7;
+  }
 `;
 
 const Title = styled.h2`

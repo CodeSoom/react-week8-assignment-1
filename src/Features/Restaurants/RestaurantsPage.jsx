@@ -18,7 +18,9 @@ import {
 
 const Wrapper = styled.div`
   background-color:#283c50;
-  padding-top: 5rem;
+  &>div{
+    padding-top: 5rem;
+  }
 `;
 
 const Title = styled.h2`
