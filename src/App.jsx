@@ -22,6 +22,7 @@ import { loadItem } from './services/storage';
 const Container = styled.div({
   width: '1200px',
   margin: '0 auto',
+  overflow: 'hidden',
 });
 
 const Header = styled.header({
@@ -32,11 +33,11 @@ const Header = styled.header({
   },
   '& a': {
     display: 'block',
-    width: '180px',
+    width: '300px',
     padding: '43px 0 0',
     fontSize: '50px',
     fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontFamily: 'Fredoka One',
     color: '#000000',
     textAlign: 'center',
     textDecoration: 'none',
