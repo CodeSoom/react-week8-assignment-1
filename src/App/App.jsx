@@ -5,6 +5,8 @@ import {
 
 import { useDispatch } from 'react-redux';
 
+import { Global } from '@emotion/react';
+
 import AppHeader from '../Components/AppHeader';
 import HomePage from '../Features/Home/HomePage';
 import AboutPage from '../Features/About/AboutPage';
@@ -12,6 +14,8 @@ import LoginPage from '../Features/Login/LoginPage';
 import RestaurantsPage from '../Features/Restaurants/RestaurantsPage';
 import RestaurantPage from '../Features/Restaurant/RestaurantPage';
 import NotFoundPage from '../Features/NotFound/NotFoundPage';
+
+import reset from '../styles/reset';
 
 import { setAccessToken } from '../slice';
 
@@ -27,6 +31,8 @@ export default function App() {
 
   return (
     <div>
+      <Global styles={reset} />
+
       <AppHeader />
 
       <Switch>
