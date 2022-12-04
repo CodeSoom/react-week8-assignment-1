@@ -11,10 +11,6 @@ const Nav = styled.header({
   alignItems: 'center',
 });
 
-const Logo = styled.div({
-
-});
-
 const Navigation = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
@@ -31,14 +27,19 @@ const NavItem = styled.li({
   },
 });
 
+const Logo = styled.p({
+  color: 'transparent',
+});
+
 export default function Header() {
   return (
     <Nav>
-      <Logo>
+      <div>
         <Link to="/">
+          <Logo>Eat-go</Logo>
           <img src="../../img/logo.png" alt="eatGo-logo" />
         </Link>
-      </Logo>
+      </div>
       <Navigation>
         <NavItem><Link to="/about">About</Link></NavItem>
         <NavItem><Link to="/restaurants">Restaurants</Link></NavItem>
