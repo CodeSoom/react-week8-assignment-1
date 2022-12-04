@@ -1,11 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import {
   selectRegion,
   loadRestaurants,
 } from '../../slice';
 
 import { get } from '../../utils';
+
+import RestaurantButton from '../../styles/RestaurantButton';
+
+const RegionsList = styled.ul`
+  display:flex;
+  flex-wrap: wrap;
+`;
 
 export default function RegionsContainer() {
   const dispatch = useDispatch();
@@ -19,10 +28,10 @@ export default function RegionsContainer() {
   }
 
   return (
-    <ul>
+    <RegionsList>
       {regions.map((region) => (
         <li key={region.id}>
-          <button
+          <RestaurantButton
             type="button"
             onClick={() => handleClick(region.id)}
           >
@@ -32,9 +41,9 @@ export default function RegionsContainer() {
                 {region.id === selectedRegion.id ? '(V)' : null}
               </>
             ) : null}
-          </button>
+          </RestaurantButton>
         </li>
       ))}
-    </ul>
+    </RegionsList>
   );
 }
