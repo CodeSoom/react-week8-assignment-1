@@ -1,18 +1,11 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import SlideContainer from './SlideContainer';
-
-const Home = styled.div({
-  background: 'url(../../../img/main-bg.png)',
-  width: '100%',
-  height: '89vh',
-  backgroundSize: 'cover',
-});
+import { buttonStyle, containerStyle } from '../../styles/commonStyle';
+import Background from '../../styles/Background';
 
 const Container = styled.div({
-  width: '90%',
-  height: '89vh',
-  margin: '0 auto',
+  ...containerStyle,
   display: 'flex',
   justifyContent: 'space-between',
 });
@@ -37,18 +30,17 @@ const Main = styled.div({
 });
 
 const Button = styled.button({
+  ...buttonStyle,
   width: '235px',
   height: '70px',
-  backgroundColor: '#DB0816',
   borderRadius: '50px',
-  color: '#ffffff',
   fontSize: '2rem',
   fontWeight: 'bold',
 });
 
 export default function HomePage() {
   return (
-    <Home>
+    <Background>
       <Container>
         <Main>
           <h2>솔직한 리뷰, 믿을 수 있는 평점</h2>
@@ -63,6 +55,6 @@ export default function HomePage() {
         </Main>
         <SlideContainer />
       </Container>
-    </Home>
+    </Background>
   );
 }
