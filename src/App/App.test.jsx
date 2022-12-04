@@ -66,7 +66,7 @@ describe('App', () => {
     it('renders the not found page', () => {
       const { container } = renderApp({ path: '/xxx' });
 
-      expect(container).toHaveTextContent('Not Found');
+      expect(container).toHaveTextContent('404');
     });
   });
 
