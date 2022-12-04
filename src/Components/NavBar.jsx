@@ -14,6 +14,9 @@ const NavItem = styled.li({
   fontWeight: '500',
   '& a': {
     display: 'block',
+    '&:hover': {
+      color: '#FF5F00',
+    },
   },
 });
 
