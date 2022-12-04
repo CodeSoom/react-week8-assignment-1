@@ -1,17 +1,17 @@
 import styled from '@emotion/styled';
+import { buttonStyle } from '../../styles/commonStyle';
 
-const Greeting = styled.div`
-  font-size: 2rem;
-  line-height: 1.5;
-  margin-bottom: 10rem;
-`;
+const Greeting = styled.div({
+  fontSize: '2rem',
+  lineHeight: '1.5',
+  marginBottom: '10rem',
+});
 
-const Button = styled.button`
-  width: 100%;
-  height: 45px;
-  color : #ffffff;
-  background: #DB0816;
-`;
+const Button = styled.button({
+  ...buttonStyle,
+  width: '100%',
+  height: '45px',
+});
 
 export default function LogoutForm({ onClick }) {
   return (
