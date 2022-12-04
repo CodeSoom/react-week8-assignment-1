@@ -33,6 +33,7 @@ function ReviewForm({ fields, onChange, onSubmit }) {
           label="평점"
           name="score"
           type="number"
+          placeholder="이 장소는 어땠나요?"
           value={score}
           onChange={onChange}
         />
