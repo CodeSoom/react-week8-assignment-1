@@ -12,7 +12,7 @@ const SlideImg = styled.div`
   height: 350px;
   background: ${(props) => `url('../../img/slide/${props.src}.png')`};
   background-size: cover;
-  transition: ${(props) => (props.boolean ? '' : 'transform 1.5s ease-in')};
+  transition: transform 1.5s ease-in;
   transform: ${(props) => `translateY(-${props.count * 120}px)`};
   overflow: hidden;
  
