@@ -2,70 +2,53 @@ import { memo } from 'react';
 
 import styled from '@emotion/styled';
 
-const UserBox = styled.div`
-  width: 100%;
-  height: 45px;
-  margin: .5rem 0;
-  border: 1px solid #4d4d4d;
-  padding-left: 5rem;
-  box-sizing: border-box;
-  position: relative;
+import Input from '../../styles/Input';
+import { buttonStyle, inputStyle } from '../../styles/commonStyle';
 
-  &::before {
-    position: absolute;
-    display: block;
-    content: '';
-    background: url('../../img/icon/user-icon.png');
-    background-size: cover;
-    width: 24px;
-    height: 24px;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-  }
-`;
+const UserBox = styled.div({
+  ...inputStyle,
 
-const PasswordBox = styled.div`
-  width: 100%;
-  height: 45px;
-  margin: .5rem 0;
-  border: 1px solid #4d4d4d;
-  padding-left: 5rem;
-  box-sizing: border-box;
-  position: relative;
+  '&::before': {
+    position: 'absolute',
+    display: 'block',
+    content: "''",
+    background: 'url("../../img/icon/user-icon.png")',
+    backgroundSize: 'cover',
+    width: '24px',
+    height: '24px',
+    top: '50%',
+    left: '10px',
+    transform: 'translateY(-50%)',
+  },
+});
 
-  &::before {
-    position: absolute;
-    display: block;
-    content: '';
-    background: url('../../img/icon/lock-icon.png');
-    background-size: cover;
-    width: 24px;
-    height: 24px;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-  }
-`;
+const PasswordBox = styled.div({
+  ...inputStyle,
 
-const Label = styled.label`
-  display: none;
-`;
+  '&::before': {
+    position: 'absolute',
+    display: 'block',
+    content: "''",
+    background: 'url("../../img/icon/lock-icon.png")',
+    backgroundSize: 'cover',
+    width: '24px',
+    height: '24px',
+    top: '50%',
+    left: '10px',
+    transform: 'translateY(-50%)',
+  },
+});
 
-const Input = styled.input`
-  width: 100%;
-  height: 45px;
-  border: none; 
-  background: transparent;
-`;
+const Label = styled.label({
+  display: 'none',
+});
 
-const Button = styled.button`
-  width: 100%;
-  height: 45px;
-  margin-top: 10rem;
-  color : #ffffff;
-  background: #DB0816;
-`;
+const Button = styled.button({
+  ...buttonStyle,
+  width: '100%',
+  height: '45px',
+  marginTop: '10rem',
+});
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
   const { email, password } = fields;
