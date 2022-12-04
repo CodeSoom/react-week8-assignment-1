@@ -15,12 +15,10 @@ import {
 } from '../../slice';
 
 const SubBanner = styled.div({
-  // width: '100vw',
   height: '400px',
   background: 'url(../../../img/sub-bg1.png)',
   backgroundSize: 'cover',
   position: 'relative',
-
 });
 
 const SubDescription = styled.div({

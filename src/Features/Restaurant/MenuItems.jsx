@@ -22,8 +22,6 @@ const Menu = styled.ul`
       display: none;
     }
   }
-
-  
 `;
 
 export default function MenuItems({ menuItems }) {
