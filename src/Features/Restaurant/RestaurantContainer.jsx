@@ -2,6 +2,10 @@ import { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from '@emotion/styled';
+
+import Container from '../../styles/Container';
+
 import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from '../Review/ReviewForm';
 import Reviews from '../Review/Reviews';
@@ -13,6 +17,23 @@ import {
 } from '../../slice';
 
 import { get } from '../../utils';
+
+const Wrapper = styled.div`
+  background-color:#dedededb;
+  font-size: 2rem;
+  line-height: 2.7rem;
+  &>div{
+    padding-top:5rem;
+    padding-bottom: 5rem;
+  }
+`;
+
+const LodingText = styled.div`
+  font-size: 4rem;
+  font-weight:bold;
+  margin-top:5rem;
+  color:#FF5F00;
+`;
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -35,21 +56,25 @@ export default function RestaurantContainer({ restaurantId }) {
 
   if (!restaurant) {
     return (
-      <p>Loading...</p>
+      <Container>
+        <LodingText>Loading...</LodingText>
+      </Container>
     );
   }
 
   return (
-    <>
-      <RestaurantDetail restaurant={restaurant} />
-      {accessToken ? (
-        <ReviewForm
-          fields={reviewFields}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      ) : null}
-      <Reviews reviews={restaurant.reviews} />
-    </>
+    <Wrapper>
+      <Container>
+        <RestaurantDetail restaurant={restaurant} />
+        {accessToken ? (
+          <ReviewForm
+            fields={reviewFields}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        ) : null}
+        <Reviews reviews={restaurant.reviews} />
+      </Container>
+    </Wrapper>
   );
 }
