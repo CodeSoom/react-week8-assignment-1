@@ -35,6 +35,41 @@ const Item = styled.li({
   },
 });
 
+const Banner = styled.div({
+  backgroundColor: '#A30F0F',
+  height: '180px',
+  padding: '1rem 2rem',
+  position: 'relative',
+});
+
+const Text = styled.p({
+  fontSize: '2rem',
+  fontFamily: 'Black Han Sans',
+  color: '#ffffff',
+  position: 'absolute',
+  top: '30%',
+  left: '10%',
+});
+
+const Button = styled.div({
+  position: 'absolute',
+  top: '26%',
+  right: '30%',
+  cursor: 'pointer',
+  backgroundColor: '#E6A721',
+  width: '200px',
+  height: '60px',
+  borderRadius: '15px',
+  '& a': {
+    display: 'block',
+    fontFamily: 'Black Han Sans',
+    fontSize: '2rem',
+    color: '#ffffff',
+    textAlign: 'center',
+    lineHeight: '60px',
+  },
+});
+
 export default function HomePage() {
   return (
     <Container>
@@ -62,6 +97,14 @@ export default function HomePage() {
         </Item>
       </List>
       <SlideContainer />
+      <Banner>
+        <Text>
+          각 지역에서 다양한 맛집을 찾고 싶다면?
+        </Text>
+        <Button>
+          <Link to="/restaurants">바로가기</Link>
+        </Button>
+      </Banner>
     </Container>
   );
 }
