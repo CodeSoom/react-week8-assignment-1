@@ -65,7 +65,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           type="password"
           id="login-password"
           name="password"
-          placeholder='Password'
+          placeholder="Password"
           value={password}
           onChange={handleChange}
         />
