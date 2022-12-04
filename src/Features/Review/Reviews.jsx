@@ -58,6 +58,19 @@ function Reviews({ reviews }) {
     return '⭐️'.repeat(number);
   }
 
+  function getAverage() {
+    const scores = sortedReviews.map((review) => (
+      review.score
+    ));
+
+    const result = scores.filter((a) => a <= 5);
+
+    const sum = result.reduce((acc, cur) => acc + cur);
+
+    return (sum / scores.length).toFixed(1);
+  }
+
+  getAverage();
   return (
 
     <Container>
@@ -67,6 +80,12 @@ function Reviews({ reviews }) {
         (
         {sortedReviews.length}
         )
+      </MenuTitle>
+      <MenuTitle>
+        별점
+        {' '}
+        {getAverage()}
+        점
       </MenuTitle>
       <ul>
         {sortedReviews.map((review) => (
