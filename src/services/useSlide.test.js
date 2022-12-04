@@ -1,13 +1,41 @@
+import { waitFor } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
+
 import useSlide from './useSlide';
 
-describe('useSlide', () => {
-  it('setBoolean의 값이 false가 된다', () => {
-    const elementLength = 5;
-    const prev = 1;
+jest.useFakeTimers();
 
+describe('useSlide', () => {
+  it('', async () => {
+    const elementLength = 5;
     const { result } = renderHook(() => useSlide(elementLength));
 
-    expect(result.current.boolean).toBeFalsy();
+    await waitFor(() => {
+      expect(result.current).toBe(0);
+    });
+
+    await waitFor(() => {
+      expect(result.current).toBe(1);
+    });
+
+    await waitFor(() => {
+      expect(result.current).toBe(2);
+    });
+
+    await waitFor(() => {
+      expect(result.current).toBe(3);
+    });
+
+    await waitFor(() => {
+      expect(result.current).toBe(4);
+    });
+
+    await waitFor(() => {
+      expect(result.current).toBe(0);
+    });
+
+    await waitFor(() => {
+      expect(result.current).toBe(1);
+    });
   });
 });
