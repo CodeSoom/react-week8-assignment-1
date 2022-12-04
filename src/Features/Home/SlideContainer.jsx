@@ -42,14 +42,14 @@ const SlideElements = styled.div`
 export default function SlideContainer() {
   const elementLength = 5;
 
-  const [count, boolean] = useSlide(elementLength);
+  const count = useSlide(elementLength);
 
   return (
     <Container>
       {
         slideList.map((slide) => (
           <SlideBox key={slide.id}>
-            <SlideElements count={count} boolean={boolean}>
+            <SlideElements count={count}>
               <SlideItems list={slide.list} />
             </SlideElements>
           </SlideBox>
