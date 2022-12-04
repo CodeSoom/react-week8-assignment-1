@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import SlideItems from './SlideItems';
 import slideList from '../../data/slideList';
-import useSlide from '../../services/useSlide';
+import useSlide from '../../hooks/useSlide';
 
 const Container = styled.div`
   height: 89vh;
