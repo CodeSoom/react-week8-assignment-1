@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faUtensils, faHouse } from '@fortawesome/free-solid-svg-icons';
+
 import SlideContainer from '../../components/Slide/SlideContainer';
 
 const Container = styled.div({
@@ -19,12 +22,16 @@ const List = styled.ul({
 });
 
 const Item = styled.li({
-  fontFamily: 'Roboto',
+  fontFamily: 'Fredoka One',
   fontSize: '20px',
+  fontWeight: 'bold',
   '& a': {
     display: 'block',
     padding: '8px',
     color: '#000000',
+  },
+  '& a:hover': {
+    color: '#A30F0F',
   },
 });
 
@@ -32,10 +39,27 @@ export default function HomePage() {
   return (
     <Container>
       <List>
-        <Item><Link to="/about">About</Link></Item>
-        <Item><Link to="/login">Log in</Link></Item>
-        <Item><Link to="/restaurants">Restaurants</Link></Item>
-        <Item><Link to="/xxx">멸망의 길</Link></Item>
+        <Item>
+          <Link to="/about">
+            <FontAwesomeIcon icon={faHouse} />
+            {' '}
+            About
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/login">
+            <FontAwesomeIcon icon={faUser} />
+            {' '}
+            Log in
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/restaurants">
+            <FontAwesomeIcon icon={faUtensils} />
+            {' '}
+            Restaurants
+          </Link>
+        </Item>
       </List>
       <SlideContainer />
     </Container>
