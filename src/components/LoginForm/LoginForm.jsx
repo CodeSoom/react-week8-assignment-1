@@ -23,10 +23,15 @@ const Input = styled.input({
 const Button = styled.button({
   display: 'block',
   width: '180px',
-  padding: '8px 16px',
+  padding: '12px 16px',
   cursor: 'pointer',
-  fontSize: '16px',
+  fontSize: '1rem',
+  fontWeight: 'bold',
+  color: '#ffffff',
   margin: '24px auto',
+  backgroundColor: '#A30F0F',
+  borderRadius: '5px',
+  border: '1px solid #A30F0F',
 });
 
 const LoginForm = memo(({ fields, onChange, onSubmit }) => {
@@ -47,6 +52,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           type="email"
           id="login-email"
           name="email"
+          placeholder="Email"
           value={email}
           onChange={handleChange}
         />
@@ -59,6 +65,7 @@ const LoginForm = memo(({ fields, onChange, onSubmit }) => {
           type="password"
           id="login-password"
           name="password"
+          placeholder='Password'
           value={password}
           onChange={handleChange}
         />
