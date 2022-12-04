@@ -2,12 +2,7 @@ import styled from '@emotion/styled';
 
 import LoginFormContainer from './LoginFormContainer';
 
-const Background = styled.div`
-  background: url(../../../img/main-bg.png);
-  width: 100%;
-  height: 89vh;
-  background-size: cover;
-`;
+import Background from '../../styles/Background';
 
 const LoginBox = styled.div`
   background: #ffffff;
