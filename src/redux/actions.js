@@ -5,9 +5,9 @@ import {
   fetchRestaurant,
   postLogin,
   postReview,
-} from './services/api';
+} from '../services/api';
 
-import { saveItem } from './services/storage';
+import { saveItem } from '../services/storage';
 
 export function setRegions(regions) {
   return {
@@ -63,10 +63,7 @@ export function loadInitialData() {
 
 export function loadRestaurants() {
   return async (dispatch, getState) => {
-    const {
-      selectedRegion: region,
-      selectedCategory: category,
-    } = getState();
+    const { selectedRegion: region, selectedCategory: category } = getState();
 
     if (!region || !category) {
       return;
@@ -106,7 +103,9 @@ export function setAccessToken(accessToken) {
 
 export function requestLogin() {
   return async (dispatch, getState) => {
-    const { loginFields: { email, password } } = getState();
+    const {
+      loginFields: { email, password },
+    } = getState();
 
     const accessToken = await postLogin({ email, password });
 
@@ -152,10 +151,16 @@ export function loadReview({ restaurantId }) {
 
 export function sendReview({ restaurantId }) {
   return async (dispatch, getState) => {
-    const { accessToken, reviewFields: { score, description } } = getState();
+    const {
+      accessToken,
+      reviewFields: { score, description },
+    } = getState();
 
     await postReview({
-      accessToken, restaurantId, score, description,
+      accessToken,
+      restaurantId,
+      score,
+      description,
     });
 
     dispatch(loadReview({ restaurantId }));

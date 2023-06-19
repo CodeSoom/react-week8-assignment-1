@@ -10,9 +10,9 @@ import {
   loadRestaurant,
   changeReviewField,
   sendReview,
-} from './actions';
+} from '../redux/actions';
 
-import { get } from './utils';
+import { get } from '../utils/utils';
 
 export default function RestaurantContainer({ restaurantId }) {
   const dispatch = useDispatch();
@@ -26,9 +26,7 @@ export default function RestaurantContainer({ restaurantId }) {
   const reviewFields = useSelector(get('reviewFields'));
 
   if (!restaurant) {
-    return (
-      <p>Loading...</p>
-    );
+    return <p>Loading...</p>;
   }
 
   function handleChange({ name, value }) {
