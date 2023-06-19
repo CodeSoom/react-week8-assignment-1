@@ -6,11 +6,7 @@ import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
 
-import {
-  loadRestaurant,
-  changeReviewField,
-  sendReview,
-} from '../redux/actions';
+import { loadRestaurant, changeReviewField, sendReview } from '../redux/slice';
 
 import { get } from '../utils/utils';
 

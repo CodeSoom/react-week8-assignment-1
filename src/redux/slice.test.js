@@ -1,6 +1,4 @@
-import reducer from './reducer';
-
-import {
+import reducer, {
   setRegions,
   setCategories,
   setRestaurants,
@@ -13,9 +11,9 @@ import {
   changeReviewField,
   clearReviewFields,
   setReviews,
-} from './actions';
+} from './slice';
 
-describe('reducer', () => {
+describe('slice', () => {
   context('when previous state is undefined', () => {
     const initialState = {
       regions: [],
@@ -48,9 +46,7 @@ describe('reducer', () => {
         regions: [],
       };
 
-      const regions = [
-        { id: 1, name: '서울' },
-      ];
+      const regions = [{ id: 1, name: '서울' }];
 
       const state = reducer(initialState, setRegions(regions));
 
@@ -64,9 +60,7 @@ describe('reducer', () => {
         categories: [],
       };
 
-      const categories = [
-        { id: 1, name: '한식' },
-      ];
+      const categories = [{ id: 1, name: '한식' }];
 
       const state = reducer(initialState, setCategories(categories));
 
@@ -80,9 +74,7 @@ describe('reducer', () => {
         restaurants: [],
       };
 
-      const restaurants = [
-        { id: 1, name: '마법사주방' },
-      ];
+      const restaurants = [{ id: 1, name: '마법사주방' }];
 
       const state = reducer(initialState, setRestaurants(restaurants));
 
@@ -108,9 +100,7 @@ describe('reducer', () => {
   describe('selectRegion', () => {
     it('changes selected region', () => {
       const initialState = {
-        regions: [
-          { id: 1, name: '서울' },
-        ],
+        regions: [{ id: 1, name: '서울' }],
         selectedRegion: null,
       };
 
@@ -126,9 +116,7 @@ describe('reducer', () => {
   describe('selectCategory', () => {
     it('changes selected category', () => {
       const initialState = {
-        categories: [
-          { id: 1, name: '한식' },
-        ],
+        categories: [{ id: 1, name: '한식' }],
         selectedCategory: null,
       };
 
@@ -153,7 +141,7 @@ describe('reducer', () => {
 
         const state = reducer(
           initialState,
-          changeLoginField({ name: 'email', value: 'test' }),
+          changeLoginField({ name: 'email', value: 'test' })
         );
 
         expect(state.loginFields.email).toBe('test');
@@ -172,7 +160,7 @@ describe('reducer', () => {
 
         const state = reducer(
           initialState,
-          changeLoginField({ name: 'password', value: 'test' }),
+          changeLoginField({ name: 'password', value: 'test' })
         );
 
         expect(state.loginFields.email).toBe('email');
@@ -216,7 +204,7 @@ describe('reducer', () => {
 
       const state = reducer(
         initialState,
-        changeReviewField({ name: 'score', value: '5' }),
+        changeReviewField({ name: 'score', value: '5' })
       );
 
       expect(state.reviewFields.score).toBe('5');
@@ -243,7 +231,10 @@ describe('reducer', () => {
     it('changes reviews of the current restaurant', () => {
       const reviews = [
         {
-          id: 1, name: '테스터', description: '맛있어요', score: 1,
+          id: 1,
+          name: '테스터',
+          description: '맛있어요',
+          score: 1,
         },
       ];
 

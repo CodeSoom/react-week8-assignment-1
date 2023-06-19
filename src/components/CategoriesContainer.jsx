@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectCategory, loadRestaurants } from '../redux/actions';
+import { selectCategory, loadRestaurants } from '../redux/slice';
 
 import { get } from '../utils/utils';
 

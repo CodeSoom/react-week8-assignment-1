@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './LoginForm';
 import LogoutForm from './LogoutForm';
 
-import { changeLoginField, requestLogin, logout } from '../redux/actions';
+import { changeLoginField, requestLogin, logout } from '../redux/slice';
 
 import { get } from '../utils/utils';
 
