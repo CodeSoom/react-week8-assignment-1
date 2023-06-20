@@ -1,21 +1,23 @@
 import {
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
+import { Global } from '@emotion/react';
+import HomePage from './Features/Home/HomePage';
+import AboutPage from './Features/About/AboutPage';
+import LoginPage from './Features/Login/LoginPage';
+import RestaurantsPage from './Features/Restaurants/RestaurantsPage';
+import RestaurantPage from './Features/Restaurant/RestaurantPage';
+import NotFoundPage from './Features/Not-found/NotFoundPage';
 
-import { setAccessToken } from './actions';
+import { setAccessToken } from './slice';
 
 import { loadItem } from './services/storage';
+import Header from './Components/Header';
+import reset from './styles/reset';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -27,11 +29,8 @@ export default function App() {
 
   return (
     <div>
-      <header>
-        <h1>
-          <Link to="/">헤더 영역</Link>
-        </h1>
-      </header>
+      <Global styles={reset} />
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
