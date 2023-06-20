@@ -1,5 +1,5 @@
-export function get(key) {
-  return (obj) => obj[key];
+export function get({ sliceName, key }) {
+  return (obj) => obj[sliceName][key];
 }
 
 export function equal(key, value) {

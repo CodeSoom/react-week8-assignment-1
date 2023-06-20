@@ -19,4 +19,7 @@ module.exports = {
       index: 'index.html',
     },
   },
+  'fontawesome-svg-core': {
+    license: 'free',
+  },
 };

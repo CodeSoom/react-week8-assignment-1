@@ -1,9 +1,17 @@
-import { createStore, applyMiddleware } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 
-import thunk from 'redux-thunk';
+import restaurantSlice from './slice/restaurantSlice';
 
-import reducer from './reducer';
+import reviewSlice from './slice/reviewSlice';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+import loginSlice from './slice/loginSlice';
+
+const store = configureStore({
+  reducer: {
+    loginSlice,
+    reviewSlice,
+    restaurantSlice,
+  },
+});
 
 export default store;
