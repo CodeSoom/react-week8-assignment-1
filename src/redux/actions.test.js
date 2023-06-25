@@ -10,13 +10,16 @@ import {
   loadRestaurant,
   setRestaurants,
   setRestaurant,
+} from './slice/restaurantSlice';
+
+import { setAccessToken, requestLogin } from './slice/loginSlice';
+
+import {
   setReviews,
-  setAccessToken,
-  requestLogin,
   loadReview,
   sendReview,
   clearReviewFields,
-} from './slice';
+} from './slice/reviewSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -45,8 +48,10 @@ describe('actions', () => {
     context('with selectedRegion and selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
-          selectedCategory: { id: 1, name: '한식' },
+          restaurantSlice: {
+            selectedRegion: { id: 1, name: '서울' },
+            selectedCategory: { id: 1, name: '한식' },
+          },
         });
       });
 
@@ -62,7 +67,9 @@ describe('actions', () => {
     context('without selectedRegion', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedCategory: { id: 1, name: '한식' },
+          restaurantSlice: {
+            selectedCategory: { id: 1, name: '한식' },
+          },
         });
       });
 
@@ -78,7 +85,9 @@ describe('actions', () => {
     context('without selectedCategory', () => {
       beforeEach(() => {
         store = mockStore({
-          selectedRegion: { id: 1, name: '서울' },
+          restaurantSlice: {
+            selectedRegion: { id: 1, name: '서울' },
+          },
         });
       });
 
@@ -110,7 +119,9 @@ describe('actions', () => {
   describe('requestLogin', () => {
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        loginSlice: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
@@ -126,7 +137,9 @@ describe('actions', () => {
   describe('loadReview', () => {
     beforeEach(() => {
       store = mockStore({
-        loginFields: { email: '', password: '' },
+        loginSlice: {
+          loginFields: { email: '', password: '' },
+        },
       });
     });
 
@@ -142,10 +155,14 @@ describe('actions', () => {
   describe('sendReview', () => {
     beforeEach(() => {
       store = mockStore({
-        accessToken: '',
-        reviewFields: {
-          score: 1,
-          description: '',
+        loginSlice: {
+          accessToken: '',
+        },
+        reviewSlice: {
+          reviewFields: {
+            score: 1,
+            description: '',
+          },
         },
       });
     });

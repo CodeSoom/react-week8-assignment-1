@@ -43,7 +43,7 @@ describe('LoginFormContainer', () => {
       });
 
       expect(dispatch).toBeCalledWith({
-        type: 'application/changeLoginField',
+        type: 'loginSlice/changeLoginField',
         payload: { name: 'email', value: 'new email' },
       });
     });
@@ -65,7 +65,10 @@ describe('LoginFormContainer', () => {
 
       fireEvent.click(getByText('Log out'));
 
-      expect(dispatch).toBeCalledWith({ type: 'application/logout' });
+      expect(dispatch).toBeCalledWith({
+        payload: undefined,
+        type: 'loginSlice/logout',
+      });
     });
   });
 });

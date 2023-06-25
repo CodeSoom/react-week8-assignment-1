@@ -6,7 +6,9 @@ import RestaurantDetail from './RestaurantDetail';
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
 
-import { loadRestaurant, changeReviewField, sendReview } from '../redux/slice';
+import { loadRestaurant } from '../redux/slice/restaurantSlice';
+
+import { changeReviewField, sendReview } from '../redux/slice/reviewSlice';
 
 import { get } from '../utils/utils';
 
@@ -17,9 +19,15 @@ export default function RestaurantContainer({ restaurantId }) {
     dispatch(loadRestaurant({ restaurantId }));
   }, []);
 
-  const accessToken = useSelector(get('accessToken'));
-  const restaurant = useSelector(get('restaurant'));
-  const reviewFields = useSelector(get('reviewFields'));
+  const accessToken = useSelector(
+    get({ sliceName: 'loginSlice', key: 'accessToken' })
+  );
+  const restaurant = useSelector(
+    get({ sliceName: 'restaurantSlice', key: 'restaurant' })
+  );
+  const reviewFields = useSelector(
+    get({ sliceName: 'reviewSlice', key: 'reviewFields' })
+  );
 
   const handleChange = useCallback(
     ({ name, value }) => {
