@@ -1,6 +1,4 @@
-import {
-  MemoryRouter,
-} from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
@@ -21,21 +19,21 @@ describe('App', () => {
 
     useDispatch.mockImplementation(() => dispatch);
 
-    useSelector.mockImplementation((selector) => selector({
-      regions: [
-        { id: 1, name: '서울' },
-      ],
-      categories: [],
-      restaurants: [],
-    }));
+    useSelector.mockImplementation((selector) =>
+      selector({
+        regions: [{ id: 1, name: '서울' }],
+        categories: [],
+        restaurants: [],
+      })
+    );
   });
 
   function renderApp({ path }) {
-    return render((
+    return render(
       <MemoryRouter initialEntries={[path]}>
         <App />
       </MemoryRouter>
-    ));
+    );
   }
 
   context('with path /', () => {
@@ -93,8 +91,8 @@ describe('App', () => {
       renderApp({ path: '/' });
 
       expect(dispatch).toBeCalledWith({
-        type: 'setAccessToken',
-        payload: { accessToken },
+        type: 'loginSlice/setAccessToken',
+        payload: accessToken,
       });
     });
   });

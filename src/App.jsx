@@ -1,21 +1,17 @@
-import {
-  Switch,
-  Route,
-  Link,
-} from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import RestaurantsPage from './pages/RestaurantsPage';
+import RestaurantPage from './pages/RestaurantPage';
+import NotFoundPage from './pages/NotFoundPage';
 
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import LoginPage from './LoginPage';
-import RestaurantsPage from './RestaurantsPage';
-import RestaurantPage from './RestaurantPage';
-import NotFoundPage from './NotFoundPage';
-
-import { setAccessToken } from './actions';
+import { setAccessToken } from './redux/slice/loginSlice';
 
 import { loadItem } from './services/storage';
+import styled from '@emotion/styled';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -27,11 +23,11 @@ export default function App() {
 
   return (
     <div>
-      <header>
+      <Header>
         <h1>
           <Link to="/">헤더 영역</Link>
         </h1>
-      </header>
+      </Header>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
@@ -43,3 +39,8 @@ export default function App() {
     </div>
   );
 }
+
+const Header = styled.header({
+  width: '90%',
+  margin: '0 auto',
+});

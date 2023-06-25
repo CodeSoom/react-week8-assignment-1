@@ -16,14 +16,16 @@ describe('RestaurantContainer', () => {
 
     useDispatch.mockImplementation(() => dispatch);
 
-    useSelector.mockImplementation((selector) => selector({
-      restaurant: given.restaurant,
-      reviewFields: {
-        score: '',
-        description: '',
-      },
-      accessToken: given.accessToken,
-    }));
+    useSelector.mockImplementation((selector) =>
+      selector({
+        restaurant: given.restaurant,
+        reviewFields: {
+          score: '',
+          description: '',
+        },
+        accessToken: given.accessToken,
+      })
+    );
   });
 
   context('with restaurant', () => {
@@ -33,7 +35,10 @@ describe('RestaurantContainer', () => {
       address: '서울시 강남구',
       reviews: [
         {
-          id: 1, name: '테스터', description: '맛있어요', score: 1,
+          id: 1,
+          name: '테스터',
+          description: '맛있어요',
+          score: 1,
         },
       ],
     }));
@@ -82,7 +87,7 @@ describe('RestaurantContainer', () => {
           fireEvent.change(getByLabelText(label), { target: { value } });
 
           expect(dispatch).toBeCalledWith({
-            type: 'changeReviewField',
+            type: 'reviewSlice/changeReviewField',
             payload: { name, value },
           });
         });

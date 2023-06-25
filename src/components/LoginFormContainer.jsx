@@ -7,16 +7,20 @@ import {
   changeLoginField,
   requestLogin,
   logout,
-} from './actions';
+} from '../redux/slice/loginSlice';
 
-import { get } from './utils';
+import { get } from '../utils/utils';
 
 export default function LoginFormContainer() {
   const dispatch = useDispatch();
 
-  const loginFields = useSelector(get('loginFields'));
-  const accessToken = useSelector(get('accessToken'));
-
+  const loginFields = useSelector(
+    get({ sliceName: 'loginSlice', key: 'loginFields' })
+  );
+  const accessToken = useSelector(
+    get({ sliceName: 'loginSlice', key: 'accessToken' })
+  );
+  console.log(loginFields);
   const handleChange = ({ name, value }) => {
     dispatch(changeLoginField({ name, value }));
   };
